@@ -1,6 +1,17 @@
 site_name: Hosting Documentation
 pages:
 - [index.md, Index]
-- [overview.md, Generation 2015]
-- [website.md, Webhostings]
-theme: readthedocs
+- [server/index.md, 'Server', 'Overview']
+- [server/request/index.md, 'Server', 'Get started']
+- [server/access/index.md, 'Server', 'Access']
+- [services/index.md, 'Services', 'Overview']
+- [services/websites/index.md, 'Services', 'Websites']
+- [services/databases/index.md, 'Services', 'Databases']
+- [services/ftp/index.md, 'Services', 'FTP']
+- [services/network/index.md, 'Services', 'Network']
+- [services/firewall/index.md, 'Services', 'Firewall']
+- [development/index.md, 'Development', 'Overview']
+- [development/environment/index.md, 'Development', 'Environment']
+- [development/vagrant/index.md, 'Development', 'Vagrant']
+- [support/index.md, 'Support', 'Contact us']
+theme: cerulean

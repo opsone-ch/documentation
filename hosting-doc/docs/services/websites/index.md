@@ -19,29 +19,33 @@
 ## Types
 
 * Use Website types to create your suitable environment
-   * typo3cms
+
+###  typo3cms 
       * MariaDB 10.x autocreated and environment set 
       * PHP-FPM 5.6 
       * nginx 1.6 with naxsi WAF (and TYPO3 white/blacklists)
       * TYPO3 6.2 cloned into /var/lib/typo3/
-   * magento
+###  magento 
       * MariaDB 10.x autocreated and environment set
       * PHP-FPM 5.6 with mcrypt module
       * nginx 1.6 with naxsi WAF (and magento white/blacklists)
-   * wordpress
+### wordpress
       * MariaDB 10.x autocreated and environment set
       * PHP-FPM 5.6 with mcrypt module
       * nginx 1.6 with naxsi WAF (and wordpress white/blacklists)
-   * php (pure PHP e.g. for NoDB solutions)
+### php 
+pure PHP e.g. for NoDB solutions
       * use "dbtype": "mysql" to add a database
       * PHP-FPM 5.6 
       * nginx 1.6 with naxsi (and core rule set)
-   * hhvm (Facebooks HHVM - BETA)
+### hhvm
+Facebooks HHVM - BETA
       * for high load sites (better performance then PHP-FPM)
       * with fallback to PHP-FPM 
       * needs intensive testing
       * stack: nginx 1.6, MariaDB 10.0, PHP-FPM, HHVM)
-   * html (pure HTML, just static content) 
+### html
+pure HTML, just static content
       * nginx 1.6 with naxsi (and core rule set)
    * other types on request (node.js, ruby etc.)
 
