@@ -1,0 +1,6 @@
+site_name: Hosting Documentation
+pages:
+- [index.md, Index]
+- [overview.md, Generation 2015]
+- [website.md, Webhostings]
+theme: readthedocs
