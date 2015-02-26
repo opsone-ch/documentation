@@ -1,5 +1,6 @@
+# Website
 
-
+ur website module provides everything you need, to manage, deploy and run your website. It supports the following website types, helpers and additional services.
 
 ## Types
 
@@ -127,10 +128,10 @@ There are 3 kinds of environments available:
 
 ## Certificates (TLS)
 
-#### overview
+#### Overview
 
 Create a TLS/SSL certificate for your website and add it over hiera.
-This enables:
+This automatically enables:
 
 
 * SPDY 3.1
@@ -149,16 +150,52 @@ you still want to use http separately?
 There is no reason.
 
 
-#### create certificate
-
-There are 3 supported types of certificates:
+We have 3 supported types of certificates:
 
 * Basic
 * Wildcard
 * Extended validation
 
+#### Requirements 
 
-#### add to hiera
+* Valid eMail account to validate the domain ownership:
+     * webmaster@domain.ch
+     * admin@
+     * administrator@
+
+
+#### Create and sign the certificate
+
+use the following command to create the private key and .crt over openssl (linux / mac):
+
+```
+ openssl req -newkey rsa:2048 -x509 -nodes -days 3650 -out www.domain.ch.crt -keyout www.domain.ch.key
+```
+
+you need to enter the following data:
+
+```
+Country Name (2 letter code) [AU]:CH
+State or Province Name (full name) [Some-State]:Zurich
+Locality Name (eg, city) []:Zurich
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:SYNA
+Organizational Unit Name (eg, section) []:
+Common Name (eg, YOUR name) []:www.domain.ch
+Email Address []:webmaster@… 
+```
+
+after that, you need to sign the certificate from the authority.
+so you need to generate a certifcate signing request (CSR):
+
+```
+ openssl x509 -x509toreq -signkey www.domain.ch.key -in www.domain.ch.crt
+```
+
+Submit this CRS to our [Support](../support/) if you like a certificate from us.
+Or even use every authority you want..
+
+
+#### Add to hiera
 
 * ssl_key: generated private key
 * ssl_cert: signed certificate with 2 intermediate certificates
