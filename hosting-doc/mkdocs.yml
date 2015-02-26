@@ -1,9 +1,10 @@
-site_name: Hosting Documentation
+site_name: snowflake Hosting
 pages:
 - [index.md, Index]
 - [server/index.md, 'Server', 'Overview']
-- [server/request/index.md, 'Server', 'Get started']
+- [server/configuration/index.md, 'Server', 'Configuration']
 - [server/access/index.md, 'Server', 'Access']
+- [server/dualstack/index.md, 'Server', 'Dualstack']
 - [services/index.md, 'Services', 'Overview']
 - [services/websites/index.md, 'Services', 'Websites']
 - [services/databases/index.md, 'Services', 'Databases']
