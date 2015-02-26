@@ -266,6 +266,95 @@ website::sites:
 
 ---
 
+## Web Application Firewall (WAF)
+
+#### Naxsi
+
+Our WAF is based on the opensource, high performance WAF for Nginx called "Naxsi".
+It protects your webapplication from XSS & SQL Injection attacks. 
+And also blocks common vulnerabilities & zero day attacks (visit status.snowflake.ch for more information)
+
+#### 403 forbidden / Firewall blocks / false positives
+
+If a request to your application is blocked by naxsi, you will see a "403 forbidden" error.
+There is also a detailed log/error.log entry provided - e.g. the following:
+
+```
+2015/02/17 14:03:04 [error] 15296#0: *1855 NAXSI_FMT: ip=91.199.98.29&server=www.domain.ch&uri=/admin/&learning=0&vers=0.53-1&total_processed=1&total_blocked=1&block=1&cscore0=$XSS&score0=8&zone0=BODY|NAME&id0=1310&var_name0=login[username]&zone1=BODY|NAME&id1=1311&var_name1=login[username], client: 91.199.98.29, server: www.domain.ch, request: "POST /admin/ HTTP/1.1", host: "www.domain.ch", referrer: "http://www.domain.ch/admin/"
+```
+
+#### mange false positives
+
+If you are sure, that your request is valid (and well coded..) you can whitelist the "false positive". 
+Normaly we recommend to test an application on the stage environment and analyze afterwards the error.log with the nx_util:
+
+##### nx_util
+
+```
+/usr/local/bin/nx_util.py -lo error.log  
+
+Deleting old database :naxsi_sig
+List of imported files :['error.log']
+Importing file error.log
+	Successful events :6
+	Filtered out events :0
+	Non-naxsi lines :0
+	Malformed/incomplete lines 5
+End of db commit... 
+Count (lines) success:6
+########### Optimized Rules Suggestion ##################
+# total_count:2 (33.33%), peer_count:1 (100.0%) | ], possible js
+BasicRule wl:1311 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
+# total_count:2 (33.33%), peer_count:1 (100.0%) | [, possible js
+BasicRule wl:1310 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
+# total_count:1 (16.67%), peer_count:1 (100.0%) | ], possible js
+BasicRule wl:1311 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
+# total_count:1 (16.67%), peer_count:1 (100.0%) | [, possible js
+BasicRule wl:1310 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
+
+```
+
+
+This tool processes your .log files and generates "whitelist rule suggestions". 
+Please pay attention to the "suggestions" part and do not copy/paste "blindly" the whitelists!
+
+##### apply whitelists
+
+If you are sure, that your whitelists are correct, can you add the whitelists at:
+    
+```
+cnf/nginx_waf.conf
+```
+
+and reload your webserver with:
+
+```
+nginx-reload
+```
+
+If you are not sure, that your whitelists are correct. Please contact our [Support](../support/). We are happy to help you out!
+
+##### optimize your whitelists
+
+Please remember, that you can "beautify" the whitelists. The whitelists above, would result in the following rules:
+
+```
+BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
+BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
+```
+
+If you like to understand the naxsi whitelist syntax, please visit the [maintainers github wiki](https://github.com/nbs-system/naxsi/wiki/whitelists)
+
+##### Version control
+
+We strongly recommend the versioning of the cnf/ directory in your (git) project. 
+So you can easily track your changes and deploy the WAF rules always with your project to DEV / STAGE / PROD.
+
+## IPV6 enabled / DNS
+
+Every hosting is "IPV6 enabled". Please remember to add the DNS IPV6 AAAA records. 
+
+
 ## Permissions
 
 * Goals
