@@ -124,7 +124,74 @@ There are 3 kinds of environments available:
 * phpinfo enabled
 * error log level "noisy"
 
----
+#### Users
+
+Every DEV / STAGE environemnet has a default htpasswd user "Preview" with an hiera definied password.
+This combination allows you to access your website over the web. It is not recommmended to remove it. (google indexes your stage site faster then you might thing)
+
+#### Variables and usage
+
+The definied websites are automaticlly setup with an pretty environment. We create the following files / configurations regarding to your types and includes servcies:
+
+##### .profile
+
+The .profile file in the user home directory contains
+
+* the users database credentials
+* the users environment (DEV, STAGE, PROD)
+* other stuff related / used by the installed services
+
+That allows you / the user to access e.g. your MySQL database without entering the database credentials.
+Simply type "mysql" in your shell and here we go!
+It also provides the credentials for cronjobs etc.
+
+sample .profile file:
+
+```
+export DB_USERNAME=examplenet
+export DB_PASSWORD=xxx
+export DB_HOST=localhost
+export DB_NAME=examplenet
+export SITE_ENV=live
+```
+
+to use the .profile in your cronjobs, simply set the following before your original stuff.
+
+```
+/bin/bash -c 'source $HOME/.profile; original cron;'
+```
+##### php environments
+
+If there is a database installed, the credentials and environment is stored in the php environment.
+To configure e.g. TYPO3 to use this settings, edit the localconf.php with the following:
+
+```
+$typo_db_username = $_SERVER['DB_USERNAME'];
+$typo_db_password = $_SERVER['DB_PASSWORD'];
+$typo_db_host     = $_SERVER['DB_HOST'];
+$typo_db          = $_SERVER['DB_NAME'];
+```
+
+there is also he oppunity to access the "used environment" over SITE_ENV and configure the installation regarding to the used environement. 
+```
+switch ($_SERVER['SITE_ENV']) {
+    case 'dev':
+        $recipient = 'entwicklung@snowflake.ch';
+        break;
+    case 'stage':
+        $recipient = 'entwicklung@snowflake.ch';
+        break;
+    case 'live':
+        $recipient = 'customer@example.com';
+        break;
+}
+```
+
+#### Deployment magic!
+
+but the main reason to use the automatic environments is easy: deployments!
+
+
 
 ## Certificates (TLS)
 
