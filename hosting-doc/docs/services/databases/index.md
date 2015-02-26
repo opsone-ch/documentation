@@ -1,6 +1,10 @@
-# Database wrapper
+# Database 
 
-This module includes the appropriate upstream module (by now only mysql), configure the server and add databases, users and grants.
+Install and manage your favorite databases. Including users, grants, and the configuration.
+
+## MySQL / MariaDB
+
+At the moment only MariaDB (drop-in replacement for MySQL) is supported. More database types on request. (eXist etc).
 
 ## Prerequisites
 

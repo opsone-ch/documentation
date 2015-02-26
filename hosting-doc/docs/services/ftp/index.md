@@ -1,6 +1,7 @@
 # FTP wrapper
 
-This module includes the appropriate upstream module (proftpd), configures the server and adds virtual users.
+Install and configures your ProFTPDserver and manage the virtual users.
+Please remember: only use if not possible with SFTP!
 
 
 ## Users
