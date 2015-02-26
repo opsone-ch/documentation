@@ -189,8 +189,12 @@ switch ($_SERVER['SITE_ENV']) {
 
 #### Deployment magic!
 
-but the main reason to use the automatic environments is easy: deployments!
+Sounds good, but why? The main reason to use this automatic created environment: deployment support.
+Simply add the configuration to your application, copy the installation with your favorite tool / script to e.g. from DEV to STAGE.
+And as you recognized right, you do not have to enter the environment data again.
 
+There is also the possiblilty to change the hiera data DEV => STAGE => PROD and the website is still running without changing 
+the applications database configuration.
 
 
 ## Certificates (TLS)
