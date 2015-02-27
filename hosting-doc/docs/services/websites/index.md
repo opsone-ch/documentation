@@ -7,7 +7,7 @@ Our website module provides everything you need, to manage, deploy and run your 
 Use website types to create your suitable environment
 
 ####  typo3cms 
-* MariaDB 10.x autocreated and environment set 
+* MariaDB 10.x with database, user, grants and environment set
 * PHP-FPM 5.6 
 * nginx 1.6 with naxsi WAF (and TYPO3 white/blacklists)
 * TYPO3 6.2 cloned into /var/lib/typo3/
@@ -248,8 +248,10 @@ switch ($_SERVER['SITE_ENV']) {
 Sounds good, but why should I use it? 
 
 The main reason to use this automatic created environment: deployment support.
-Simply add the configuration to your application, copy the installation with your favorite tool / script to e.g. from DEV to STAGE.
-And as you recognized right, you do not have to change your database credentials. 
+
+1. add the configuration to your application
+2. copy the installation with your favorite tool / script to e.g. from DEV to STAGE.
+3. as you recognized right, you do not have to change your database credentials. 
 
 There is also the possiblilty to change the hiera data "DEV => STAGE => PROD" and password and the website is still running without changing 
 the applications database configuration.
@@ -404,7 +406,9 @@ website::sites:
 
 Our WAF is based on the opensource, high performance WAF for Nginx called "Naxsi".
 It protects your webapplication from XSS & SQL Injection attacks. 
-And also blocks common vulnerabilities & zero day attacks (visit status.snowflake.ch for more information)
+And also blocks common vulnerabilities & zero day attacks as far as possibly (visit status.snowflake.ch for more information)
+
+** Warning: ** the WAF is just a security feature. Please remember to code secure and keep your application and the used 3rd party extensions up 2 date!
 
 #### 403 forbidden / Firewall blocks / false positives
 
@@ -414,10 +418,11 @@ There is also a detailed log/error.log entry provided - e.g. the following:
 ```
 2015/02/17 14:03:04 [error] 15296#0: *1855 NAXSI_FMT: ip=91.199.98.29&server=www.domain.ch&uri=/admin/&learning=0&vers=0.53-1&total_processed=1&total_blocked=1&block=1&cscore0=$XSS&score0=8&zone0=BODY|NAME&id0=1310&var_name0=login[username]&zone1=BODY|NAME&id1=1311&var_name1=login[username], client: 91.199.98.29, server: www.domain.ch, request: "POST /admin/ HTTP/1.1", host: "www.domain.ch", referrer: "http://www.domain.ch/admin/"
 ```
+To learn more about the log syntax, vist the [Naxsi wiki](https://github.com/nbs-system/naxsi/wiki)
 
 #### mange false positives
 
-If you are sure, that your request is valid (and well coded..) you can whitelist the "false positive". 
+If you are sure, that your request to the application is valid (and well coded..) you can whitelist the "false positive". 
 Normaly we recommend to test an application on the stage environment and analyze afterwards the error.log with the nx_util:
 
 ##### nx_util
@@ -468,7 +473,7 @@ If you are not sure, that your whitelists are correct. Please contact our [Suppo
 
 ##### optimize your whitelists
 
-Please remember, that you can "beautify" the whitelists. The whitelists above, would result in the following rules:
+Please remember, that you can "beautify" the whitelists. The generated whitelists above, would result in the following rules:
 
 ```
 BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
@@ -493,6 +498,8 @@ wget -6 www.snowflake.ch
 dig A www.snowflake.ch @ns.snowflakehosting.ch
 dig AAAA www.snowflake.ch @ns.snowflakehosting.ch
 ```
+
+more information about our [IPV6 Dualstack Infrastructure](../server/dualstack)
 
 
 ## Permissions
