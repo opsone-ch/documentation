@@ -260,6 +260,51 @@ You can also use it on your [Vagrant box](development/vagrant) locally.
 
 ---
 
+## Deploy and launch
+
+In the following section, will you find some hints to deploy your website from stage to prod without any troubles and a happy end-user:
+
+#### Prepare your DNS 
+
+First of all: your DNS / Nameservers should be prepared. 
+
+Make sure, you have access to the DNS management system. 
+Please always set the TTL to a "modern" value for every record which is affected. We recommend "300" (5 minutes). 
+
+There is no reason anymore, to set high TTLs. So please do not switch back to a high TTL after going live. 
+DNS requests to the nameservers do not create much load.
+
+#### Stage > PROD
+
+swithc the ENV entry or copy
+
+#### Testing
+
+always test the website extensively. You can simulate a "live" Website with a local hostfile entry to "overrule" your ISPs DNS server.
+
+#### Reverse Proxy
+
+If you want to be sure, that no requests are delivered from the old server / website until all cusotmers DNS are refreshed, add an reverse proxy and load the new site over this proxy.
+
+This setup results in a new website which is immediately live and the end user always see the new site. Independently of that his DNS is up2date.
+
+If your old site is using Apache, add this VirtualHost:
+
+
+```
+<VirtualHost 91.199.old.ip:80>
+  ServerName example.com
+  ServerAlias www.example.com
+  ErrorLog "/path/to/log/error.log"
+  CustomLog "/path/to/log/access.log" combined
+
+	ProxyRequests		Off
+	ProxyPreserveHost	On
+	ProxyPass		/ http://91.199.new.ip/
+</VirtualHost>
+
+``` 
+
 ## Certificates (TLS)
 
 #### Overview
@@ -270,6 +315,7 @@ This automatically enables:
 
 * SPDY 3.1
 * TLS 1.0, 1.1, 1.2
+* SNI
 * HSTS
 * Monitoring for the certificate
 * Grade A at ssllabs.com
@@ -541,6 +587,31 @@ if ($http_host = www.domain.ch) {
 #### cnf/nginx_waf.conf
 
 [Configure naxsi whitelists](#web-application-firewall-waf)
+
+## GeoIP Module
+
+To use your GeoIP database with nginx, store your .dat files on the server and include the module with hiera:
+
+```
+# GeoIP Settings for nginx
+nginx::http_cfg_append:
+  - "geoip_country	/home/user/geoip/GeoIPv6.dat"
+  - "geoip_city	/home/user/geoip/GeoLiteCityv6.dat"
+
+# GeoIP related environment variables
+environment::variables:
+  "GEOIP_ADDR":         "$remote_addr"
+  "GEOIP_ADDR":         "$remote_addr"
+  "GEOIP_COUNTRY_CODE": "$geoip_country_code"
+  "GEOIP_COUNTRY_NAME": "$geoip_country_name"
+  "GEOIP_REGION":       "$geoip_region"
+  "GEOIP_REGION_NAME":  "$geoip_region_name"
+  "GEOIP_CITY":         "$geoip_city"
+  "GEOIP_AREA_CODE":    "$geoip_area_code"
+  "GEOIP_LATITUDE":     "$geoip_latitude"
+  "GEOIP_LONGITUDE":    "$geoip_longitude"
+  "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
+```
 
 
 ## Other settings and options
