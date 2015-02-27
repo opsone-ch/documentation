@@ -33,6 +33,27 @@ ssh::keys:
       "key": "ssh-rsa AAAAB....."
 ```
 
+#### Create SSH Key
+
+* use 4096 bit RSA Keys
+* encrypt with PKCS8
+
+```
+ssh-keygen -b 4096 -C user@domain.ch -f ~/.ssh/id_rsa_tmp
+openssl pkcs8 -topk8 -v2 des3 -in ~/.ssh/id_rsa_tmp -out ~/.ssh/id_rsa
+mv ~/.ssh/id_rsa_tmp.pub ~/.ssh/id_rsa.pub
+rm ~/.ssh/id_rsa_tmp 
+```
+
+### SFTP
+
+After adding your publickey to the server, is it possible to connect over SFTP.
+We recommend to use one of the following clients:
+
+* [Filezilla](https://filezilla-project.org)
+* [Cyperduck](https://cyberduck.io)
+
+To store your key in the memory and not having to enter the password for every connection -  use pagent (Windows) or ssh-add it (Linux)
 
 ## FTP
 
