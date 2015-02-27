@@ -105,29 +105,57 @@ website::sites:
 
 ## Environments
 
-There are 3 kinds of environments available: 
+You have to select one of those environments for each website:
+
 
 #### PROD
-* live sites only!
-* no htpasswd protection
+
+* live sites only
+* no access protection
+* phpinfo disabled (otherwise database credentials in environment variables could get leaked)
 * error log level "quiet"
 
+
 #### STAGE 
+
 * for stage / preview / testing access
-* htpasswd protected (htpasswd option with crypted string in hiera necessary)
+* password protected (User "preview", password from htpasswd option)
 * phpinfo enabled
 * error log level "noisy"
+
 
 #### DEV
+
 * for development
-* htpasswd protected (htpasswd option with crypted string in hiera necessary)
+* password protected (User "preview", password from htpasswd option)
 * phpinfo enabled
 * error log level "noisy"
 
-#### Users
 
-Every DEV / STAGE environemnet has a default htpasswd user "Preview" with an hiera definied password.
-This combination allows you to access your website over the web. It is not recommmended to remove it. (google indexes your stage site faster then you might thing)
+#### User Handling
+
+The preview user gets applied to all non PROD environments and is intended for
+your own use, but also to allow access to other parties like your customer.
+
+Furthermore, you can add additional users trough the "website::users"
+configuration like this:
+
+```
+website::users:
+  "alice":
+    "preview": "$apr1$RXDs3l18$w0VJrVN5uoU6DMY.0xgTr/"
+  "bob":
+    "preview": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+```
+
+You can add users like this for yourself and your co-workers. If you work on
+multiple websites, you dont have to look up the corresponding password all
+the time but just use the global one.
+
+Please keep in mind that this password gets often transfered over unencrypted
+connections. As everywhere, we recommend to use a particular password for only
+this purpose.
+
 
 #### Variables and usage
 
