@@ -73,9 +73,7 @@ database::grants:
 
 #### phpmyadmin
 
-Access your database over [phpMyAdmin](https://dbadmin.snowflakehosting.ch)
-
-Enter your credentials
+Access your database over the web with [phpMyAdmin](https://dbadmin.snowflakehosting.ch) and enter the credentials
 
 * Server: server01.snowflakehosting.ch
 * Username: your user
@@ -83,4 +81,23 @@ Enter your credentials
 
 #### SSH tunnel
 
+To access the database with common database tools like MySQL Workbench, create a SSH tunnel to the server
+and forward the MySQL port. After that, configure your favorite MySQL tool to connect to the forwarded localhost.
+
+```
+ssh -L 3306:localhost:3306 user@remotehost
+```
+
+Or directly with every ssh connection to the server with the following ssh .config entry:
+
+```
+LocalForward 3306 127.0.0.1:3306
+```
+
 #### local
+
+simply access your database over the shell:
+
+```
+mysql
+```
