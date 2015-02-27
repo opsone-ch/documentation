@@ -124,14 +124,53 @@ There are 3 kinds of environments available:
 * phpinfo enabled
 * error log level "noisy"
 
-#### Users
+### Users
 
-Every DEV / STAGE environemnet has a default htpasswd user "Preview" with an hiera definied password.
-This combination allows you to access your website over the web. It is not recommmended to remove it. (google indexes your stage site faster then you might thing)
+Every DEV / STAGE environmnet has a default htpasswd user called "Preview" with an hiera definied password:
 
-#### Variables and usage
 
-The definied websites are automaticlly setup with an pretty environment. We create the following files / configurations regarding to your types and includes servcies:
+```
+"devexamplenet":
+    "password":    "1234"
+    "server_name": "dev.example.net www.dev.example.net"
+    "env":         "DEV"
+    "htpasswd":    "iequ8eeL1Eish0F" 
+    "type":        "typo3cms"
+```
+
+This combination allows you to access your website over the web. It is not recommended to remove it. (google indexes your stage site faster then you might think)
+
+You can add a global user with the following hiera entry:
+
+```
+# common Preview Users applied on Dev/Stage Environments and Mailcatcher
+website::users:
+  "dev":
+    "preview": "$apr1$RXDs3l18$w0VJrVN5uoU6DMY.0xgTr/"	# Password: uQuah7uche9I
+```
+
+### Proxy
+
+Direct outgoing HTTP and HTTPS requests are blocked for safety reason (do not load PHP shells etc).
+But you can access the web over the pre-configured http/https proxy: proxy.snowflakehosting.ch
+
+This proxy is configured for the whole server including php.
+e.g. if you wget / curl an external site / file, the request is handled over the proxy:
+
+```
+wget www.google.com
+--2015-02-27 10:28:47--  http://www.google.com/
+Resolving proxy.snowflakehosting.ch (proxy.snowflakehosting.ch)... 91.199.98.56, 91.234.160.27
+Connecting to proxy.snowflakehosting.ch (proxy.snowflakehosting.ch)|91.199.98.56|:80... connected.
+Proxy request sent, awaiting response... 302 Found
+
+```
+You do not have to configure the proxy in your application.
+
+
+### Variables and usage
+
+The definied websites are automatically setup with a practically environment. We create the following files / configurations regarding to your types and includes servcies:
 
 ##### .profile
 
@@ -141,7 +180,7 @@ The .profile file in the user home directory contains
 * the users environment (DEV, STAGE, PROD)
 * other stuff related / used by the installed services
 
-That allows you / the user to access e.g. your MySQL database without entering the database credentials.
+This allows you / the user to access e.g. your MySQL database without entering the database credentials.
 Simply type "mysql" in your shell and here we go!
 It also provides the credentials for cronjobs etc.
 
@@ -162,7 +201,7 @@ to use the .profile in your cronjobs, simply set the following before your origi
 ```
 ##### php environments
 
-If there is a database installed, the credentials and environment is stored in the php environment.
+If there is a database installed, the credentials and environment are stored in the php environment.
 To configure e.g. TYPO3 to use this settings, edit the localconf.php with the following:
 
 ```
@@ -172,7 +211,8 @@ $typo_db_host     = $_SERVER['DB_HOST'];
 $typo_db          = $_SERVER['DB_NAME'];
 ```
 
-there is also he oppunity to access the "used environment" over SITE_ENV and configure the installation regarding to the used environement. 
+There is also the oppunity to access the "used environment" over SITE_ENV and configure the installation regarding to the used environement.
+This example shows how you set the $recipient regarding to your env:
 ```
 switch ($_SERVER['SITE_ENV']) {
     case 'dev':
@@ -189,13 +229,18 @@ switch ($_SERVER['SITE_ENV']) {
 
 #### Deployment magic!
 
-Sounds good, but why? The main reason to use this automatic created environment: deployment support.
-Simply add the configuration to your application, copy the installation with your favorite tool / script to e.g. from DEV to STAGE.
-And as you recognized right, you do not have to enter the environment data again.
+Sounds good, but why should I use it? 
 
-There is also the possiblilty to change the hiera data DEV => STAGE => PROD and the website is still running without changing 
+The main reason to use this automatic created environment: deployment support.
+Simply add the configuration to your application, copy the installation with your favorite tool / script to e.g. from DEV to STAGE.
+And as you recognized right, you do not have to change your database credentials. 
+
+There is also the possiblilty to change the hiera data "DEV => STAGE => PROD" and password and the website is still running without changing 
 the applications database configuration.
 
+You can also use it on your [Vagrant box](development/vagrant) locally.
+
+---
 
 ## Certificates (TLS)
 
@@ -423,7 +468,15 @@ So you can easily track your changes and deploy the WAF rules always with your p
 
 ## IPV6 enabled / DNS
 
-Every hosting is "IPV6 enabled". Please remember to add the DNS IPV6 AAAA records. 
+Every hosting is "IPV6 enabled". Please remember to add the DNS IPV6 AAAA records and testing them:
+
+```
+wget -4 www.snowflake.ch
+wget -6 www.snowflake.ch
+
+dig A www.snowflake.ch @ns.snowflakehosting.ch
+dig AAAA www.snowflake.ch @ns.snowflakehosting.ch
+```
 
 
 ## Permissions
@@ -441,6 +494,30 @@ Every hosting is "IPV6 enabled". Please remember to add the DNS IPV6 AAAA record
     * to enhance Security, Files and Directories can be owned by root:<usergroup> as long as PHP Processes dont need write access to them.
 
 ----
+
+## Custom configs
+
+There is the possibility to add specific configurations like redircts in the users cnf/ directory and versioning / deploy them on every projects environment.
+Do not forget to reload nginx after changes:
+
+```
+nginx-reload
+```
+
+#### cnf/nginx.conf
+
+Configure specific redirects, enable gzip and other stuff directly in the nginx.conf.
+This file is included in the server block. e.g.
+
+```
+if ($http_host = www.domain.ch) {
+	rewrite (.*) http://www.domain.com;
+}
+```
+
+#### cnf/nginx_waf.conf
+
+[Configure naxsi whitelists](#web-application-firewall-waf)
 
 
 ## Other settings and options
