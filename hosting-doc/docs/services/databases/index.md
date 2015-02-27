@@ -69,3 +69,18 @@ database::grants:
     "table":    "tablename"
 ```
 
+## Access
+
+#### phpmyadmin
+
+Access your database over [phpMyAdmin](https://dbadmin.snowflakehosting.ch)
+
+Enter your credentials
+
+* Server: server01.snowflakehosting.ch
+* Username: your user
+* Password: your password
+
+#### SSH tunnel
+
+#### local
