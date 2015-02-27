@@ -1,6 +1,6 @@
 # Website
 
-ur website module provides everything you need, to manage, deploy and run your website. It supports the following website types, helpers and additional services.
+Our website module provides everything you need, to manage, deploy and run your website. It supports the following website types, helpers and additional services.
 
 ## Types
 
@@ -164,16 +164,6 @@ this purpose.
     "type":        "typo3cms"
 ```
 
-This combination allows you to access your website over the web. It is not recommended to remove it. (google indexes your stage site faster then you might think)
-
-You can add a global user with the following hiera entry:
-
-```
-# common Preview Users applied on Dev/Stage Environments and Mailcatcher
-website::users:
-  "dev":
-    "preview": "$apr1$RXDs3l18$w0VJrVN5uoU6DMY.0xgTr/"	# Password: uQuah7uche9I
-```
 
 ### Proxy
 
