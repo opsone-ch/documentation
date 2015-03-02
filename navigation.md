@@ -11,23 +11,21 @@
 [Services]()
 
   * [Overview](services/index.md)
-  * # Networking
-  * [Network](services/network/index.md)
-  * # Websites
+  * # Details
   * [Website](services/websites/index.md)
-  * # Databases
   * [Database](services/databases/index.md)
-  * # Access
   * [FTP](services/ftp/index.md)
+  * [Network](services/network/index.md)
   * [Firewall](services/firewall/index.md)
 
 [Development]()
 
+  * [Overview](development/index.md)
+  * # Details
   * [Environment](development/environment/index.md)
   * [Vagrant](development/vagrant/index.md)
 
 [Support](support/index.md)
-
 
 [gimmick:theme (inverse: false)](yeti)
 
