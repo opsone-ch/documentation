@@ -186,7 +186,7 @@ You do not have to configure the proxy in your application.
 
 ### Variables and usage
 
-The definied websites are automatically setup with a practically environment. We create the following files / configurations regarding to your types and includes servcies:
+The definied websites are automatically setup with a practically environment. We create the following files / configurations regarding to your types and included services:
 
 ##### .profile
 
@@ -194,7 +194,7 @@ The .profile file in the user home directory contains
 
 * the users database credentials
 * the users environment (DEV, STAGE, PROD)
-* other stuff related / used by the installed services
+* other stuff related to / used by the installed services
 
 This allows you / the user to access e.g. your MySQL database without entering the database credentials.
 Simply type "mysql" in your shell and here we go!
@@ -210,14 +210,14 @@ export DB_NAME=examplenet
 export SITE_ENV=live
 ```
 
-to use the .profile in your cronjobs, simply set the following before your original stuff.
+to use the .profile environmnet with your cronjobs, simply set the following before your original cronjob.
 
 ```
 /bin/bash -c 'source $HOME/.profile; original cron;'
 ```
 ##### php environments
 
-If there is a database installed, the credentials and environment are stored in the php environment.
+If there is a database installed, the credentials and environment are stored in the php environment / fastcgi_params.
 To configure e.g. TYPO3 to use this settings, edit the localconf.php with the following:
 
 ```
@@ -266,17 +266,89 @@ In the following section, will you find some hints to deploy your website from s
 
 #### Prepare your DNS 
 
-First of all: your DNS / Nameservers should be prepared. 
+First of all: make sure your Nameservers / DNS records are prepared. 
+And you have access to the DNS management system. 
 
-Make sure, you have access to the DNS management system. 
-Please always set the TTL to a "modern" value for every record which is affected. We recommend "300" (5 minutes). 
+Please set the TTL to a "modern" and flexible value for every record. We recommend "300" (5 minutes). 
 
-There is no reason anymore, to set high TTLs. So please do not switch back to a high TTL after going live. 
-DNS requests to the nameservers do not create much load.
+There is no reason anymore, to cache the records for a long time (e.g. one day). 
+So please do not switch back to a high TTL after going live. DNS requests to the nameservers do not create much load.
 
-#### Stage > PROD
+#### DEV => STAGE
 
-swithc the ENV entry or copy
+There are two ways to deploy your site from DEV to STAGE:
+
+* copy files / database to the existing STAGE environment
+* renaming DEV to STAGE and copy the files afterwards back to the new DEV
+
+
+#### Stage => PROD
+
+There are two ways to deploy your site from STAGE to PROD.
+
+* copy files / database to the existing STAGE environment
+* renaming STAGE to PROD, removing the htpasswd entry, copy the files afterwards back to the new STAGE
+
+#### Copy
+
+##### Filesystem sync (local)
+ 
+Sync your filesystem local with rsync:
+
+* exclude unneeded directories (e.g.. typo3temp)
+* man rsync for detailed information
+
+```
+rsync -avz --exclude=typo3temp source/ destination/
+```
+
+##### Filesystem sync (remote to local) 
+
+Sync your filesystem with a remote server:
+
+```
+rsync -avz --delete --exclude=typo3temp  example@example01.snowflakehosting.ch:www/ /path/to/your/local/www/source/
+```
+
+do not forget your local .git repo
+
+##### Database copy (local)
+
+Analyse your databse first, and then copy your DB local to another database:
+
+```
+SELECT table_name AS "Tables", 
+round(((data_length + index_length) / 1024 / 1024), 2) "Size in MB" 
+FROM information_schema.TABLES 
+WHERE table_schema = "[DBNAME HERE]"
+ORDER BY (data_length + index_length) DESC;
+```
+if there are large caching tables, search indexes etc. ignore this tables:
+
+* --ignore-table=database.table
+
+(for every table!)
+
+also use the singe-transaction option:
+
+* --single-transaction
+
+
+```
+mysqldump --single-transaction --ignore-table=exampledatabase.cache_pages --ignore-table=exampledatabase.cache_hash -uexampledatabaseuser -ppassword exampledatabase | mysql -uexampledatabase2 -ppassword2 exampledatabase2
+
+```
+
+recreate the ingored tables with your application. With TYPO3: install tool => DB compare
+
+
+##### Database copy (remote to local)
+
+```
+ssh example@example01.snowflakehosting.ch mysqldump --single-transaction --ignore-table=exampledatabase.cache_pages --ignore-table=exampledatabase.cache_hash -uexampledatabaseuser -ppassword exampledatabase | mysql -uexampledatabase2 -ppassword2 exampledatabase2
+
+```
+	
 
 #### Testing
 
@@ -284,7 +356,7 @@ always test the website extensively. You can simulate a "live" Website with a lo
 
 #### Reverse Proxy
 
-If you want to be sure, that no requests are delivered from the old server / website until all cusotmers DNS are refreshed, add an reverse proxy and load the new site over this proxy.
+If you want to be sure, that no requests are delivered from the old server / website until all cusotmers DNS caches are refreshed, add an reverse proxy and load the new site over this proxy.
 
 This setup results in a new website which is immediately live and the end user always see the new site. Independently of that his DNS is up2date.
 
