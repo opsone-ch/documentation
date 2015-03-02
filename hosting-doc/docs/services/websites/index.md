@@ -269,7 +269,7 @@ You can also use it on your [Vagrant box](development/vagrant) locally.
 
 ## Deploy and launch
 
-In the following section, will you find some hints to deploy your website from stage to prod without any troubles and a happy end-user:
+In the following section, do you find some hints how to deploy your website from STAGE to PROD without troubles and a happy end-user:
 
 #### Prepare your DNS 
 
@@ -611,6 +611,23 @@ If you like to understand the naxsi whitelist syntax, please visit the [maintain
 
 We strongly recommend the versioning of the cnf/ directory in your (git) project. 
 So you can easily track your changes and deploy the WAF rules always with your project to DEV / STAGE / PROD.
+
+## HTTP conn / req limits
+
+The number of connections and requests are limited for saftey reasons to the following values:
+
+* 25 conn. / IP
+* 5 req. / sec. / IP
+* 15 req. / sec. (burst)
+* \>15 req. / sec. (access limited)
+
+This means, that an IP can open up to 25 connections and do 5 requests / second.
+
+If the IP does more than 5 req. /sec. the requests are delayed and other clients are served first. ("leaky bucket method")
+
+If the IP creates more than 15req. /sec the webserver responds with the 503 status code ("service unavailable")
+
+To adjust this values (e.g. for API calls) contact our [Support](../support/).
 
 ## IPV6 enabled / DNS
 
