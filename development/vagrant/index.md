@@ -60,6 +60,8 @@ vagrant halt			# stop virtual Machine
 vagrant destroy 		# delete virtual Machine
 ```
 
+---
+
 ## Own Projects
 To use Vagrant in your own Project you have to copy and adjust
 

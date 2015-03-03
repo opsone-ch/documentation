@@ -1,4 +1,4 @@
-# snowlake Hosting
+# snowflake Hosting
 
 [Server]()
 
@@ -25,9 +25,11 @@
   * [Environment](development/environment/index.md)
   * [Vagrant](development/vagrant/index.md)
 
-[Support](support/index.md)
+[Support]()
 
-[gimmick:theme (inverse: false)](yeti)
+  * [Support](support/index.md)
+  * [Status](http://status.snowflake.ch)
 
-[gimmick:ThemeChooser](Change theme)
+[gimmick:theme (inverse: false)](bootstrap)
+
 

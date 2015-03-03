@@ -523,6 +523,13 @@ website::sites:
      v8jOaIjDp5AMoZxbPMlv/5Tk85uF
 ```
 
+#### Test
+
+Test your certificate with
+
+* https://www.ssllabs.com/ssltest/
+* https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp
+
 ---
 
 ## Web Application Firewall WAF
@@ -730,6 +737,14 @@ environment::variables:
    * add modules (e.g. Varnish, Memcache, Redis)
    * set firewall rules 
 
+
+----
+
+## Backup
+
+Every website is backuped daily to another datacenter. 
+
+You can request restores up to 30 days (guaranteed) and ask for older restores.
 
 ----
 
