@@ -525,7 +525,7 @@ website::sites:
 
 ---
 
-## Web Application Firewall (WAF)
+## Web Application Firewall WAF
 
 #### Naxsi
 
@@ -671,11 +671,13 @@ more information about our [IPV6 Dualstack Infrastructure](../../server/dualstac
 ## Custom configs
 
 There is the possibility to add specific configurations like redircts in the users cnf/ directory and versioning / deploy them on every projects environment.
-Do not forget to reload nginx after changes:
+
+** Warning: ** Do not forget to reload nginx after changes.
 
 ```
 nginx-reload
 ```
+
 
 #### cnf/nginx.conf
 
@@ -690,7 +692,7 @@ if ($http_host = www.domain.ch) {
 
 #### cnf/nginx_waf.conf
 
-[Configure naxsi whitelists](#Web_Application_Firewall_(WAF))
+	[Configure naxsi whitelists](#Web_Application_Firewall_WAF )
 
 ---
 

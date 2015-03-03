@@ -1,5 +1,8 @@
-# Access
+## Access
 
+The following ways are provided to access your server and files.
+
+** Warning: ** we strictly recommend key based logins for safety reason. 
 
 ## SSH
 
