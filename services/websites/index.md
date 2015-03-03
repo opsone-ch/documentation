@@ -158,9 +158,7 @@ You can add users like this for yourself and your co-workers. If you work on
 multiple websites, you dont have to look up the corresponding password all
 the time but just use the global one.
 
-Please keep in mind that this password gets often transfered over unencrypted
-connections. As everywhere, we recommend to use a particular password for only
-this purpose.
+** Note: ** Please keep in mind that this password gets often transfered over unencrypted connections. As everywhere, we recommend to use a particular password for only this purpose.
 
 ```
 "devexamplenet":
@@ -188,7 +186,7 @@ Connecting to proxy.snowflakehosting.ch (proxy.snowflakehosting.ch)|91.199.98.56
 Proxy request sent, awaiting response... 302 Found
 
 ```
-You do not have to configure the proxy in your application.
+** Hint ** You do not have to configure the proxy in your application. It is autoconfigured.
 
 
 ### Variables and usage
@@ -260,23 +258,22 @@ The main reason to use this automatic created environment: deployment support.
 2. copy the installation with your favorite tool / script to e.g. from DEV to STAGE.
 3. as you recognized right, you do not have to change your database credentials. 
 
-There is also the possiblilty to change the hiera data "DEV => STAGE => PROD" and password and the website is still running without changing 
-the applications database configuration.
+There is also the possiblilty to change the hiera data "DEV => STAGE => PROD" and password and the website is still running without changing the applications database configuration.
 
-You can also use it on your [Vagrant box](development/vagrant) locally.
+** Hint: ** You can also use it on your [Vagrant box](development/vagrant) locally.
 
 ---
 
 ## Deploy and launch
 
-In the following section, do you find some hints how to deploy your website from STAGE to PROD without troubles and a happy end-user:
+In the following section, do you find some hints how to deploy your website from DEV to STAGE and STAGE to PROD without troubles and a happy end-user:
 
 #### Prepare your DNS 
 
 First of all: make sure your Nameservers / DNS records are prepared. 
 And you have access to the DNS management system. 
 
-Please set the TTL to a "modern" and flexible value for every record. We recommend "300" (5 minutes). 
+** Warning ** Please set the TTL to a "modern" and flexible value for every record. We recommend "300" (5 minutes). 
 
 There is no reason anymore, to cache the records for a long time (e.g. one day). 
 So please do not switch back to a high TTL after going live. DNS requests to the nameservers do not create much load.
@@ -291,7 +288,7 @@ There are two ways to deploy your site from DEV to STAGE:
 
 #### Stage => PROD
 
-There are two ways to deploy your site from STAGE to PROD.
+There are also two ways to deploy your site from STAGE to PROD.
 
 * copy files / database to the existing STAGE environment
 * renaming STAGE to PROD, removing the htpasswd entry, copy the files afterwards back to the new STAGE
@@ -346,7 +343,8 @@ mysqldump --single-transaction --ignore-table=exampledatabase.cache_pages --igno
 
 ```
 
-recreate the ingored tables with your application. With TYPO3: install tool => DB compare
+** Warning: ** Do not forget to recreate the ignored tables with your application. 
+With TYPO3 you can use: install tool => DB compare
 
 
 ##### Database copy (remote to local)
@@ -359,7 +357,7 @@ ssh example@example01.snowflakehosting.ch mysqldump --single-transaction --ignor
 
 #### Testing
 
-always test the website extensively. You can simulate a "live" Website with a local hostfile entry to "overrule" your ISPs DNS server.
+Please always test the website extensively. You can simulate a "live" Website with a local hostfile entry to "overrule" your ISPs DNS server.
 
 #### Reverse Proxy
 
@@ -459,7 +457,7 @@ Or even use every authority you want..
 * ssl_key: generated private key
 * ssl_cert: signed certificate with 2 intermediate certificates
 
- please pay attention to the hiera format
+** Note: ** please pay attention to the hiera format
 
 ```
 website::sites: 
@@ -594,7 +592,7 @@ and reload your webserver with:
 nginx-reload
 ```
 
-If you are not sure, that your whitelists are correct. Please contact our [Support](../support/). We are happy to help you out!
+** Hint: ** If you are not sure, that your whitelists are correct. Please contact our [Support](../support/). We are happy to help you out!
 
 ##### optimize your whitelists
 
@@ -609,7 +607,8 @@ If you like to understand the naxsi whitelist syntax, please visit the [maintain
 
 ##### Version control
 
-We strongly recommend the versioning of the cnf/ directory in your (git) project. 
+** Warning: ** We strongly recommend the versioning of the cnf/ directory in your (git) project. 
+
 So you can easily track your changes and deploy the WAF rules always with your project to DEV / STAGE / PROD.
 
 ## HTTP conn / req limits
@@ -627,11 +626,13 @@ If the IP does more than 5 req. /sec. the requests are delayed and other clients
 
 If the IP creates more than 15req. /sec the webserver responds with the 503 status code ("service unavailable")
 
-To adjust this values (e.g. for API calls) contact our [Support](../support/).
+** Hint: ** To adjust this values (e.g. for API calls) contact our [Support](../support/).
 
 ## IPV6 enabled / DNS
 
-Every hosting is "IPV6 enabled". Please remember to add the DNS IPV6 AAAA records and testing them:
+Every hosting is "IPV6 enabled". 
+
+** Note: ** Please remember to add the DNS IPV6 AAAA records and testing them:
 
 ```
 wget -4 www.snowflake.ch
