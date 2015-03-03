@@ -1,8 +1,8 @@
-# Vagrant for Web Developers
+## Vagrant for Web Developers
 
-This Repository is intended as template. You can either just start a Vagrant Machine from here or copy the appropriate Files into your desired Project.
+** Note: ** This Repository is intended as template. You can either just start a Vagrant Machine from here or copy the appropriate Files into your desired Project.
 
-Please be aware that currently snowflake Vagrant Support is considered as beta, there might be some drawbacks.
+** Warning: ** Please be aware that currently snowflake Vagrant Support is considered as beta, there might be some drawbacks.
 
 ## Requirements
 
