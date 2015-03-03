@@ -4,6 +4,8 @@
 
 Install and manage your favorite databases. Including users, grants, and the configuration.
 
+---
+
 ## MySQL / MariaDB
 
 At the moment only MariaDB (drop-in replacement for MySQL) is supported.

@@ -6,6 +6,8 @@
 
 ** Warning: ** Please be aware that currently snowflake Vagrant Support is considered as beta, there might be some drawbacks.
 
+---
+
 ## Requirements
 
 * VTx enabled CPU
@@ -32,6 +34,8 @@ vagrant plugin install vagrant-hostmanager
     * if your current Key is PuTTY formatted (\*.ppk), convert it with PuTTY Key Generator
 * Access to the Puppet Modules Repository
     * ssh://git@gate.snowflake.ch/h/puppet-modules.git
+
+---
 
 ## Usage
 
@@ -66,9 +70,13 @@ To use Vagrant in your own Project you have to copy and adjust
 * vagrant/puppet-data/default.pp
 * vagrant/update-puppet.sh
 
+---
+
 ## Dos and Don'ts
 * Don't start your virtual machine in the VirtualBox GUI. Use *vagrant up* instead
 * Don't forget to add your ssh key
+
+---
 
 ## FAQ
 * What are the DB credentials?
@@ -80,6 +88,8 @@ To use Vagrant in your own Project you have to copy and adjust
     * currently not
 * How can I access phpMyAdmin?
     * Just use www.example.com/phpmyadmin on your local domain
+
+---
 	
 ## Known problems
 * sometimes, Debian Packes and Puppet Modules are missing after firt run due to dependencies on other Modules which are loaded later on. Just use *vagrant provision* to run the update a second time. 
