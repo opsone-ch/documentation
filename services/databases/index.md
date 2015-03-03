@@ -4,15 +4,18 @@ Install and manage your favorite databases. Including users, grants, and the con
 
 ## MySQL / MariaDB
 
-At the moment only MariaDB (drop-in replacement for MySQL) is supported. More database types on request. (eXist etc).
+At the moment only MariaDB (drop-in replacement for MySQL) is supported.
+
+** Hint: **  More database types on request. (eXist, couchDB, MongoDB etc).
 
 ## Prerequisites
 
-* dont forget to set mysql::server::root_password
+** Warning: ** dont forget to set mysql::server::root_password
+
 ```
 mysql::server::root_password: "password"
 ```
-
+---
 
 ## Databases
 
@@ -33,6 +36,7 @@ database::databases:
     "user_password": "cleartext-password"
 ```
 
+---
 
 ## Users
 
@@ -48,6 +52,7 @@ database::users:
     "password": "cleartext-password"
 ```
 
+---
 
 ## Grants
 
@@ -69,11 +74,15 @@ database::grants:
     "table":    "tablename"
 ```
 
+---
+
 ## Backup
 
 Every database is backed up daily into the users backup directory:
 
-> /home/userdir/backup/
+``` 
+/home/userdir/backup/
+```
 
 #### Restore
 
@@ -106,7 +115,9 @@ mysql > database.sql
 ```
 the database.sql.lzo.1 is the backup from yesterday.
 
-If you need to restore older backups, feel free to contact our [Support](support)
+** Hint: ** If you need to restore older backups, feel free to contact our [Support](support)
+
+---
 
 ## Access
 

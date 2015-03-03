@@ -1,8 +1,10 @@
 # FTP wrapper
 
 Install and configures your ProFTPDserver and manage the virtual users.
-Please remember: only use if not possible with SFTP!
 
+** Warning: ** Please remember: only use if not possible with SFTP!
+
+---
 
 ## Users
 
@@ -21,6 +23,7 @@ ftp::users:
     "home":     "/home/examplenet/www/webcam/"
 ```
 
+---
 
 ## Directories
 

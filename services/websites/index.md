@@ -382,6 +382,8 @@ If your old site is using Apache, add this VirtualHost:
 
 ``` 
 
+---
+
 ## Certificates (TLS)
 
 #### Overview
@@ -611,6 +613,8 @@ If you like to understand the naxsi whitelist syntax, please visit the [maintain
 
 So you can easily track your changes and deploy the WAF rules always with your project to DEV / STAGE / PROD.
 
+---
+
 ## HTTP conn / req limits
 
 The number of connections and requests are limited for saftey reasons to the following values:
@@ -628,11 +632,13 @@ If the IP creates more than 15req. /sec the webserver responds with the 503 stat
 
 ** Hint: ** To adjust this values (e.g. for API calls) contact our [Support](../support/).
 
+---
+
 ## IPV6 enabled / DNS
 
 Every hosting is "IPV6 enabled". 
 
-** Note: ** Please remember to add the DNS IPV6 AAAA records and testing them:
+** Note: ** Please remember to add the DNS IPV6 AAAA records and test them:
 
 ```
 wget -4 www.snowflake.ch
@@ -642,8 +648,9 @@ dig A www.snowflake.ch @ns.snowflakehosting.ch
 dig AAAA www.snowflake.ch @ns.snowflakehosting.ch
 ```
 
-more information about our [IPV6 Dualstack Infrastructure](../server/dualstack)
+more information about our [IPV6 Dualstack Infrastructure](../../server/dualstack/)
 
+---
 
 ## Permissions
 
@@ -683,7 +690,9 @@ if ($http_host = www.domain.ch) {
 
 #### cnf/nginx_waf.conf
 
-[Configure naxsi whitelists](#web-application-firewall-waf)
+[Configure naxsi whitelists](#Web_Application_Firewall_(WAF))
+
+---
 
 ## GeoIP Module
 
@@ -710,6 +719,7 @@ environment::variables:
   "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 ```
 
+---
 
 ## Other settings and options
 
@@ -719,6 +729,7 @@ environment::variables:
    * set firewall rules 
 
 
+----
 
 ## Hiera Example
 
