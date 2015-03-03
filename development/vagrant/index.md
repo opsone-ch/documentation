@@ -1,4 +1,6 @@
-## Vagrant for Web Developers
+# Vagrant for Web Developers
+
+## Overview
 
 ** Note: ** This Repository is intended as template. You can either just start a Vagrant Machine from here or copy the appropriate Files into your desired Project.
 
