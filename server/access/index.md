@@ -3,9 +3,7 @@
 
 ## SSH
 
-Your server is accessible trough SSH by default. We allow only key based logins
-as non privileged user (no root Login). You can add global keys to your server
-like this:
+Your server is accessible trough SSH by default. We allow only key based logins as non privileged user (no root Login). You can add global keys to your server like this:
 
 ```
 ssh::keys:
@@ -14,11 +12,9 @@ ssh::keys:
       "key": "ssh-rsa AAAAB....."
 ```
 
-Please use a valid contact address, so we are able to get in touch if something
-comes up.
+Please use a valid contact address, so we are able to get in touch if something comes up.
 
-Additionaly, you can add custom environment variables to those keys. They get
-applied on every SSH login:
+Additionaly, you can add custom environment variables to those keys. They get applied on every SSH login:
 
 ```
 ssh::keys:
@@ -53,11 +49,9 @@ We recommend to use one of the following clients:
 * [Filezilla](https://filezilla-project.org)
 * [Cyperduck](https://cyberduck.io)
 
-To store your key in the memory and not having to enter the password for every connection -  use pagent (Windows) or ssh-add it (Linux)
+** Hint: ** To store your key in the memory and not having to enter the password for every connection -  use pagent (Windows) or ssh-add it (Linux)
 
 ## FTP
 
-There is no FTP daemon installed by default. Please consider to use SSH/SCP
-when possible. If you really need access by FTP, follow the instructions on
-[Services > FTP](/services/ftp/).
+There is no FTP daemon installed by default. Please consider to use SSH/SCP when possible. If you really need access by FTP, follow the instructions on [Services > FTP](/services/ftp/).
 

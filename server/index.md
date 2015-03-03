@@ -3,7 +3,7 @@
 ## Create/Modify
 
 By now, there are still some manual steps required to install a new server.
-Therefore, you have to order them manually trough our [team](../support/).
+Therefore, you have to order them manually through our [team](../support/).
 We are working hard to finish our API where those manual steps are not required
 anymore.
 
@@ -16,6 +16,7 @@ following informations:
 - desired hostname
 - size (CPU, Memory, Diskspace)
 
+---
 
 ## Index
 
