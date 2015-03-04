@@ -623,6 +623,8 @@ So you can easily track your changes and deploy the WAF rules always with your p
 
 ## HTTP conn / req limits
 
+#### Limits
+
 The number of connections and requests are limited for saftey reasons to the following values:
 
 * 25 conn. / IP
@@ -636,7 +638,29 @@ If the IP does more than 5 req. /sec. the requests are delayed and other clients
 
 If the IP creates more than 15req. /sec the webserver responds with the 503 status code ("service unavailable")
 
-** Hint: ** To adjust this values (e.g. for API calls) contact our [Support](/support/index.md).
+#### Adjust limits 
+
+To adjust this limits (e.g. for API calls, Intranet sites, etc), set a higher "load zone" in your cnf/nginx.conf.
+
+```
+# connection limits (e.g. 50 connections)
+limit_conn addr 50;
+
+# limit requests / second: (small, medium, large)
+#limit_req zone=medium burst=50;
+limit_req zone=large burst=150;
+```
+
+** Hint: ** to apply the changes reload the nginx config with nginx-reload
+
+#### Zones
+
+* small = 5req / sec (burst: 15req/sec)
+* medium = 15 req / sec (burst: 50 req/sec)
+* large = 50 req / sec (burst: 150 req/sec)
+
+** Note: ** the default zone is "small" and should fit for the most websites / users
+
 
 ---
 
