@@ -1,4 +1,4 @@
-## Dualstack IPv4/IPv6
+# Dualstack IPv4/IPv6
 
 All our servers and services are reachable by IPv4 and IPv6. We believe strongly in the future of the IPv6 Internet and are Member of the [Swiss IPv6 Council](http://www.swissipv6council.ch/). 
 
