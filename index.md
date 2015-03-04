@@ -6,4 +6,4 @@ Marketing and contract related details are available on our [website](https://sn
 
 
 
-** Hint: ** If you have any questions, feel free to [contact us](/support/).
+** Hint: ** If you have any questions, feel free to [contact us](support/index.md).

@@ -23,15 +23,15 @@ with a preinstalled and optimized environment to improve the performance, scalab
 
 There are also many helpers, to improve your websites environment:
 
-* [Permissions](websites/index.md#permissions)
+* [Permissions](websites/index.md#Permissions)
     * Overview of the file / user permissions
-* [Environements](websites/index.md#environments)
+* [Environements](websites/index.md#Environments)
     * DEV
     * STAGE
     * PROD
 * Security
-    * [Web Application Firewall (WAF)](websites/index.md#naxsi)
-    * [TLS Certificate](websites/index.md#certificates-tls)
+    * [Web Application Firewall (WAF)](websites/index.md#Naxsi)
+    * [TLS Certificate](websiteOverview)
 
 You can easily add more servcies to your server with the following modules:
 
@@ -61,9 +61,9 @@ Use high-performance caching for you applications.
 
 Access the filesystem of your server.
 
-* SFTP
+* [SSH](/server/access/index.md#SSH)
+* [SFTP](/server/access/index.md#SFTP)
 * [FTP](ftp/index.md)
-* SSH
 
 ---
 

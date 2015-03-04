@@ -105,7 +105,7 @@ website::sites:
 
 ## Delete website
 
-At the moment you have to contact our [Support](../support/) to delete a hosting. Later, we will provide a solution to delete it over hiera.
+At the moment you have to contact our [Support](../support/index.md) to delete a hosting. Later, we will provide a solution to delete it over hiera.
 
 ---
 

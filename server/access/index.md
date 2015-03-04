@@ -56,5 +56,5 @@ We recommend to use one of the following clients:
 
 ## FTP
 
-There is no FTP daemon installed by default. Please consider to use SSH/SCP when possible. If you really need access by FTP, follow the instructions on [Services > FTP](/services/ftp/).
+There is no FTP daemon installed by default. Please consider to use SSH/SCP when possible. If you really need access by FTP, follow the instructions on [Services > FTP](/services/ftp/index.md).
 
