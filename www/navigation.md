@@ -21,9 +21,6 @@
 [Development]()
 
   * [Overview](development/index.md)
-  * # Details
-  * [Environment](development/environment/index.md)
-  * [Vagrant](development/vagrant/index.md)
 
 [Support]()
 
