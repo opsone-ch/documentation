@@ -51,7 +51,7 @@ website::sites:
    "wordpressexample":
     "server_name": "wordpress.example.net"
     "env":         "PROD"
-    "type":        "magento"
+    "type":        "wordpress"
     "password":    "Aiw7vaakos04h7e"
 ```
 
@@ -92,7 +92,6 @@ website::sites:
 pure HTML, just static content
 
 * nginx 1.6 with naxsi (and core rule set)
-* other types on request (node.js, ruby etc.)
 
 ```
 website::sites: 
@@ -100,12 +99,13 @@ website::sites:
     "server_name": "html.example.net"
     "env":         "PROD"
     "type":        "html"
-
 ```
+
+** Hint: ** other types on request (node.js, ruby etc.)
 
 ## Delete website
 
-At the moment you have to contact our [Support](../support/) to delete a hosting. Later on we will provide a solution to delete it over hiera.
+At the moment you have to contact our [Support](../support/) to delete a hosting. Later, we will provide a solution to delete it over hiera.
 
 ---
 
@@ -186,7 +186,7 @@ Connecting to proxy.snowflakehosting.ch (proxy.snowflakehosting.ch)|91.199.98.56
 Proxy request sent, awaiting response... 302 Found
 
 ```
-** Hint ** You do not have to configure the proxy in your application. It is autoconfigured.
+** Hint: ** You do not have to configure the proxy in your application. It is autoconfigured.
 
 
 ### Variables and usage
@@ -202,8 +202,7 @@ The .profile file in the user home directory contains
 * other stuff related to / used by the installed services
 
 This allows you / the user to access e.g. your MySQL database without entering the database credentials.
-Simply type "mysql" in your shell and here we go!
-It also provides the credentials for cronjobs etc.
+Simply type "mysql" in your shell and here we go! It also provides the credentials for cronjobs etc.
 
 sample .profile file:
 
@@ -273,7 +272,7 @@ In the following section, do you find some hints how to deploy your website from
 First of all: make sure your Nameservers / DNS records are prepared. 
 And you have access to the DNS management system. 
 
-** Warning ** Please set the TTL to a "modern" and flexible value for every record. We recommend "300" (5 minutes). 
+** Warning: ** Please set the TTL to a "modern" and flexible value for every record. We recommend "300" (5 minutes). 
 
 There is no reason anymore, to cache the records for a long time (e.g. one day). 
 So please do not switch back to a high TTL after going live. DNS requests to the nameservers do not create much load.

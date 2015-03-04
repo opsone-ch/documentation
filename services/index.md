@@ -12,7 +12,7 @@ Currently we support the following CMS, eCommerce systems, blogs and programmmin
 with a preinstalled and optimized environment to improve the performance, scalability, security and availability of your website:
 
 * [TYPO3CMS](websites/index.md#typo3cms)
-* [Magneto](websites/index.md#magento)
+* [Magento](websites/index.md#magento)
 * [WordPress](websites/index.md#wordpress)
 * [PHP](websites/index.md#php)
 * [HHVM](websites/index.md#hhvm)
