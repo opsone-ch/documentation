@@ -1,0 +1,9 @@
+.profile
+.ssh/*
+.viminfo
+.zcompdump-*
+.zprofile
+.zsh_history
+.zshrc
+cnf/*
+log/*
