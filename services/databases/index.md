@@ -119,7 +119,7 @@ mysql > database.sql
 ```
 the database.sql.lzo.1 is the backup from yesterday.
 
-** Hint: ** If you need to restore older backups, feel free to contact our [Support](support)
+** Hint: ** If you need to restore older backups, feel free to contact our [Support](/support/index.md)
 
 ---
 

@@ -449,7 +449,7 @@ so you need to generate a certifcate signing request (CSR):
  openssl x509 -x509toreq -signkey www.domain.ch.key -in www.domain.ch.crt
 ```
 
-Submit this CRS to our [Support](../../support/) if you like a certificate from us.
+Submit this CRS to our [Support](/support/index.md) if you like a certificate from us.
 Or even use every authority you want..
 
 
@@ -600,7 +600,7 @@ and reload your webserver with:
 nginx-reload
 ```
 
-** Hint: ** If you are not sure, that your whitelists are correct. Please contact our [Support](../support/). We are happy to help you out!
+** Hint: ** If you are not sure, that your whitelists are correct. Please contact our [Support](/support/index.md). We are happy to help you out!
 
 ##### optimize your whitelists
 
@@ -636,7 +636,7 @@ If the IP does more than 5 req. /sec. the requests are delayed and other clients
 
 If the IP creates more than 15req. /sec the webserver responds with the 503 status code ("service unavailable")
 
-** Hint: ** To adjust this values (e.g. for API calls) contact our [Support](../support/).
+** Hint: ** To adjust this values (e.g. for API calls) contact our [Support](/support/index.md).
 
 ---
 
