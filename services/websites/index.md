@@ -1,4 +1,4 @@
-# Website
+
 
 ## Create website
 
@@ -105,7 +105,7 @@ website::sites:
 
 ## Delete website
 
-At the moment you have to contact our [Support](../support/index.md) to delete a hosting. Later, we will provide a solution to delete it over hiera.
+At the moment you have to contact our [Support](/support/index.md) to delete a hosting. Later, we will provide a solution to delete it over hiera.
 
 ---
 
@@ -449,7 +449,7 @@ so you need to generate a certifcate signing request (CSR):
  openssl x509 -x509toreq -signkey www.domain.ch.key -in www.domain.ch.crt
 ```
 
-Submit this CRS to our [Support](../support/) if you like a certificate from us.
+Submit this CRS to our [Support](../../support/) if you like a certificate from us.
 Or even use every authority you want..
 
 
