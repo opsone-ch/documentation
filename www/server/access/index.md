@@ -2,9 +2,9 @@
 
 The following ways are provided to access your server and files.
 
-** Warning: ** we strictly recommend key based logins for safety reason. 
-
 ## SSH
+
+** Note: ** due to security reasons, we allow key based logins only.
 
 Your server is accessible trough SSH by default. We allow only key based logins as non privileged user (no root Login). You can add global keys to your server like this:
 

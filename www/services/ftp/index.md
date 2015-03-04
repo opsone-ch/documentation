@@ -1,10 +1,10 @@
-# FTP wrapper
+# FTP
 
 ## Overview
 
-Install and configures your ProFTPDserver and manage the virtual users.
+This service will install and configure ProFTPD and manage virtual users.
 
-** Warning: ** Please remember: only use if not possible with SFTP!
+** Warning: ** Use FTP only if really required (for example webcam access). Most use cases are just fine with SSH/SCP.
 
 ---
 
