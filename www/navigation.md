@@ -15,7 +15,7 @@
   * [Website](services/websites/index.md)
   * [Database](services/databases/index.md)
   * [FTP](services/ftp/index.md)
-  * [Network](services/network/index.md)
+  * [Networking](services/networking/index.md)
   * [Firewall](services/firewall/index.md)
 
 [Development]()
