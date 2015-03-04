@@ -1,25 +1,25 @@
-# Database 
-
-## Overview
+# Database Service
 
 Install and manage your favorite databases. Including users, grants, and the configuration.
 
----
 
 ## MySQL / MariaDB
 
 At the moment only MariaDB (drop-in replacement for MySQL) is supported.
 
-** Hint: **  More database types on request. (eXist, couchDB, MongoDB etc).
+Hint: We are happy to add support for more database types on request (eXist and PostgreSQL already in development).
+
 
 ## Prerequisites
 
-** Warning: ** dont forget to set mysql::server::root_password
+You have to set mysql::server::root_password manually.
 
 ```
 mysql::server::root_password: "password"
 ```
----
+
+Hint: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only.
+
 
 ## Databases
 
@@ -30,7 +30,6 @@ mysql::server::root_password: "password"
     * without this, you have to add user/grants by yourself (see below), otherwise only root can access this database
     * it is only possible to add a local User here. For special Configurations (e.g. external access or grants to particular Tables use users/grants below)
 
-
 ```
 database::databases:
   "withoutuser":
@@ -40,7 +39,6 @@ database::databases:
     "user_password": "cleartext-password"
 ```
 
----
 
 ## Users
 
@@ -56,7 +54,6 @@ database::users:
     "password": "cleartext-password"
 ```
 
----
 
 ## Grants
 
@@ -78,7 +75,6 @@ database::grants:
     "table":    "tablename"
 ```
 
----
 
 ## Backup
 

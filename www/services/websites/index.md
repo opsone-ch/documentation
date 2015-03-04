@@ -1,6 +1,4 @@
-
-
-## Create website
+# Website Service
 
 Our website module provides everything you need, to manage, deploy and run your website. It supports the following website types, helpers and additional services.
 You can create a website hosting over your hiera yaml file, run puppet and everything is setup to fit your needs. 
