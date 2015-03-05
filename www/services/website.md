@@ -368,80 +368,57 @@ If your old site is using Apache, add this VirtualHost:
 
 ## TLS Certificates
 
-#### Overview
-
-Create a TLS/SSL certificate for your website and add it over hiera.
-This automatically enables:
-
+By adding a TLS certificate to your website, the following configurations/features are applied to the vhost:
 
 * SPDY 3.1
 * TLS 1.0, 1.1, 1.2
 * SNI
 * HSTS
-* Monitoring for the certificate
-* Grade A at ssllabs.com
-
-and it also creates the following redirect from http to https:
-
-```
-    rewrite ^ https://$server_name$request_uri? permanent;
-```
-
-you still want to use http separately? 
-There is no reason.
+* daily Expiration Date Check
+* daily [Qualys SSL Labs](https://www.ssllabs.com/) API Check
+* global HTTP to HTTPS redirect
 
 
-We have 3 supported types of certificates:
-
-* Basic
-* Wildcard
-* Extended validation
-
-#### Requirements 
-
-* Valid eMail account to validate the domain ownership:
-     * webmaster@example.net
-     * admin@
-     * administrator@
+### Order certificate
 
 
-#### Create and sign the certificate
+#### Requirements
 
-use the following command to create the private key and .crt over openssl (linux / mac):
+To validate domain ownership, our certificate issuer will send a E-Mail to one of the following addresses:
+
+* webmaster@example.net
+* admin@example.net
+* administrator@example.net
+
+
+#### Create certificate and key
 
 ```
- openssl req -newkey rsa:2048 -x509 -nodes -days 3650 -out www.example.net.crt -keyout www.example.net.key
-```
-
-you need to enter the following data:
-
-```
+$ openssl req -newkey rsa:2048 -x509 -nodes -days 3650 -out www.example.net.crt -keyout www.example.net.key
 Country Name (2 letter code) [AU]:CH
-State or Province Name (full name) [Some-State]:Zurich
-Locality Name (eg, city) []:Zurich
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:SYNA
+State or Province Name (full name) [Some-State]:Luzern
+Locality Name (eg, city) []:Luzern
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:example Ltd
 Organizational Unit Name (eg, section) []:
 Common Name (eg, YOUR name) []:www.example.net
-Email Address []:webmaster@… 
+Email Address []:webmaster@example.net
 ```
 
-after that, you need to sign the certificate from the authority.
-so you need to generate a certifcate signing request (CSR):
+#### Extract certificate signing request
 
 ```
 openssl x509 -x509toreq -signkey www.example.net.key -in www.example.net.crt
 ```
 
-Submit this CRS to our [Support](/support.md) if you like a certificate from us.
-Or even use every authority you want..
+Submit this CRS to us [Support](/support.md) for further processing, or order certificate by yourself from the issuer of your choice.
 
 
-#### Add to hiera
+#### Configure website
 
 * ssl_key: generated private key
-* ssl_cert: signed certificate with 2 intermediate certificates
+* ssl_cert: signed certificate, including appropriate intermediate certificates
 
-** Note: ** please pay attention to the hiera format
+Note: make sure to use the correct line indenting
 
 ```
 website::sites: 
@@ -507,10 +484,10 @@ website::sites:
 
 #### Test
 
-Test your certificate with
+We recommend the following online services for testing:
 
-* https://www.ssllabs.com/ssltest/
-* https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp
+* [Qualys SSL Labs](https://www.ssllabs.com/ssltest/)
+* [Symantec SSL Toolbox](https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp)
 
 
 ## Web Application Firewall
