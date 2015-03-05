@@ -479,6 +479,54 @@ limit_req zone=large burst=150;
 ** Note: ** the default zone is "small" and should fit for the most websites / users
 
 
+## Custom configuration
+
+You can add specific configurations like redirects or additional headers within the ~/cnf/ directory.
+
+** Warning: ** You have to reload nginx after changes with the "nginx-reload" shortcut
+
+
+### ~/cnf/nginx.conf
+
+Configure specific redirects, enable gzip and other stuff directly in the nginx.conf. This file is included within the server block.
+
+```
+if ($http_host = www.example.net) {
+	rewrite (.*) http://www.example.com;
+}
+```
+
+### ~/cnf/nginx_waf.conf
+
+Configure WAF exeptions here, see [Web Application Firewall](#Web_Application_Firewall) for details.
+
+
+## GeoIP
+
+To use your GeoIP database with nginx, store the appropriate data files on your server and add the following configuration:
+
+```
+# GeoIP Settings for nginx
+nginx::http_cfg_append:
+  - "geoip_country	/home/user/geoip/GeoIPv6.dat"
+  - "geoip_city	/home/user/geoip/GeoLiteCityv6.dat"
+
+# GeoIP related environment variables
+environment::variables:
+  "GEOIP_ADDR":         "$remote_addr"
+  "GEOIP_ADDR":         "$remote_addr"
+  "GEOIP_COUNTRY_CODE": "$geoip_country_code"
+  "GEOIP_COUNTRY_NAME": "$geoip_country_name"
+  "GEOIP_REGION":       "$geoip_region"
+  "GEOIP_REGION_NAME":  "$geoip_region_name"
+  "GEOIP_CITY":         "$geoip_city"
+  "GEOIP_AREA_CODE":    "$geoip_area_code"
+  "GEOIP_LATITUDE":     "$geoip_latitude"
+  "GEOIP_LONGITUDE":    "$geoip_longitude"
+  "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
+```
+
+
 ## Deploy applications
 
 There are two options to switch a application between different environments:
@@ -614,54 +662,6 @@ If your old site is using Apache, add this VirtualHost:
   ProxyPreserveHost On
   ProxyPass         / http://new.host.name/
 </VirtualHost>
-```
-
-
-## Custom configuration
-
-You can add specific configurations like redirects or additional headers within the ~/cnf/ directory.
-
-** Warning: ** You have to reload nginx after changes with the "nginx-reload" shortcut
-
-
-### ~/cnf/nginx.conf
-
-Configure specific redirects, enable gzip and other stuff directly in the nginx.conf. This file is included within the server block.
-
-```
-if ($http_host = www.example.net) {
-	rewrite (.*) http://www.example.com;
-}
-```
-
-### ~/cnf/nginx_waf.conf
-
-Configure WAF exeptions here, see [Web Application Firewall](#Web_Application_Firewall) for details.
-
-
-## GeoIP
-
-To use your GeoIP database with nginx, store the appropriate data files on your server and add the following configuration:
-
-```
-# GeoIP Settings for nginx
-nginx::http_cfg_append:
-  - "geoip_country	/home/user/geoip/GeoIPv6.dat"
-  - "geoip_city	/home/user/geoip/GeoLiteCityv6.dat"
-
-# GeoIP related environment variables
-environment::variables:
-  "GEOIP_ADDR":         "$remote_addr"
-  "GEOIP_ADDR":         "$remote_addr"
-  "GEOIP_COUNTRY_CODE": "$geoip_country_code"
-  "GEOIP_COUNTRY_NAME": "$geoip_country_name"
-  "GEOIP_REGION":       "$geoip_region"
-  "GEOIP_REGION_NAME":  "$geoip_region_name"
-  "GEOIP_CITY":         "$geoip_city"
-  "GEOIP_AREA_CODE":    "$geoip_area_code"
-  "GEOIP_LATITUDE":     "$geoip_latitude"
-  "GEOIP_LONGITUDE":    "$geoip_longitude"
-  "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 ```
 
 
