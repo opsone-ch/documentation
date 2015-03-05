@@ -11,12 +11,12 @@ It supports the following website types, helpers and additional services:
 Currently we support the following CMS, eCommerce systems, blogs and programmming languages for your website "out of the box",
 with a preinstalled and optimized environment to improve the performance, scalability, security and availability of your website:
 
-* [typo3cms](websites/index.md#typo3cms)
-* [magento](websites/index.md#magento)
-* [wordpress](websites/index.md#wordpress)
-* [php](websites/index.md#php)
-* [hhvm](websites/index.md#hhvm)
-* [html](websites/index.md#html)
+* [typo3cms](websites/website.md#typo3cms)
+* [magento](websites/website.md#magento)
+* [wordpress](websites/website.md#wordpress)
+* [php](websites/website.md#php)
+* [hhvm](websites/website.md#hhvm)
+* [html](websites/website.md#html)
 
 
 #### Environments
