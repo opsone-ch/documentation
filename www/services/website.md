@@ -662,9 +662,9 @@ For more information about our Dualstack Infrastructure, see the  [Dualstack](/s
 
 ----
 
-## Custom vhost configuration
+## Custom configuration
 
-There is the possibility to add specific configurations like redircts in the users cnf/ directory and versioning / deploy them on every projects environment.
+You can add specific configurations like redirects or additional headers within the ~/cnf/ directory.
 
 ** Warning: ** You have to reload nginx after changes with the "nginx-reload" shortcut
 
@@ -684,7 +684,7 @@ if ($http_host = www.example.net) {
 Configure WAF exeptions here, see [Web Application Firewall](#Web_Application_Firewall) for details.
 
 
-## GeoIP Module
+## GeoIP
 
 To use your GeoIP database with nginx, store the appropriate data files on your server and add the following configuration:
 
