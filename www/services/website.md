@@ -710,14 +710,6 @@ environment::variables:
 ```
 
 
-## More options
-
-There are many more things to configure, for example
-
-   * manage SSH access keys
-   * add additional services (Varnish, Memcache, Redis, many more)
-
-
 ## Delete website
 
 Warning: This feature is currently work in process. By now, please contact us to delete a site
@@ -821,6 +813,8 @@ website::sites:
      NgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS
      v8jOaIjDp5AMoZxbPMlv/5Tk85uF
      -----END CERTIFICATE-----
+   "deleteme":
+     "ensure": "absent"
 
 ```
 
