@@ -1,18 +1,50 @@
 # Website Service
 
-Our website module provides everything you need, to manage, deploy and run your website. It supports the following website types, helpers and additional services.
-You can create a website hosting over your hiera yaml file, run puppet and everything is setup to fit your needs. 
+Our website module provides everything you need, to manage, deploy and run your website. It is type and environment based which means you have to select a particular type (e.g. typo3cms) and environment (e.g. PROD). According those settings, our automation will setup the server/vhost as required. 
+
+
+## Add website
+
+Add a website with a configuration like this:
+
+```
+website::sites: 
+   "username":
+    "server_name": "example.net www.example.net"
+    "env":         "PROD"
+    "type":        "php"
+```
+
+ * username: Is used as system user name (SSH Login, CGI User) and database nam, if a database exist
+ * server_name: add host names which this vhost will listen on. You have to define all names explicit, also with and/or without www.
+ * env: One of DEV, STAGE or PROD (see [Environments](index.md#Environments) below)
+ * type: software type of this particular website (see [Types](index.md#Types) below)
+
+By adding a website, the following parts are created on the server:
+
+ * system user
+ * system group
+ * home directory (/home/username/)
+ * directory for temporary files (/home/username/tmp/)
+ * directory for log files (/home/username/log/)
+ * directory for additional configuration files (/home/username/cnf/)
+ * directory for backups (used for database dumps, /home/username/backup/)
+ * environment variables for bash and zsh (~/.profile and ~/.zprofile)
+ * SSH authorised keys
+ * webserver vhost configuration (for custom configurations, see [Custom configurations](index.md#Custom_configurations) below
+
 
 ## Types
 
-Use website types to create your suitable environment
+You have to define one of the following types for each website:
 
-####  typo3cms 
-* MariaDB 10.x with database, user, grants and environment set
+
+#### typo3cms 
+
+* nginx 1.6 with naxsi WAF, core rule set and TYPO3 white/blacklists
 * PHP-FPM 5.6 
-* nginx 1.6 with naxsi WAF (and TYPO3 white/blacklists)
-* TYPO3 6.2 cloned into /var/lib/typo3/
-
+* MariaDB 10.x with database, user, and grants
+* TYPO3 CMS 6.2 cloned into /var/lib/typo3/TYPO3_6-2/
 
 ```
 website::sites: 
@@ -21,14 +53,14 @@ website::sites:
     "server_name": "typo3.example.net www.typo3.example.net"
     "env":         "PROD"
     "type":        "typo3cms"
-
 ```
 
-####  magento 
-* MariaDB 10.x autocreated and environment set
-* PHP-FPM 5.6 with mcrypt module
-* nginx 1.6 with naxsi WAF (and magento white/blacklists)
 
+####  magento 
+
+* nginx 1.6 with naxsi WAF, core rule set and magento white/blacklists
+* PHP-FPM 5.6 with mcrypt module
+* MariaDB 10.x with database, user, and grants
 
 ```
 website::sites: 
@@ -39,10 +71,12 @@ website::sites:
     "password":    "Aiw7vaakos04h7e"
 ```
 
+
 #### wordpress
-* MariaDB 10.x autocreated and environment set
+
+* nginx 1.6 with naxsi WAF, core rule set and wordpress white/blacklists
 * PHP-FPM 5.6 with mcrypt module
-* nginx 1.6 with naxsi WAF (and wordpress white/blacklists)
+* MariaDB 10.x with database, user, and grants
 
 ```
 website::sites: 
@@ -53,12 +87,12 @@ website::sites:
     "password":    "Aiw7vaakos04h7e"
 ```
 
-#### php 
-pure PHP e.g. for NoDB solutions
 
-* use "dbtype": "mysql" to add a database
+#### php 
+
+* nginx 1.6 with naxsi WAF and core rule set
 * PHP-FPM 5.6 
-* nginx 1.6 with naxsi (and core rule set)
+* MariaDB 10.x with database, user, and grants (use "dbtype": "mysql", otherwise without database)
 
 ```
 website::sites: 
@@ -68,28 +102,29 @@ website::sites:
     "type":        "php"
 ```
 
-#### hhvm
-Facebooks HHVM - BETA
 
-* for high load sites (better performance then PHP-FPM)
-* with fallback to PHP-FPM 
-* needs intensive testing
-* stack: nginx 1.6, MariaDB 10.0, PHP-FPM, HHVM)
+#### hhvm
+
+* nginx 1.6 with naxsi WAF and core rule set
+* HHVM with PHP-FPM 5.6 fallback
+* MariaDB 10.x with database, user, and grants (use "dbtype": "mysql", otherwise without database)
+* please contact us to evaluate the feasibility within your project
 
 ```
 website::sites: 
    "hhvmexamplenet":
     "server_name": "hhvm.example.net"
     "env":         "PROD"
-    "type":        "php"
+    "type":        "hhvm"
     "dbtype":      "mysql"
     "password":    "ohQueeghoh0bath"
 ```
 
 #### html
-pure HTML, just static content
 
-* nginx 1.6 with naxsi (and core rule set)
+
+* nginx 1.6 with naxsi and core rule set
+* for static content only (this documentation is served trough the html type)
 
 ```
 website::sites: 
@@ -99,13 +134,12 @@ website::sites:
     "type":        "html"
 ```
 
-** Hint: ** other types on request (node.js, ruby etc.)
+** Hint: ** If you need a type not mentioned here yet, do not hesitate to contact us.
+
 
 ## Delete website
 
-At the moment you have to contact our [Support](/support/index.md) to delete a hosting. Later, we will provide a solution to delete it over hiera.
-
----
+TODO
 
 
 ## Environments
@@ -118,31 +152,45 @@ You have to select one of those environments for each website:
 * live sites only
 * no access protection
 * phpinfo disabled (otherwise database credentials in environment variables could get leaked)
-* error log level "quiet"
+* quiet error log level
 
 
 #### STAGE 
 
 * for stage / preview / testing access
-* password protected (User "preview", password from htpasswd option)
+* password protected (User "preview", password from "htpasswd" option)
 * phpinfo enabled
-* error log level "noisy"
+* debug error log level
 
 
 #### DEV
 
 * for development
-* password protected (User "preview", password from htpasswd option)
+* password protected (User "preview", password from "htpasswd" option)
 * phpinfo enabled
-* error log level "noisy"
+* debug error log level
+
 
 #### User Handling
 
-The preview user gets applied to all non PROD environments and is intended for
-your own use, but also to allow access to other parties like your customer.
+The preview user gets applied to all non PROD environments and is intended for your own use, but also to allow access to other parties like your customer. Use the "htpasswd" option to set a particular password to the preview user. You have to use a htpasswd encrypted value which you can generate like this:
 
-Furthermore, you can add additional users trough the "website::users"
-configuration like this:
+```
+htpasswd -n preview
+```
+
+Configuration example: 
+
+```
+"devexamplenet":
+    "type":        "typo3cms"
+    "env":         "DEV"
+    "server_name": "dev.example.net www.dev.example.net"
+    "password":    "1234"
+    "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+```
+
+Furthermore, you can add additional users trough the "website::users" configuration like this:
 
 ```
 website::users:
@@ -152,56 +200,29 @@ website::users:
     "preview": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
 ```
 
-You can add users like this for yourself and your co-workers. If you work on
-multiple websites, you dont have to look up the corresponding password all
-the time but just use the global one.
+You can add such uers for yourself and your co-workers. If you work on multiple websites, you do not have to look up the corresponding password all the time but just use the global one.
 
-** Note: ** Please keep in mind that this password gets often transfered over unencrypted connections. As everywhere, we recommend to use a particular password for only this purpose.
+** Note: ** Please keep in mind that this password gets often transfered over unencrypted connections. As always, we recommend to use a particular password for only this purpose.
 
-```
-"devexamplenet":
-    "password":    "1234"
-    "server_name": "dev.example.net www.dev.example.net"
-    "env":         "DEV"
-    "htpasswd":    "iequ8eeL1Eish0F" 
-    "type":        "typo3cms"
-```
 
-### Variables and usage
+### Environment Variables
 
-The definied websites are automatically setup with a practically environment. We create the following files / configurations regarding to your types and included services:
+For each website, the following environment variables are created by default, and are available within the shell and also the webserver.
 
-##### .profile
+ * SITE_ENV (DEV, STAGE or PROD)
+ * DB_HOST (Database hostname, only if there is a database)
+ * DB_NAME (Database name, only if there is a database)
+ * DB_USERNAME (Database username, only if there is a database)
+ * DB_PASSWORD (Database password, only if there is a database)
 
-The .profile file in the user home directory contains
 
-* the users database credentials
-* the users environment (DEV, STAGE, PROD)
-* other stuff related to / used by the installed services
+Hint: to use the .profile environmnet within a cronjob, prepend the following code to your command:
+/bin/bash -c 'source $HOME/.profile; ~/original/command'
 
-This allows you / the user to access e.g. your MySQL database without entering the database credentials.
-Simply type "mysql" in your shell and here we go! It also provides the credentials for cronjobs etc.
 
-sample .profile file:
+#### Example usage within PHP
 
-```
-export DB_USERNAME=examplenet
-export DB_PASSWORD=xxx
-export DB_HOST=localhost
-export DB_NAME=examplenet
-export SITE_ENV=live
-```
-
-to use the .profile environmnet with your cronjobs, simply set the following before your original cronjob.
-
-```
-/bin/bash -c 'source $HOME/.profile; original cron;'
-```
-##### php environments
-
-If there is a database installed, the credentials and environment are stored in the php environment / fastcgi_params.
-To configure e.g. TYPO3 to use this settings, edit the localconf.php with the following:
-
+As soon there is a database installed, the following variables are added to the environment and can be used from within your application. TYPO3 Example:
 ```
 $typo_db_username = $_SERVER['DB_USERNAME'];
 $typo_db_password = $_SERVER['DB_PASSWORD'];
@@ -209,15 +230,14 @@ $typo_db_host     = $_SERVER['DB_HOST'];
 $typo_db          = $_SERVER['DB_NAME'];
 ```
 
-There is also the oppunity to access the "used environment" over SITE_ENV and configure the installation regarding to the used environement.
-This example shows how you set the $recipient regarding to your env:
+Additionaly, you can use the "SITE_ENV" variable to set parameters according the current environment:
 ```
 switch ($_SERVER['SITE_ENV']) {
     case 'dev':
-        $recipient = 'entwicklung@snowflake.ch';
+        $recipient = 'dev@example.net';
         break;
     case 'stage':
-        $recipient = 'entwicklung@snowflake.ch';
+        $recipient = 'dev@example.net';
         break;
     case 'live':
         $recipient = 'customer@example.com';
@@ -225,25 +245,13 @@ switch ($_SERVER['SITE_ENV']) {
 }
 ```
 
-#### Deployment magic!
+If you configure your application like this, you can copy all data between different servers or vhosts (DEV/STAGE/PROD) and all settings are applied as desired.
 
-Sounds good, but why should I use it? 
-
-The main reason to use this automatic created environment: deployment support.
-
-1. add the configuration to your application
-2. copy the installation with your favorite tool / script to e.g. from DEV to STAGE.
-3. as you recognized right, you do not have to change your database credentials. 
-
-There is also the possiblilty to change the hiera data "DEV => STAGE => PROD" and password and the website is still running without changing the applications database configuration.
-
-** Hint: ** You can also use it on your [Vagrant box](development/vagrant) locally.
-
----
 
 ## Deploy and launch
 
 In the following section, do you find some hints how to deploy your website from DEV to STAGE and STAGE to PROD without troubles and a happy end-user:
+
 
 #### Prepare your DNS 
 
@@ -254,6 +262,7 @@ And you have access to the DNS management system.
 
 There is no reason anymore, to cache the records for a long time (e.g. one day). 
 So please do not switch back to a high TTL after going live. DNS requests to the nameservers do not create much load.
+
 
 #### DEV => STAGE
 
@@ -270,7 +279,9 @@ There are also two ways to deploy your site from STAGE to PROD.
 * copy files / database to the existing STAGE environment
 * renaming STAGE to PROD, removing the htpasswd entry, copy the files afterwards back to the new STAGE
 
+
 #### Copy
+
 
 ##### Filesystem sync (local)
  
@@ -359,9 +370,8 @@ If your old site is using Apache, add this VirtualHost:
 
 ``` 
 
----
 
-## Certificates (TLS)
+## TLS Certificates
 
 #### Overview
 
@@ -507,9 +517,8 @@ Test your certificate with
 * https://www.ssllabs.com/ssltest/
 * https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp
 
----
 
-## Web Application Firewall WAF
+## Web Application Firewall
 
 #### Naxsi
 
@@ -597,11 +606,10 @@ If you like to understand the naxsi whitelist syntax, please visit the [maintain
 
 So you can easily track your changes and deploy the WAF rules always with your project to DEV / STAGE / PROD.
 
----
 
-## HTTP conn / req limits
+## Request limits
 
-#### Limits
+### Limits
 
 The number of connections and requests are limited for saftey reasons to the following values:
 
@@ -616,9 +624,10 @@ If the IP does more than 5 req. /sec. the requests are delayed and other clients
 
 If the IP creates more than 15req. /sec the webserver responds with the 503 status code ("service unavailable")
 
-#### Adjust limits 
 
-To adjust this limits (e.g. for API calls, Intranet sites, etc), set a higher "load zone" in your cnf/nginx.conf.
+### Adjust limits 
+
+To adjust this limits (e.g. for special applications such as API calls, etc), set a higher "load zone" in your local configuration (~/cnf/nginx.conf):
 
 ```
 # connection limits (e.g. 50 connections)
@@ -629,9 +638,9 @@ limit_conn addr 50;
 limit_req zone=large burst=150;
 ```
 
-** Hint: ** to apply the changes reload the nginx config with nginx-reload
+** Hint: ** to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
 
-#### Zones
+### Zones
 
 * small = 5req / sec (burst: 15req/sec)
 * medium = 15 req / sec (burst: 50 req/sec)
@@ -640,27 +649,28 @@ limit_req zone=large burst=150;
 ** Note: ** the default zone is "small" and should fit for the most websites / users
 
 
----
+## DNS Settings
 
-## IPV6 enabled / DNS
+All our servers and services are reachable by both IPv4 and IPv6.
 
-Every hosting is "IPV6 enabled". 
+Note: Please remember to add both A/AAAA DNS Records test both Protocols
 
-** Note: ** Please remember to add the DNS IPV6 AAAA records and test them:
-
+Check DNS Records:
 ```
-wget -4 www.snowflake.ch
-wget -6 www.snowflake.ch
-
-dig A www.snowflake.ch @ns.snowflakehosting.ch
-dig AAAA www.snowflake.ch @ns.snowflakehosting.ch
+dig A www.example.net
+dig AAAA www.example.net
 ```
 
-more information about our [IPV6 Dualstack Infrastructure](../../server/dualstack/)
+Check HTTP:
+```
+wget -4 www.example.net
+wget -6 www.example.net
+```
 
----
+For more information about our Dualstack Infrastructure, see the  [Dualstack](../../server/dualstack/) Site.
 
-## Permissions
+
+## File and Directory Permissions
 
 * Goals
     * Users cannot access each others Directory Structure
@@ -676,21 +686,16 @@ more information about our [IPV6 Dualstack Infrastructure](../../server/dualstac
 
 ----
 
-## Custom configs
+## Custom vhost configuration
 
 There is the possibility to add specific configurations like redircts in the users cnf/ directory and versioning / deploy them on every projects environment.
 
-** Warning: ** Do not forget to reload nginx after changes.
-
-```
-nginx-reload
-```
+** Warning: ** You have to reload nginx after changes with the "nginx-reload" shortcut
 
 
-#### cnf/nginx.conf
+### ~/cnf/nginx.conf
 
-Configure specific redirects, enable gzip and other stuff directly in the nginx.conf.
-This file is included in the server block. e.g.
+Configure specific redirects, enable gzip and other stuff directly in the nginx.conf. This file is included within the server block.
 
 ```
 if ($http_host = www.domain.ch) {
@@ -698,15 +703,14 @@ if ($http_host = www.domain.ch) {
 }
 ```
 
-#### cnf/nginx_waf.conf
+### ~/cnf/nginx_waf.conf
 
-	[Configure naxsi whitelists](#Web_Application_Firewall_WAF )
+Configure WAF exeptions here, see [Web Application Firewall](#Web_Application_Firewall) for details.
 
----
 
 ## GeoIP Module
 
-To use your GeoIP database with nginx, store your .dat files on the server and include the module with hiera:
+To use your GeoIP database with nginx, store the appropriate data files on your server and add the following configuration:
 
 ```
 # GeoIP Settings for nginx
@@ -729,27 +733,18 @@ environment::variables:
   "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 ```
 
----
 
-## Other settings and options
+## More options
 
-* There are many things you can configure over hiera (Load modules, set options etc.)
-   * manage SSH Keys
-   * add modules (e.g. Varnish, Memcache, Redis)
-   * set firewall rules 
+There are many more things to configure, for example
+
+   * manage SSH access keys
+   * add additional services (Varnish, Memcache, Redis, many more)
+
+Please contact use for details.
 
 
-----
-
-## Backup
-
-Every website is backuped daily to another datacenter. 
-
-You can request restores up to 30 days (guaranteed) and ask for older restores.
-
-----
-
-## Hiera Example
+## Full Configuration Example
 
 ```
 website::sites: 
@@ -762,7 +757,7 @@ website::sites:
     "password":    "1234"
     "server_name": "dev.example.net www.dev.example.net"
     "env":         "DEV"
-    "htpasswd":    "iequ8eeL1Eish0F"
+    "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
     "type":        "typo3cms"
    "phpexamplenet":
     "server_name": "php.example.net"

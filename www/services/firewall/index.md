@@ -1,5 +1,8 @@
 # Firewall Service
 
+Note: This site belongs to the IP firewall. There is also a web application firewall which is described within the [Website Service](/services/website/index.md#Web_Application_Firewall) below)
+
+
 ## Default settings
 
 By default, all incoming and outgoing traffic is blocked, expect the following:
