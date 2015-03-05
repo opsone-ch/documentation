@@ -434,25 +434,22 @@ BasicRule wl:1310 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event
 ```
 
 
-
-
-
 ## Request limits
+
+The number of connections and requests are limited to ensure that a single user (or bot) cannot overload the whole server.
 
 ### Limits
 
-The number of connections and requests are limited for saftey reasons to the following values:
+* 25 connections / Address
+* 5 requests / second / Address
+* 15 requests / second (burst)
+* \>15 requests / second / Address (access limited)
 
-* 25 conn. / IP
-* 5 req. / sec. / IP
-* 15 req. / sec. (burst)
-* \>15 req. / sec. (access limited)
+With this configuration, a particular visitor can open up to 25 concurrent connections and issue up to 5 requests / second.
 
-This means, that an IP can open up to 25 connections and do 5 requests / second.
+If the visitor issues more than 5 request / second, those requests are delayed and other clients are served first.
 
-If the IP does more than 5 req. /sec. the requests are delayed and other clients are served first. ("leaky bucket method")
-
-If the IP creates more than 15req. /sec the webserver responds with the 503 status code ("service unavailable")
+If the visitor issues more than 15 request / second, those requests will not processed anymore, but answered with the 503 status code.
 
 
 ### Adjust limits 
@@ -468,15 +465,16 @@ limit_conn addr 50;
 limit_req zone=large burst=150;
 ```
 
-** Hint: ** to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
+Hint: to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
+
 
 ### Zones
 
-* small = 5req / sec (burst: 15req/sec)
-* medium = 15 req / sec (burst: 50 req/sec)
-* large = 50 req / sec (burst: 150 req/sec)
+* small = 5 requests / second (burst: 15req/sec)
+* medium = 15 requests / second (burst: 50 req/sec)
+* large = 50 requests / second (burst: 150 req/sec)
 
-** Note: ** the default zone is "small" and should fit for the most websites / users
+Note: the default zone is "small" and will fite most use cases
 
 
 ## Custom configuration
