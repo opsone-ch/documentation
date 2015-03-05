@@ -415,7 +415,7 @@ We have 3 supported types of certificates:
 #### Requirements 
 
 * Valid eMail account to validate the domain ownership:
-     * webmaster@domain.ch
+     * webmaster@example.net
      * admin@
      * administrator@
 
@@ -425,7 +425,7 @@ We have 3 supported types of certificates:
 use the following command to create the private key and .crt over openssl (linux / mac):
 
 ```
- openssl req -newkey rsa:2048 -x509 -nodes -days 3650 -out www.domain.ch.crt -keyout www.domain.ch.key
+ openssl req -newkey rsa:2048 -x509 -nodes -days 3650 -out www.example.net.crt -keyout www.example.net.key
 ```
 
 you need to enter the following data:
@@ -436,7 +436,7 @@ State or Province Name (full name) [Some-State]:Zurich
 Locality Name (eg, city) []:Zurich
 Organization Name (eg, company) [Internet Widgits Pty Ltd]:SYNA
 Organizational Unit Name (eg, section) []:
-Common Name (eg, YOUR name) []:www.domain.ch
+Common Name (eg, YOUR name) []:www.example.net
 Email Address []:webmaster@… 
 ```
 
@@ -444,7 +444,7 @@ after that, you need to sign the certificate from the authority.
 so you need to generate a certifcate signing request (CSR):
 
 ```
- openssl x509 -x509toreq -signkey www.domain.ch.key -in www.domain.ch.crt
+openssl x509 -x509toreq -signkey www.example.net.key -in www.example.net.crt
 ```
 
 Submit this CRS to our [Support](/support.md) if you like a certificate from us.
@@ -530,91 +530,72 @@ Test your certificate with
 
 ## Web Application Firewall
 
-#### Naxsi
+We use [Naxsi](https://github.com/nbs-system/naxsi) as additional protection against application level attacks such as cross site-scripting or SQL injections. We also block common vulnerabilities and zero day attacks, see our [status site](http://status.snowflake.ch/) for updates.
 
-Our WAF is based on the opensource, high performance WAF for Nginx called "Naxsi".
-It protects your webapplication from XSS & SQL Injection attacks. 
-And also blocks common vulnerabilities & zero day attacks as far as possibly (visit status.snowflake.ch for more information)
+Warning: this is just a additional security measure. Regardless its existence, remember to keep your application, extensions and libraries secure and up to date
 
-** Warning: ** the WAF is just a security feature. Please remember to code secure and keep your application and the used 3rd party extensions up 2 date!
 
-#### 403 forbidden / Firewall blocks / false positives
+### Identify blocks
 
-If a request to your application is blocked by naxsi, you will see a "403 forbidden" error.
-There is also a detailed log/error.log entry provided - e.g. the following:
+If a request is blocked, the server will issue a "403 forbidden" error. There are detailed informations available in the error log file:
 
 ```
-2015/02/17 14:03:04 [error] 15296#0: *1855 NAXSI_FMT: ip=91.199.98.29&server=www.domain.ch&uri=/admin/&learning=0&vers=0.53-1&total_processed=1&total_blocked=1&block=1&cscore0=$XSS&score0=8&zone0=BODY|NAME&id0=1310&var_name0=login[username]&zone1=BODY|NAME&id1=1311&var_name1=login[username], client: 91.199.98.29, server: www.domain.ch, request: "POST /admin/ HTTP/1.1", host: "www.domain.ch", referrer: "http://www.domain.ch/admin/"
-```
-To learn more about the log syntax, vist the [Naxsi wiki](https://github.com/nbs-system/naxsi/wiki)
-
-#### mange false positives
-
-If you are sure, that your request to the application is valid (and well coded..) you can whitelist the "false positive". 
-Normaly we recommend to test an application on the stage environment and analyze afterwards the error.log with the nx_util:
-
-##### nx_util
-
-```
-/usr/local/bin/nx_util.py -lo error.log  
-
-Deleting old database :naxsi_sig
-List of imported files :['error.log']
-Importing file error.log
-	Successful events :6
-	Filtered out events :0
-	Non-naxsi lines :0
-	Malformed/incomplete lines 5
-End of db commit... 
-Count (lines) success:6
-########### Optimized Rules Suggestion ##################
-# total_count:2 (33.33%), peer_count:1 (100.0%) | ], possible js
-BasicRule wl:1311 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
-# total_count:2 (33.33%), peer_count:1 (100.0%) | [, possible js
-BasicRule wl:1310 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
-# total_count:1 (16.67%), peer_count:1 (100.0%) | ], possible js
-BasicRule wl:1311 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
-# total_count:1 (16.67%), peer_count:1 (100.0%) | [, possible js
-BasicRule wl:1310 "mz:$URL:/snowflake-komponenten/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
-
+2015/02/17 14:03:04 [error] 15296#0: *1855 NAXSI_FMT: ip=192.168.0.22&server=www.example.net&uri=/admin/&learning=0&vers=0.53-1&total_processed=1&total_blocked=1&block=1&cscore0=$XSS&score0=8&zone0=BODY|NAME&id0=1310&var_name0=login[username]&zone1=BODY|NAME&id1=1311&var_name1=login[username], client: 192.168.0.22, server: www.example.net, request: "POST /admin/ HTTP/1.1", host: "www.example.net", referrer: "http://www.example.net/admin/"
 ```
 
+To learn more about the log syntax, vist the [Naxsi Documentation](https://github.com/nbs-system/naxsi/wiki).
 
-This tool processes your .log files and generates "whitelist rule suggestions". 
-Please pay attention to the "suggestions" part and do not copy/paste "blindly" the whitelists!
 
-##### apply whitelists
+### Manage false positives
 
-If you are sure, that your whitelists are correct, can you add the whitelists at:
-    
-```
-cnf/nginx_waf.conf
-```
-
-and reload your webserver with:
-
-```
-nginx-reload
-```
-
-** Hint: ** If you are not sure, that your whitelists are correct. Please contact our [Support](/support.md). We are happy to help you out!
-
-##### optimize your whitelists
-
-Please remember, that you can "beautify" the whitelists. The generated whitelists above, would result in the following rules:
+If you are certain, that your request to the application is valid (and well coded), you can whitelist the affected rule(s) within the ~/cnf/nginx_waf.conf File:
 
 ```
 BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
 BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
 ```
 
-If you like to understand the naxsi whitelist syntax, please visit the [maintainers github wiki](https://github.com/nbs-system/naxsi/wiki/whitelists)
+See the [Naxsi Documentation](https://github.com/nbs-system/naxsi/wiki/whitelists) for details.
 
-##### Version control
+Hint: to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
 
-** Warning: ** We strongly recommend the versioning of the cnf/ directory in your (git) project. 
+Hint: if you need assistance, do not hesitate to [contact us](/support.md). We are happy to help out!
 
-So you can easily track your changes and deploy the WAF rules always with your project to DEV / STAGE / PROD.
+Hint: we strongly recommend to add the ~/cnf/ directory to the source code management of your choice
+
+
+### Autocreate rules
+
+With nx_util, you can parse & analyze naxsi log files. It will propose appropriate whitelist rules tailored to your application
+
+Warning: Use on DEV/STAGE Environment only. Otherwise you will end up whitelisting actual attacks.
+
+```
+/usr/local/bin/nx_util.py -lo error.log
+
+Deleting old database :naxsi_sig
+List of imported files :['error.log']
+Importing file error.log
+        Successful events :6
+        Filtered out events :0
+        Non-naxsi lines :0
+        Malformed/incomplete lines 5
+End of db commit...
+Count (lines) success:6
+########### Optimized Rules Suggestion ##################
+# total_count:2 (33.33%), peer_count:1 (100.0%) | ], possible js
+BasicRule wl:1311 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
+# total_count:2 (33.33%), peer_count:1 (100.0%) | [, possible js
+BasicRule wl:1310 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
+# total_count:1 (16.67%), peer_count:1 (100.0%) | ], possible js
+BasicRule wl:1311 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
+# total_count:1 (16.67%), peer_count:1 (100.0%) | [, possible js
+BasicRule wl:1310 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
+
+```
+
+
+
 
 
 ## Request limits
@@ -708,8 +689,8 @@ There is the possibility to add specific configurations like redircts in the use
 Configure specific redirects, enable gzip and other stuff directly in the nginx.conf. This file is included within the server block.
 
 ```
-if ($http_host = www.domain.ch) {
-	rewrite (.*) http://www.domain.com;
+if ($http_host = www.example.net) {
+	rewrite (.*) http://www.example.com;
 }
 ```
 
@@ -750,8 +731,6 @@ There are many more things to configure, for example
 
    * manage SSH access keys
    * add additional services (Varnish, Memcache, Redis, many more)
-
-Please contact use for details.
 
 
 ## Full Configuration Example
