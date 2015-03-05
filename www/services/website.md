@@ -437,7 +437,7 @@ so you need to generate a certifcate signing request (CSR):
  openssl x509 -x509toreq -signkey www.domain.ch.key -in www.domain.ch.crt
 ```
 
-Submit this CRS to our [Support](/support/index.md) if you like a certificate from us.
+Submit this CRS to our [Support](/support.md) if you like a certificate from us.
 Or even use every authority you want..
 
 
@@ -587,7 +587,7 @@ and reload your webserver with:
 nginx-reload
 ```
 
-** Hint: ** If you are not sure, that your whitelists are correct. Please contact our [Support](/support/index.md). We are happy to help you out!
+** Hint: ** If you are not sure, that your whitelists are correct. Please contact our [Support](/support.md). We are happy to help you out!
 
 ##### optimize your whitelists
 
@@ -667,7 +667,7 @@ wget -4 www.example.net
 wget -6 www.example.net
 ```
 
-For more information about our Dualstack Infrastructure, see the  [Dualstack](../../server/dualstack/) Site.
+For more information about our Dualstack Infrastructure, see the  [Dualstack](/server/dualstack.md) Site.
 
 
 ## File and Directory Permissions

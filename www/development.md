@@ -8,7 +8,7 @@ The website Service is aware of those Environments:
  * STAGE
  * PROD
 
-See the [Service Documentation](/services/websites/index.md#server/dualstack/index.md#Environments) for Details.
+See the [Service Documentation](/server/website.md#Environments) for Details.
 
 
 ## Vagrant

@@ -2,31 +2,29 @@
 
 [Server]()
 
-  * [Overview](server/index.md)
+  * [Overview](server.md)
   * # Details
-  * [Access](server/access/index.md)
-  * [Dualstack](server/dualstack/index.md)
-  * [Configuration](server/configuration/index.md)
+  * [Access](server/access.md)
+  * [Dualstack](server/dualstack.md)
+  * [Configuration](server/configuration.md)
 
 [Services]()
 
-  * [Overview](services/index.md)
+  * [Overview](services.md)
   * # Details
-  * [Website](services/websites/index.md)
-  * [Database](services/databases/index.md)
-  * [FTP](services/ftp/index.md)
-  * [Networking](services/networking/index.md)
-  * [Firewall](services/firewall/index.md)
+  * [Website](services/website.md)
+  * [Database](services/database.md)
+  * [FTP](services/ftp.md)
+  * [Networking](services/networking.md)
+  * [Firewall](services/firewall.md)
 
 [Development]()
 
-  * [Overview](development/index.md)
+  * [Overview](development.md)
 
-[Support]()
+[Support](support.md)
 
-  * [Support](support/index.md)
-  * [Status](http://status.snowflake.ch)
+[FAQ](faq.md)
 
-[gimmick:theme (inverse: false)](bootstrap)
-
+[Status](http://status.snowflake.ch)
 

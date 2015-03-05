@@ -4,6 +4,5 @@ This is the snowflake Hosting documentation. Its targeted at an technical audien
 
 Marketing and contract related details are available on our [website](https://snowflake.ch/hosting/).
 
+** Hint: ** If you have any questions, feel free to [contact us](support.md)
 
-
-** Hint: ** If you have any questions, feel free to [contact us](support/index.md).

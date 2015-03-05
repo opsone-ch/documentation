@@ -61,9 +61,9 @@ Use high-performance caching for you applications.
 
 Access the filesystem of your server.
 
-* [SSH](/server/access/index.md#SSH)
-* [SFTP](/server/access/index.md#SFTP)
-* [FTP](ftp/index.md)
+* [SSH](/server/access.md#SSH)
+* [SFTP](/server/access.md#SFTP)
+* [FTP](/services/ftp.md)
 
 ---
 

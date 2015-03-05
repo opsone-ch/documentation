@@ -14,9 +14,9 @@ Monday - Friday
 
 ## Hotline
 
-Please us [E-Mail](mailto:support@snowflake.ch) to contact us if possible, so we are able to handle and/or priorize your request better.
+Please use [E-Mail](mailto:support@snowflake.ch) to contact whenever possible. That way, we are able to handle and/or priorize your request better.
 
-For emergencies or difficult inquiries, you can also contact us by phone:
+However, you can contact us by phone of course:
 
 +41 58 680 32 40
 

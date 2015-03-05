@@ -1,6 +1,6 @@
 # Firewall Service
 
-Note: This site belongs to the IP firewall. There is also a web application firewall which is described within the [Website Service](/services/website/index.md#Web_Application_Firewall) below)
+Note: This site belongs to the IP firewall. There is also a web application firewall which is described within the [website service](/services/website.md#Web_Application_Firewall)
 
 
 ## Default settings
@@ -41,7 +41,7 @@ base::firewall::rules:
 
 Where applicable, both IPv4 and IPv6 Rules are added by default (For example INPUT chains for a particular Port).
 
-Warning: Try your best to avoid such custom rules. For outgoing connections, use our Proxy Servers instead (see below).
+Warning: Try your best to avoid such custom rules. For outgoing connections, use our Proxy Servers instead (see below)
 
 
 ## Outgoing proxy
@@ -56,5 +56,5 @@ proxy.snowflakehosting.ch:80
 
 This proxy is already configured trough global Environment Variables for both System and Webserver.
 
-Hint: Make sure to use curl within PHP which will respect those Variables by default.
+Hint: Make sure to use curl within PHP which will respect those Variables by default
 
