@@ -28,3 +28,5 @@
 
 [Status](http://status.snowflake.ch)
 
+[gimmick:ForkMeOnGitHub (color: 'gray')](http://www.github.com/snowflakech/hosting-documentation)
+
