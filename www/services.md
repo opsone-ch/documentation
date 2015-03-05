@@ -11,27 +11,27 @@ It supports the following website types, helpers and additional services:
 Currently we support the following CMS, eCommerce systems, blogs and programmming languages for your website "out of the box",
 with a preinstalled and optimized environment to improve the performance, scalability, security and availability of your website:
 
-* [typo3cms](websites/index.md#typo3cms)
-* [magento](websites/index.md#magento)
-* [wordpress](websites/index.md#wordpress)
-* [php](websites/index.md#php)
-* [hhvm](websites/index.md#hhvm)
-* [html](websites/index.md#html)
+* [typo3cms](services/website.md#typo3cms)
+* [magento](services/website.md#magento)
+* [wordpress](services/website.md#wordpress)
+* [php](services/website.md#php)
+* [hhvm](services/website.md#hhvm)
+* [html](services/website.md#html)
 
 
 #### Environments
 
 There are also many helpers, to improve your websites environment:
 
-* [Permissions](websites/index.md#Permissions)
+* [Permissions](services/website.md#Permissions)
     * Overview of the file / user permissions
-* [Environements](websites/index.md#Environments)
+* [Environements](servcies/website.md#Environments)
     * DEV
     * STAGE
     * PROD
 * Security
-    * [Web Application Firewall (WAF)](websites/index.md#Naxsi)
-    * [TLS Certificate](websites/index.md#Overview)
+    * [Web Application Firewall (WAF)](services/website.md#Naxsi)
+    * [TLS Certificate](services/website.md#TLS_Certificates)
 
 You can easily add more servcies to your server with the following modules:
 
@@ -41,7 +41,7 @@ You can easily add more servcies to your server with the following modules:
 
 Install and manage databases.
 
-* [MariaDB (similar to MySQL)](databases/index.md#mysql-mariadb)
+* [MariaDB (similar to MySQL)](services/database.md#mysql-mariadb)
 * eXist
 * more on request
 
