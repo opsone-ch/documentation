@@ -243,129 +243,6 @@ switch ($_SERVER['SITE_ENV']) {
 If you configure your application like this, you can copy all data between different servers or vhosts (DEV/STAGE/PROD) and all settings are applied as desired.
 
 
-## Deploy and launch
-
-In the following section, do you find some hints how to deploy your website from DEV to STAGE and STAGE to PROD without troubles and a happy end-user:
-
-
-#### Prepare your DNS 
-
-First of all: make sure your Nameservers / DNS records are prepared. 
-And you have access to the DNS management system. 
-
-** Warning: ** Please set the TTL to a "modern" and flexible value for every record. We recommend "300" (5 minutes). 
-
-There is no reason anymore, to cache the records for a long time (e.g. one day). 
-So please do not switch back to a high TTL after going live. DNS requests to the nameservers do not create much load.
-
-
-#### DEV => STAGE
-
-There are two ways to deploy your site from DEV to STAGE:
-
-* copy files / database to the existing STAGE environment
-* renaming DEV to STAGE and copy the files afterwards back to the new DEV
-
-
-#### Stage => PROD
-
-There are also two ways to deploy your site from STAGE to PROD.
-
-* copy files / database to the existing STAGE environment
-* renaming STAGE to PROD, removing the htpasswd entry, copy the files afterwards back to the new STAGE
-
-
-#### Copy
-
-
-##### Filesystem sync (local)
- 
-Sync your filesystem local with rsync:
-
-* exclude unneeded directories (e.g.. typo3temp)
-* man rsync for detailed information
-
-```
-rsync -avz --exclude=typo3temp source/ destination/
-```
-
-##### Filesystem sync (remote to local) 
-
-Sync your filesystem with a remote server:
-
-```
-rsync -avz --delete --exclude=typo3temp  example@example01.snowflakehosting.ch:www/ /path/to/your/local/www/source/
-```
-
-do not forget your local .git repo
-
-##### Database copy (local)
-
-Analyse your databse first, and then copy your DB local to another database:
-
-```
-SELECT table_name AS "Tables", 
-round(((data_length + index_length) / 1024 / 1024), 2) "Size in MB" 
-FROM information_schema.TABLES 
-WHERE table_schema = "[DBNAME HERE]"
-ORDER BY (data_length + index_length) DESC;
-```
-if there are large caching tables, search indexes etc. ignore this tables:
-
-* --ignore-table=database.table
-
-(for every table!)
-
-also use the singe-transaction option:
-
-* --single-transaction
-
-
-```
-mysqldump --single-transaction --ignore-table=exampledatabase.cache_pages --ignore-table=exampledatabase.cache_hash -uexampledatabaseuser -ppassword exampledatabase | mysql -uexampledatabase2 -ppassword2 exampledatabase2
-
-```
-
-** Warning: ** Do not forget to recreate the ignored tables with your application. 
-With TYPO3 you can use: install tool => DB compare
-
-
-##### Database copy (remote to local)
-
-```
-ssh example@example01.snowflakehosting.ch mysqldump --single-transaction --ignore-table=exampledatabase.cache_pages --ignore-table=exampledatabase.cache_hash -uexampledatabaseuser -ppassword exampledatabase | mysql -uexampledatabase2 -ppassword2 exampledatabase2
-
-```
-	
-
-#### Testing
-
-Please always test the website extensively. You can simulate a "live" Website with a local hostfile entry to "overrule" your ISPs DNS server.
-
-#### Reverse Proxy
-
-If you want to be sure, that no requests are delivered from the old server / website until all cusotmers DNS caches are refreshed, add an reverse proxy and load the new site over this proxy.
-
-This setup results in a new website which is immediately live and the end user always see the new site. Independently of that his DNS is up2date.
-
-If your old site is using Apache, add this VirtualHost:
-
-
-```
-<VirtualHost 91.199.old.ip:80>
-  ServerName example.com
-  ServerAlias www.example.com
-  ErrorLog "/path/to/log/error.log"
-  CustomLog "/path/to/log/access.log" combined
-
-	ProxyRequests		Off
-	ProxyPreserveHost	On
-	ProxyPass		/ http://91.199.new.ip/
-</VirtualHost>
-
-``` 
-
-
 ## TLS Certificates
 
 By adding a TLS certificate to your website, the following configurations/features are applied to the vhost:
@@ -602,42 +479,143 @@ limit_req zone=large burst=150;
 ** Note: ** the default zone is "small" and should fit for the most websites / users
 
 
-## DNS Settings
+## Deploy applications
 
-All our servers and services are reachable by both IPv4 and IPv6.
+There are two options to switch a application between different environments:
 
-Note: Please remember to add both A/AAAA DNS Records test both Protocols
+* switch environment on a existing website
+* create a new website with the desired environment setting, copy files (and database)
 
-Check DNS Records:
+
+### Switch environment
+
+With this option, you just change the environment for a particular website, e.g. from STAGE to PROD. If the former environment is still required, you have to add a new website and copy all data back, therefore we recommend to use the second method by default.
+
+* rename "env" value from "STAGE" to "PROD"
+* remove "htpasswd" value which is not required anymore
+
+
+### New website, copy data
+
+With this option, you just add another website with the desired environment and copy all all files (and database) into the new website.
+
+
+#### Copy files
+
+Login into the old website and issue this command:
+
 ```
-dig A www.example.net
-dig AAAA www.example.net
+rsync -avz --exclude=typo3temp ~/ newuser@server:~/
 ```
 
-Check HTTP:
+Hint: use appropriate exclude patterns to ignore all not required files
+
+Hint: depending on the nature of your version control, you can skip all or most of this manual copy, but just checkout your project into the new website
+
+Note: we use always SSH to copy files, even on the same server. This ensures that all files and directories belong to the appropriate user
+
+
+#### Copy database
+
+Login into the old website and issue this command:
+
+```
+mysqldump --single-transaction --ignore-table=exampledatabase.cache_pages --ignore-table=exampledatabase.cache_hash -uexampledatabaseuser -ppassword exampledatabase | ssh newuser@server mysql -unewdatabase -ppassword newdatabase
+```
+
+Hint: Skip big and not required tables with the "--ignore-table" parameter
+
+
+##### Identify big tables
+
+```
+SELECT table_name AS "tables", 
+round(((data_length + index_length) / 1024 / 1024), 2) "Size in MB" 
+FROM information_schema.TABLES 
+WHERE table_schema = "<dbname>"
+ORDER BY (data_length + index_length) DESC;
+```
+
+Warning: You have to create those ignored tables manually on the new website afterwards
+
+
+## Go Live
+
+### Testing
+
+First of all, make sure everything is in place as desired. Always simulate productive calls to the application by adding all involved host names to your local hosts file. If you expect heavy usage, carry out load tests beforehand.
+
+Hint: We are happy to assist you with architecture, sizing and load tests
+
+
+### DNS Records
+
+Note: set a low TTL value in DNS beforehand. We recommend to use "300" always
+
+
+#### Lookup addresses
+
+Connect to your server and note both IPv4 and IPv6 address:
+
+```
+$ facter ipaddress ipaddress6
+ipaddress => 192.168.0.99
+ipaddress6 => 2001:db8::99
+```
+
+#### Add records
+
+Add DNS records within the DNS server of your choice.
+
+```
+example.net.     A       192.168.0.99
+example.net.     AAAA    2001:db8::99
+www.example.net. A       192.168.0.99
+www.example.net. AAAA    2001:db8::99
+```
+
+Note: always add both A/AAAA DNS Records. Even if you have no IPv6 connectivity yet, others will, and IPv6 usage will spread
+
+Hint: for more information about our Dualstack Infrastructure, see the  [Dualstack](/server/dualstack.md) Site.
+
+
+#### Check records
+
+Right after you changed the records, you should query your dns server and compare the returned values against those from your lookup before:
+
+```
+dig A www.example.net @nameserver
+dig AAAA www.example.net @nameserver
+```
+
+#### Check HTTP
+
+At last, check HTTP access for both IPv4 and IPv6 protocol to make sure everything went fine:
+
 ```
 wget -4 www.example.net
 wget -6 www.example.net
 ```
 
-For more information about our Dualstack Infrastructure, see the  [Dualstack](/server/dualstack.md) Site.
 
+### Reverse Proxy
 
-## File and Directory Permissions
+If you want to make sure, that no requests are delivered from the old server/website anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without being affected by the uncertainties of the global DNS System.
 
-* Goals
-    * Users cannot access each others Directory Structure
-    * PHP is executed with User privileges
-    * Webserver (User www-data) can access static Files for each User
-* User and Groups
-    * for every Website, a User and Group with the same Name is created
-    * the www-data User is Member from every Group
-* File Owner and Permissions
-    * Owner of all Files and Folders in /home/<user>/ is the corresponding User and Group
-    * Permissions should be 0640 (0750) for public readable static Files such as Images or CSS
-    * to enhance Security, Files and Directories can be owned by root:<usergroup> as long as PHP Processes dont need write access to them.
+If your old site is using Apache, add this VirtualHost:
 
-----
+```
+<VirtualHost 192.168.0.22:80>
+  ServerName        example.net
+  ServerAlias       www.example.net
+  ErrorLog          /path/to/error.log
+  CustomLog         /path/to/access.log combined
+  ProxyRequests     Off
+  ProxyPreserveHost On
+  ProxyPass         / http://new.host.name/
+</VirtualHost>
+```
+
 
 ## Custom configuration
 
