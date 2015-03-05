@@ -137,21 +137,6 @@ website::sites:
 ** Hint: ** If you need a type not mentioned here yet, do not hesitate to contact us.
 
 
-## Delete website
-
-Warning: This feature is currently work in process. By now, please contact us to delete a site
-
-As a security measure, you have to define explicit that you want to delete a website:
-
-```
-website::sites: 
-   "examplenet":
-    "ensure": "absent"
-```
-
-As soon as "ensure" is set to "absent", all configurations and data related to this site gets removed at once. After the next configuration run, you can remove the whole part from the website::sites hash.
-
-
 ## Environments
 
 You have to select one of those environments for each website:
@@ -731,6 +716,21 @@ There are many more things to configure, for example
 
    * manage SSH access keys
    * add additional services (Varnish, Memcache, Redis, many more)
+
+
+## Delete website
+
+Warning: This feature is currently work in process. By now, please contact us to delete a site
+
+As a security measure, you have to define explicit that you want to delete a website:
+
+```
+website::sites: 
+   "examplenet":
+    "ensure": "absent"
+```
+
+As soon as "ensure" is set to "absent", all configurations and data related to this site gets removed at once. After the next configuration run, you can remove the whole part from the website::sites hash.
 
 
 ## Full Configuration Example
