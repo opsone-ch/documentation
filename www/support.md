@@ -9,7 +9,7 @@ If you have any questions, feel free to get in touch by [E-Mail](mailto:support@
 
 Monday - Friday
 08:30 - 11:30
-13:30 - 18:30
+13:30 - 17:30
 
 
 ## Hotline
