@@ -10,3 +10,5 @@ Marketing and contract related details are available on our [website](https://sn
 
 We strongly believe in open source software. While this documentation is released as open soure already ([GitHub Project](https://github.com/snowflakech/hosting-documentation)), we are working hard to publish our Puppet wrapper modules as well. Checkout our [GitHub Organisation](https://github.com/snowflakech) for updates.
 
+This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
