@@ -49,7 +49,7 @@ You have to define one of the following types for each website:
 ```
 website::sites: 
    "examplenet":
-    "password":    "1234"
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
     "server_name": "typo3.example.net www.typo3.example.net"
     "env":         "PROD"
     "type":        "typo3cms"
