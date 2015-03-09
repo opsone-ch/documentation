@@ -15,7 +15,8 @@ website::sites:
     "type":        "php"
 ```
 
- * username: Is used as system user name (SSH Login, CGI User) and database nam, if a database exist
+ * username: Is used as system user name (SSH Login, CGI User) and database name, if a database exist
+  * 2 - 16 lowercase letters only (as this name is used in several places, we have to limit its value to the least common denominator)
  * server_name: add host names which this vhost will listen on. You have to define all names explicit, also with and/or without www.
  * env: One of DEV, STAGE or PROD (see [Environments](index.md#Environments) below)
  * type: software type of this particular website (see [Types](index.md#Types) below)
