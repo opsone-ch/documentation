@@ -1,12 +1,6 @@
 # FAQ
 
 
-## Question 1
+## How can I update the puppet configuration
 
-Answer 1
-
-
-## Question 2
-
-Answer 2
-
+Use the command `puppet-agent` to update the configuration on your server. This will affect all vHosts on this machine. 
