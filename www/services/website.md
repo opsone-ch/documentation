@@ -480,14 +480,14 @@ Note: the default zone is "small" and will fit most use cases
 
 ## Custom configuration
 
-You can add specific configurations like redirects or additional headers within the ~/cnf/ directory.
+You can add specific configurations like redirects or headers within the ~/cnf/ directory.
 
 ** Warning: ** You have to reload nginx after changes with the "nginx-reload" shortcut
 
 
 ### ~/cnf/nginx.conf
 
-Configure specific redirects, enable gzip and other stuff directly in the nginx.conf. This file is included within the server block.
+Included within the server block and used to configure specific redirects, enable gzip and other stuff directly in the nginx.conf.
 
 ```
 if ($http_host = www.example.net) {
@@ -536,7 +536,7 @@ There are two options to switch a application between different environments:
 
 ### Switch environment
 
-With this option, you just change the environment for a particular website, e.g. from STAGE to PROD. If the former environment is still required, you have to add a new website and copy all data back, therefore we recommend to use the second method by default.
+With this option, you just change the environment for a particular website, for example from STAGE to PROD. If the former environment is still required, you have to add a new website and copy all data back, we recommend to use the second method by default.
 
 * rename "env" value from "STAGE" to "PROD"
 * remove "htpasswd" value which is not required anymore
@@ -544,7 +544,7 @@ With this option, you just change the environment for a particular website, e.g.
 
 ### New website, copy data
 
-With this option, you just add another website with the desired environment and copy all all files (and database) into the new website.
+With this option, you just add another website with the desired environment and copy all files (and database) into the new website.
 
 
 #### Copy files
@@ -623,7 +623,7 @@ www.example.net. AAAA    2001:db8::99
 
 Note: always add both A/AAAA DNS Records. Even if you have no IPv6 connectivity yet, others will, and IPv6 usage will spread
 
-Hint: for more information about our Dualstack Infrastructure, see the  [Dualstack](/server/dualstack.md) Site.
+Hint: for more information about our dualstack infrastructure, see the  [Dualstack](/server/dualstack.md) Site.
 
 
 #### Check records
@@ -647,9 +647,9 @@ wget -6 www.example.net
 
 ### Reverse Proxy
 
-If you want to make sure, that no requests are delivered from the old server/website anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without being affected by the uncertainties of the global DNS System.
+If you want to make sure, that the old server/website wont deliver any requests anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without the uncertainties of the global DNS System.
 
-If your old site is using Apache, add this VirtualHost:
+If your old site is using Apache, add this virtual host:
 
 ```
 <VirtualHost 192.168.0.22:80>
@@ -666,7 +666,7 @@ If your old site is using Apache, add this VirtualHost:
 
 ## Delete website
 
-Warning: This feature is currently work in process. By now, please contact us to delete a site
+Warning: This feature is work in process. By now, please contact us to delete a site
 
 As a security measure, you have to define explicit that you want to delete a website:
 
@@ -676,7 +676,7 @@ website::sites:
     "ensure": "absent"
 ```
 
-As soon as "ensure" is set to "absent", all configurations and data related to this site gets removed at once. After the next configuration run, you can remove the whole part from the website::sites hash.
+As soon as "ensure" equals set to "absent", all configurations and data related to this site gets removed at once. After the next configuration run, you can remove the whole part from the website::sites hash.
 
 
 ## Full Configuration Example
