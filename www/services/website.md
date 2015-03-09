@@ -228,13 +228,13 @@ $typo_db          = $_SERVER['DB_NAME'];
 Additionaly, you can use the "SITE_ENV" variable to set parameters according the current environment:
 ```
 switch ($_SERVER['SITE_ENV']) {
-    case 'dev':
+    case 'DEV':
         $recipient = 'dev@example.net';
         break;
-    case 'stage':
+    case 'STAGE':
         $recipient = 'dev@example.net';
         break;
-    case 'live':
+    case 'PROD':
         $recipient = 'customer@example.com';
         break;
 }
