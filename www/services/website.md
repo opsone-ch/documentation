@@ -474,7 +474,7 @@ Hint: to apply the changes reload the nginx configuration with the "nginx-reload
 * medium = 15 requests / second (burst: 50 req/sec)
 * large = 50 requests / second (burst: 150 req/sec)
 
-Note: the default zone is "small" and will fite most use cases
+Note: the default zone is "small" and will fit most use cases
 
 
 ## Custom configuration
