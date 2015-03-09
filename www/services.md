@@ -30,7 +30,7 @@ with a preinstalled and optimized environment to improve the performance, scalab
 
 There are also many helpers, to improve your websites environment:
 
-* [Environments](servcies/website.md#Environments)
+* [Environments](services/website.md#Environments)
     * DEV
     * STAGE
     * PROD
