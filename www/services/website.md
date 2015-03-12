@@ -76,7 +76,7 @@ website::sites:
 #### wordpress
 
 * nginx 1.6 with naxsi WAF, core rule set and wordpress white/blacklists
-* PHP-FPM 5.6 with mcrypt module
+* PHP-FPM 5.6
 * MariaDB 10.x with database, user, and grants
 
 ```
@@ -88,6 +88,20 @@ website::sites:
     "password":    "Aiw7vaakos04h7e"
 ```
 
+#### drupal
+
+* nginx 1.6 with naxsi WAF, core rule set and drupal white/blacklists
+* PHP-FPM 5.6 
+* MariaDB 10.x with database, user, and grants
+
+```
+website::sites: 
+   "drupalexample":
+    "server_name": "drupal.example.net"
+    "env":         "PROD"
+    "type":        "drupal"
+    "password":    "Aiw7vaakos04h7e"
+```
 
 #### php 
 
@@ -441,16 +455,16 @@ The number of connections and requests are limited to ensure that a single user 
 
 ### Limits
 
-* 25 connections / Address
-* 5 requests / second / Address
-* 15 requests / second (burst)
-* \>15 requests / second / Address (access limited)
+* 25 connections / Address 
+* 50 requests / second / Address
+* 150 requests / second (burst)
+* \>150 requests / second / Address (access limited)
 
-With this configuration, a particular visitor can open up to 25 concurrent connections and issue up to 5 requests / second.
+With this configuration, a particular visitor can open up to 25 concurrent connections and issue up to 50 requests / second.
 
-If the visitor issues more than 5 request / second, those requests are delayed and other clients are served first.
+If the visitor issues more than 50 request / second, those requests are delayed and other clients are served first.
 
-If the visitor issues more than 15 request / second, those requests will not processed anymore, but answered with the 503 status code.
+If the visitor issues more than 150 request / second, those requests will not processed anymore, but answered with the 503 status code.
 
 
 ### Adjust limits 
@@ -462,8 +476,8 @@ To adjust this limits (e.g. for special applications such as API calls, etc), se
 limit_conn addr 50;
 
 # limit requests / second: (small, medium, large)
-#limit_req zone=medium burst=50;
-limit_req zone=large burst=150;
+#limit_req zone=medium burst=500;
+limit_req zone=large burst=1500;
 ```
 
 Hint: to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
@@ -471,11 +485,14 @@ Hint: to apply the changes reload the nginx configuration with the "nginx-reload
 
 ### Zones
 
-* small = 5 requests / second (burst: 15req/sec)
-* medium = 15 requests / second (burst: 50 req/sec)
-* large = 50 requests / second (burst: 150 req/sec)
+* small = 50 requests / second (burst: 150req/sec)
+* medium = 150 requests / second (burst: 500 req/sec)
+* large = 500 requests / second (burst: 1500 req/sec)
 
 Note: the default zone is "small" and will fit most use cases
+
+
+** Warning: ** In SPDY, each concurrent request is considered a separate connection.
 
 
 ## Custom configuration
@@ -694,6 +711,16 @@ website::sites:
     "env":         "DEV"
     "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
     "type":        "typo3cms"
+   "wordpressexample":
+    "server_name": "wordpress.example.net"
+    "env":         "PROD"
+    "type":        "wordpress"
+    "password":    "Aiw7vaakos04h7e"
+   "drupalexample":
+    "server_name": "drupal.example.net"
+    "env":         "PROD"
+    "type":        "drupal"
+    "password":    "Aiw7vaakos04h7e"
    "phpexamplenet":
     "server_name": "php.example.net"
     "env":         "PROD"
