@@ -691,8 +691,6 @@ If your old site is using Apache, add this virtual host:
 
 ## Delete website
 
-Warning: This feature is work in process. By now, please contact us to delete a site
-
 As a security measure, you have to define explicit that you want to delete a website:
 
 ```
@@ -702,6 +700,8 @@ website::sites:
 ```
 
 As soon as "ensure" equals set to "absent", all configurations and data related to this site gets removed at once. After the next configuration run, you can remove the whole part from the website::sites hash.
+
+Warning: After setting `ensure` to `absent`, do not run `puppet-agent` with this particular user. Use another, remaining user or the generic `devop` user to run `puppet-agent`
 
 
 ## Full Configuration Example
