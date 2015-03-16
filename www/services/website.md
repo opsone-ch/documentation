@@ -49,7 +49,7 @@ You have to define one of the following types for each website:
 
 ```
 website::sites: 
-   "examplenet":
+  "examplenet":
     "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
     "server_name": "typo3.example.net www.typo3.example.net"
     "env":         "PROD"
@@ -65,7 +65,7 @@ website::sites:
 
 ```
 website::sites: 
-   "magentoexample":
+  "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
     "type":        "magento"
@@ -81,7 +81,7 @@ website::sites:
 
 ```
 website::sites: 
-   "wordpressexample":
+  "wordpressexample":
     "server_name": "wordpress.example.net"
     "env":         "PROD"
     "type":        "wordpress"
@@ -96,7 +96,7 @@ website::sites:
 
 ```
 website::sites: 
-   "drupalexample":
+  "drupalexample":
     "server_name": "drupal.example.net"
     "env":         "PROD"
     "type":        "drupal"
@@ -111,7 +111,7 @@ website::sites:
 
 ```
 website::sites: 
-   "phpexamplenet":
+  "phpexamplenet":
     "server_name": "php.example.net"
     "env":         "PROD"
     "type":        "php"
@@ -127,7 +127,7 @@ website::sites:
 
 ```
 website::sites: 
-   "hhvmexamplenet":
+  "hhvmexamplenet":
     "server_name": "hhvm.example.net"
     "env":         "PROD"
     "type":        "hhvm"
@@ -143,7 +143,7 @@ website::sites:
 
 ```
 website::sites: 
-   "htmlexamplenet":
+  "htmlexamplenet":
     "server_name": "html.example.net"
     "env":         "PROD"
     "type":        "html"
@@ -314,7 +314,7 @@ Note: make sure to use the correct line indenting
 
 ```
 website::sites: 
-   "magentoexample":
+  "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
     "type":        "magento"
@@ -689,7 +689,7 @@ As a security measure, you have to define explicit that you want to delete a web
 
 ```
 website::sites: 
-   "examplenet":
+  "examplenet":
     "ensure": "absent"
 ```
 
@@ -700,42 +700,42 @@ As soon as "ensure" equals set to "absent", all configurations and data related 
 
 ```
 website::sites: 
-   "examplenet":
+  "examplenet":
     "password":    "1234"
     "server_name": "typo3.example.net www.typo3.example.net"
     "env":         "PROD"
     "type":        "typo3cms"
-   "devexamplenet":
+  "devexamplenet":
     "password":    "1234"
     "server_name": "dev.example.net www.dev.example.net"
     "env":         "DEV"
     "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
     "type":        "typo3cms"
-   "wordpressexample":
+  "wordpressexample":
     "server_name": "wordpress.example.net"
     "env":         "PROD"
     "type":        "wordpress"
     "password":    "Aiw7vaakos04h7e"
-   "drupalexample":
+  "drupalexample":
     "server_name": "drupal.example.net"
     "env":         "PROD"
     "type":        "drupal"
     "password":    "Aiw7vaakos04h7e"
-   "phpexamplenet":
+  "phpexamplenet":
     "server_name": "php.example.net"
     "env":         "PROD"
     "type":        "php"
-   "hhvmexamplenet":
+  "hhvmexamplenet":
     "server_name": "hhvm.example.net"
     "env":         "PROD"
     "type":        "php"
     "dbtype":      "mysql"
     "password":    "ohQueeghoh0bath"
-   "htmlexamplenet":
+  "htmlexamplenet":
     "server_name": "html.example.net"
     "env":         "PROD"
     "type":        "html"
-   "magentoexample":
+  "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
     "type":        "magento"
@@ -794,8 +794,7 @@ website::sites:
      NgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS
      v8jOaIjDp5AMoZxbPMlv/5Tk85uF
      -----END CERTIFICATE-----
-   "deleteme":
+  "deleteme":
      "ensure": "absent"
-
 ```
 
