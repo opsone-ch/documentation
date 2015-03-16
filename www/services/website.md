@@ -9,7 +9,7 @@ Add a website with a configuration like this:
 
 ```
 website::sites: 
-   "username":
+  "username":
     "server_name": "example.net www.example.net"
     "env":         "PROD"
     "type":        "php"
@@ -491,8 +491,9 @@ Hint: to apply the changes reload the nginx configuration with the "nginx-reload
 
 Note: the default zone is "small" and will fit most use cases
 
+Warning: In SPDY, each concurrent request is considered a separate connection.
 
-** Warning: ** In SPDY, each concurrent request is considered a separate connection.
+Hint: To add more specific rules (based on client addresses or url for example), please get in touch
 
 
 ## Custom configuration
