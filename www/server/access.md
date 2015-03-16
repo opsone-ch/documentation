@@ -4,9 +4,19 @@ The following ways are provided to access your server and files.
 
 ## SSH
 
-** Note: ** due to security reasons, we allow key based logins only.
+Warning: due to security reasons, we allow key based logins only
 
-Your server is accessible trough SSH by default. We allow only key based logins as non privileged user (no root Login). You can add global keys to your server like this:
+Your server is accessible trough SSH by default. We allow only key based logins as non privileged user (no root Login).
+
+
+### Generic `devop` user
+
+On all servers, a user named `devop` is created by default. You can login as `devop` user to execute `puppet-agent`. Additionaly, this user belongs to the `adm` group which enables you access to all system log files in `/var/log/`.
+
+
+### Key Handling
+
+You can add global keys to your server like this:
 
 ```
 ssh::keys:
@@ -32,7 +42,7 @@ ssh::keys:
       "key": "ssh-rsa AAAAB....."
 ```
 
-#### Create SSH Key
+### Create SSH Key
 
 * use 4096 bit RSA Keys
 * encrypt with PKCS8
@@ -52,7 +62,8 @@ We recommend to use one of the following clients:
 * [Filezilla](https://filezilla-project.org)
 * [Cyperduck](https://cyberduck.io)
 
-** Hint: ** To store your key in the memory and not having to enter the password for every connection -  use pagent (Windows) or ssh-add it (Linux)
+Hint: To store your key in the memory and not having to enter the password for every connection -  use pagent (Windows) or ssh-add it (Linux)
+
 
 ## FTP
 
