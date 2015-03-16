@@ -397,7 +397,7 @@ If a request is blocked, the server will issue a "403 forbidden" error. There ar
 2015/02/17 14:03:04 [error] 15296#0: *1855 NAXSI_FMT: ip=192.168.0.22&server=www.example.net&uri=/admin/&learning=0&vers=0.53-1&total_processed=1&total_blocked=1&block=1&cscore0=$XSS&score0=8&zone0=BODY|NAME&id0=1310&var_name0=login[username]&zone1=BODY|NAME&id1=1311&var_name1=login[username], client: 192.168.0.22, server: www.example.net, request: "POST /admin/ HTTP/1.1", host: "www.example.net", referrer: "http://www.example.net/admin/"
 ```
 
-To learn more about the log syntax, vist the [Naxsi Documentation](https://github.com/nbs-system/naxsi/wiki).
+To learn more about the log syntax, vist the [Naxsi documentation](https://github.com/nbs-system/naxsi/wiki).
 
 
 ### Manage false positives
@@ -409,7 +409,7 @@ BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
 BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
 ```
 
-See the [Naxsi Documentation](https://github.com/nbs-system/naxsi/wiki/whitelists) for details.
+See the [Naxsi documentation](https://github.com/nbs-system/naxsi/wiki/whitelists) for details.
 
 Hint: to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
 
@@ -495,7 +495,9 @@ Warning: In SPDY, each concurrent request is considered a separate connection.
 
 Hint: To add more specific rules (based on client addresses or url for example), please get in touch
 
+Hint: For Details, see the [Module ngx_http_limit_req_module](http://nginx.org/en/docs/http/ngx_http_limit_req_module.html) documentation
 
+ 
 ## Custom configuration
 
 You can add specific configurations like redirects or headers within the ~/cnf/ directory.
@@ -512,6 +514,9 @@ if ($http_host = www.example.net) {
 	rewrite (.*) http://www.example.com;
 }
 ```
+
+Hint: For Details, see the [Server Block Examples](http://wiki.nginx.org/ServerBlockExample) and [Rewrite Rule](http://wiki.nginx.org/HttpRewriteModule#rewrite) documentation
+
 
 ### ~/cnf/nginx_waf.conf
 
@@ -542,6 +547,8 @@ environment::variables:
   "GEOIP_LONGITUDE":    "$geoip_longitude"
   "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 ```
+
+Hint: For Details, see the [Module ngx_http_geoip_module](http://nginx.org/en/docs/http/ngx_http_geoip_module.html) documentation
 
 
 ## Deploy applications
