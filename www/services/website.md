@@ -455,12 +455,12 @@ The number of connections and requests are limited to ensure that a single user 
 
 ### Limits
 
-* 25 connections / Address 
-* 50 requests / second / Address
+* 50 connections / address 
+* 50 requests / second / address
 * 150 requests / second (burst)
-* \>150 requests / second / Address (access limited)
+* \>150 requests / second / address (access limited)
 
-With this configuration, a particular visitor can open up to 25 concurrent connections and issue up to 50 requests / second.
+With this configuration, a particular visitor can open up to 50 concurrent connections and issue up to 50 requests / second.
 
 If the visitor issues more than 50 request / second, those requests are delayed and other clients are served first.
 
@@ -472,11 +472,11 @@ If the visitor issues more than 150 request / second, those requests will not pr
 To adjust this limits (e.g. for special applications such as API calls, etc), set a higher "load zone" in your local configuration (~/cnf/nginx.conf):
 
 ```
-# connection limits (e.g. 50 connections)
-limit_conn addr 50;
+# connection limits (e.g. 75 connections)
+limit_conn addr 75;
 
 # limit requests / second: (small, medium, large)
-#limit_req zone=medium burst=500;
+limit_req zone=medium burst=500;
 limit_req zone=large burst=1500;
 ```
 
