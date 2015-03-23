@@ -548,7 +548,13 @@ environment::variables:
   "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 ```
 
-Hint: For Details, see the [Module ngx_http_geoip_module](http://nginx.org/en/docs/http/ngx_http_geoip_module.html) documentation
+Hint: For details, see the [Module ngx_http_geoip_module](http://nginx.org/en/docs/http/ngx_http_geoip_module.html) documentation
+
+## Composer
+
+Every PHP based website type has composer installed and auto updated.
+
+Hint: For details, see the [Composer](https://getcomposer.org/doc/) documentation
 
 
 ## Deploy applications
