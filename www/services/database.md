@@ -5,12 +5,10 @@ Install and manage your favorite databases. Including users, grants, and the con
 
 ## MySQL / MariaDB
 
-At the moment only MariaDB (drop-in replacement for MySQL) is supported.
-
-Hint: We are happy to add support for more database types on request (eXist and PostgreSQL already in development).
+Instead of MySQL, we use MariaDB, which is a drop-in replacement with API/ABI compatibility to MySQL.
 
 
-## Prerequisites
+### Prerequisites
 
 You have to set mysql::server::root_password manually.
 
@@ -21,11 +19,11 @@ mysql::server::root_password: "password"
 Hint: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only.
 
 
-## Databases
+### Databases
 
 * add a Database
 * title: Database Name
-* type: Database Type, only "mysql" supported by now
+* type: Database Type: "mysql"
 * user_password: adds a User with the same Name as the Database with this Password and grant all privileges
     * without this, you have to add user/grants by yourself (see below), otherwise only root can access this database
     * it is only possible to add a local User here. For special Configurations (e.g. external access or grants to particular Tables use users/grants below)
@@ -40,7 +38,7 @@ database::databases:
 ```
 
 
-## Users
+### Users
 
 * add a User
 * you have to add desired grants additionally
@@ -55,7 +53,7 @@ database::users:
 ```
 
 
-## Grants
+### Grants
 
 * grant Access for a User to a Database and Tables
 
@@ -76,7 +74,7 @@ database::grants:
 ```
 
 
-## Backup
+### Backup
 
 Every database is backed up daily into the users backup directory:
 
@@ -119,7 +117,7 @@ the database.sql.lzo.1 is the backup from yesterday.
 
 ---
 
-## Access
+### Access
 
 #### phpmyadmin
 
@@ -151,3 +149,36 @@ simply access your database over the shell:
 ```
 mysql
 ```
+
+## Postgresql
+
+
+### Prerequisites
+
+You have to set `postgresql::server::postgres_password` manually.
+
+```
+postgresql::server::postgres_password: "password"
+```
+
+Hint: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only.
+
+
+### Databases
+
+* add a Database
+* title: Database Name
+* type: Database Type: "postgresql"
+* user_password: adds a User with the same Name as the Database with this Password and grant all privileges
+
+```
+database::databases:
+  "withuser":
+    "type": "postgresql"
+    "user_password": "cleartext-password"
+```
+
+### Backup
+
+Every database is dumped daily into the `~/backup/` directory.
+
