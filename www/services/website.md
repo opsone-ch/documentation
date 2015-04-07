@@ -548,13 +548,31 @@ environment::variables:
   "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 ```
 
-Hint: For details, see the [Module ngx_http_geoip_module](http://nginx.org/en/docs/http/ngx_http_geoip_module.html) documentation
+Hint: For details, see the [Module ngx_http_geoip_module](http://nginx.org/en/docs/http/ngx_http_geoip_module.html) documentation. 
 
 ## Composer
 
 Every PHP based website type has composer installed and auto updated.
 
-Hint: For details, see the [Composer](https://getcomposer.org/doc/) documentation
+Hint: For details, see the [Composer](https://getcomposer.org/doc/) documentation.
+
+#### TYPO3 CMS with Composer
+
+To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
+
+```
+# Export HTTP PROXY settings to use with get.typo3.org
+export HTTP_PROXY_REQUEST_FULLURI=false
+
+# Download the Base Distribution, the latest "stable" release (6.2)
+composer create-project typo3/cms-base-distribution CmsBaseDistribution
+
+# Download the Base Distribution, the "dev" branch (7.x)
+composer create-project typo3/cms-base-distribution CmsBaseDistribution dev-master
+
+# Download the Base Distribution, the "dev" 6.2 branch
+composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.x-dev
+```
 
 
 ## Deploy applications
