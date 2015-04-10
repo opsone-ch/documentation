@@ -448,6 +448,35 @@ BasicRule wl:1310 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event
 
 ```
 
+### Learning Mode
+
+To enable the Naxsi learning mode, set the Naxsi flag in the `~/cnf/nginx.conf` file:
+
+```
+ set $naxsi_flag_learning 1;
+```
+
+Which means that Naxsi will not block any request, but logs the "to-be-blocked" requests in your `~log/error.log`.
+
+Warning: Use on DEV/STAGE Enviroment only. Otherwise you will end up with an unprotected installation.
+
+Make sure, that you analyze the error.log carefully and only whitelist valid requests afterwards.
+
+
+#### Dynamic configuration
+
+Naxsi supports a limited set of variables, that can override or modify its behavoir.
+You can use them in your `~/cnf/nginx.conf` file. For example, enable the learning mode for an specific ip:
+
+```
+ if ($remote_addr = "1.2.3.4") {
+  set $naxsi_flag_learning 1;
+ }
+```
+More on the [dynamicmodifiers page](https://github.com/nbs-system/naxsi/wiki/dynamicmodifiers).
+
+Hint: this is a powerful feature in use with the [nginx vars](http://nginx.org/en/docs/varindex.html) 
+
 
 ## Request limits
 
