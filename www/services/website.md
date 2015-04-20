@@ -56,6 +56,20 @@ website::sites:
     "type":        "typo3cms"
 ```
 
+#### typo3neos 
+
+* nginx 1.6 with naxsi WAF, core rule set and TYPO3 Neos white/blacklists
+* PHP-FPM 5.6 
+* MariaDB 10.x with database, user, and grants
+
+```
+website::sites: 
+  "neosexample":
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "server_name": "neos.example.net www.neos.example.net"
+    "env":         "PROD"
+    "type":        "typo3neos"
+```
 
 ####  magento 
 
@@ -603,6 +617,15 @@ composer create-project typo3/cms-base-distribution CmsBaseDistribution dev-mast
 composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.x-dev
 ```
 
+#### TYPO3 Neos with Composer
+
+To use TYPO3 Neos 1.2 with composer, use the following command:
+
+```
+# Create Web/tmp directory, install Neos 1.2 with composer, move to users home directory and cleanup
+mkdir ~/Web/tmp/ && cd ~/Web/tmp/ && composer create-project --no-dev typo3/neos-base-distribution TYPO3-Neos-1.2 && rsync -a --delete-after ~/Web/tmp/TYPO3-Neos-1.2/ ~/
+```
+
 
 ## Deploy applications
 
@@ -796,6 +819,11 @@ website::sites:
     "server_name": "html.example.net"
     "env":         "PROD"
     "type":        "html"
+  "neosexample":
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "server_name": "neos.example.net www.neos.example.net"
+    "env":         "PROD"
+    "type":        "typo3neos"
   "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"

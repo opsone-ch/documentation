@@ -19,6 +19,7 @@ Currently we support the following CMS, eCommerce systems, blogs and programmmin
 with a preinstalled and optimized environment to improve the performance, scalability, security and availability of your website:
 
 * [typo3cms](services/website.md#typo3cms)
+* [typo3neos](services/website.md#typo3neos)
 * [magento](services/website.md#magento)
 * [wordpress](services/website.md#wordpress)
 * [drupal](services/website.md#drupal)
