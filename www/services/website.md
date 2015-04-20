@@ -240,7 +240,7 @@ For each website, the following environment variables are created by default, an
  * DB_PASSWORD (Database password, only if there is a database)
 
 
-Hint: to use the .profile environmnet within a cronjob, prepend the following code to your command:
+Hint: to use the .profile environmet within a cronjob, prepend the following code to your command:
 /bin/bash -c 'source $HOME/.profile; ~/original/command'
 
 
