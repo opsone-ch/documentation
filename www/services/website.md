@@ -593,6 +593,31 @@ environment::variables:
 
 Hint: For details, see the [Module ngx_http_geoip_module](http://nginx.org/en/docs/http/ngx_http_geoip_module.html) documentation. 
 
+## PHP Modules
+
+To install additional PHP modules, use the following configuration:
+
+```
+website::php:
+  "modulename":
+    "ensure": "installed"
+    "package": "php5-packagename"
+```
+
+
+For example if you like to install php5-ldap use:
+
+```
+website::php:
+  "ldap":
+    "ensure": "installed"
+    "package": "php5-ldap"
+```
+
+Hint: Some types might have the needed package preinstalled. For example "magento" comes with "php5-mcrypt".
+
+You will find a list of supported PHP Modules [Here](http://puppet-php.readthedocs.org/en/latest/extensions.html).
+
 ## Composer
 
 Every PHP based website type has composer installed and auto updated.
