@@ -61,3 +61,21 @@ Hint: For details, see the full [List of HTTP status codes](https://en.wikipedia
 
 Each website has a corresponding environment configured. See [Environments](services/website.md#Environments) within the website service documentation for details.
 
+
+## YAML syntax errors
+
+* make sure your YAML file is valid
+* if you encounter the following error, you added invalid YAML to your configuration
+```
+$ puppet-agent
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Loading facts
+Error: Could not retrieve catalog from remote server: Error 400 on SERVER: Evaluation Error: Error while evaluating a Resource Statement, Error from DataBinding 'hiera' while looking up 'apt::always_apt_update': (<unknown>): could not find expected ':' while scanning a simple key at line 24 column 5 at modules/base/manifests/apt.pp:13:2 on node host.example.net
+Warning: Not using cache on failed catalog
+Error: Could not retrieve catalog; skipping run
+```
+
+Hint: For details, see the [YAML](https://en.wikipedia.org/wiki/YAML) Documentation on Wikipedia.
+
+Warning: Do not use online YAML validators, as you might leak private informations like passwords to 3rd parties.
