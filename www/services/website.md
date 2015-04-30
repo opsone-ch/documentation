@@ -414,6 +414,13 @@ If a request is blocked, the server will issue a "403 forbidden" error. There ar
 To learn more about the log syntax, vist the [Naxsi documentation](https://github.com/nbs-system/naxsi/wiki).
 
 
+#### Extensiv logging
+
+If you want to debug the WAF block (often used with internal rules), you can increase the nginx error log level to "debug".
+
+See [Nginx documentation error log](http://nginx.org/en/docs/ngx_core_module.html#error_log) for more information.
+
+
 ### Manage false positives
 
 If you are certain, that your request to the application is valid (and well coded), you can whitelist the affected rule(s) within the ~/cnf/nginx_waf.conf File:
