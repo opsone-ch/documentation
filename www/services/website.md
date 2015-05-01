@@ -18,8 +18,8 @@ website::sites:
  * username: Is used as system user name (SSH Login, CGI User) and database name, if a database exist
   * 2 - 16 lowercase letters only (as this name is used in several places, we have to limit its value to the least common denominator)
  * server_name: add host names which this vhost will listen on. You have to define all names explicit, also with and/or without www.
- * env: One of DEV, STAGE or PROD (see [Environments](index.md#Environments) below)
- * type: software type of this particular website (see [Types](index.md#Types) below)
+ * env: One of DEV, STAGE or PROD (see [Environments](website.md#Environments) below)
+ * type: software type of this particular website (see [Types](website.md#Types) below)
 
 By adding a website, the following parts are created on the server:
 
@@ -32,7 +32,7 @@ By adding a website, the following parts are created on the server:
  * directory for backups (used for database dumps, /home/username/backup/)
  * environment variables for bash and zsh (~/.profile and ~/.zprofile)
  * SSH authorised keys
- * webserver vhost configuration (for custom configurations, see [Custom configurations](index.md#Custom_configurations) below
+ * webserver vhost configuration (for custom configurations, see [Custom configurations](website.md#Custom_configurations) below
 
 
 ## Types
@@ -174,7 +174,7 @@ website::sites:
 * there is no database added by default, choose one of
  * PostgreSQL 9.4 with database, user, and grants (`"dbtype": "postgresql"`)
  * MariaDB 10.x with database, user, and grants (`"dbtype": "mysql"`)
-* all requests are redirected to the uwsgi daemon by default. To serve static files, add appropriate locations to the [local nginx configuration](index.md#Custom_configurations) like this:
+* all requests are redirected to the uwsgi daemon by default. To serve static files, add appropriate locations to the [local nginx configuration](website.md#Custom_configurations) like this:
 ```
 location /static/
 {
