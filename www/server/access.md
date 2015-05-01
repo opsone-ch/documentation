@@ -11,7 +11,20 @@ Your server is accessible trough SSH by default. We allow only key based logins 
 
 ### Generic `devop` user
 
-On all servers, a user named `devop` is created by default. You can login as `devop` user to execute `puppet-agent`. Additionaly, this user belongs to the `adm` group which enables you access to all system log files in `/var/log/`.
+On all servers, a user named `devop` is created by default. This user is required to execute the `puppet-agent` shortcut as long as there are no other services/users configured. Furthermore, this user belongs to the `adm` group which enable access to all system log files in `/var/log/`.
+
+
+### Shortcuts and sudo configuration
+
+Depending on the installed services, the following shortcuts might be available to execute certain commands with root privileges:
+
+* `puppet-agent`: trigger puppet agent run
+* `nginx-restart`: restart nginx webserver
+* `nginx-reload`: reload nginx webserver
+* `fpm-restart`: restart PHP-FPM daemon
+* `fpm-reload`: reload PHP-FPM daemon
+* `uwsgi-restart`: restart uwsgi daemon
+* `uwsgi-reload`: reload uwsgi daemon
 
 
 ### Key Handling
