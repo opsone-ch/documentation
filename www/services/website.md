@@ -18,8 +18,8 @@ website::sites:
  * username: Is used as system user name (SSH Login, CGI User) and database name, if a database exist
   * 2 - 16 lowercase letters only (as this name is used in several places, we have to limit its value to the least common denominator)
  * server_name: add host names which this vhost will listen on. You have to define all names explicit, also with and/or without www.
- * env: One of DEV, STAGE or PROD (see [Environments](index.md#Environments) below)
- * type: software type of this particular website (see [Types](index.md#Types) below)
+ * env: One of DEV, STAGE or PROD (see [Environments](website.md#Environments) below)
+ * type: software type of this particular website (see [Types](website.md#Types) below)
 
 By adding a website, the following parts are created on the server:
 
@@ -32,12 +32,14 @@ By adding a website, the following parts are created on the server:
  * directory for backups (used for database dumps, /home/username/backup/)
  * environment variables for bash and zsh (~/.profile and ~/.zprofile)
  * SSH authorised keys
- * webserver vhost configuration (for custom configurations, see [Custom configurations](index.md#Custom_configurations) below
+ * webserver vhost configuration (for custom configurations, see [Custom configurations](website.md#Custom_configurations) below
 
 
 ## Types
 
-You have to define one of the following types for each website:
+You have to define one of the following types for each website.
+
+** Hint: ** If you need a type not mentioned here yet, do not hesitate to contact us.
 
 
 #### typo3cms 
@@ -163,7 +165,34 @@ website::sites:
     "type":        "html"
 ```
 
-** Hint: ** If you need a type not mentioned here yet, do not hesitate to contact us.
+
+#### uwsgi
+
+* nginx 1.6 with naxsi WAF and core rule set
+* uwsgi Daemon (Symlink your appropriate wsgi configuration to ~/wsgi.py)
+* Python virtualenv `venv-<sitename>` configured within uwsgi and the user login shell
+* there is no database added by default, choose one of
+ * PostgreSQL 9.4 with database, user, and grants (`"dbtype": "postgresql"`)
+ * MariaDB 10.x with database, user, and grants (`"dbtype": "mysql"`)
+* all requests are redirected to the uwsgi daemon by default. To serve static files, add appropriate locations to the [local nginx configuration](website.md#Custom_configurations) like this:
+```
+location /static/
+{
+	root /home/user/application/;
+}
+```
+
+```
+website::sites: 
+  "uwsgiexample":
+    "server_name": "uwsgi.example.net"
+    "env":         "PROD"
+    "type":        "uwsgi"
+    "dbtype":      "postgresql"
+    "password":    "ohQueeghoh0bath"
+```
+
+Hint: to control the uwsgi daemon, use the `uwsgi-reload` and `uwsgi-restart` shortcuts
 
 
 ## Environments
@@ -812,7 +841,7 @@ As soon as "ensure" equals set to "absent", all configurations and data related 
 Warning: After setting `ensure` to `absent`, do not run `puppet-agent` with this particular user. Use another, remaining user or the generic `devop` user to run `puppet-agent`
 
 
-## Full Configuration Example
+## Full configuration example
 
 ```
 website::sites: 
@@ -856,6 +885,12 @@ website::sites:
     "server_name": "neos.example.net www.neos.example.net"
     "env":         "PROD"
     "type":        "typo3neos"
+  "uwsgiexample":
+    "server_name": "uwsgi.example.net"
+    "env":         "PROD"
+    "type":        "uwsgi"
+    "dbtype":      "postgresql"
+    "password":    "ohQueeghoh0bath"
   "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
