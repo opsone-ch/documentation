@@ -17,6 +17,7 @@
   * [FTP](services/ftp.md)
   * [Networking](services/networking.md)
   * [Firewall](services/firewall.md)
+  * [Mail](services/mail.md)
 
 [Development]()
 
