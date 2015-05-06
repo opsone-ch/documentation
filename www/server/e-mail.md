@@ -1,4 +1,4 @@
-# Mail Service
+# E-Mail
 
 Webservers are not allowed to send mails directly, instead they will be delivered over mailrelay.snowflakehosting.ch.
 

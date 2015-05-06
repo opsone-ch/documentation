@@ -7,6 +7,7 @@
   * [Access](server/access.md)
   * [Dualstack](server/dualstack.md)
   * [Configuration](server/configuration.md)
+  * [E-Mail](server/e-mail.md)
 
 [Services]()
 
@@ -17,7 +18,6 @@
   * [FTP](services/ftp.md)
   * [Networking](services/networking.md)
   * [Firewall](services/firewall.md)
-  * [Mail](services/mail.md)
 
 [Development]()
 
