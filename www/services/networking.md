@@ -6,7 +6,7 @@
  * each server is connected to two top of the rack switches by 2x10G
  * connections are configured as redundant, active/active Layer 2 & 3 Setup (MLAG/VARP)
  * we make heavy usage of VLANs to seperate customer segements
- * all our servers and services are reachable by IPv4 and IPv6. Details are available at the [Dualstack Documentation](/server/dualstack/index.md).
+ * all our servers and services are reachable by IPv4 and IPv6. Details are available at the [Dualstack Documentation](/server/dualstack.md).
 
 
 ## Configuration
