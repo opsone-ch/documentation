@@ -104,12 +104,10 @@ mysqlbinlog --start-datetime="2015-02-09 22:07:00" --stop-datetime="2015-02-10 1
 
 ##### Nightly restore
 
-for a complete restore of the nightly database backup, decompress the backup and import it:
+for a complete restore of the nightly database backup, decompress the backup, import it and remove the .sql file:
 
 ```
-cd /home/user/backup/
-lzop -d database.sql.lzo
-mysql > database.sql
+cd ~/backup/ && lzop -d database.sql.lzo && mysql database < database.sql && rm database.sql
 ```
 the database.sql.lzo.1 is the backup from yesterday.
 
