@@ -14,7 +14,7 @@ In the meantime, we will receive orders for new servers by [E-Mail](mailto:suppo
 
 ## Infrastructure
 
-We run our own private cloud in Switzerland, where we are located in two different datacenters. Those datacenters are equipped with state of the art technology like dual power/cooling systems, USV/diesel generators and so on. Our two locations are connected by DWDM to each other. You will find more marketing and contract related details on our [website](https://snowflake.ch/hosting/).
+We run our own private cloud in Switzerland, where we are located in two different datacenters. Those datacenters are equipped with state of the art technology like dual power/cooling systems, UPS (uninterruptible power supply), diesel generators and so on. Our two locations are connected by DWDM to each other. You will find more marketing and contract related details on our [website](https://snowflake.ch/hosting/).
 
 As RIPE LIR, we got our own autonomous system ([AS198249](http://bgp.he.net/AS198249)) which is connected trough multiple, redundant transit providers. Furthermore, we are connected to the [Swiss Internet Exchange](http://www.swissix.ch/) where we established peerings to a lot of other providers such as Swisscom, Hurricane Electric, GGA Maur, WWZ, Ticinocom, Leunet, BIT and many more. We believe in a open internet and therefore enforce a open peering policy.
 
