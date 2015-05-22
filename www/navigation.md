@@ -22,6 +22,8 @@
 [Development]()
 
   * [Overview](development.md)
+  * # Details
+  * [Vagrant](development/vagrant.md)
 
 [Support](support.md)
 
