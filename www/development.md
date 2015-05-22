@@ -13,7 +13,5 @@ See the [Service Documentation](/services/website.md#Environments) for Details.
 
 ## Vagrant
 
-All Services where developed on Vagrant only. Therefore, you can expect a smooth experience using Vagrant to develop your websites.
-
-Hint: By now, we used Vagrant within our Puppet modules repository only. We will figure out the best way to integrate our Vagrant environment within other projects soon.
+We rely on Vagrant to create local VMs for your purposes. You can use those Vagrant boxes to develop your favorite application in there, but also to make changes at our Puppet environment itself. See [Vagrant](development/vagrant.md) for all details.
 
