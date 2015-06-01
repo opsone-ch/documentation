@@ -4,9 +4,32 @@ The following ways are provided to access your server and files.
 
 ## SSH
 
-** Note: ** due to security reasons, we allow key based logins only.
+Warning: due to security reasons, we allow key based logins only
 
-Your server is accessible trough SSH by default. We allow only key based logins as non privileged user (no root Login). You can add global keys to your server like this:
+Your server is accessible trough SSH by default. We allow only key based logins as non privileged user (no root Login).
+
+
+### Generic `devop` user
+
+On all servers, a user named `devop` is created by default. This user is required to execute the `puppet-agent` shortcut as long as there are no other services/users configured. Furthermore, this user belongs to the `adm` group which enable access to all system log files in `/var/log/`.
+
+
+### Shortcuts and sudo configuration
+
+Depending on the installed services, the following shortcuts might be available to execute certain commands with root privileges:
+
+* `puppet-agent`: trigger puppet agent run
+* `nginx-restart`: restart nginx webserver
+* `nginx-reload`: reload nginx webserver
+* `fpm-restart`: restart PHP-FPM daemon
+* `fpm-reload`: reload PHP-FPM daemon
+* `uwsgi-restart`: restart uwsgi daemon
+* `uwsgi-reload`: reload uwsgi daemon
+
+
+### Key Handling
+
+You can add global keys to your server like this:
 
 ```
 ssh::keys:
@@ -32,7 +55,7 @@ ssh::keys:
       "key": "ssh-rsa AAAAB....."
 ```
 
-#### Create SSH Key
+### Create SSH Key
 
 * use 4096 bit RSA Keys
 * encrypt with PKCS8
@@ -52,7 +75,8 @@ We recommend to use one of the following clients:
 * [Filezilla](https://filezilla-project.org)
 * [Cyperduck](https://cyberduck.io)
 
-** Hint: ** To store your key in the memory and not having to enter the password for every connection -  use pagent (Windows) or ssh-add it (Linux)
+Hint: To store your key in the memory and not having to enter the password for every connection -  use pagent (Windows) or ssh-add it (Linux)
+
 
 ## FTP
 

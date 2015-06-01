@@ -1,12 +1,9 @@
 # FTP Service
 
-## Overview
-
 This service will install and configure ProFTPD and manage virtual users.
 
-** Warning: ** Use FTP only if really required (for example webcam access). Most use cases are just fine with SSH/SCP.
+Warning: Use FTP only if really required (for example for webcam access). Most use cases are just fine with SSH/SCP.
 
----
 
 ## Users
 
@@ -25,7 +22,10 @@ ftp::users:
     "home":     "/home/examplenet/www/webcam/"
 ```
 
----
+Hint: Use the "id" command to determine the appropriate uid/gid
+
+Note: Access is enabled by both FTP and FTPS. Use the server FQDN to connect by FTPS as we use the *.snowflakehosting.ch wildcard certificate by default
+
 
 ## Directories
 

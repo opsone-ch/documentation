@@ -9,7 +9,7 @@ Add a website with a configuration like this:
 
 ```
 website::sites: 
-   "username":
+  "username":
     "server_name": "example.net www.example.net"
     "env":         "PROD"
     "type":        "php"
@@ -18,8 +18,8 @@ website::sites:
  * username: Is used as system user name (SSH Login, CGI User) and database name, if a database exist
   * 2 - 16 lowercase letters only (as this name is used in several places, we have to limit its value to the least common denominator)
  * server_name: add host names which this vhost will listen on. You have to define all names explicit, also with and/or without www.
- * env: One of DEV, STAGE or PROD (see [Environments](index.md#Environments) below)
- * type: software type of this particular website (see [Types](index.md#Types) below)
+ * env: One of DEV, STAGE or PROD (see [Environments](website.md#Environments) below)
+ * type: software type of this particular website (see [Types](website.md#Types) below)
 
 By adding a website, the following parts are created on the server:
 
@@ -32,12 +32,14 @@ By adding a website, the following parts are created on the server:
  * directory for backups (used for database dumps, /home/username/backup/)
  * environment variables for bash and zsh (~/.profile and ~/.zprofile)
  * SSH authorised keys
- * webserver vhost configuration (for custom configurations, see [Custom configurations](index.md#Custom_configurations) below
+ * webserver vhost configuration (for custom configurations, see [Custom configurations](website.md#Custom_configurations) below
 
 
 ## Types
 
-You have to define one of the following types for each website:
+You have to define one of the following types for each website.
+
+** Hint: ** If you need a type not mentioned here yet, do not hesitate to contact us.
 
 
 #### typo3cms 
@@ -49,13 +51,27 @@ You have to define one of the following types for each website:
 
 ```
 website::sites: 
-   "examplenet":
+  "examplenet":
     "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
     "server_name": "typo3.example.net www.typo3.example.net"
     "env":         "PROD"
     "type":        "typo3cms"
 ```
 
+#### typo3neos 
+
+* nginx 1.6 with naxsi WAF, core rule set and TYPO3 Neos white/blacklists
+* PHP-FPM 5.6 
+* MariaDB 10.x with database, user, and grants
+
+```
+website::sites: 
+  "neosexample":
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "server_name": "neos.example.net www.neos.example.net"
+    "env":         "PROD"
+    "type":        "typo3neos"
+```
 
 ####  magento 
 
@@ -65,7 +81,7 @@ website::sites:
 
 ```
 website::sites: 
-   "magentoexample":
+  "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
     "type":        "magento"
@@ -76,18 +92,32 @@ website::sites:
 #### wordpress
 
 * nginx 1.6 with naxsi WAF, core rule set and wordpress white/blacklists
-* PHP-FPM 5.6 with mcrypt module
+* PHP-FPM 5.6
 * MariaDB 10.x with database, user, and grants
 
 ```
 website::sites: 
-   "wordpressexample":
+  "wordpressexample":
     "server_name": "wordpress.example.net"
     "env":         "PROD"
     "type":        "wordpress"
     "password":    "Aiw7vaakos04h7e"
 ```
 
+#### drupal
+
+* nginx 1.6 with naxsi WAF, core rule set and drupal white/blacklists
+* PHP-FPM 5.6 
+* MariaDB 10.x with database, user, and grants
+
+```
+website::sites: 
+  "drupalexample":
+    "server_name": "drupal.example.net"
+    "env":         "PROD"
+    "type":        "drupal"
+    "password":    "Aiw7vaakos04h7e"
+```
 
 #### php 
 
@@ -97,7 +127,7 @@ website::sites:
 
 ```
 website::sites: 
-   "phpexamplenet":
+  "phpexamplenet":
     "server_name": "php.example.net"
     "env":         "PROD"
     "type":        "php"
@@ -113,7 +143,7 @@ website::sites:
 
 ```
 website::sites: 
-   "hhvmexamplenet":
+  "hhvmexamplenet":
     "server_name": "hhvm.example.net"
     "env":         "PROD"
     "type":        "hhvm"
@@ -129,13 +159,40 @@ website::sites:
 
 ```
 website::sites: 
-   "htmlexamplenet":
+  "htmlexamplenet":
     "server_name": "html.example.net"
     "env":         "PROD"
     "type":        "html"
 ```
 
-** Hint: ** If you need a type not mentioned here yet, do not hesitate to contact us.
+
+#### uwsgi
+
+* nginx 1.6 with naxsi WAF and core rule set
+* uwsgi Daemon (Symlink your appropriate wsgi configuration to ~/wsgi.py)
+* Python virtualenv `venv-<sitename>` configured within uwsgi and the user login shell
+* there is no database added by default, choose one of
+ * PostgreSQL 9.4 with database, user, and grants (`"dbtype": "postgresql"`)
+ * MariaDB 10.x with database, user, and grants (`"dbtype": "mysql"`)
+* all requests are redirected to the uwsgi daemon by default. To serve static files, add appropriate locations to the [local nginx configuration](website.md#Custom_configurations) like this:
+```
+location /static/
+{
+	root /home/user/application/;
+}
+```
+
+```
+website::sites: 
+  "uwsgiexample":
+    "server_name": "uwsgi.example.net"
+    "env":         "PROD"
+    "type":        "uwsgi"
+    "dbtype":      "postgresql"
+    "password":    "ohQueeghoh0bath"
+```
+
+Hint: to control the uwsgi daemon, use the `uwsgi-reload` and `uwsgi-restart` shortcuts
 
 
 ## Environments
@@ -212,7 +269,7 @@ For each website, the following environment variables are created by default, an
  * DB_PASSWORD (Database password, only if there is a database)
 
 
-Hint: to use the .profile environmnet within a cronjob, prepend the following code to your command:
+Hint: to use the .profile environmet within a cronjob, prepend the following code to your command:
 /bin/bash -c 'source $HOME/.profile; ~/original/command'
 
 
@@ -300,7 +357,7 @@ Note: make sure to use the correct line indenting
 
 ```
 website::sites: 
-   "magentoexample":
+  "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
     "type":        "magento"
@@ -383,7 +440,14 @@ If a request is blocked, the server will issue a "403 forbidden" error. There ar
 2015/02/17 14:03:04 [error] 15296#0: *1855 NAXSI_FMT: ip=192.168.0.22&server=www.example.net&uri=/admin/&learning=0&vers=0.53-1&total_processed=1&total_blocked=1&block=1&cscore0=$XSS&score0=8&zone0=BODY|NAME&id0=1310&var_name0=login[username]&zone1=BODY|NAME&id1=1311&var_name1=login[username], client: 192.168.0.22, server: www.example.net, request: "POST /admin/ HTTP/1.1", host: "www.example.net", referrer: "http://www.example.net/admin/"
 ```
 
-To learn more about the log syntax, vist the [Naxsi Documentation](https://github.com/nbs-system/naxsi/wiki).
+To learn more about the log syntax, vist the [Naxsi documentation](https://github.com/nbs-system/naxsi/wiki).
+
+
+#### Extensiv logging
+
+If you want to debug the WAF block (often used with internal rules), you can increase the nginx error log level to "debug".
+
+See [Nginx documentation error log](http://nginx.org/en/docs/ngx_core_module.html#error_log) for more information.
 
 
 ### Manage false positives
@@ -395,7 +459,7 @@ BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
 BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
 ```
 
-See the [Naxsi Documentation](https://github.com/nbs-system/naxsi/wiki/whitelists) for details.
+See the [Naxsi documentation](https://github.com/nbs-system/naxsi/wiki/whitelists) for details.
 
 Hint: to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
 
@@ -434,6 +498,35 @@ BasicRule wl:1310 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event
 
 ```
 
+### Learning Mode
+
+To enable the Naxsi learning mode, set the Naxsi flag in the `~/cnf/nginx.conf` file:
+
+```
+ set $naxsi_flag_learning 1;
+```
+
+Which means that Naxsi will not block any request, but logs the "to-be-blocked" requests in your `~log/error.log`.
+
+Warning: Use on DEV/STAGE Enviroment only. Otherwise you will end up with an unprotected installation.
+
+Make sure, that you analyze the error.log carefully and only whitelist valid requests afterwards.
+
+
+#### Dynamic configuration
+
+Naxsi supports a limited set of variables, that can override or modify its behavoir.
+You can use them in your `~/cnf/nginx.conf` file. For example, enable the learning mode for an specific ip:
+
+```
+ if ($remote_addr = "1.2.3.4") {
+  set $naxsi_flag_learning 1;
+ }
+```
+More on the [dynamicmodifiers page](https://github.com/nbs-system/naxsi/wiki/dynamicmodifiers).
+
+Hint: this is a powerful feature in use with the [nginx vars](http://nginx.org/en/docs/varindex.html) 
+
 
 ## Request limits
 
@@ -441,16 +534,16 @@ The number of connections and requests are limited to ensure that a single user 
 
 ### Limits
 
-* 25 connections / Address
-* 5 requests / second / Address
-* 15 requests / second (burst)
-* \>15 requests / second / Address (access limited)
+* 50 connections / address 
+* 50 requests / second / address
+* 150 requests / second (burst)
+* \>150 requests / second / address (access limited)
 
-With this configuration, a particular visitor can open up to 25 concurrent connections and issue up to 5 requests / second.
+With this configuration, a particular visitor can open up to 50 concurrent connections and issue up to 50 requests / second.
 
-If the visitor issues more than 5 request / second, those requests are delayed and other clients are served first.
+If the visitor issues more than 50 request / second, those requests are delayed and other clients are served first.
 
-If the visitor issues more than 15 request / second, those requests will not processed anymore, but answered with the 503 status code.
+If the visitor issues more than 150 request / second, those requests will not processed anymore, but answered with the 503 status code.
 
 
 ### Adjust limits 
@@ -458,12 +551,12 @@ If the visitor issues more than 15 request / second, those requests will not pro
 To adjust this limits (e.g. for special applications such as API calls, etc), set a higher "load zone" in your local configuration (~/cnf/nginx.conf):
 
 ```
-# connection limits (e.g. 50 connections)
-limit_conn addr 50;
+# connection limits (e.g. 75 connections)
+limit_conn addr 75;
 
 # limit requests / second: (small, medium, large)
-#limit_req zone=medium burst=50;
-limit_req zone=large burst=150;
+limit_req zone=medium burst=500;
+limit_req zone=large burst=1500;
 ```
 
 Hint: to apply the changes reload the nginx configuration with the "nginx-reload" shortcut
@@ -471,29 +564,38 @@ Hint: to apply the changes reload the nginx configuration with the "nginx-reload
 
 ### Zones
 
-* small = 5 requests / second (burst: 15req/sec)
-* medium = 15 requests / second (burst: 50 req/sec)
-* large = 50 requests / second (burst: 150 req/sec)
+* small = 50 requests / second (burst: 150req/sec)
+* medium = 150 requests / second (burst: 500 req/sec)
+* large = 500 requests / second (burst: 1500 req/sec)
 
 Note: the default zone is "small" and will fit most use cases
 
+Warning: In SPDY, each concurrent request is considered a separate connection.
 
+Hint: To add more specific rules (based on client addresses or url for example), please get in touch
+
+Hint: For Details, see the [Module ngx_http_limit_req_module](http://nginx.org/en/docs/http/ngx_http_limit_req_module.html) documentation
+
+ 
 ## Custom configuration
 
-You can add specific configurations like redirects or additional headers within the ~/cnf/ directory.
+You can add specific configurations like redirects or headers within the ~/cnf/ directory.
 
 ** Warning: ** You have to reload nginx after changes with the "nginx-reload" shortcut
 
 
 ### ~/cnf/nginx.conf
 
-Configure specific redirects, enable gzip and other stuff directly in the nginx.conf. This file is included within the server block.
+Included within the server block and used to configure specific redirects, enable gzip and other stuff directly in the nginx.conf.
 
 ```
 if ($http_host = www.example.net) {
 	rewrite (.*) http://www.example.com;
 }
 ```
+
+Hint: For Details, see the [Server Block Examples](http://wiki.nginx.org/ServerBlockExample) and [Rewrite Rule](http://wiki.nginx.org/HttpRewriteModule#rewrite) documentation
+
 
 ### ~/cnf/nginx_waf.conf
 
@@ -525,6 +627,66 @@ environment::variables:
   "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 ```
 
+Hint: For details, see the [Module ngx_http_geoip_module](http://nginx.org/en/docs/http/ngx_http_geoip_module.html) documentation. 
+
+## PHP Modules
+
+To install additional PHP modules, use the following configuration:
+
+```
+website::php:
+  "modulename":
+    "ensure": "installed"
+    "package": "php5-packagename"
+```
+
+
+For example if you like to install php5-ldap use:
+
+```
+website::php:
+  "ldap":
+    "ensure": "installed"
+    "package": "php5-ldap"
+```
+
+Hint: Some types might have the needed package preinstalled. For example "magento" comes with "php5-mcrypt".
+
+You will find a list of supported PHP Modules [Here](http://puppet-php.readthedocs.org/en/latest/extensions.html).
+
+## Composer
+
+Every PHP based website type has composer installed and auto updated.
+
+Hint: For details, see the [Composer](https://getcomposer.org/doc/) documentation.
+
+#### TYPO3 CMS with Composer
+
+To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
+
+```
+# Export HTTP PROXY settings to use with get.typo3.org
+export HTTP_PROXY_REQUEST_FULLURI=false
+
+# Download the Base Distribution, the latest "stable" release (6.2)
+composer create-project typo3/cms-base-distribution CmsBaseDistribution
+
+# Download the Base Distribution, the "dev" branch (7.x)
+composer create-project typo3/cms-base-distribution CmsBaseDistribution dev-master
+
+# Download the Base Distribution, the "dev" 6.2 branch
+composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.x-dev
+```
+
+#### TYPO3 Neos with Composer
+
+To use TYPO3 Neos 1.2 with composer, use the following command:
+
+```
+# Create Web/tmp directory, install Neos 1.2 with composer, move to users home directory and cleanup
+mkdir ~/Web/tmp/ && cd ~/Web/tmp/ && composer create-project --no-dev typo3/neos-base-distribution TYPO3-Neos-1.2 && rsync -a --delete-after ~/Web/tmp/TYPO3-Neos-1.2/ ~/
+```
+
 
 ## Deploy applications
 
@@ -536,7 +698,7 @@ There are two options to switch a application between different environments:
 
 ### Switch environment
 
-With this option, you just change the environment for a particular website, e.g. from STAGE to PROD. If the former environment is still required, you have to add a new website and copy all data back, therefore we recommend to use the second method by default.
+With this option, you just change the environment for a particular website, for example from STAGE to PROD. If the former environment is still required, you have to add a new website and copy all data back, we recommend to use the second method by default.
 
 * rename "env" value from "STAGE" to "PROD"
 * remove "htpasswd" value which is not required anymore
@@ -544,7 +706,7 @@ With this option, you just change the environment for a particular website, e.g.
 
 ### New website, copy data
 
-With this option, you just add another website with the desired environment and copy all all files (and database) into the new website.
+With this option, you just add another website with the desired environment and copy all files (and database) into the new website.
 
 
 #### Copy files
@@ -623,7 +785,7 @@ www.example.net. AAAA    2001:db8::99
 
 Note: always add both A/AAAA DNS Records. Even if you have no IPv6 connectivity yet, others will, and IPv6 usage will spread
 
-Hint: for more information about our Dualstack Infrastructure, see the  [Dualstack](/server/dualstack.md) Site.
+Hint: for more information about our dualstack infrastructure, see the  [Dualstack](/server/dualstack.md) Site.
 
 
 #### Check records
@@ -647,9 +809,9 @@ wget -6 www.example.net
 
 ### Reverse Proxy
 
-If you want to make sure, that no requests are delivered from the old server/website anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without being affected by the uncertainties of the global DNS System.
+If you want to make sure, that the old server/website wont deliver any requests anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without the uncertainties of the global DNS System.
 
-If your old site is using Apache, add this VirtualHost:
+If your old site is using Apache, add this virtual host:
 
 ```
 <VirtualHost 192.168.0.22:80>
@@ -666,49 +828,70 @@ If your old site is using Apache, add this VirtualHost:
 
 ## Delete website
 
-Warning: This feature is currently work in process. By now, please contact us to delete a site
-
 As a security measure, you have to define explicit that you want to delete a website:
 
 ```
 website::sites: 
-   "examplenet":
+  "examplenet":
     "ensure": "absent"
 ```
 
-As soon as "ensure" is set to "absent", all configurations and data related to this site gets removed at once. After the next configuration run, you can remove the whole part from the website::sites hash.
+As soon as "ensure" equals set to "absent", all configurations and data related to this site gets removed at once. After the next configuration run, you can remove the whole part from the website::sites hash.
+
+Warning: After setting `ensure` to `absent`, do not run `puppet-agent` with this particular user. Use another, remaining user or the generic `devop` user to run `puppet-agent`
 
 
-## Full Configuration Example
+## Full configuration example
 
 ```
 website::sites: 
-   "examplenet":
+  "examplenet":
     "password":    "1234"
     "server_name": "typo3.example.net www.typo3.example.net"
     "env":         "PROD"
     "type":        "typo3cms"
-   "devexamplenet":
+  "devexamplenet":
     "password":    "1234"
     "server_name": "dev.example.net www.dev.example.net"
     "env":         "DEV"
     "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
     "type":        "typo3cms"
-   "phpexamplenet":
+  "wordpressexample":
+    "server_name": "wordpress.example.net"
+    "env":         "PROD"
+    "type":        "wordpress"
+    "password":    "Aiw7vaakos04h7e"
+  "drupalexample":
+    "server_name": "drupal.example.net"
+    "env":         "PROD"
+    "type":        "drupal"
+    "password":    "Aiw7vaakos04h7e"
+  "phpexamplenet":
     "server_name": "php.example.net"
     "env":         "PROD"
     "type":        "php"
-   "hhvmexamplenet":
+  "hhvmexamplenet":
     "server_name": "hhvm.example.net"
     "env":         "PROD"
     "type":        "php"
     "dbtype":      "mysql"
     "password":    "ohQueeghoh0bath"
-   "htmlexamplenet":
+  "htmlexamplenet":
     "server_name": "html.example.net"
     "env":         "PROD"
     "type":        "html"
-   "magentoexample":
+  "neosexample":
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "server_name": "neos.example.net www.neos.example.net"
+    "env":         "PROD"
+    "type":        "typo3neos"
+  "uwsgiexample":
+    "server_name": "uwsgi.example.net"
+    "env":         "PROD"
+    "type":        "uwsgi"
+    "dbtype":      "postgresql"
+    "password":    "ohQueeghoh0bath"
+  "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
     "type":        "magento"
@@ -767,8 +950,7 @@ website::sites:
      NgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS
      v8jOaIjDp5AMoZxbPMlv/5Tk85uF
      -----END CERTIFICATE-----
-   "deleteme":
+  "deleteme":
      "ensure": "absent"
-
 ```
 

@@ -7,6 +7,7 @@
   * [Access](server/access.md)
   * [Dualstack](server/dualstack.md)
   * [Configuration](server/configuration.md)
+  * [E-Mail](server/e-mail.md)
 
 [Services]()
 
@@ -21,6 +22,8 @@
 [Development]()
 
   * [Overview](development.md)
+  * # Details
+  * [Vagrant](development/vagrant.md)
 
 [Support](support.md)
 
