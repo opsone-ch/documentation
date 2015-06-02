@@ -22,6 +22,7 @@ Right now we support Vagrant on Ubuntu Linux (LXC Provider) and Mac OS (VirtualB
 
 ## Requirements
 
+* [VT-x enabled CPU](http://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-x)
 * working [VirtualBox](https://www.virtualbox.org/) (Mac OS) or [LXC](https://linuxcontainers.org/) (Ubuntu) installation
 * [Vagrant](http://www.vagrantup.com/downloads.html)
 * Vagrant Plugins
@@ -68,4 +69,5 @@ vagrant destroy    # delete VM
 
  * load your SSH key into ssh-agent (VM has to access different repositorys with your key)
  * use Vagrant commands like `vagrant up` to control your VM only
+ * there is no centralized database management tool available. Read the [corresponding article](https://snowflakehosting.ch/#!services/database.md#Access) to know how to connect anyhow
 
