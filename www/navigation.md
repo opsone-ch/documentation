@@ -8,6 +8,7 @@
   * [Dualstack](server/dualstack.md)
   * [Configuration](server/configuration.md)
   * [E-Mail](server/e-mail.md)
+  * [SSH keys](server/ssh-keys.md)
 
 [Services]()
 
