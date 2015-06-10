@@ -41,6 +41,7 @@ You have to define one of the following types for each website.
 
 ** Hint: ** If you need a type not mentioned here yet, do not hesitate to contact us.
 
+** Note: ** If you configure a database here, do not forget to add the settings for the database server. See [Database configuration](database.md#Prerequisites)
 
 #### typo3cms 
 
