@@ -58,3 +58,81 @@ This proxy is already configured trough global Environment Variables for both Sy
 
 Hint: Make sure to use curl within PHP which will respect those Variables by default
 
+
+### Example usage
+
+#### TYPO3
+
+To configure the TYPO3 CMS to take advantage of the proxy, set the following option in your LocalConfiguration.php or AdditionalConfiguration.php:
+
+```
+/*
+ * Set http proxy if available 
+ */
+
+if ($_SERVER['http_proxy'] && strlen($_SERVER['http_proxy']) > 1) {
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['curlProxyServer'] = $_SERVER['http_proxy'];
+}
+
+```
+
+Please also remember to enable the usage of cURL in your conf vars sys section:
+```
+'curlUse' => '1'
+```
+
+Hint: don`t forget to use the TYPO3 getURL() and other core functions in your custom build extensions. Otherwise the proxy settings do not work.
+
+#### Magento
+
+To configure Magneto to use the proxy, set the following options in your downloader/lib/Mage/HTTP/Client/Curl.php file:
+
+```
+protected function makeRequest($method, $uri, $params = array(), $isAuthorizationRequired = false, $https = true)
+    {
+        $uriModified = $this->getModifiedUri($uri, $https);
+        $this->_ch = curl_init();
+        $this->curlOption(CURLOPT_PROXY, "http://proxy.snowflakehosting.ch:80");
+        $this->curlOption(CURLOPT_URL, $uriModified);
+        $this->curlOption(CURLOPT_SSL_VERIFYPEER, false);
+        $this->curlOption(CURLOPT_SSL_VERIFYHOST, 2);
+        $this->getCurlMethodSettings($method, $params, $isAuthorizationRequired); 
+       ...
+	}
+```
+
+And if you use Zend, set the following options in: lib/Zend/Http/Client/Adapter/Proxy.php 
+```
+class Zend_Http_Client_Adapter_Proxy extends Zend_Http_Client_Adapter_Socket
+{
+    /**
+     * Parameters array
+     *
+     * @var array
+     */
+    protected $config = array(
+        'ssltransport'  => 'ssl',
+        'sslcert'       => null,
+        'sslpassphrase' => null,
+        'sslusecontext' => false,
+        'proxy_host'    => 'http://proxy.snowflakehosting.ch',
+        'proxy_port'    => 80,
+        'proxy_user'    => '',
+        'proxy_pass'    => '',
+        'proxy_auth'    => Zend_Http_Client::AUTH_BASIC,
+        'persistent'    => false
+    );
+...
+}
+
+```
+
+#### Wordpress
+
+To configure Wordpress to use the proxy, set the following options in your wp-config.php file:
+```
+define('WP_PROXY_HOST', 'proxy.snowflakehosting.ch');
+define('WP_PROXY_PORT', '80');
+define('WP_PROXY_BYPASS_HOSTS', 'localhost');
+```
+
