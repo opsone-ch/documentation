@@ -198,6 +198,21 @@ website::sites:
 
 Hint: to control the uwsgi daemon, use the `uwsgi-reload` and `uwsgi-restart` shortcuts
 
+#### Symfony
+
+* nginx 1.6 with naxsi WAF, core rule set and TYPO3 Neos white/blacklists
+* PHP-FPM 5.6 
+* MariaDB 10.x with database, user, and grants
+
+```
+website::sites: 
+  "symfonyexample":
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "server_name": "symfony.example.net www.symfony.example.net"
+    "env":         "PROD"
+    "type":        "symfony"
+```
+Hint: For security reason, PHP execution is just allow for app.php, app_dev.php, config.php. All other requests end up in a 403 forbidden error.
 
 ## Environments
 
@@ -691,6 +706,15 @@ To use TYPO3 Neos 1.2 with composer, use the following command:
 mkdir ~/Web/tmp/ && cd ~/Web/tmp/ && composer create-project --no-dev typo3/neos-base-distribution TYPO3-Neos-1.2 && rsync -a --delete-after ~/Web/tmp/TYPO3-Neos-1.2/ ~/
 ```
 
+#### Symfony with Composer
+
+To use Symfony 2 with composer, use the following command:
+
+```
+# Create Web/tmp directory, install Symfony2 with composer, move to users home directory and cleanup
+mkdir ~/web/tmp/ && cd ~/web/tmp/ && composer create-project symfony/framework-standard-edition symfony && rsync -a --delete-after ~/web/tmp/symfony/ ~/
+```
+
 
 ## Deploy applications
 
@@ -895,6 +919,11 @@ website::sites:
     "type":        "uwsgi"
     "dbtype":      "postgresql"
     "password":    "ohQueeghoh0bath"
+  "symfonyexample":
+    "server_name": "symfony.example.net www.symfony.example.net"
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "env":         "PROD"
+    "type":        "symfony"
   "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"

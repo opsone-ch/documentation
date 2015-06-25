@@ -26,6 +26,8 @@ with a preinstalled and optimized environment to improve the performance, scalab
 * [php](services/website.md#php)
 * [hhvm](services/website.md#hhvm)
 * [html](services/website.md#html)
+* [uwsgi](services/website.md#uwsgi)
+* [symfony](services/website.md#Symfony)
 
 
 ### Environments
