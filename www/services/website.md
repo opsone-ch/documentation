@@ -616,6 +616,24 @@ if ($http_host = www.example.net) {
 }
 ```
 
+or you can password protect a subdirectory:
+
+```
+location ~* "^/example/" {
+	auth_basic "Example name";
+	auth_basic_user_file /home/user/www/example/.htpasswd;
+	root /home/user/www/;
+}
+```
+if you like to run PHP in this subdirectory, don't forget to add this nested in the location section from the example on top:
+
+```
+location ~ \.php {
+	try_files /dummy/$uri @php;
+}
+
+```
+
 Hint: For Details, see the [Server Block Examples](http://wiki.nginx.org/ServerBlockExample) and [Rewrite Rule](http://wiki.nginx.org/HttpRewriteModule#rewrite) documentation
 
 
