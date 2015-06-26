@@ -26,6 +26,7 @@
   * [Overview](development.md)
   * # Details
   * [Vagrant](development/vagrant.md)
+  * [E-Mail Handling](development/email.md)
 
 [Support](support.md)
 

@@ -1,6 +1,6 @@
 # Services
 
-After you receive a ordered server, the machine is more or less empty and of no much use. However, you can add so called services to the machine wich will install and configure all necessary compontents.
+After you receive a ordered server, the machine is more or less empty and of no much use. However, you can add so called services to the machine which will install and configure all necessary components.
 
 Note: Keep the resource usage in mind. On a server with 1GB RAM for example, you wont be able to add a 1GB memcached instance.
 
