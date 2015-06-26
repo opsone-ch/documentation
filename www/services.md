@@ -39,7 +39,7 @@ There are also many helpers, to improve your websites environment:
     * STAGE
     * PROD
 * Security
-    * [Web Application Firewall (WAF)](services/website.md#Naxsi)
+    * [Web Application Firewall (WAF)](services/website.md#Web_Application_Firewall)
     * [TLS Certificate](services/website.md#TLS_Certificates)
 
 You can easily add more servcies to your server with the following modules:
@@ -62,4 +62,4 @@ Access the filesystem of your server.
 * [SFTP](/server/access.md#SFTP)
 * [FTP](/services/ftp.md)
 
-
+## Networking

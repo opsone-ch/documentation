@@ -200,7 +200,7 @@ Hint: to control the uwsgi daemon, use the `uwsgi-reload` and `uwsgi-restart` sh
 
 #### Symfony
 
-* nginx 1.6 with naxsi WAF, core rule set and TYPO3 Neos white/blacklists
+* nginx 1.6 with naxsi WAF, core rule set and Symfony white/blacklists
 * PHP-FPM 5.6 
 * MariaDB 10.x with database, user, and grants
 

@@ -1,0 +1,97 @@
+# Tomcat Service
+
+Install and manage your favorite Java web application. 
+
+## Plain Tomcat
+
+To install a preconfigured Tomcat and run your own .war file, install Tomcat with:
+
+```
+# additional Puppet Modules
+base::modules:
+  - "tomcat"
+```
+
+## Apache Solr
+
+To install a preconfigured [Apache Solr](http://lucene.apache.org/solr/) service, use one of the following preconfigured packages.
+
+Based on:
+
+* Apache Solr 4
+* Tomcat 8
+
+
+#### TYPO3
+
+```
+# additional Puppet Modules
+base::modules:
+  - "solr"
+
+# Solr Configuration
+solr::webappv4:
+  "solr-example-net":
+    "password":    "oiphiengukei4paMahch0thoo"
+    "solrVersion": "4.8.1"
+    "extVersion":  "3.0.0"
+```
+
+This will install Solr 4.8 configured for the usage of with the inofficial TYPO3 Solr extension.
+
+#### Magento
+
+```
+# additional Puppet Modules
+base::modules:
+  - "solr"
+
+solr::instance::magento:
+  "solr-example-ch":
+    "password":    "pai3xohw0ieGhieSheuge3oaf"
+    "solrVersion": "4.8.1"
+    "extVersion":  "1.0.0"
+```
+
+#### Access
+
+After adding the Solr configuration and instance to your hiera .yaml file and run puppet, your Solr instance admin webinterface is accessible through the web:
+
+* URL https://yourhostxy.snowflakehosting.ch:8443/solr-example-net/
+
+To add new cores, simply click on add core and:
+
+* Name: solr-example-net
+  * instanceDir: typo3cores (or magento)
+  * dataDir: data/live-example-1.0-de_CH
+  * config: solrconfig.xml
+  * <language>/schema.xml
+
+## Memory usage / ratio
+
+We auto-configure Tomcat to use up to 80% of the available server memory. Assuming that there is only 1 services running on the server. 
+
+If you like to add more services to the server (e.g. memcache, website, database, ftp etc), is there the possiblity to set the memory usage ratio:
+
+```
+tomcat::memory_ratio: "2"
+```
+
+in this example "2" means, that you're running 2 services on this server. This two services share the total available memory equal.
+
+To illustrate it:
+
+#### Server 1
+
+* 4GB Memory
+* Tomcat running
+* Memcache running
+
+*Results in: 4GB * 0.8 = 3.2GB RAM / 2 (ratio) = 1.6GB Memory for Tomcat and 1.6GB Memory for the memcache service.
+
+#### Server 2
+
+* 1GB Memory
+* Tomcat running
+
+*Results in: 1GB * 0.8 = 800MB Memory / 1 (default ratio) => 800MB Memory for the Tomcat service.

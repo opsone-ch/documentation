@@ -19,6 +19,7 @@
   * [FTP](services/ftp.md)
   * [Networking](services/networking.md)
   * [Firewall](services/firewall.md)
+  * [Tomcat](services/tomcat.md)
 
 [Development]()
 
