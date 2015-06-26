@@ -225,6 +225,7 @@ You have to select one of those environments for each website:
 * no access protection
 * phpinfo disabled (otherwise database credentials in environment variables could get leaked)
 * quiet error log level
+* E-Mails get sent to their designated recipient (PHP mail() only, see [E-Mail Handling](/development/email.md) for details)
 
 
 #### STAGE 
@@ -233,6 +234,7 @@ You have to select one of those environments for each website:
 * password protected (User "preview", password from "htpasswd" option)
 * phpinfo enabled
 * debug error log level
+* E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, see [E-Mail Handling](/development/email.md) for details)
 
 
 #### DEV
@@ -241,6 +243,7 @@ You have to select one of those environments for each website:
 * password protected (User "preview", password from "htpasswd" option)
 * phpinfo enabled
 * debug error log level
+* E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, see [E-Mail Handling](/development/email.md) for details)
 
 
 #### User Handling
