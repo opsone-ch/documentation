@@ -16,6 +16,7 @@
   * # Details
   * [Website](services/website.md)
   * [Database](services/database.md)
+  * [Caching](services/caching.md)
   * [FTP](services/ftp.md)
   * [Networking](services/networking.md)
   * [Firewall](services/firewall.md)
