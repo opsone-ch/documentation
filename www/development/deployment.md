@@ -1,9 +1,9 @@
 # Deploy Applications 
 
 To deploy your application to your DEV, STAGE, PROD environment, follow the following docs.
-If you like to "Go Live" with your STAGE environment - please continue here (LINK).
+If you like to "Go Live" with your STAGE environment - please continue [here](deployment.md#Go_Live).
 
-Hint: we're happy to support you with a proper, automatically deployment process. Feel free to contact us!
+Hint: we're happy to support you with an automatic deployment process. Feel free to contact us!
 
 ## Deploy to your server 
 
@@ -16,7 +16,7 @@ Warning: Always make sure, that you're using an appropriate username. Don't use 
 
 #### Git
 
-We recommend to use Git to deploy your website to your server. Feel free to clone your repository, your server is prepared:
+We recommend to use Git to deploy your website to your server. Feel free to clone your repository - your server is prepared:
 
 * access to github.com is allowed (use firewall rules for other repos)
 * git is installed
@@ -27,11 +27,14 @@ If you don't use git, there is the possiblity to copy the files over the "oldsch
 
 #### Copy files
 
-Login into the old website and issue this command:
+Login into the old website / environment and issue this command:
 
 ```
 rsync -avz --exclude=typo3temp ~/ newuser@server:~/
 ```
+
+This will copy the complete home directory to the remote users home. 
+
 
 Hint: use appropriate exclude patterns to ignore all not required files
 
@@ -43,7 +46,7 @@ Note: we use always SSH to copy files, even on the same server. This ensures tha
 
 #### Copy database
 
-Login into the old website and issue this command:
+Login into the old environment and issue this command:
 
 ```
 mysqldump --single-transaction --ignore-table=exampledatabase.cache_pages --ignore-table=exampledatabase.cache_hash -uexampledatabaseuser -ppassword exampledatabase | ssh newuser@server mysql -unewdatabase -ppassword newdatabase
@@ -69,7 +72,7 @@ Warning: You have to create those ignored tables manually on the new website aft
 
 If you've your site ready on the "DEV" or "STAGE" environment, there are two options to switch / deploy between different environments:
 
-* switch environment on an existing website in hiera (change ENV)
+* switch environment on an existing website in your [configuration](../server/configuration.md)
 * create a new website with the desired environment setting, copy files (and database)
 
 ### Switch environment
@@ -84,7 +87,7 @@ Warning: dont use confusing names like "examplestage" and set the env to "PROD"
 
 ### New website, copy data (recommended)
 
-With this option, you just add another website with the desired environment and copy all files (and database) into the new website. (see deploy to your server)
+With this option, you just add another website with the desired environment and copy all files (and database) into the new website. Please see [deploy to your server](../development/deployment.md#Deploy_to_your_server)
 
 ## Go Live
 
