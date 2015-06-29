@@ -31,6 +31,11 @@ caching::backend:
 To install Varnish, add `varnish`  to the `caching::backend` hash.
 
 
+### address/address6
+
+By default, Varnish will listen on the eth1 interface. If Varnish has to bind to other addresses, use the `address` and `address6` parameter to specify them.
+
+
 ### vcl_type
 
 With `vcl_type`, you choose a tempalte which is used by Varnish as default VCL configuration. By now, the following types are available:
@@ -59,6 +64,8 @@ Hint: See [Memory Ratio](/server/configuration.md#Memory_Ratio) for details abou
 caching::backend:
   "varnish":
     "ensure":       "present"
+    "address":      "185.17.68.153"
+    "address6":     "2a04:503:0:1003::153"
     "vcl_type":     "default"
     "vcl_include":  "/home/user/cnf/varnish.vcl"
     "memory_ratio": "4"
