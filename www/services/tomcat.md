@@ -71,27 +71,5 @@ To add new cores, simply click on add core and:
 
 We auto-configure Tomcat to use up to 80% of the available server memory. Assuming that there is only 1 services running on the server. 
 
-If you like to add more services to the server (e.g. memcache, website, database, ftp etc), is there the possiblity to set the memory usage ratio:
+Hint: See [Memory Ratio](/server/configuration.md#Memory_Ratio) for details about memory ratio calculation
 
-```
-tomcat::memory_ratio: "2"
-```
-
-in this example "2" means, that you're running 2 services on this server. This two services share the total available memory equal.
-
-To illustrate it:
-
-#### Server 1
-
-* 4GB Memory
-* Tomcat running
-* Memcache running
-
-*Results in: 4GB * 0.8 = 3.2GB RAM / 2 (ratio) = 1.6GB Memory for Tomcat and 1.6GB Memory for the memcache service.
-
-#### Server 2
-
-* 1GB Memory
-* Tomcat running
-
-*Results in: 1GB * 0.8 = 800MB Memory / 1 (default ratio) => 800MB Memory for the Tomcat service.
