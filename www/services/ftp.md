@@ -22,10 +22,7 @@ ftp::users:
     "home":     "/home/examplenet/www/webcam/"
 ```
 
-The FTP password has to be a htpasswd encrypted value. Use the following command to encrypt your password:
-```
-htpasswd -n alice
-```
+Hint: The password has to be encrypted. Use the following command to encrypt your desired password: `mkpasswd -m sha-512`
 
 Hint: Use the "id" command to determine the appropriate uid/gid
 
