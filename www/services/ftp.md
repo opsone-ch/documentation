@@ -22,6 +22,11 @@ ftp::users:
     "home":     "/home/examplenet/www/webcam/"
 ```
 
+The FTP password has to be a htpasswd encrypted value. Use the following command to encrypt your password:
+```
+htpasswd -n alice
+```
+
 Hint: Use the "id" command to determine the appropriate uid/gid
 
 Note: Access is enabled by both FTP and FTPS. Use the server FQDN to connect by FTPS as we use the *.snowflakehosting.ch wildcard certificate by default
