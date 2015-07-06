@@ -18,27 +18,27 @@ Warning: Always make sure, that you're using an appropriate username. Don't use 
 
 We recommend to use Git to deploy your website to your server. Feel free to clone your repository - your server is prepared:
 
-* access to github.com is allowed (use firewall rules for other repos)
-* git is installed
+* Git is installed
+* access to github.com is allowed (add [firewall rules](../services/firewall.md) to access other repos)
 
 Hint: We're also able to host a Git environment for you or even offer consulting to introduce Git in you company / agency. (contact us for more information)
 
-If you don't use git, there is the possiblity to copy the files over the "oldschool" way with rsync:
+If you don't use Git, there is the possiblity to copy the files over the "oldschool" way with rsync:
 
 #### Copy files
 
 Login into the old website / environment and issue this command:
 
 ```
+### exclude the typo3temp (for TYPO3 websites)
 rsync -avz --exclude=typo3temp ~/ newuser@server:~/
 ```
 
-This will copy the complete home directory to the remote users home. 
+This will copy the complete home directory to the remote users home.
 
+Warning: don't copy old backup files to the new environment. Use "--exclude=backup" to exclude your backup directory.
 
 Hint: use appropriate exclude patterns to ignore all not required files
-
-Hint: depending on the nature of your version control, you can skip all or most of this manual copy, but just checkout your project into the new website
 
 Note: we use always SSH to copy files, even on the same server. This ensures that all files and directories belong to the appropriate user
 
@@ -98,10 +98,10 @@ For a go live without any troubles and outages, please fulfill the following che
 * Domains / Nameserver in your control
  * always use a low TTL like "300"
 * Mail hosting (checked, moved, created, installed etc)
-* TLS certificate installed and ready 
+* TLS certificate installed, ready and tested
 * Naxsi [learning mode](../services/website.md#Web_Application_Firewall) disabled on STAGE and PROD, whitelist rules are created
-* The server has a correct sizing
-* Disable application based logging. TODO
+* The server has a correct [sizing](../server/configuration.md#Server_sizing)
+* Disable [application based logging]()
 
 Hint: We recommend to fulfill this checklist 2 weeks before the go live.
 
@@ -139,7 +139,12 @@ Hint: replace the sitemap part with your sitemap url.
 
 #### Git 
 
-only live branch, no local changes
+Use only the "live" branch on your PROD environment. Make sure that there are no local changes:
+
+```
+git branch -v
+git status
+```
 
 #### Lookup your IP addresses
 
@@ -149,24 +154,6 @@ Connect to your server and note both IPv4 and IPv6 address:
 $ facter ipaddress ipaddress6
 ipaddress => 192.168.0.99
 ipaddress6 => 2001:db8::99
-```
-### Reverse Proxy
-
-If you want to make sure, that the old server/website wont deliver any requests anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without the uncertainties of the global DNS System.
-
-If your old site is using Apache, add this virtual host:
-
-```
-<VirtualHost 192.168.0.22:80>
-  ServerName        example.net
-  ServerAlias       www.example.net
-  ErrorLog          /path/to/error.log
-  CustomLog         /path/to/access.log combined
-  ProxyRequests     Off
-  ProxyPreserveHost On
-  ProxyPass         / http://new.host.name/
-</VirtualHost>
-
 ```
 
 #### Add records
@@ -194,6 +181,25 @@ dig A www.example.net @nameserver
 dig AAAA www.example.net @nameserver
 ```
 
+### Reverse Proxy
+
+If you want to make sure, that the old server/website wont deliver any requests anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without the uncertainties of the global DNS System.
+
+If your old site is using Apache, add this virtual host:
+
+```
+<VirtualHost 192.168.0.22:80>
+  ServerName        example.net
+  ServerAlias       www.example.net
+  ErrorLog          /path/to/error.log
+  CustomLog         /path/to/access.log combined
+  ProxyRequests     Off
+  ProxyPreserveHost On
+  ProxyPass         / http://new.host.name/
+</VirtualHost>
+
+```
+
 #### Check HTTP
 
 At last, check HTTP access for both IPv4 and IPv6 protocol to make sure everything went fine:
@@ -203,7 +209,11 @@ wget -4 www.example.net
 wget -6 www.example.net
 ```
 
-#### remove local server name
+#### Check logfiles
+
+Always check your logfiles after going live. For more information see the [available logfiles list](../faq.md##Which_log_files_are_available).
+
+#### Remove local server name
 
 Please remember to remove the local server name (like username01.snowflakehosting.ch). 
 Otherwise this URL will be indexed by search engines and produce duplicate content.
