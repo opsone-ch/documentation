@@ -7,7 +7,7 @@ Hint: we're happy to support you with an automatic deployment process. Feel free
 
 ## Deploy to your server 
 
-First of all, make sure that you've configured and installed your favorite services. (e.g. website, tomcat, caching etc)
+First of all, make sure that you've configured and installed your favorite [services](../services.md). (e.g. website, tomcat, caching etc)
 In the following documentation we're talking about [website](../services/website.md) deployments.
 
 Warning: Always make sure, that you're using an appropriate username. Don't use confusing names like "examplestage" for PROD envs etc.
@@ -99,7 +99,7 @@ For a go live without any troubles and outages, please fulfill the following che
  * always use a low TTL like "300"
 * Mail hosting (checked, moved, created, installed etc)
 * TLS certificate installed and ready 
-* Naxsi [learning mode](../services/website.md#Web_Application_Firewall) disabled on STAGE and PROD rules are created
+* Naxsi [learning mode](../services/website.md#Web_Application_Firewall) disabled on STAGE and PROD, whitelist rules are created
 * The server has a correct sizing
 * Disable application based logging. TODO
 
@@ -109,7 +109,7 @@ Hint: We recommend to fulfill this checklist 2 weeks before the go live.
 ### Testing
 
 When you fulfill the requirements, make sure everything is in place as desired and ready for testing. 
-Always simulate productive calls to the application by adding all involved host names to your local hosts file. If you expect heavy usage, carry out load tests beforehand.
+Always simulate productive calls to the application, by adding all involved host names to your local hosts file. If you expect heavy usage, carry out load tests beforehand.
 
 Hint: We are happy to assist you with architecture, sizing and load tests
 
@@ -119,7 +119,7 @@ Hint: We are happy to assist you with architecture, sizing and load tests
 
 If you need our assistance, we're happy to help you out! But we recommend to contact us at least 3 days before the go live.
 
-Warning: never go live on Friday or before holidays. We monitor your application 24/7/365 but can't fix application related isss.
+Warning: never go live on Friday or before holidays. We monitor your application 24/7/365 but can't fix application related issues.
 
 #### Cache warming
 
@@ -150,6 +150,22 @@ $ facter ipaddress ipaddress6
 ipaddress => 192.168.0.99
 ipaddress6 => 2001:db8::99
 ```
+### Reverse Proxy
+
+If you want to make sure, that the old server/website wont deliver any requests anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without the uncertainties of the global DNS System.
+
+If your old site is using Apache, add this virtual host:
+
+```
+<VirtualHost 192.168.0.22:80>
+  ServerName        example.net
+  ServerAlias       www.example.net
+  ErrorLog          /path/to/error.log
+  CustomLog         /path/to/access.log combined
+  ProxyRequests     Off
+  ProxyPreserveHost On
+  ProxyPass         / http://new.host.name/
+</VirtualHost>
 
 #### Add records
 
@@ -187,26 +203,7 @@ wget -6 www.example.net
 
 #### remove local server name
 
-in hiera
-
-
-### Reverse Proxy
-
-If you want to make sure, that the old server/website wont deliver any requests anymore at all, add a reverse proxy on the old server which redirects all traffic to the new server. With this setup, you can switch servers without the uncertainties of the global DNS System.
-
-If your old site is using Apache, add this virtual host:
+Please remember to remove the local server name (like username01.snowflakehosting.ch). 
+Otherwise this URL will be indexed by search engines and produce duplicate content.
 
 ```
-<VirtualHost 192.168.0.22:80>
-  ServerName        example.net
-  ServerAlias       www.example.net
-  ErrorLog          /path/to/error.log
-  CustomLog         /path/to/access.log combined
-  ProxyRequests     Off
-  ProxyPreserveHost On
-  ProxyPass         / http://new.host.name/
-</VirtualHost>
-```
-
-
-
