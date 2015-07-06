@@ -279,6 +279,14 @@ You can add such uers for yourself and your co-workers. If you work on multiple 
 
 ** Note: ** Please keep in mind that this password gets often transfered over unencrypted connections. As always, we recommend to use a particular password for only this purpose.
 
+#### Disable exeptions
+
+Never show detailed application based exeptions on PROD, to avoid [information leakage](https://www.owasp.org/index.php/Information_Leakage). Disable the output directly in your application. For example in TYPO3:
+
+```
+$TYPO3_CONF_VARS['SYS']['displayErrors'] = '0'; 
+```
+
 
 ### Environment Variables
 
