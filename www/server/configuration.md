@@ -51,4 +51,35 @@ As basis, we take 80% of the servers total memory. This amount is then distribut
  * Website Service, Tomcat Service
  * Tomcat `memory_ratio` manually set to `3`
  * Result: 4GB Memory * 80% = 3.2GB / 3 (ratio) = 1.07GB Memory for Tomcat
- 
+
+
+## Server sizing
+
+#### Scale
+
+Every new server comes with 1GB RAM, 1CPU Core and 20GB Space (regarding to [our offers](https://www.snowflake.ch/hosting-betrieb/managed-server/) )
+This is a very basic setup and it's recommended to plan and check the sizing of your server carefully before going live. 
+You can simply scale every option of your server - regarding to your actual needs (without paying for unused resources). 
+
+Hint: use load tests to plan your sizing. We're also happy to help you out.
+
+#### Architecture
+
+Please plan your architecture / server setup carefully. Normaly we recommend to split services across different servers. 
+
+Example:
+
+* large TYPO3 website
+* Solr search server
+* Memcache caching backend
+
+Setup at least 3 server and go live:
+
+* Server 1: Websites with TYPO3 (running Nginx, PHP, MySQL)
+* Server 2: Apache Solr 
+* Server 3: Memcached
+
+Notional: now the users love your search function and drop tausends of search querys every second.
+So now you can easly scale your Solr server without outages of the main website. (because just the search function is overloaded)
+If you had all services on one server, probably your website is down now, because Solr catched all the available resources.
+
