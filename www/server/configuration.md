@@ -79,7 +79,7 @@ Setup at least 3 server and go live:
 * Server 2: Apache Solr 
 * Server 3: Memcached
 
-Notional: now the users love your search function and drop tausends of search querys every second.
+Notional: the website went live and now the users love your search function and drop tausends of search querys every second.
 So now you can easly scale your Solr server without outages of the main website. (because just the search function is overloaded)
 If you had all services on one server, probably your website is down now, because Solr catched all the available resources.
 
