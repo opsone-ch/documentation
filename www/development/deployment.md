@@ -91,19 +91,57 @@ With this option, you just add another website with the desired environment and 
 
 ## Go Live
 
+### Requirements
+
+For a go live without any troubles and outages, please fulfill the following checklist.
+
+* Domains / Nameserver in your control
+ * always use a low TTL like "300"
+* Mail hosting (checked, moved, created, installed etc)
+* TLS certificate installed and ready 
+* Naxsi [learning mode](../services/website.md#Web_Application_Firewall) disabled on STAGE and PROD rules are created
+* The server has a correct sizing
+* Disable application based logging. TODO
+
+Hint: We recommend to fulfill this checklist 2 weeks before the go live.
+
+
 ### Testing
 
-First of all, make sure everything is in place as desired. Always simulate productive calls to the application by adding all involved host names to your local hosts file. If you expect heavy usage, carry out load tests beforehand.
+When you fulfill the requirements, make sure everything is in place as desired and ready for testing. 
+Always simulate productive calls to the application by adding all involved host names to your local hosts file. If you expect heavy usage, carry out load tests beforehand.
 
 Hint: We are happy to assist you with architecture, sizing and load tests
 
+### Go live!
 
-### DNS Records
+#### Save the date
 
-Note: set a low TTL value in DNS beforehand. We recommend to use "300" always
+If you need our assistance, we're happy to help you out! But we recommend to contact us at least 3 days before the go live.
+
+Warning: never go live on Friday or before holidays. We monitor your application 24/7/365 but can't fix application related isss.
+
+#### Cache warming
+
+Warm your cache before going live to avoid possible performance issues. There are a lot of possiblities. 
+A simple cache warming could be done with a hostfile entry, a valid sitemap and wget / curl:
 
 
-#### Lookup addresses
+```
+# HTTP
+wget --quiet http://www.example.com/sitemap.xml --no-cache --output-document - | egrep -o "http://$URL[^<]+" | while read line; do curl -A 'cache warming' -s -L $line > /dev/null 2>&1; done
+
+# HTTPS
+wget --quiet https://www.example.com/sitemap.xml --no-cache --output-document - | egrep -o "https://$URL[^<]+" | while read line; do curl -A 'cache warming' -s -L $line > /dev/null 2>&1; done
+```
+
+Hint: replace the sitemap part with your sitemap url.
+
+#### Git 
+
+only live branch, no local changes
+
+#### Lookup your IP addresses
 
 Connect to your server and note both IPv4 and IPv6 address:
 
@@ -147,6 +185,10 @@ wget -4 www.example.net
 wget -6 www.example.net
 ```
 
+#### remove local server name
+
+in hiera
+
 
 ### Reverse Proxy
 
@@ -165,3 +207,6 @@ If your old site is using Apache, add this virtual host:
   ProxyPass         / http://new.host.name/
 </VirtualHost>
 ```
+
+
+
