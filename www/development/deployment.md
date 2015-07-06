@@ -167,6 +167,8 @@ If your old site is using Apache, add this virtual host:
   ProxyPass         / http://new.host.name/
 </VirtualHost>
 
+```
+
 #### Add records
 
 Add DNS records within the DNS server of your choice.
@@ -206,4 +208,3 @@ wget -6 www.example.net
 Please remember to remove the local server name (like username01.snowflakehosting.ch). 
 Otherwise this URL will be indexed by search engines and produce duplicate content.
 
-```
