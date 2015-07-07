@@ -1,7 +1,7 @@
 # Deploy Applications 
 
 To deploy your application to your DEV, STAGE, PROD environment, follow the following docs.
-If you like to "Go Live" with your STAGE environment - please continue [here](deployment.md#Go_Live).
+If you like to "Go Live" with your already running STAGE environment - please continue [here](deployment.md#Go_Live).
 
 Hint: we're happy to support you with an automatic deployment process. Feel free to contact us!
 
@@ -101,7 +101,7 @@ For a go live without any troubles and outages, please fulfill the following che
 * TLS certificate installed, ready and tested
 * Naxsi [learning mode](../services/website.md#Web_Application_Firewall) disabled on STAGE and PROD, whitelist rules are created
 * The server has a correct [sizing](../server/configuration.md#Server_sizing)
-* Disable [application based logging]()
+* Disable [application based logging](../services/website.md#Disable_exeptions)
 
 Hint: We recommend to fulfill this checklist 2 weeks before the go live.
 
