@@ -98,6 +98,7 @@ For a go live without any troubles and outages, please fulfill the following che
 * Domains / Nameserver in your control
  * always use a low TTL like "300"
 * Mail hosting (checked, moved, created, installed etc)
+ * Add DNS [SPF Records](../server/e-mail.md)
 * TLS certificate installed, ready and tested
 * Naxsi [learning mode](../services/website.md#Web_Application_Firewall) disabled on STAGE and PROD, whitelist rules are created
 * The server has a correct [sizing](../server/configuration.md#Server_sizing)
