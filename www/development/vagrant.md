@@ -26,6 +26,20 @@ Right now we support Vagrant on Ubuntu Linux (LXC Provider) and Mac OS (VirtualB
 * working [VirtualBox](https://www.virtualbox.org/) (Mac OS) or [LXC](https://linuxcontainers.org/) (Ubuntu) installation
 * [Vagrant](http://www.vagrantup.com/downloads.html)
 * NFS server daemon (pre-installed on Mac OS X, "nfs-kernel-server" package on Ubuntu)
+* (Ubuntu only) AppArmor configuration for LXC mounts in `/etc/apparmor.d/lxc/lxc-default`
+```
+profile lxc-container-default flags=(attach_disconnected,mediate_deleted) {
+...
+  mount options=(rw, bind),
+...
+}
+```
+* (Ubuntu only) additional LXC configuration `/etc/lxc/default.conf`
+```
+lxc.network.type = veth
+lxc.network.link = lxcbr0
+lxc.network.flags = up
+```
 * Vagrant Plugins
 ```
 vagrant plugin install vagrant-hostmanager   # required to access VM trough name/aliases
