@@ -23,7 +23,13 @@ Where applicable, all services add the approriate firewall rules automatically, 
 
 ## Custom rules
 
-You can also add custom rules like this:
+You can also add custom rules.
+
+Where applicable, both IPv4 and IPv6 Rules are added by default (For example INPUT chains for a particular Port).
+
+Warning: Try your best to avoid such custom rules. For outgoing connections, use our Proxy Servers instead (see below)
+
+### Allow
 
 ```
 base::firewall::rules:
@@ -39,10 +45,18 @@ base::firewall::rules:
     "port":         "80"
 ```
 
-Where applicable, both IPv4 and IPv6 Rules are added by default (For example INPUT chains for a particular Port).
+### Deny
 
-Warning: Try your best to avoid such custom rules. For outgoing connections, use our Proxy Servers instead (see below)
+You can add custom rules to deny services, too:
 
+```
+base::firewall::rules:
+  "020 deny HTTP because we want to force a secure site with HTTPS only":
+    "chain":  "INPUT"
+    "port":   "80"
+    "action": "rejected"
+```
+Hint: HTTP(S) nginx rules are numbered 040 so you must use a lower number for your rule to be processed before the default allow all from nginx-configuration
 
 ## Outgoing proxy
 
