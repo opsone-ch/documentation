@@ -25,6 +25,7 @@ Right now we support Vagrant on Ubuntu Linux (LXC Provider) and Mac OS (VirtualB
 * [VT-x enabled CPU](http://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-x)
 * working [VirtualBox](https://www.virtualbox.org/) (Mac OS) or [LXC](https://linuxcontainers.org/) (Ubuntu) installation
 * [Vagrant](http://www.vagrantup.com/downloads.html)
+* NFS server daemon (pre-installed on Mac OS X, "nfs-kernel-server" package on Ubuntu)
 * Vagrant Plugins
 ```
 vagrant plugin install vagrant-hostmanager   # required to access VM trough name/aliases
