@@ -32,3 +32,9 @@ Configure the mail formular fields as described here:
 
 Warning: Always check wether the form filler is a human. Sooner or later every mail form without check will be used to send spam.
 
+## Symfony
+To use the standard swift-mailer in your symfony application, you have to adapt the parameters to:
+```
+parameters:
+    mailer_transport: mail
+```
