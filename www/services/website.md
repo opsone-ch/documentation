@@ -214,6 +214,24 @@ website::sites:
 ```
 Hint: For security reason, PHP execution is just allow for app.php, app_dev.php, config.php. All other requests end up in a 403 forbidden error.
 
+#### Redirect
+
+* nginx 1.6 with naxsi WAF
+* 301 redirect domain(s) (add server name) to custom target 
+ * $scheme://www.example.com$request_uri (with request uri parameters)
+ * $scheme://www.example.com$ (request every uri to www.example.com)
+ * $scheme://www.example.com/subsite/ (redirect the domain to any subsite of example.com)
+* TLS / SSL is available
+
+```
+   "redirectexample":
+    "server_name": "example.to"
+    "target":      "$scheme://domain.com$request_uri"
+    "env":         "PROD"
+    "type":        "redirect"
+
+```
+
 ## Environments
 
 You have to select one of those environments for each website:
@@ -713,8 +731,8 @@ Hint: For details, see the [Composer](https://getcomposer.org/doc/) documentatio
 To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
 
 ```
-# Export HTTP PROXY settings to use with get.typo3.org
-export HTTP_PROXY_REQUEST_FULLURI=false
+# Export HTTPS PROXY settings to use with get.typo3.org
+export HTTPS_PROXY_REQUEST_FULLURI=false
 
 # Download the Base Distribution, the latest "stable" release (6.2)
 composer create-project typo3/cms-base-distribution CmsBaseDistribution
