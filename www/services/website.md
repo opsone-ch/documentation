@@ -667,6 +667,19 @@ Hint: For Details, see the [Server Block Examples](http://wiki.nginx.org/ServerB
 
 Configure WAF exeptions here, see [Web Application Firewall](#Web_Application_Firewall) for details.
 
+### custom webroot
+
+We recommend to run your website within the ~/www/ directory. If you need a custom subdirectory (like: ~/www/web/) add the "custom_webroot" line to hiera:
+
+```
+website::sites: 
+  "username":
+    "server_name": "example.net www.example.net"
+    "env":         "PROD"
+    "type":        "php"
+    "custom_webroot": "web"
+```
+
 
 ## GeoIP
 
@@ -832,6 +845,11 @@ website::sites:
     "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
     "env":         "PROD"
     "type":        "symfony"
+   "redirectexample":
+    "server_name": "example.to"
+    "target":      "$scheme://domain.com$request_uri"
+    "env":         "PROD"
+    "type":        "redirect"
   "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
