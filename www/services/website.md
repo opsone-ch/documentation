@@ -216,7 +216,7 @@ Hint: For security reason, PHP execution is just allow for app.php, app_dev.php,
 
 #### Redirect
 
-* nginx 1.6 with naxsi WAF
+* nginx 1.6 
 * 301 redirect domain(s) (add server name) to custom target 
  * $scheme://www.example.com$request_uri (with request uri parameters)
  * $scheme://www.example.com$ (request every uri to www.example.com)
@@ -229,8 +229,27 @@ Hint: For security reason, PHP execution is just allow for app.php, app_dev.php,
     "target":      "$scheme://domain.com$request_uri"
     "env":         "PROD"
     "type":        "redirect"
-
 ```
+
+#### Proxy
+
+* nginx 1.6 
+* Proxy requests to a server or group of servers:
+ * hostname, IPs and ports are available
+ * works also with unix sockets
+* TLS / SSL is supported
+```
+   "proxyexample":
+    "server_name": "proxy.to"
+    "env":         "PROD"
+    "type":        "proxy"
+    "members":     
+      - localhost:8080
+      - 127.0.0.1:8081
+      - unix:/tmp/backend
+```
+
+Hint: to proxy external sites / hosts please contact our support. (outgoing firewall rules needs to be applied)
 
 ## Environments
 
@@ -850,6 +869,14 @@ website::sites:
     "target":      "$scheme://domain.com$request_uri"
     "env":         "PROD"
     "type":        "redirect"
+   "proxyexample":
+    "server_name": "proxy.to"
+    "env":         "PROD"
+    "type":        "proxy"
+    "members":     
+      - localhost:8080
+      - 127.0.0.1:8081
+      - unix:/tmp/backend
   "magentoexample":
     "server_name": "magento.example.net"
     "env":         "PROD"
