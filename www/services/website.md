@@ -68,7 +68,7 @@ website:typo3versions:
 
 At the moment, only TYPO3 CMS 4.5 is available.
 
-Hint: please note that this versions may are not fully compatible with your PHP / MySQL / Nginx version. Please contact our support before using it.
+** Hint: ** please note that this versions may are not fully compatible with your PHP / MySQL / Nginx version. Please contact our support before using it.
 
 #### typo3neos 
 
