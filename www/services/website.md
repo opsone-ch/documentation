@@ -59,6 +59,17 @@ website::sites:
     "type":        "typo3cms"
 ```
 
+To use other TYPO3 CMS versions, add the following array:
+
+```
+website:typo3versions:
+ - "4.5"
+```
+
+At the moment, only TYPO3 CMS 4.5 is available.
+
+Hint: please note that this versions may are not fully compatible with your PHP / MySQL / Nginx version. Please contact our support before using it.
+
 #### typo3neos 
 
 * nginx 1.6 with naxsi WAF, core rule set and TYPO3 Neos white/blacklists
