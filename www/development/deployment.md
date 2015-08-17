@@ -38,6 +38,8 @@ This will copy the complete home directory to the remote users home.
 
 Warning: don't copy old backup files to the new environment. Use "--exclude=backup" to exclude your backup directory.
 
+Hint: [SSH agent forwarding](../server/ssh-keys.md#Agent_Forwarding) must be activated. 
+
 Hint: use appropriate exclude patterns to ignore all not required files
 
 Note: we use always SSH to copy files, even on the same server. This ensures that all files and directories belong to the appropriate user
