@@ -657,12 +657,15 @@ Hint: For Details, see the [Module ngx_http_limit_req_module](http://nginx.org/e
  
 ## Custom configuration
 
+
+### nginx
+
 You can add specific configurations like redirects or headers within the ~/cnf/ directory.
 
 ** Warning: ** You have to reload nginx after changes with the "nginx-reload" shortcut
 
 
-### ~/cnf/nginx.conf
+#### ~/cnf/nginx.conf
 
 Included within the server block and used to configure specific redirects, enable gzip and other stuff directly in the nginx.conf.
 
@@ -693,22 +696,27 @@ location ~ \.php {
 Hint: For Details, see the [Server Block Examples](http://wiki.nginx.org/ServerBlockExample) and [Rewrite Rule](http://wiki.nginx.org/HttpRewriteModule#rewrite) documentation
 
 
-### ~/cnf/nginx_waf.conf
+#### ~/cnf/nginx_waf.conf
 
 Configure WAF exeptions here, see [Web Application Firewall](#Web_Application_Firewall) for details.
 
-### custom webroot
+#### custom webroot
 
 We recommend to run your website within the ~/www/ directory. If you need a custom subdirectory (like: ~/www/web/) add the "custom_webroot" line to hiera:
 
 ```
 website::sites: 
   "username":
-    "server_name": "example.net www.example.net"
-    "env":         "PROD"
-    "type":        "php"
+    "server_name":    "example.net www.example.net"
+    "env":            "PROD"
+    "type":           "php"
     "custom_webroot": "web"
 ```
+
+
+### PHP
+
+You can set custom PHP configurations trough a `.user.ini` files in the corresponding directory, e.g. `~/www/.user.ini`. See the [PHP Documentation](http://php.net/manual/en/configuration.file.per-user.php) for details.
 
 
 ## GeoIP
