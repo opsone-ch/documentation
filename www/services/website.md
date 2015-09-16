@@ -495,6 +495,29 @@ website::sites:
      v8jOaIjDp5AMoZxbPMlv/5Tk85uF
 ```
 
+Warning: Make sure the first `server_name` used is valid within your certificate as we redirect all HTTP requests within this vHost to `https://first-in-server_name`
+
+
+#### Multi domain certificates
+
+As all HTTP requests within a given vHost are redirected to HTTPS using the first name in `server_name`, you have to add manual [redirects](website.md#Redirect) for additional domains in a multi domain certificate. Make sure those [redirects](website.md#Redirect) are evaluated before the default redirect vHost, for example by adding a `aaa` prefix to their name.
+
+```
+website::sites:
+  # without this redirect, the default HTTP>HTTPS redirect mechanism
+  # will use the first server_name (www.example.com) instead of www.example.net
+  "aaanetredirect":
+    "server_name": "www.example.net example.net"
+    "target": "https://$server_name$request_uri"
+    "env": "PROD"
+    "type": "redirect"
+  "examplecom":
+    "server_name": "www.example.com example.com www.example.net example.net"
+    "env": "PROD"
+    "ssl_key": "multi domain certificate for www.example.com and www.example.net here"
+```
+
+
 #### Test
 
 We recommend the following online services for testing:
