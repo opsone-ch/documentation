@@ -66,9 +66,29 @@ website:typo3versions:
  - "4.5"
 ```
 
-At the moment, only TYPO3 CMS 4.5 is available.
+At the moment, only TYPO3 CMS 4.5 and 6.2 are available. For TYPO3 CMS 7.x, see seperate type below.
 
-** Hint: ** please note that this versions may are not fully compatible with your PHP / MySQL / Nginx version. Please contact our support before using it.
+** Hint: ** please note that some versions may not be fully compatible with your PHP / MySQL / Nginx version. Please contact our support before using it.
+
+#### typo3cmsv7 
+
+* nginx 1.6 with naxsi WAF, core rule set and TYPO3 7.x compatible white/blacklists
+* PHP-FPM 5.6
+* MariaDB 10.x with database, user, and grants
+* latest TYPO3 CMS 7.x cloned into /var/lib/typo3/TYPO3_7/
+* Default webroot is ~/web
+* PHP-Settings adjusted to 7.x-requirements
+* TYPO3 ApplicationContext can be set
+
+```
+website::sites: 
+  "examplenet":
+    "password":           "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "server_name":        "typo3.example.net www.typo3.example.net"
+    "env":                "PROD"
+    "type":               "typo3cmsv7"
+    "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
+```
 
 #### typo3neos 
 
