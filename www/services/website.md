@@ -316,7 +316,7 @@ You have to select one of those environments for each website:
 
 #### User Handling
 
-The preview user gets applied to all non PROD environments and is intended for your own use, but also to allow access to other parties like your customer. Use the "htpasswd" option to set a particular password to the preview user. You have to use a htpasswd encrypted value which you can generate like this:
+The preview user gets applied to all non PROD environments and is intended for your own use, but also to allow access to other parties like your customer. Use the "htpasswd" option to set a particular password to the preview user. You have to use a htpasswd encrypted value which you can generate like this on your local workstation:
 
 ```
 htpasswd -n preview
