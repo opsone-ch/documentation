@@ -116,6 +116,11 @@ Always simulate productive calls to the application, by adding all involved host
 
 Hint: We are happy to assist you with architecture, sizing and load tests
 
+#### Modify server hosts file
+
+If you have to add entries to the servers hosts file for testing or other purposes (e.g. TYPO3 page not found handling), see [Hosts file](/server/hosts.md) for details.
+
+
 ### Go live!
 
 #### Save the date

@@ -9,6 +9,7 @@
   * [Configuration](server/configuration.md)
   * [E-Mail](server/e-mail.md)
   * [SSH keys](server/ssh-keys.md)
+  * [Hosts file](server/hosts.md)
 
 [Services]()
 

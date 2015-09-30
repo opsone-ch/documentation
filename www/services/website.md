@@ -355,15 +355,6 @@ Never show detailed application based exeptions on PROD, to avoid [information l
 $TYPO3_CONF_VARS['SYS']['displayErrors'] = '0'; 
 ```
 
-#### TYPO3 “404” page testing on STAGE
-
-One task to do before “go live” is to test the “page not found” handling (also known as the “404 page”). Such test should happen with live domain name. TYPO3 internally fetches that page using current host name. If DNS is not yet switched and the tester uses ```/etc/hosts``` on his local machine to test with “live” domain name, she will also need to use the same value in the server's ```/etc/hosts``` file. This is configured as follows:
-
-```
-hosts::entries:
-  "1.2.3.4": "typo3.example.net"
-```
-
 
 ### Environment Variables
 
@@ -1009,8 +1000,5 @@ website::sites:
      -----END CERTIFICATE-----
   "deleteme":
      "ensure": "absent"
-
-hosts::entries:
-  "1.2.3.4": "typo3.example.net"
 ```
 
