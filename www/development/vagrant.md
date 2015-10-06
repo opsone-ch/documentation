@@ -82,7 +82,13 @@ vagrant destroy    # delete VM
 
 ## Tips & tricks
 
+ * Symlink your cache- and lock-folders into your guest's `/tmp/` folder after first provision to significantly inprove performance of the guest 
  * load your SSH key into ssh-agent (VM has to access different repositorys with your key)
  * use Vagrant commands like `vagrant up` to control your VM only
  * there is no centralized database management tool available. Read the [corresponding article](https://snowflakehosting.ch/#!services/database.md#Access) to know how to connect anyhow
 
+## Fixes and Workarounds for known problems
+
+ * Error during start because of NFS-Issues (e.g. Deleted Projects): empty the file `/etc/exports` on your host-machine.
+ * cannot connect to VM: check your host's `/etc/hosts` for duplicated entries
+ * MySQL-Error during first provisioning: just let vagrant finish and then do a `vagrant reload --provision`
