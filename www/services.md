@@ -19,6 +19,7 @@ Currently we support the following CMS, eCommerce systems, blogs and programmmin
 with a preinstalled and optimized environment to improve the performance, scalability, security and availability of your website:
 
 * [typo3cms](services/website.md#typo3cms)
+* [typo3cmsv7](services/website.md#typo3cmsv7)
 * [typo3neos](services/website.md#typo3neos)
 * [magento](services/website.md#magento)
 * [wordpress](services/website.md#wordpress)
@@ -28,6 +29,9 @@ with a preinstalled and optimized environment to improve the performance, scalab
 * [html](services/website.md#html)
 * [uwsgi](services/website.md#uwsgi)
 * [symfony](services/website.md#Symfony)
+* [redirect](services/website.md#redirect)
+* [proxy](services/website.md#proxy)
+* [nodejs](services/website.md#nodejs)
 
 
 ### Environments
