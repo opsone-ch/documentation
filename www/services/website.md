@@ -269,6 +269,7 @@ Hint: For security reason, PHP execution is just allow for app.php, app_dev.php,
  * hostname, IPs and ports are available
  * works also with unix sockets
 * TLS / SSL is supported
+
 ```
    "proxyexample":
     "server_name": "proxy.to"
@@ -281,6 +282,40 @@ Hint: For security reason, PHP execution is just allow for app.php, app_dev.php,
 ```
 
 Hint: to proxy external sites / hosts please contact our support. (outgoing firewall rules needs to be applied)
+
+
+#### nodejs
+
+* nginx 1.6 with naxsi WAF and core rule set
+* nodejs daemon, controlled by monit
+ * symlink your app.js to ~/app.js or overwrite path or other daemon options in `OPTIONS` at `~/cnf/nodejs-daemon`:
+```
+OPTIONS="/home/nodejs/application/app.js --prod"
+```
+ * nodejs has to listen on the `~/cnf/nodejs.sock` socket, permission `660`
+* there is no database added by default, choose one of
+ * PostgreSQL 9.4 with database, user, and grants (`"dbtype": "postgresql"`)
+ * MariaDB 10.x with database, user, and grants (`"dbtype": "mysql"`)
+* all requests are redirected to the nodejs daemon by default. To serve static files, add appropriate locations to the [local nginx configuration](website.md#Custom_configurations) like this:
+```
+location /static/
+{
+        root /home/user/application/;
+}
+```
+
+```
+website::sites:
+  "nodejs":
+    "server_name": "nodejs.example.net"
+    "env":         "PROD"
+    "type":        "nodejs"
+    "dbtype":      "mysql"
+    "password":    "ohQueeghoh0bath"
+```
+
+Hint: to control the nodejs daemon, use the `nodejs-restart` shortcut
+
 
 ## Environments
 
