@@ -40,6 +40,10 @@ lxc.network.type = veth
 lxc.network.link = lxcbr0
 lxc.network.flags = up
 ```
+* (Temporarily) manually implement the following change until it's merged into vagrant:
+```
+https://github.com/mitchellh/vagrant/pull/5986/files
+```
 * Vagrant Plugins
 ```
 vagrant plugin install vagrant-hostmanager   # required to access VM trough name/aliases
