@@ -5,7 +5,7 @@ We rely on Vagrant to create local VMs for your purposes. You can use those Vagr
 
 ## OS Support
 
-Right now we support Vagrant on Ubuntu Linux (LXC Provider) and Mac OS (VirtualBox Provider). While our configuration could work with VirtualBox on Windows as well, it is currently not supported.
+Right now we support Vagrant on Ubuntu Linux (LXC Provider), Windows 10 (VirtualBox Provider) and Mac OS (VirtualBox Provider).
 
 
 ### Mac OS
@@ -19,11 +19,15 @@ Right now we support Vagrant on Ubuntu Linux (LXC Provider) and Mac OS (VirtualB
 * LXC
 * Files reside on host and get mounted into VM trough NFS
 
+### Windows 10
+
+* VirtualBox
+* File mount currently not supported (Use SSH deployment instead) 
 
 ## Requirements
 
 * [VT-x enabled CPU](http://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-x)
-* working [VirtualBox](https://www.virtualbox.org/) (Mac OS) or [LXC](https://linuxcontainers.org/) (Ubuntu) installation
+* working [VirtualBox](https://www.virtualbox.org/) (Mac OS/Windows 10) or [LXC](https://linuxcontainers.org/) (Ubuntu) installation
 * [Vagrant](http://www.vagrantup.com/downloads.html)
 * NFS server daemon (pre-installed on Mac OS X, "nfs-kernel-server" package on Ubuntu)
 * (Ubuntu only) AppArmor configuration for LXC mounts in `/etc/apparmor.d/lxc/lxc-default`
@@ -51,7 +55,7 @@ vagrant plugin install vagrant-cachier
 vagrant plugin install vagrant-lxc           # Ubuntu only
 ```
 * [GIT](https://git-scm.com/)
-* SSH Key loaded into ssh-agent
+* SSH Key loaded into ssh-agent (Windows 10: Pageant for PuTTY)
 * Access to snowflake Puppet repositories
 
 Hint: As long as our Puppet modules are not published under an open source license, [send us](/support.md) your SSH public key. We will add those to the required GIT repositories and provide you the relevant informations
@@ -81,6 +85,7 @@ vagrant provision  # update Debian packages and Puppet modules
 vagrant ssh        # connect trough SSH
 vagrant halt       # stop VM
 vagrant destroy    # delete VM
+vagrant ssh-config # output valid SSH configuration
 ```
 
 
@@ -90,6 +95,7 @@ vagrant destroy    # delete VM
  * load your SSH key into ssh-agent (VM has to access different repositorys with your key)
  * use Vagrant commands like `vagrant up` to control your VM only
  * there is no centralized database management tool available. Read the [corresponding article](https://snowflakehosting.ch/#!services/database.md#Access) to know how to connect anyhow
+ * Git bash for Windows provides agent forwarding support & doesn't need to run in administrator mode
 
 ## Fixes and Workarounds for known problems
 
