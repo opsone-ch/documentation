@@ -21,7 +21,7 @@ Right now we support Vagrant on Ubuntu Linux (LXC Provider), Windows 10 (Virtual
 
 ### Windows 10
 
-* VirtualBox
+* VirtualBox (Make sure using the latest stable version - at the time of writing tested with 5.0.x)
 * File mount currently not supported (Use SSH deployment instead) 
 
 ## Requirements
