@@ -62,8 +62,8 @@ website::sites:
 To use other TYPO3 CMS versions, add the following array:
 
 ```
-website:typo3versions:
- - "4.5"
+website::typo3versions:
+  - "4.5"
 ```
 
 At the moment, only TYPO3 CMS 4.5 and 6.2 are available. For TYPO3 CMS 7.x, see seperate type below.
