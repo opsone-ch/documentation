@@ -32,7 +32,7 @@ Within a website, the following log files are available
 * `less <filename>` to get the whole file in a search- and scrollable fashion
 
 
-## Show MySQL proceesses
+## Show MySQL processes
 
 * open `mysql` 
 * issue the `SHOW PROCESSLIST;` command
