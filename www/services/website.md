@@ -797,6 +797,24 @@ website::sites:
 You can set custom PHP configurations trough a `.user.ini` files in the corresponding directory, e.g. `~/www/.user.ini`. See the [PHP Documentation](http://php.net/manual/en/configuration.file.per-user.php) for details.
 
 
+## Listen
+
+By default, nginx will bind to the primary IP address of the eth0 interface and the 80/443 port. You can specify listen options explicitly per website, for example within setups where Varnish is used and the nginx vhost does not have to listen on external interfaces.
+
+```
+website::sites: 
+  "username":
+    "env":                 "PROD"
+    "type":                "php"
+    "listen_ip":           "127.0.0.1"
+    "listen_port":         "8080"
+    "listen_options":      "option_value"
+    "ipv6_listen_ip":      "::1"
+    "ipv6_listen_port":    "8080"
+    "ipv6_listen_options": "option_value"
+```
+
+
 ## GeoIP
 
 To use your GeoIP database with nginx, store the appropriate data files on your server and add the following configuration:
