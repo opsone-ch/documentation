@@ -119,11 +119,11 @@ the database.sql.lzo.1 is the backup from yesterday.
 
 #### phpmyadmin
 
-Access your database over the web with [phpMyAdmin](https://dbadmin.snowflakehosting.ch) and enter the credentials
+We provide a central [phpMyAdmin installation](https://dbadmin.snowflakehosting.ch) to access your database. Use the following settings to connect:
 
-* Server: server01.snowflakehosting.ch
-* Username: your user
-* Password: your password
+* Server: database hostname, e.g. customer01.snowflakehosting.ch
+* Username: see DB_USERNAME in `~/.profile`
+* Password: see DB_PASSWORD in `~/.profile`
 
 #### SSH tunnel
 
