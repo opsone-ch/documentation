@@ -150,3 +150,10 @@ define('WP_PROXY_PORT', '80');
 define('WP_PROXY_BYPASS_HOSTS', 'localhost');
 ```
 
+## Debugging
+
+Logged in as user `devop`, you can diagnose created rules and logs trough the following means:
+
+* Firewall logs in `/var/log/messages`
+* show created rules with `sudo iptables -L` / `sudo ip6tables -L`
+
