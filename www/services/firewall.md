@@ -54,7 +54,7 @@ base::firewall::rules:
   "020 deny HTTP because we want to force a secure site with HTTPS only":
     "chain":  "INPUT"
     "port":   "80"
-    "action": "rejected"
+    "action": "reject"
 ```
 Hint: HTTP(S) nginx rules are numbered 040 so you must use a lower number for your rule to be processed before the default allow all from nginx-configuration
 
