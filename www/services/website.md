@@ -346,6 +346,7 @@ You have to select one of those environments for each website:
 * password protected (User "preview", password from "htpasswd" option)
 * phpinfo enabled
 * debug error log level
+* Xdebug enabled, see [PHP debugging](../development/phpdebugging.md).
 * E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, see [E-Mail Handling](/development/email.md) for details)
 
 

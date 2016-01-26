@@ -32,6 +32,7 @@
   * [Vagrant](development/vagrant.md)
   * [E-Mail Handling](development/email.md)
   * [Deployment](development/deployment.md)
+  * [PHP debugging](development/phpdebugging.md)
 
 [Support](support.md)
 
