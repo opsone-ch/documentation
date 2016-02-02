@@ -49,6 +49,7 @@ lxc.network.flags = up
 https://github.com/mitchellh/vagrant/pull/5986/files
 ```
 * Vagrant Plugins
+Vagrant plugins should be installed without sudo (Ubuntu only)
 ```
 vagrant plugin install vagrant-hostmanager   # required to access VM trough name/aliases
 vagrant plugin install vagrant-cachier
@@ -102,3 +103,7 @@ vagrant ssh-config # output valid SSH configuration
  * Error during start because of NFS-Issues (e.g. Deleted Projects): empty the file `/etc/exports` on your host-machine.
  * cannot connect to VM: check your host's `/etc/hosts` for duplicated entries
  * MySQL-Error during first provisioning: just let vagrant finish and then do a `vagrant reload --provision`
+ * If you are unable to install vagrant-hostmanager try installing zlib1g-dev first with
+```
+sudo apt-get install zlib1g-dev
+```
