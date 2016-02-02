@@ -317,6 +317,25 @@ website::sites:
 Hint: to control the nodejs daemon, use the `nodejs-restart` shortcut
 
 
+#### todoyu
+
+* nginx 1.6 with naxsi WAF, core rule set and todoyu white/blacklists
+* PHP-FPM 5.6
+* MariaDB 10.x with database, user, and grants
+* access to external SMTP/POP3/IMAP ports
+* todoyu cronjob
+* todoyu access rules
+
+```
+website::sites: 
+  "todoyuexample":
+    "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+    "server_name": "todoyu.example.net www.todoyu.example.net"
+    "env":         "PROD"
+    "type":        "todoyu"
+```
+
+
 ## Environments
 
 You have to select one of those environments for each website:
