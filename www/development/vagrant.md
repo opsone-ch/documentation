@@ -6,6 +6,7 @@ We rely on Vagrant to create local VMs for your purposes. You can use those Vagr
 ## OS Support
 
 Right now we support Vagrant on Ubuntu Linux (LXC Provider), Windows 10 (VirtualBox Provider) and Mac OS (VirtualBox Provider).
+Does not work on Windows 7, running Ubuntu 15.10 in a virtual box, following the Ubuntu installation guide. Probably because of some privilege problems.
 
 
 ### Mac OS
