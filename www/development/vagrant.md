@@ -38,6 +38,12 @@ profile lxc-container-default flags=(attach_disconnected,mediate_deleted) {
 ...
 }
 ```
+Restart the apparmor service with
+
+```
+/etc/init.d/apparmor reload
+```
+
 * (Ubuntu only) additional LXC configuration `/etc/lxc/default.conf`
 ```
 lxc.network.type = veth
