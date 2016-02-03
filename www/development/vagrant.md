@@ -62,7 +62,7 @@ vagrant plugin install vagrant-cachier
 vagrant plugin install vagrant-lxc           # Ubuntu only
 ```
 * [GIT](https://git-scm.com/)
-* SSH Key loaded into ssh-agent (Windows 10: Pageant for PuTTY)
+* SSH Key loaded into ssh-agent (Windows 10: Pageant for PuTTY): [SSH keys](/server/ssh_keys.md)
 * Access to snowflake Puppet repositories
 
 Hint: As long as our Puppet modules are not published under an open source license, [send us](/support.md) your SSH public key. We will add those to the required GIT repositories and provide you the relevant informations
