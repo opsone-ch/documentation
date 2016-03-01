@@ -46,7 +46,7 @@ By default, Varnish will listen on port 80. If Varnish has to bind to another po
 With `vcl_type`, you choose a tempalte which is used by Varnish as default VCL configuration. By now, the following types are available:
 
  * `default`: Varnish default configuration which does not very much but is perfetly suitable for your own, custom configuration trough `vcl_include`
- * `typo3`: Varnish configuration for the `varnish` TYPO3 extension (see [Github](https://github.com/snowflakech/typo3-varnish/blob/master/res/default-4.vcl))
+ * `typo3`: Varnish configuration for the `varnish` TYPO3 extension (see [Github](https://github.com/snowflakech/typo3-varnish/blob/master/Resources/Private/Example/default-4.vcl))
 
 
 ### vcl_include
