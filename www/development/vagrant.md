@@ -96,6 +96,8 @@ vagrant destroy    # delete VM
 vagrant ssh-config # output valid SSH configuration
 ```
 
+Warning: Always halt your vagrant box before shutting down your computer! This prevents your vagrant box of getting corrupted and having to be created newly.
+
 
 ## Tips & tricks
 
