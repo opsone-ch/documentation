@@ -482,7 +482,7 @@ To validate domain ownership, our certificate issuer will send a E-Mail to one o
 #### Create certificate and key
 
 ```
-$ openssl req -newkey rsa:2048 -x509 -nodes -days 3650 -out www.example.net.crt -keyout www.example.net.key
+$ openssl req -newkey rsa:4096 -x509 -nodes -days 3650 -out www.example.net.crt -keyout www.example.net.key
 Country Name (2 letter code) [AU]:CH
 State or Province Name (full name) [Some-State]:Luzern
 Locality Name (eg, city) []:Luzern
