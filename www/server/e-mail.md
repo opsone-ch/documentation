@@ -2,6 +2,8 @@
 
 Webservers are not allowed to send mails directly, instead they will be delivered over mailrelay.snowflakehosting.ch.
 
+Hint: Within PHP, only e-mails on "PROD" environments are sent. See [Development > E-Mail Handling](/development/email.md) for details.
+
 ## SPF Record
 
 Good secured mail services will discard mails sent from hosts which are not paricularly allowed to, eventhough the default behaviour is to accept every mail. To explicitly allow our mailrelay to send mails from your domain you need to add an SPF record to your DNS zone.
