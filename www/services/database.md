@@ -74,6 +74,12 @@ database::grants:
 ```
 
 
+### Additional configuration options
+
+* `mysql::server::password`: Password for the root User
+* `mysql::server::ft_min_word_len`: Value for the ft_min_word_len option
+
+
 ### Backup
 
 Every database is backed up daily into the users backup directory:
