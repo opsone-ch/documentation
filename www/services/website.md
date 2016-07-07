@@ -948,6 +948,18 @@ To use Symfony 2 with composer, use the following command:
 mkdir ~/web/tmp/ && cd ~/web/tmp/ && composer create-project symfony/framework-standard-edition symfony && rsync -a --delete-after ~/web/tmp/symfony/ ~/
 ```
 
+## Monitoring
+
+All sites with `"env": "PROD"` are monitored 24/7 by default. If you have some sites with frequent outages (e.g. for development purposes), which have to have `"env": "PROD"` for other reasons, or sites which are not reachable from everywhere due to security reasons, please deactivate monitoring by setting `"monitoring": "false"`.
+
+```
+website::sites: 
+  "examplenet":
+    "type":       "html"
+    "env":        "PROD"
+    "monitoring": "false"
+```
+
 ## Delete website
 
 As a security measure, you have to define explicit that you want to delete a website:
