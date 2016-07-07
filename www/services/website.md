@@ -467,6 +467,25 @@ By adding a TLS certificate to your website, the following configurations/featur
 * global HTTP to HTTPS redirect
 
 
+### Automated Certificate Management Environment (ACME/Let's Encrypt)
+
+We support ACME certificates by [Let's Encrypt](https://letsencrypt.org/). To enable this, set `ssl_acme` to true. You can select a specific ACME provider by `ssl_acme_provider`, however by now only `letsencrypt` is available and already set as default, so you can omit this usually.
+
+Warning: Let's Encrypt will try to reach your server by HTTP. Make sure that all hosts added to `server_name` end up on your server already, otherwise validation will fail.
+
+Configuration example: 
+
+```
+"devexamplenet":
+  "type":              "html"
+  "env":               "PROD"
+  "ssl_acme":          "true"
+  "ssl_acme_provider": "letsencrypt" # not required, as letsencrypt is already the default
+  "server_name":       "dev.example.net www.dev.example.net" # make sure that all this hosts 
+                                                             # point to this server already
+```
+
+
 ### Order certificate
 
 
