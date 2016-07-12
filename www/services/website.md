@@ -912,6 +912,22 @@ Every PHP based website type has composer installed and auto updated.
 
 Hint: For details, see the [Composer](https://getcomposer.org/doc/) documentation.
 
+#### TYPO3 7
+
+On composer based TYPO3 7 installations, composer runs after every TYPO3 core update, if the following conditions are fulfilled:
+
+ * `type: typo3cmsv7`
+ * `~/composer.json` exists
+ * `~/composer.json` contains `typo3/cms`
+
+Command used on websites with `env: DEV`:
+`/bin/rm -f /home/${name}/composer.lock && /usr/local/bin/composer update -n -o typo3/cms`
+Command used on all other environments:
+`/bin/rm -f /home/${name}/composer.lock && /usr/local/bin/composer update --no-dev -n -o typo3/cms`
+
+Hint: Composer runs only after changes within the global TYPO3 core in `/var/lib/typo3`. During deployments, you still have to run composer manually.
+
+
 #### TYPO3 CMS with Composer
 
 To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
