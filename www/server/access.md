@@ -19,12 +19,20 @@ On all servers, a user named `devop` is created by default. This user is require
 Depending on the installed services, the following shortcuts might be available to execute certain commands with root privileges:
 
 * `puppet-agent`: trigger puppet agent run
-* `nginx-restart`: restart nginx webserver
 * `nginx-reload`: reload nginx webserver
-* `fpm-restart`: restart PHP-FPM daemon
+* `nginx-restart`: restart nginx webserver
 * `fpm-reload`: reload PHP-FPM daemon
-* `uwsgi-restart`: restart uwsgi daemon
+* `fpm-restart`: restart PHP-FPM daemon
 * `uwsgi-reload`: reload uwsgi daemon
+* `uwsgi-restart`: restart uwsgi daemon
+* `varnish-reload`: reload Varnish daemon
+* `varnish-restart`: restart Varnish daemon
+* `nodejs-restart`: restart current nodejs daemon
+* `nodejs-start`: start current nodejs daemon
+* `nodejs-stop`: stop current nodejs daemon
+* `tomcat8-reload`: reload Tomcat daemon
+* `tomcat8-restart`: restart Tomcat daemon
+* `docker-restart`: restart Docker daemon
 
 
 ### Key Handling
