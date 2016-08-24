@@ -75,6 +75,20 @@ mv ~/.ssh/id_rsa_tmp.pub ~/.ssh/id_rsa.pub
 rm ~/.ssh/id_rsa_tmp 
 ```
 
+### SSH client configuration
+
+Add client configurations to `/etc/ssh/ssh_config` by setting the `ssh::config` hash:
+
+```
+ssh::config:
+  "Host":     "git"
+  "HostName": "code.example.com"
+  "User":     "git"
+```
+
+Hint: use `man ssh_config` ([online version](http://man.openbsd.org/ssh_config) for available configuration options
+
+
 ### SFTP
 
 After adding your publickey to the server, is it possible to connect over SFTP.
