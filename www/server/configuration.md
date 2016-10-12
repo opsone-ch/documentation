@@ -35,6 +35,7 @@ To configure certain, memory-aware services, suche as memcached or Varnish, we u
 
 As basis, we take 80% of the servers total memory. This amount is then distributed trough the `memory_ratio` for a specific service.
 
+Note: You can also use floating point numbers here. e.g. `memory_ratio: 1.2` results in 66% (0.8/1.2)
 
 ### Examples
 
