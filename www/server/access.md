@@ -33,6 +33,10 @@ Depending on the installed services, the following shortcuts might be available 
 * `tomcat8-reload`: reload Tomcat daemon
 * `tomcat8-restart`: restart Tomcat daemon
 * `docker-restart`: restart Docker daemon
+* `elastic-start`: start elasticsearch daemon
+* `elastic-stop`: stop elasticsearch daemon
+* `elastic-restart`: restart elasticsearch daemon
+* `elastic-force-reload`: force-reload elasticsearch daemon
 
 
 ### Key Handling
