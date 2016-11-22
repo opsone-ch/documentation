@@ -33,7 +33,7 @@ deploy STAGE:
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
   - sphinx-versioning build . $OUTPUTDIR --show-banner --banner-main-ref 201501 --root-ref 201701
-  - rsync -avz --delete $OUTPUTDIR docsstage@hosting04.snowflakehosting.ch:~/www/
+  - rsync -avz --delete $OUTPUTDIR $STAGE_USERNAME@$STAGE_SERVERNAME:~/www/
 
 deploy PROD:
   type: deploy
@@ -46,5 +46,5 @@ deploy PROD:
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
   - sphinx-versioning build . $OUTPUTDIR --show-banner --banner-main-ref 201501 --root-ref 201701
-  - rsync -avz --delete $OUTPUTDIR docsprod@hosting04.snowflakehosting.ch:~/www/
+  - rsync -avz --delete $OUTPUTDIR $PROD_USERNAME@$PROD_SERVERNAME:~/www/
 
