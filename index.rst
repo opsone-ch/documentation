@@ -11,28 +11,28 @@ This is the snowflake Ops documentation.
 It's targeted at an technical audience, mainly developers and sysadmins.
 Marketing and contract related details are available on our `website <https://snowflakeops.ch>`_.
 
-Generation 201501
+Generation 201701
 -------------------------------------------
 
 We are using so called server generations,
 based on a certain Debian release and tied to versions of further software like PHP, MySQL and so on.
 This concept allows you to select the appropriate version depending on the application you use,
 and also to switch to a newer generation in a planned way according to your needs.
-Right now, you are looking at the documentation for the 201501 generation:
+Right now, you are looking at the documentation for the 201701 generation:
 
 .. list-table:: 
    :stub-columns: 1
 
    * - OS Release
-     - Debian 8 (Jessie)
+     - Debian 8 (Stretch)
    * - Webserver
-     - nginx 1.6
+     - nginx 1.10
    * - Database
      - MariaDB 10
    * - PHP
-     - PHP 5.6
+     - PHP 7.0
    * - EOL
-     - May 2020
+     - ~ May 2022
 
 Switch to the documentation of other generations by using the versions selector below.
 
