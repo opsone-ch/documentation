@@ -112,9 +112,8 @@ import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_context = {
-    'source_url_prefix': "https://github.com/snowflakeOps/documentation/blob/201501/",
     "display_github": True,
-    "github_host": "gitlab.com",
+    "github_host": "github.com",
     "github_user": "snowflakeOps",
     "github_repo": 'documentation',
     "github_version": "201501",
