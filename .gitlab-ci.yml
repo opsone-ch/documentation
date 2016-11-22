@@ -19,6 +19,7 @@ mirror Github:
   script:
   - cd $CI_PROJECT_DIR
   - git remote add -f github git@github.com:snowflakeOps/documentation.git
+  - git checkout origin 201701
   - git status
   - git show-ref
   - git push github $CI_BUILD_REF_NAME
