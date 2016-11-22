@@ -61,6 +61,7 @@ This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 Int
 .. toctree::
   :hidden:
 
+  changelog
   server/index
   services/index
   development/index
