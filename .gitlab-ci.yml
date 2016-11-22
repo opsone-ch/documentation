@@ -7,12 +7,6 @@ image: "python:latest"
 
 # Dependencies
 before_script:
-  - apt-get -y update
-  - apt-get -y install rsync
-  - pip install Sphinx
-  - pip install sphinx_rtd_theme
-  - pip install sphinxcontrib-versioning
-
   # SSH deploy key
   - 'which ssh-agent || apt-get -y install openssh-client'
   - eval $(ssh-agent -s)
@@ -32,6 +26,10 @@ deploy STAGE:
   type: deploy
   environment: STAGE
   script:
+  - apt-get -y update && apt-get -y install rsync
+  - pip install Sphinx
+  - pip install sphinx_rtd_theme
+  - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
   - sphinx-versioning build . $OUTPUTDIR -b -B 201501 -r 201501
   - rsync -avz --delete $OUTPUTDIR docsstage@hosting04.snowflakehosting.ch:~/www/
@@ -41,6 +39,10 @@ deploy PROD:
   when: manual
   environment: PROD
   script:
+  - apt-get -y update && apt-get -y install rsync
+  - pip install Sphinx
+  - pip install sphinx_rtd_theme
+  - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
   - sphinx-versioning build . $OUTPUTDIR -b -B 201501 -r 201501
   - rsync -avz --delete $OUTPUTDIR docsprod@hosting04.snowflakehosting.ch:~/www/
