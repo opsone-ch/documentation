@@ -30,7 +30,7 @@ Simply add a new user over hiera:
 Firewall rules
 --------------
 
-Don't forget to add the `firewall rules <firewall.md>`__ to access
+Don't forget to add firewall rules (see :doc:`firewall`) to access
 RabbitMQ from your application. For example add:
 
 ::
@@ -43,4 +43,3 @@ RabbitMQ from your application. For example add:
         "source":  "91.234.160.xy"
         "source6": "2a04:503:0:105::1:xy"
 
-More information in the `firewall section <firewall.md>`__.

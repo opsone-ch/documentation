@@ -19,7 +19,7 @@ You have to set mysql::server::root\_password manually.
 
     mysql::server::root_password: "password"
 
-Hint: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only.
+.. hint:: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only
 
 Databases
 ~~~~~~~~~
@@ -132,11 +132,6 @@ backup, import it and remove the .sql file:
 
 the database.sql.lzo.1 is the backup from yesterday.
 
-\*\* Hint: \*\* If you need to restore older backups, feel free to
-contact our `Support </support.md>`__
-
---------------
-
 Access
 ~~~~~~
 
@@ -191,7 +186,7 @@ You have to set ``postgresql::server::postgres_password`` manually.
 
     postgresql::server::postgres_password: "password"
 
-Hint: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only.
+.. hint:: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only
 
 Databases
 ~~~~~~~~~

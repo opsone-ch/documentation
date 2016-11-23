@@ -84,5 +84,5 @@ Memory usage / ratio
 We auto-configure Tomcat to use up to 80% of the available server
 memory. Assuming that there is only 1 services running on the server.
 
-Hint: See `Memory Ratio </server/configuration.md#Memory_Ratio>`__ for
-details about memory ratio calculation
+.. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
+

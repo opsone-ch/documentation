@@ -13,15 +13,14 @@ servers.
 Hierarchy:
 
 -  common.yaml
--  common values used on all servers
--  here, you add values like global SSH keys or firewall rules
+ -  common values used on all servers
+ -  here, you add values like global SSH keys or firewall rules
 -  domain/common.yaml
--  common values used on all servers in this domain
--  here, you add domain specific values like dns resolver for a
-   particular subnet
+ -  common values used on all servers in this domain
+ -  here, you add domain specific values like dns resolver for a particular subnet
 -  domain/fqdn.yaml
--  values used on this explicit server
--  here, you add server specific values such as websites
+ -  values used on this explicit server
+ -  here, you add server specific values such as websites
 
 Access
 ~~~~~~
@@ -30,7 +29,7 @@ We will provide you access to the appropriate GIT repository to alter
 your configuration. Depending on your role you can add global or
 domain/server specific configurations.
 
-Hint: This is a temporary solution only (see below).
+.. note:: This is a temporary solution only (see below)
 
 Outlook
 ~~~~~~~

@@ -2,22 +2,17 @@ Deploy Applications
 ===================
 
 To deploy your application to your DEV, STAGE, PROD environment, follow
-the following docs. If you like to "Go Live" with your already running
-STAGE environment - please continue `here <deployment.md#Go_Live>`__.
+the following docs.
 
-Hint: we're happy to support you with an automatic deployment process.
-Feel free to contact us!
+.. hint:: we're happy to support you with an automatic deployment process. Feel free to contact us!
 
 Deploy to your server
 ---------------------
 
-First of all, make sure that you've configured and installed your
-favorite `services <../services.md>`__. (e.g. website, tomcat, caching
-etc) In the following documentation we're talking about
-`website <../services/website.md>`__ deployments.
+First of all, make sure that you've configured and installed all desired :doc:`../services/index` (e.g. website, tomcat, caching etc).
+In the following documentation we're talking about website deployments.
 
-Warning: Always make sure, that you're using an appropriate username.
-Don't use confusing names like "examplestage" for PROD envs etc.
+.. warning:: please make sure, that you're using appropriate usernames.  Don't use confusing names like "examplestage" for PROD envs etc
 
 Deploy your files
 ~~~~~~~~~~~~~~~~~
@@ -29,15 +24,11 @@ We recommend to use Git to deploy your website to your server. Feel free
 to clone your repository - your server is prepared:
 
 -  Git is installed
--  access to github.com is allowed (add `firewall
-   rules <../services/firewall.md>`__ to access other repos)
+-  access to github.com is allowed (add :doc:`../services/firewall` rules to access other repos)
 
-Hint: We're also able to host a Git environment for you or even offer
-consulting to introduce Git in you company / agency. (contact us for
-more information)
+.. hint:: we're also able to host a Git environment for you or even offer consulting to introduce Git in you company / agency. Please contact us for more informations
 
-If you don't use Git, there is the possiblity to copy the files over the
-"oldschool" way with rsync:
+If you don't use Git, there is the possiblity to copy the files over the "oldschool" way with rsync:
 
 Copy files
 ^^^^^^^^^^
@@ -54,13 +45,11 @@ This will copy the complete home directory to the remote users home.
 Warning: don't copy old backup files to the new environment. Use
 "--exclude=backup" to exclude your backup directory.
 
-Hint: `SSH agent forwarding <../server/ssh-keys.md#Agent_Forwarding>`__
-must be activated.
+.. hint:: SSH agent forwarding is reuquired
 
-Hint: use appropriate exclude patterns to ignore all not required files
+.. hint:: use appropriate exclude patterns to ignore all not required files
 
-Note: we use always SSH to copy files, even on the same server. This
-ensures that all files and directories belong to the appropriate user
+.. hint:: we use always SSH to copy files, even on the same server. This ensures that all files and directories belong to the appropriate user
 
 Deploy your database
 ~~~~~~~~~~~~~~~~~~~~
@@ -97,8 +86,7 @@ Deploy between environments
 If you've your site ready on the "DEV" or "STAGE" environment, there are
 two options to switch / deploy between different environments:
 
--  switch environment on an existing website in your
-   `configuration <../server/configuration.md>`__
+-  switch environment on an existing website in your configuration
 -  create a new website with the desired environment setting, copy files
    (and database)
 
@@ -121,8 +109,6 @@ New website, copy data (recommended)
 
 With this option, you just add another website with the desired
 environment and copy all files (and database) into the new website.
-Please see `deploy to your
-server <../development/deployment.md#Deploy_to_your_server>`__
 
 Go Live
 -------
@@ -136,17 +122,11 @@ following checklist.
 -  Domains / Nameserver in your control
 -  always use a low TTL like "300"
 -  Mail hosting (checked, moved, created, installed etc)
--  Add DNS `SPF Records <../server/e-mail.md>`__
+-  Add DNS SPF Records (see :doc:`../server/e-mail`)
 -  TLS certificate installed, ready and tested
--  Naxsi `learning
-   mode <../services/website.md#Web_Application_Firewall>`__ disabled on
-   STAGE and PROD, whitelist rules are created
--  The server has a correct
-   `sizing <../server/configuration.md#Server_sizing>`__
--  Disable `application based
-   logging <../services/website.md#Disable_exeptions>`__
-
-Hint: We recommend to fulfill this checklist 2 weeks before the go live.
+-  Naxsi learning mode disabled on STAGE and PROD, whitelist rules are created
+-  The server has a correct sizing
+-  Disable application based logging
 
 Testing
 ~~~~~~~
@@ -156,15 +136,13 @@ desired and ready for testing. Always simulate productive calls to the
 application, by adding all involved host names to your local hosts file.
 If you expect heavy usage, carry out load tests beforehand.
 
-Hint: We are happy to assist you with architecture, sizing and load
-tests
+.. hint:: We are happy to assist you with architecture, sizing and load tests
 
 Modify server hosts file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have to add entries to the servers hosts file for testing or
-other purposes (e.g. TYPO3 page not found handling), see `Hosts
-file </server/hosts.md>`__ for details.
+other purposes (e.g. TYPO3 page not found handling), see :doc:`../server/hosts` for details.
 
 Go live!
 ~~~~~~~~
@@ -174,9 +152,6 @@ Save the date
 
 If you need our assistance, we're happy to help you out! But we
 recommend to contact us at least 3 days before the go live.
-
-Warning: never go live on Friday or before holidays. We monitor your
-application 24/7/365 but can't fix application related issues.
 
 Cache warming
 ^^^^^^^^^^^^^
@@ -193,7 +168,7 @@ with a hostfile entry, a valid sitemap and wget / curl:
     # HTTPS
     wget --quiet https://www.example.com/sitemap.xml --no-cache --output-document - | egrep -o "https://$URL[^<]+" | while read line; do curl -A 'cache warming' -s -L $line > /dev/null 2>&1; done
 
-Hint: replace the sitemap part with your sitemap url.
+.. hint: replace the sitemap part with your sitemap url
 
 Git
 ^^^
@@ -229,11 +204,9 @@ Add DNS records within the DNS server of your choice.
     www.example.net. A       192.168.0.99
     www.example.net. AAAA    2001:db8::99
 
-Note: always add both A/AAAA DNS Records. Even if you have no IPv6
-connectivity yet, others will, and IPv6 usage will spread
+.. note:: always add both A/AAAA DNS Records. Even if you have no IPv6 connectivity yet, others will, and IPv6 usage will spread
 
-Hint: for more information about our dualstack infrastructure, see the
-`Dualstack </server/dualstack.md>`__ Site.
+.. hint:: for more information about our dualstack infrastructure, see the :doc:`../server/dualstack` site
 
 Check records
 ^^^^^^^^^^^^^
@@ -282,9 +255,7 @@ everything went fine:
 Check logfiles
 ^^^^^^^^^^^^^^
 
-Always check your logfiles after going live. For more information see
-the `available logfiles
-list <../faq.md##Which_log_files_are_available>`__.
+Always check your logfiles after going live.
 
 Remove local server name
 ^^^^^^^^^^^^^^^^^^^^^^^^

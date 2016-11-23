@@ -1,9 +1,7 @@
 Firewall Service
 ================
 
-Note: This site belongs to the IP firewall. There is also a web
-application firewall which is described within the `website
-service </services/website.md#Web_Application_Firewall>`__
+.. note:: This site belongs to the IP firewall. There is also a web application firewall which is described within :doc:`website`
 
 Default settings
 ----------------
