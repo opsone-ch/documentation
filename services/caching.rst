@@ -19,8 +19,7 @@ Memory Ratio
 By default, a ``memory_ratio`` of 8 is used, which means memcached will
 take up to 1/8 of this servers total memory.
 
-Hint: See `Memory Ratio </server/configuration.md#Memory_Ratio>`__ for
-details about memory ratio calculation
+.. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
 
 Full example
 ~~~~~~~~~~~~
@@ -70,9 +69,7 @@ With ``vcl_include``, you can define a full path to a additional
 configuration file. This file gets included into the Varnish default
 configuration.
 
-Hint: Keep in mind to issue a ``puppet-agent`` run after changing the
-local Varnish configuration. Puppet will copy your local configuration
-file to a global location and ensure that Varnish is able to read it.
+.. hint:: keep in mind to issue a ``puppet-agent`` run after changing the local Varnish configuration. Puppet will copy your local configuration file to a global location and ensure that Varnish is able to read it
 
 Memory Ratio
 ~~~~~~~~~~~~
@@ -80,8 +77,7 @@ Memory Ratio
 By default, a ``memory_ratio`` of 2 is used, which means Varnish will
 take up to 50% of this servers total memory.
 
-Hint: See `Memory Ratio </server/configuration.md#Memory_Ratio>`__ for
-details about memory ratio calculation
+.. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
 
 Full example
 ~~~~~~~~~~~~

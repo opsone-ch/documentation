@@ -9,8 +9,7 @@ Infrastructure
    Setup (MLAG/VARP)
 -  we make heavy usage of VLANs to seperate customer segements
 -  all our servers and services are reachable by IPv4 and IPv6. Details
-   are available at the `Dualstack
-   Documentation </server/dualstack.md>`__.
+   are available at :doc:`../server/dualstack`.
 
 Configuration
 -------------

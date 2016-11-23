@@ -17,9 +17,6 @@ To install Node.js, add ``nodejs`` to the ``javascript::backend`` hash:
       "nodejs":
         "ensure": "present"
 
-To run your Node.js application in production, contact our
-`support <../support.md>`__.
-
 NPM
 ---
 

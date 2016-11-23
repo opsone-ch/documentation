@@ -84,12 +84,11 @@ Requirements
        vagrant plugin install vagrant-lxc           # Ubuntu only
 
 -  `GIT <https://git-scm.com/>`__
--  SSH Key loaded into ssh-agent (Windows 10: Pageant for PuTTY): `SSH
-   keys </server/ssh_keys.md>`__
+-  SSH Key loaded into ssh-agent (Windows 10: Pageant for PuTTY): :doc:`../server/ssh-keys`
 -  Access to snowflake Puppet repositories
 
 Hint: As long as our Puppet modules are not published under an open
-source license, `send us </support.md>`__ your SSH public key. We will
+source license, send us your SSH public key. We will
 add those to the required GIT repositories and provide you the relevant
 informations
 
@@ -134,10 +133,6 @@ Tips & tricks
 -  load your SSH key into ssh-agent (VM has to access different
    repositorys with your key)
 -  use Vagrant commands like ``vagrant up`` to control your VM only
--  there is no centralized database management tool available. Read the
-   `corresponding
-   article <https://snowflakehosting.ch/#!services/database.md#Access>`__
-   to know how to connect anyhow
 -  Git bash for Windows provides agent forwarding support & doesn't need
    to run in administrator mode
 

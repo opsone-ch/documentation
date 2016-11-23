@@ -68,9 +68,8 @@ Sent mails are lost
 What does DEV, STAGE and PROD stand for?
 ----------------------------------------
 
-Each website has a corresponding environment configured. See
-`Environments <services/website.md#Environments>`__ within the website
-service documentation for details.
+Each website has a corresponding environment configured. See environments
+within the website service documentation (:doc:`services/website`) for details.
 
 YAML syntax errors
 ------------------
@@ -89,8 +88,7 @@ YAML syntax errors
        Warning: Not using cache on failed catalog
        Error: Could not retrieve catalog; skipping run
 
-Hint: For details, see the `YAML <https://en.wikipedia.org/wiki/YAML>`__
-Documentation on Wikipedia.
+.. hint:: for details, see the `YAML <https://en.wikipedia.org/wiki/YAML>`__ documentation on Wikipedia
 
-Warning: Do not use online YAML validators, as you might leak private
-informations like passwords to 3rd parties.
+.. warning:: do not use online YAML validators, as you might leak private informations like passwords to 3rd parties
+

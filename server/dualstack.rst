@@ -1,13 +1,10 @@
 Dualstack IPv4/IPv6
 ===================
 
-All our servers and services are reachable by IPv4 and IPv6. We believe
-strongly in the future of the IPv6 Internet and are Member of the `Swiss
-IPv6 Council <http://www.swissipv6council.ch/>`__.
+All our servers and services are reachable by IPv4 and IPv6.
+We believe strongly in the future of the IPv6 Internet and are Member of the `Swiss IPv6 Council <http://www.swissipv6council.ch/>`__.
 
-\*\* Hint: \*\* Please help us spreading IPv6 usage by adding those DNS
-records. Its all you have to do manually, all other aspects of IPv4/IPv6
-dualstack are covered by us.
+.. note:: Please help us spreading IPv6 usage by adding those DNS records. Its all you have to do manually, all other aspects of IPv4/IPv6 dualstack are covered by us.
 
 Lookup Addresses
 ----------------
@@ -32,3 +29,4 @@ Record:
 
     www.snowflakehosting.ch.    IN  A       185.17.68.153
     www.snowflakehosting.ch.    IN  AAAA    2a04:503:0:1003::153
+

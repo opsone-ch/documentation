@@ -4,8 +4,7 @@ FTP Service
 This service will install and configure ProFTPD and manage virtual
 users.
 
-Warning: Use FTP only if really required (for example for webcam
-access). Most use cases are just fine with SSH/SCP.
+.. warning:: use FTP only if really required (for example for webcam access). Most use cases are just fine with SSH/SCP
 
 Users
 -----

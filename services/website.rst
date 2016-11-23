@@ -26,10 +26,8 @@ Add a website with a configuration like this:
    places, we have to limit its value to the least common denominator)
 -  server\_name: add host names which this vhost will listen on. You
    have to define all names explicit, also with and/or without www.
--  env: One of DEV, STAGE or PROD (see
-   `Environments <website.md#Environments>`__ below)
--  type: software type of this particular website (see
-   `Types <website.md#Types>`__ below)
+-  env: One of DEV, STAGE or PROD (see `Environments`_)
+-  type: software type of this particular website (see `Types`_)
 
 By adding a website, the following parts are created on the server:
 
@@ -43,20 +41,14 @@ By adding a website, the following parts are created on the server:
    /home/username/backup/)
 -  environment variables for bash and zsh (~/.profile and ~/.zprofile)
 -  SSH authorised keys
--  webserver vhost configuration (for custom configurations, see `Custom
-   configurations <website.md#Custom_configurations>`__ below
+-  webserver vhost configuration (for custom configurations, see `Custom configuration`_)
 
 Types
 -----
 
 You have to define one of the following types for each website.
 
-\*\* Hint: \*\* If you need a type not mentioned here yet, do not
-hesitate to contact us.
-
-\*\* Note: \*\* If you configure a database here, do not forget to add
-the settings for the database server. See `Database
-configuration <database.md#Prerequisites>`__
+.. note:: If you need a type not mentioned here yet, do not hesitate to contact us
 
 typo3cms
 ^^^^^^^^
@@ -85,9 +77,7 @@ To use other TYPO3 CMS versions, add the following array:
 At the moment, only TYPO3 CMS 4.5 and 6.2 are available. For TYPO3 CMS
 7.x, see seperate type below.
 
-\*\* Hint: \*\* please note that some versions may not be fully
-compatible with your PHP / MySQL / Nginx version. Please contact our
-support before using it.
+.. note:: please note that some older TYPO3 versions may not be fully compatible with this generation
 
 typo3cmsv7
 ^^^^^^^^^^
@@ -243,8 +233,7 @@ uwsgi
    (``"dbtype": "postgresql"``)
 -  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
 -  all requests are redirected to the uwsgi daemon by default. To serve
-   static files, add appropriate locations to the `local nginx
-   configuration <website.md#Custom_configurations>`__ like this:
+   static files, add appropriate locations to the `Custom configuration`_ like this:
 
    ::
 
@@ -346,8 +335,7 @@ nodejs
    (``"dbtype": "postgresql"``)
 -  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
 -  all requests are redirected to the nodejs daemon by default. To serve
-   static files, add appropriate locations to the `local nginx
-   configuration <website.md#Custom_configurations>`__ like this:
+   static files, add appropriate locations to the `Custom configuration`_ like this:
 
    ::
 
@@ -400,8 +388,7 @@ PROD
 -  phpinfo disabled (otherwise database credentials in environment
    variables could get leaked)
 -  quiet error log level
--  E-Mails get sent to their designated recipient (PHP mail() only, see
-   `E-Mail Handling </development/email.md>`__ for details)
+-  E-Mails get sent to their designated recipient (PHP mail() only, see :doc:`../development/email` for details)
 
 STAGE
 ^^^^^
@@ -410,8 +397,7 @@ STAGE
 -  password protected (User "preview", password from "htpasswd" option)
 -  phpinfo enabled
 -  debug error log level
--  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only,
-   see `E-Mail Handling </development/email.md>`__ for details)
+-  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
 
 DEV
 ^^^
@@ -420,10 +406,8 @@ DEV
 -  password protected (User "preview", password from "htpasswd" option)
 -  phpinfo enabled
 -  debug error log level
--  Xdebug enabled, see `PHP
-   debugging <../development/phpdebugging.md>`__.
--  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only,
-   see `E-Mail Handling </development/email.md>`__ for details)
+-  Xdebug enabled, see :doc:`../development/phpdebugging` for details)
+-  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
 
 User Handling
 ^^^^^^^^^^^^^
@@ -464,9 +448,7 @@ You can add such uers for yourself and your co-workers. If you work on
 multiple websites, you do not have to look up the corresponding password
 all the time but just use the global one.
 
-\*\* Note: \*\* Please keep in mind that this password gets often
-transfered over unencrypted connections. As always, we recommend to use
-a particular password for only this purpose.
+.. note:: Please keep in mind that this password gets often transfered over unencrypted connections. As always, we recommend to use a particular password for only this purpose
 
 Disable exeptions
 ^^^^^^^^^^^^^^^^^
@@ -492,9 +474,7 @@ default, and are available within the shell and also the webserver.
 -  DB\_USERNAME (Database username, only if there is a database)
 -  DB\_PASSWORD (Database password, only if there is a database)
 
-Hint: to use the .profile environmet within a cronjob, prepend the
-following code to your command: /bin/bash -c 'source $HOME/.profile;
-~/original/command'
+.. hint:: to use the .profile environmet within a cronjob, prepend the following code to your command: ``/bin/bash -c 'source $HOME/.profile; ~/original/command'``
 
 Example usage within PHP
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -604,8 +584,7 @@ Extract certificate signing request
 
     openssl x509 -x509toreq -signkey www.example.net.key -in www.example.net.crt
 
-Submit this CRS to us `Support </support.md>`__ for further processing,
-or order certificate by yourself from the issuer of your choice.
+Submit this CSR to us for further processing, or order certificate by yourself from the issuer of your choice.
 
 Configure website
 ^^^^^^^^^^^^^^^^^
@@ -686,9 +665,9 @@ Multi domain certificates
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As all HTTP requests within a given vHost are redirected to HTTPS using
-the first name in ``server_name``, you have to add manual
-`redirects <website.md#Redirect>`__ for additional domains in a multi
-domain certificate. Make sure those `redirects <website.md#Redirect>`__
+the first name in ``server_name``, you have to add manual redirects
+(`Redirect`_ type) for additional domains in a multi
+domain certificate. Make sure those redirects
 are evaluated before the default redirect vHost, for example by adding a
 ``aaa`` prefix to their name.
 
@@ -722,8 +701,7 @@ Web Application Firewall
 We use `Naxsi <https://github.com/nbs-system/naxsi>`__ as additional
 protection against application level attacks such as cross
 site-scripting or SQL injections. We also block common vulnerabilities
-and zero day attacks, see our `status
-site <http://status.snowflake.ch/>`__ for updates.
+and zero day attacks, see our `status site <http://status.snowflake.ch/>`__ for updates.
 
 Warning: this is just a additional security measure. Regardless its
 existence, remember to keep your application, extensions and libraries
@@ -768,14 +746,9 @@ See the `Naxsi
 documentation <https://github.com/nbs-system/naxsi/wiki/whitelists>`__
 for details.
 
-Hint: to apply the changes reload the nginx configuration with the
-"nginx-reload" shortcut
+.. hint:: to apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut
 
-Hint: if you need assistance, do not hesitate to `contact
-us </support.md>`__. We are happy to help out!
-
-Hint: we strongly recommend to add the ~/cnf/ directory to the source
-code management of your choice
+.. hint:: we strongly recommend to add the ``~/cnf/`` directory to the source code management of your choice
 
 Autocreate rules
 ~~~~~~~~~~~~~~~~
@@ -841,11 +814,9 @@ example, enable the learning mode for an specific ip:
       set $naxsi_flag_learning 1;
      }
 
-More on the `dynamicmodifiers
-page <https://github.com/nbs-system/naxsi/wiki/dynamicmodifiers>`__.
+More on the `dynamicmodifiers page <https://github.com/nbs-system/naxsi/wiki/dynamicmodifiers>`__.
 
-Hint: this is a powerful feature in use with the `nginx
-vars <http://nginx.org/en/docs/varindex.html>`__
+.. hint:: this is a powerful feature in use with the `nginx vars <http://nginx.org/en/docs/varindex.html>`
 
 Request limits
 --------------
@@ -875,7 +846,7 @@ Adjust limits
 
 To adjust this limits (e.g. for special applications such as API calls,
 etc), set a higher "load zone" in your local configuration
-(~/cnf/nginx.conf):
+(``~/cnf/nginx.conf``):
 
 ::
 
@@ -886,8 +857,7 @@ etc), set a higher "load zone" in your local configuration
     limit_req zone=medium burst=500;
     limit_req zone=large burst=1500;
 
-Hint: to apply the changes reload the nginx configuration with the
-"nginx-reload" shortcut
+.. hint:: to apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut
 
 Zones
 ^^^^^
@@ -898,15 +868,9 @@ Zones
 
 Note: the default zone is "small" and will fit most use cases
 
-Warning: In SPDY, each concurrent request is considered a separate
-connection.
+.. warning:: in SPDY, each concurrent request is considered a separate connection
 
-Hint: To add more specific rules (based on client addresses or url for
-example), please get in touch
-
-Hint: For Details, see the `Module
-ngx\_http\_limit\_req\_module <http://nginx.org/en/docs/http/ngx_http_limit_req_module.html>`__
-documentation
+.. hint:: for Details, see the `Module ngx\_http\_limit\_req\_module <http://nginx.org/en/docs/http/ngx_http_limit_req_module.html>`__ documentation
 
 Custom configuration
 --------------------
@@ -915,10 +879,9 @@ nginx
 ^^^^^
 
 You can add specific configurations like redirects or headers within the
-~/cnf/ directory.
+``~/cnf/`` directory.
 
-\*\* Warning: \*\* You have to reload nginx after changes with the
-"nginx-reload" shortcut
+.. warning:: You have to reload nginx after changes with the ``nginx-reload`` shortcut
 
 ~/cnf/nginx.conf
 ^^^^^^^^^^^^^^^^
@@ -951,15 +914,12 @@ nested in the location section from the example on top:
         try_files /dummy/$uri @php;
     }
 
-Hint: For Details, see the `Server Block
-Examples <http://wiki.nginx.org/ServerBlockExample>`__ and `Rewrite
-Rule <http://wiki.nginx.org/HttpRewriteModule#rewrite>`__ documentation
+.. hint:: for Details, see the `Server Block Examples <http://wiki.nginx.org/ServerBlockExample>`__ and `Rewrite Rule <http://wiki.nginx.org/HttpRewriteModule#rewrite>`__ documentation
 
 ~/cnf/nginx\_waf.conf
 ^^^^^^^^^^^^^^^^^^^^^
 
-Configure WAF exeptions here, see `Web Application
-Firewall <#Web_Application_Firewall>`__ for details.
+Configure WAF exeptions here, see `Web Application Firewall`_ for details.
 
 custom webroot
 ^^^^^^^^^^^^^^
@@ -1033,9 +993,7 @@ on your server and add the following configuration:
       "GEOIP_LONGITUDE":    "$geoip_longitude"
       "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 
-Hint: For details, see the `Module
-ngx\_http\_geoip\_module <http://nginx.org/en/docs/http/ngx_http_geoip_module.html>`__
-documentation.
+.. hint:: for details, see the `Module ngx\_http\_geoip\_module <http://nginx.org/en/docs/http/ngx_http_geoip_module.html>`__ documentation
 
 PHP Modules
 -----------
@@ -1058,19 +1016,16 @@ For example if you like to install php5-ldap use:
         "ensure": "installed"
         "package": "php5-ldap"
 
-Hint: Some types might have the needed package preinstalled. For example
-"magento" comes with "php5-mcrypt".
+.. hint:: some types might have the needed package preinstalled. For example "magento" comes with "php5-mcrypt"
 
-You will find a list of supported PHP Modules
-`Here <http://puppet-php.readthedocs.org/en/latest/extensions.html>`__.
+You will find a list of supported PHP modules `here <http://puppet-php.readthedocs.org/en/latest/extensions.html>`__.
 
 Composer
 --------
 
 Every PHP based website type has composer installed and auto updated.
 
-Hint: For details, see the `Composer <https://getcomposer.org/doc/>`__
-documentation.
+.. hint:: For details, see the `Composer <https://getcomposer.org/doc/>`__ documentation
 
 TYPO3 7
 ^^^^^^^
@@ -1087,9 +1042,7 @@ Command used on websites with ``env: DEV``:
 Command used on all other environments:
 ``/bin/rm -f /home/${name}/composer.lock && /usr/local/bin/composer update --no-dev -n -o typo3/cms``
 
-Hint: Composer runs only after changes within the global TYPO3 core in
-``/var/lib/typo3``. During deployments, you still have to run composer
-manually.
+.. hint:: Composer runs only after changes within the global TYPO3 core in ``/var/lib/typo3``. During deployments, you still have to run composer manually
 
 TYPO3 CMS with Composer
 ^^^^^^^^^^^^^^^^^^^^^^^

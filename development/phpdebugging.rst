@@ -8,14 +8,13 @@ documentation <https://xdebug.org/docs/>`__.
 Environments
 ------------
 
-Xdebug is installed and enabled in all ``DEV``
-`environments <../services/website.md#DEV>`__.
+Xdebug is installed and enabled in all ``DEV`` environments
 
 Debugging
 ---------
 
-Remote debugging is enabled by default in all ``DEV``
-`environments <../services/website.md#DEV>`__. To allow multiple debug
+Remote debugging is enabled by default in all ``DEV`` environments.
+To allow multiple debug
 sessions in multiple installations at the same time, a random port is
 assigned to each website at ``xdebug.remote_port``. If your debug
 destination (e.g. PhpStorm) is on another machine, you have to reverse
@@ -31,6 +30,5 @@ profiler files by using the ``XDEBUG_PROFILE`` GET/POST parameter, or
 set a cookie with the name ``XDEBUG_PROFILE``. By default, profiler
 output well be written into the ``~/tmp/`` directory.
 
-Warning: Enable profiling can generate a lot of data. Make sure your
-diskspace is sufficient to store this files and disable profiling as
-soon as possible
+.. warning:: Enable profiling can generate a lot of data. Make sure your diskspace is sufficient to store this files and disable profiling as soon as possible
+

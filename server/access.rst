@@ -103,9 +103,7 @@ Add client configurations to ``/etc/ssh/ssh_config`` by setting the
       "HostName": "code.example.com"
       "User":     "git"
 
-Hint: use ``man ssh_config`` (`online
-version <http://man.openbsd.org/ssh_config>`__ for available
-configuration options
+.. Hint:: use ``man ssh_config`` (`online version <http://man.openbsd.org/ssh_config>`_) for available configuration options
 
 SFTP
 ~~~~
@@ -116,13 +114,12 @@ over SFTP. We recommend to use one of the following clients:
 -  `Filezilla <https://filezilla-project.org>`__
 -  `Cyperduck <https://cyberduck.io>`__
 
-Hint: To store your key in the memory and not having to enter the
-password for every connection - use pagent (Windows) or ssh-add it
-(Linux)
+.. Hint:: To store your key in the memory and not having to enter the password for every connection - use pageant (Windows) or ssh-add it (Linux)
 
 FTP
 ---
 
 There is no FTP daemon installed by default. Please consider to use
 SSH/SCP when possible. If you really need access by FTP, follow the
-instructions on `Services > FTP </services/ftp.md>`__.
+instructions on :doc:`../services/ftp`.
+
