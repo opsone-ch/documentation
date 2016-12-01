@@ -44,7 +44,7 @@ We're here and happy to help.
 If you have any questions, don't hesitate to contact us:
 
 * Livechat (see below)
-* `Slack <https://snowflakeops.slack.com>`_
+* `Slack <https://snowflakeops.slack.com>`_ (`Registration <https://slack.snowflakeops.ch>`_)
 * E-Mail: `team@snowflakeops.ch <mailto:team@snowflakeops.ch>`_
 * Phone: `058 255 00 22 <tel:+41582550022>`_
 
