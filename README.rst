@@ -10,5 +10,5 @@ Switch from MDwiki
 
 In November 2017, we switched the rendering system behind this documentation from MDwiki to Sphinx.
 We now use branches to create different documentations for each server generation.
-All content was converted into the current `201501` branch, the former `master` branch was moved to `201501_archive_mdwiki`.
+All content was converted into the current `5-0-stable` branch, the former `master` branch was moved to `201501_archive_mdwiki`.
 
