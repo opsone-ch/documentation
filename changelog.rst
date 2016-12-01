@@ -7,7 +7,7 @@ This concept allows you to select the appropriate version depending on the appli
 and also to switch to a newer generation in a planned way according to your needs.
 Right now, you are looking at the documentation for the 201701 generation.
 
-Changes between 201501 - 201701
+Changes between 5.0 - 6.0
 -------------------------------------------
 
 - update to Debian Stretch
