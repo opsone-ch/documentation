@@ -24,7 +24,7 @@ Right now, you are looking at the documentation for the version 6:
    :stub-columns: 1
 
    * - OS Release
-     - Debian 8 (Stretch)
+     - Debian 9 (Stretch)
    * - Webserver
      - nginx 1.10
    * - Database
