@@ -31,7 +31,7 @@ deploy STAGE:
   - pip install sphinx_rtd_theme
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
-  - sphinx-versioning build . $OUTPUTDIR -b -B 201501 -r 201501
+  - sphinx-versioning build . $OUTPUTDIR -b -B 5-0-stable -r 5-0-stable
   - rsync -avz --delete $OUTPUTDIR $STAGE_USERNAME@$STAGE_SERVERNAME:~/www/
 
 deploy PROD:
@@ -44,6 +44,6 @@ deploy PROD:
   - pip install sphinx_rtd_theme
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
-  - sphinx-versioning build . $OUTPUTDIR -b -B 201501 -r 201501
+  - sphinx-versioning build . $OUTPUTDIR -b -B 5-0-stable -r 5-0-stable
   - rsync -avz --delete $OUTPUTDIR $PROD_USERNAME@$PROD_SERVERNAME:~/www/
 

@@ -11,14 +11,14 @@ This is the snowflake Ops documentation.
 It's targeted at an technical audience, mainly developers and sysadmins.
 Marketing and contract related details are available on our `website <https://snowflakeops.ch>`_.
 
-Generation 201501
+Version 5 (Generation 201501)
 -------------------------------------------
 
 We are using so called server generations,
 based on a certain Debian release and tied to versions of further software like PHP, MySQL and so on.
 This concept allows you to select the appropriate version depending on the application you use,
 and also to switch to a newer generation in a planned way according to your needs.
-Right now, you are looking at the documentation for the 201501 generation:
+Right now, you are looking at the documentation for the version 5:
 
 .. list-table:: 
    :stub-columns: 1
@@ -34,7 +34,7 @@ Right now, you are looking at the documentation for the 201501 generation:
    * - EOL
      - May 2020
 
-Switch to the documentation of other generations by using the versions selector below.
+Switch to the documentation of other versions by using the selector below.
 
 We got your back
 -------------------------------------------
