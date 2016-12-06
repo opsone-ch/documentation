@@ -57,6 +57,7 @@ typo3cms
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
 -  TYPO3 CMS 6.2 cloned into /var/lib/typo3/TYPO3\_6-2/
+-  TYPO3 Scheduler executed every 5 minutes
 
 ::
 
@@ -90,6 +91,7 @@ typo3cmsv7
 -  Default webroot is ~/web
 -  PHP-Settings adjusted to 7.x-requirements
 -  TYPO3 ApplicationContext can be set
+-  TYPO3 Scheduler executed every 5 minutes
 
 ::
 
