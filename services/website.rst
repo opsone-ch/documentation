@@ -688,6 +688,18 @@ are evaluated before the default redirect vHost, for example by adding a
         "env": "PROD"
         "ssl_key": "multi domain certificate for www.example.com and www.example.net here"
 
+
+Cipher Suite
+^^^^^^^^^^^^
+
+You can configure a desired cipher suite configuration trough `website::ssl_ciphers`:
+
+::
+
+ website::ssl_ciphers: "desired-cipher-suites"
+
+.. warning:: We configure and update this value with sane defaults. Overwrite only when really required, and if you are aware of the consequences.
+
 Test
 ^^^^
 
