@@ -712,11 +712,11 @@ your own Diffie-Hellman parameters, you can generate them:
 
   openssl dhparam -out /tmp/dhparam.pem 4096
 
-and configure them trough `website::dhparam`:
+and configure them trough `website::ssl_dhparam`:
 
 ::
 
-  website::dhparam: |
+  website::ssl_dhparam: |
     -----BEGIN DH PARAMETERS-----
     MIICCAKCAgEAoOePp+Uv2M34IA+basW9CBHp/jsZihB3FI8KVRLVFJPIUJ9Llm8F
     ...
