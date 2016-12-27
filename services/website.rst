@@ -700,6 +700,28 @@ You can configure a desired cipher suite configuration trough `website::ssl_ciph
 
 .. warning:: We configure and update this value with sane defaults. Overwrite only when really required, and if you are aware of the consequences.
 
+
+Diffie-Hellman parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Diffie-Hellman parameters are used for perfect forward secrecy. We supply default
+Diffie-Hellman parameters and update them on a regular schedule. If you want to use
+your own Diffie-Hellman parameters, you can generate them:
+
+::
+
+  openssl dhparam -out /tmp/dhparam.pem 4096
+
+and configure them trough `website::dhparam`:
+
+::
+
+  website::dhparam: |
+    -----BEGIN DH PARAMETERS-----
+    MIICCAKCAgEAoOePp+Uv2M34IA+basW9CBHp/jsZihB3FI8KVRLVFJPIUJ9Llm8F
+    ...
+    -----END DH PARAMETERS-----
+
 Test
 ^^^^
 
