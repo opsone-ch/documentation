@@ -12,4 +12,5 @@ Server
   e-mail
   ssh-keys
   hosts
+  monitoring
 
