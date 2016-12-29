@@ -12,4 +12,6 @@ Changes between 5.0 - 6.0
 
 - update to Debian Stretch
 - switch from SysVinit to systemd
+- removed javascript service, install a up-to-date nodejs version trough the nodejs website service instead
+- removed HHVM website type which was not used at all
 
