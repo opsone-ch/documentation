@@ -1,14 +1,12 @@
 Services
 ========
 
-After you receive a ordered server, the machine is more or less empty and of no much use.
-However, you can add so called services to the machine which will install and configure all necessary components.
+After you receive a fresh server, your machine is more or less empty.
+You can add so called services to the VM which will install and configure all necessary components.
 
-Note: Keep the resource usage in mind. On a server with 1GB RAM for example, you wont be able to add a 1GB memcached instance.
+.. note:: Keep resource usage in mind. For example, you wont be able to add a 2GB memcached instance on a server with 1GB RAM
 
-Warning: While you can mix most of those services, some of them will play rather nicely together,
-but others wont due to different requirements.
-**In many cases, its more feasible to spread services over multiple servers.**
+.. warning:: While you can mix most of those services, some of them will work rather nicely together, but others wont due to different requirements.  **In many cases, it is more feasible to spread services over multiple servers.**
 
 .. toctree::
   :maxdepth: 2

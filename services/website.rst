@@ -1,5 +1,5 @@
-Website Service
-===============
+Website
+=======
 
 Our website module provides everything you need, to manage, deploy and
 run your website. It is type and environment based which means you have

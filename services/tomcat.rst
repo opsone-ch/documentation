@@ -1,5 +1,5 @@
-Tomcat Service
-==============
+Tomcat
+======
 
 Install and manage your favorite Java web application.
 

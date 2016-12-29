@@ -1,5 +1,5 @@
-FTP Service
-===========
+FTP
+===
 
 This service will install and configure ProFTPD and manage virtual
 users.

@@ -1,5 +1,5 @@
-Firewall Service
-================
+Firewall
+========
 
 .. note:: This site belongs to the IP firewall. There is also a web application firewall which is described within :doc:`website`
 

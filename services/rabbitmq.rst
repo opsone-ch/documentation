@@ -1,5 +1,5 @@
-RabbitMQ Service
-================
+RabbitMQ
+========
 
 Install RabbitMQ and enable messaging for your favorite applications.
 

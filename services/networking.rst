@@ -1,5 +1,5 @@
-Networking Service
-==================
+Networking
+==========
 
 Infrastructure
 --------------
@@ -52,3 +52,4 @@ Configuration
    same or other subnets
 -  as both IPv4 and IPv6 is configured manually, we disable IPv6
    autoconf and router advertisement
+

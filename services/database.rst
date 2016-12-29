@@ -1,5 +1,5 @@
-Database Service
-================
+Database
+========
 
 Install and manage your favorite databases. Including users, grants, and
 the configuration.
