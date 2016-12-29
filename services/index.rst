@@ -21,5 +21,4 @@ but others wont due to different requirements.
   firewall
   tomcat
   rabbitmq
-  javascript
 
