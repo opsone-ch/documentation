@@ -188,25 +188,6 @@ php
     #    "dbtype":      "mysql"
     #    "password":    "Aiw7vaakos04h7e"
 
-hhvm
-^^^^
-
--  nginx 1.6 with naxsi WAF and core rule set
--  HHVM with PHP-FPM 5.6 fallback
--  MariaDB 10.x with database, user, and grants (use "dbtype": "mysql",
-   otherwise without database)
--  please contact us to evaluate the feasibility within your project
-
-::
-
-    website::sites: 
-      "hhvmexamplenet":
-        "server_name": "hhvm.example.net"
-        "env":         "PROD"
-        "type":        "hhvm"
-        "dbtype":      "mysql"
-        "password":    "ohQueeghoh0bath"
-
 html
 ^^^^
 
@@ -1187,12 +1168,6 @@ Full configuration example
         "server_name": "php.example.net"
         "env":         "PROD"
         "type":        "php"
-      "hhvmexamplenet":
-        "server_name": "hhvm.example.net"
-        "env":         "PROD"
-        "type":        "php"
-        "dbtype":      "mysql"
-        "password":    "ohQueeghoh0bath"
       "htmlexamplenet":
         "server_name": "html.example.net"
         "env":         "PROD"
