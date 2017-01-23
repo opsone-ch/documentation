@@ -29,7 +29,9 @@ deploy STAGE:
   script:
   - apt-get -y update && apt-get -y install rsync
   - pip install Sphinx
-  - pip install sphinx_rtd_theme
+# Remove install from Github as soon as https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304d30ed7aa1eacc6cca04514913b8d2385 is released
+#  - pip install sphinx_rtd_theme
+  - pip install git+https://github.com/snide/sphinx_rtd_theme.git@master -U
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
   - sphinx-versioning build . $OUTPUTDIR -b -B 5-0-stable -r 5-0-stable
