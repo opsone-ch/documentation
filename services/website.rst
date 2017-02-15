@@ -517,6 +517,7 @@ Example usage within typoscript
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
+
     [globalString = _SERVER|SITE_ENV = DEV]
         # doSometing
     [global]
