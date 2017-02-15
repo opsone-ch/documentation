@@ -494,6 +494,16 @@ If you configure your application like this, you can copy all data
 between different servers or vhosts (DEV/STAGE/PROD) and all settings
 are applied as desired.
 
+Example usage within typoscript
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+```
+[globalString = _SERVER|SITE_ENV = DEV]
+	# doSometing
+[global]
+```
+
+
 TLS Certificates
 ----------------
 
