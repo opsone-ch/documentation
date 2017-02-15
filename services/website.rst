@@ -516,11 +516,10 @@ are applied as desired.
 Example usage within typoscript
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-```
-[globalString = _SERVER|SITE_ENV = DEV]
-	# doSometing
-[global]
-```
+::
+    [globalString = _SERVER|SITE_ENV = DEV]
+        # doSometing
+    [global]
 
 
 TLS Certificates
