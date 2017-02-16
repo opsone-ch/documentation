@@ -1065,9 +1065,9 @@ core update, if the following conditions are fulfilled:
 -  ``~/composer.json`` contains ``typo3/cms``
 
 Command used on websites with ``env: DEV``:
-``/bin/rm -f /home/${name}/composer.lock && /usr/local/bin/composer update -n -o typo3/cms``
+``/usr/local/bin/composer update -n -o typo3/cms``
 Command used on all other environments:
-``/bin/rm -f /home/${name}/composer.lock && /usr/local/bin/composer update --no-dev -n -o typo3/cms``
+``/usr/local/bin/composer update --no-dev -n -o typo3/cms``
 
 .. hint:: Composer runs only after changes within the global TYPO3 core in ``/var/lib/typo3``. During deployments, you still have to run composer manually
 
