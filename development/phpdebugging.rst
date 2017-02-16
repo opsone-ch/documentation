@@ -21,6 +21,18 @@ destination (e.g. PhpStorm) is on another machine, you have to reverse
 forward this debug port to your desired destination, e.g.
 ``ssh -R 13377:localhost:13377 <username>@<hostname>``.
 
+Custom Xdebug Port/Host
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can specify own  values for ``xdebug.remote_port`` and ``xdebug.remote_host`` through Hiera.
+
+::
+
+    xdebug::remote_port: "9000"
+    xdebug::remote_host: "192.168.0.1"
+
+.. warning:: If set, those values will apply for all websites on this server. You'll loose the ability to debug multiple websites concurrently.
+
 Profiler
 --------
 
