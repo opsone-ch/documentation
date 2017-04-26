@@ -210,6 +210,25 @@ php
     #    "dbtype":      "mysql"
     #    "password":    "Aiw7vaakos04h7e"
 
+php70
+^^^^^
+
+-  nginx 1.6 with naxsi WAF and core rule set
+-  PHP-FPM 7.0 (self compiled and packaged version in `/opt/php/php70`)
+-  MariaDB 10.x with database, user, and grants (use "dbtype": "mysql",
+   otherwise without database)
+
+::
+
+    website::sites:
+      "phpexamplenet":
+        "server_name": "php.example.net"
+        "env":         "PROD"
+        "type":        "php"
+    # uncomment the following lines if you need an automatically created database
+    #    "dbtype":      "mysql"
+    #    "password":    "Aiw7vaakos04h7e"
+
 hhvm
 ^^^^
 
