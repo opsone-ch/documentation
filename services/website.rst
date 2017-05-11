@@ -158,6 +158,25 @@ magento
         "type":        "magento"
         "password":    "Aiw7vaakos04h7e"
 
+magento2
+^^^^^^^^
+
+-  nginx 1.6 with naxsi WAF, core rule set and Magento 2 white/blacklists
+-  PHP-FPM 7.0 (self compiled and packaged version in `/opt/php/php70`)
+-  PHP modules and settings adjusted to Magento 2 requirements
+-  nginx vHost adjusted to Magento 2 requirements
+-  MariaDB 10.x with database, user, and grants
+
+::
+
+    website::sites: 
+      "magentotwoexample":
+        "server_name": "magento2.example.net"
+        "env":         "PROD"
+        "type":        "magento2"
+        "password":    "Aiw7vaakos04h7e"
+
+
 wordpress
 ^^^^^^^^^
 
