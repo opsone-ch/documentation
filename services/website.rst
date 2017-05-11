@@ -136,6 +136,11 @@ magento
         "type":        "magento"
         "password":    "Aiw7vaakos04h7e"
 
+magento2
+^^^^^^^^
+
+The `magento2` type is not yet ready on version 6. Please use a server of version 5 to host Magento 2 sites by now.
+
 wordpress
 ^^^^^^^^^
 
