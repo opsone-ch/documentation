@@ -103,7 +103,11 @@ AdditionalConfiguration.php:
      */
 
     if ($_SERVER['http_proxy'] && strlen($_SERVER['http_proxy']) > 1) {
-            $GLOBALS['TYPO3_CONF_VARS']['SYS']['curlProxyServer'] = $_SERVER['http_proxy'];
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['curlProxyServer'] = $_SERVER['http_proxy'];
+        $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy_host'] = parse_url($_SERVER['http_proxy'], PHP_URL_SCHEME).'://'.parse_url($_SERVER['http_proxy'], PHP_URL_HOST);
+        $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy_port'] = parse_url($_SERVER['http_proxy'], PHP_URL_PORT);
+        $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy_user'] = parse_url($_SERVER['http_proxy'], PHP_URL_USER);
+        $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy_password'] = parse_url($_SERVER['http_proxy'], PHP_URL_PASS);
     }
 
 Please also remember to enable the usage of cURL in your conf vars sys
