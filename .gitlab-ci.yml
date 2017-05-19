@@ -28,7 +28,8 @@ deploy STAGE:
   environment: STAGE
   script:
   - apt-get -y update && apt-get -y install rsync
-  - pip install Sphinx
+# Remove version as soon as https://github.com/Robpol86/sphinxcontrib-versioning/issues/39 is fixed
+  - pip install Sphinx==1.5.6
 # Remove install from Github as soon as https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304d30ed7aa1eacc6cca04514913b8d2385 is released
 #  - pip install sphinx_rtd_theme
   - pip install git+https://github.com/snide/sphinx_rtd_theme.git@master -U
@@ -43,7 +44,8 @@ deploy PROD:
   environment: PROD
   script:
   - apt-get -y update && apt-get -y install rsync
-  - pip install Sphinx
+# Remove version as soon as https://github.com/Robpol86/sphinxcontrib-versioning/issues/39 is fixed
+  - pip install Sphinx==1.5.6
 # Remove install from Github as soon as https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304d30ed7aa1eacc6cca04514913b8d2385 is released
 #  - pip install sphinx_rtd_theme
   - pip install git+https://github.com/snide/sphinx_rtd_theme.git@master -U
