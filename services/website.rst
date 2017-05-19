@@ -937,6 +937,17 @@ or you can password protect a subdirectory:
         root /home/user/www/;
     }
 
+or add a IP protection:
+
+::
+
+    allow <your-address>;
+    allow 2a04:503:0:102::2:4;
+    allow 91.199.98.23;
+    deny all;
+
+.. hint:: Always allow access from `91.199.98.23` and `2a04:503:0:102::2:4` (monitoring)
+
 if you like to run PHP in this subdirectory, don't forget to add this
 nested in the location section from the example on top:
 
