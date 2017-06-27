@@ -1041,9 +1041,13 @@ Configure WAF exeptions here, see `Web Application Firewall`_ for details.
 custom webroot
 ^^^^^^^^^^^^^^
 
-We recommend to run your website within the ~/www/ directory. If you
-need a custom subdirectory (like: ~/www/web/) add the "custom\_webroot"
-line to hiera:
+By default, the webroot directory location is choosen according vendor recommendations,
+depending on the selected type.
+
+Some deployment workflows require other locations, which you can select through the
+`custom_webroot` parameter, relative to the home directory.
+
+.. warning:: by now, the directory specified here needs to be a real directory (**no symlinks allowed**)
 
 ::
 
@@ -1052,7 +1056,7 @@ line to hiera:
         "server_name":    "example.net www.example.net"
         "env":            "PROD"
         "type":           "php"
-        "custom_webroot": "web"
+        "custom_webroot": "deploy/current/html"
 
 PHP
 ~~~
