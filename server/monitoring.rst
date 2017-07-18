@@ -12,7 +12,7 @@ Utilization
 -----------
 
 System statistics are collected every 10 seconds by collectd and written to RRD files in
-`/var/lib/collectd`. For performance reasons, we do create graphs by default, therefore you have
+`/var/lib/collectd`. For performance reasons, we don't create graphs by default, therefore you have
 to download and render them with a tool of your choice by yourself.
 
 Please select a rendering-tool from `list of frontends <https://collectd.org/wiki/index.php/List_of_front-ends>`__
