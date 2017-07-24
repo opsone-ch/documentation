@@ -22,4 +22,5 @@ but others wont due to different requirements.
   tomcat
   rabbitmq
   javascript
+  globalrepo
 
