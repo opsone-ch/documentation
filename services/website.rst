@@ -445,11 +445,9 @@ You have to select one of those environments for each website:
 PROD
 ^^^^
 
--  live sites only
+-  for live sites
 -  no access protection
--  phpinfo disabled (otherwise database credentials in environment
-   variables could get leaked)
--  quiet error log level
+-  phpinfo disabled (visible database credentials from environment variables)
 -  E-Mails get sent to their designated recipient (PHP mail() only, see :doc:`../development/email` for details)
 
 STAGE
@@ -458,7 +456,6 @@ STAGE
 -  for stage / preview / testing access
 -  password protected (User "preview", password from "htpasswd" option)
 -  phpinfo enabled
--  debug error log level
 -  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
 
 DEV
@@ -467,7 +464,6 @@ DEV
 -  for development
 -  password protected (User "preview", password from "htpasswd" option)
 -  phpinfo enabled
--  debug error log level
 -  Xdebug enabled, see :doc:`../development/phpdebugging` for details)
 -  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
 
