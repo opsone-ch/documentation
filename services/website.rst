@@ -672,7 +672,7 @@ are evaluated before the default redirect vHost, for example by adding a
       # will use the first server_name (www.example.com) instead of www.example.net
       "aaanetredirect":
         "server_name": "www.example.net example.net"
-        "target": "https://$server_name$request_uri"
+        "target": "https://$host$request_uri"
         "env": "PROD"
         "type": "redirect"
       "examplecom":
