@@ -1,7 +1,7 @@
 Globalrepo Service
 ==================
 
-The globalrepo service is used, to checkout any refresh Git repository into a folder.
+The globalrepo service is used to checkout and refresh a Git repository.
 
 Options
 -------
@@ -22,9 +22,10 @@ path
 ensure
 ~~~~~~
 
-* `present` to enable this configuration
+* `latest` enable configuration and refresh repository
+* `present` enable configuration but do not refresh repository
 * `absent` to disable and remove this configuration and folder
-* default: `present`
+* default: `latest`
 
 provider
 ~~~~~~~~
