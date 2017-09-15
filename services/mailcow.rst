@@ -31,7 +31,7 @@ your domain you need to add an SPF record to your DNS zone.
 
     @                   IN TXT     "v=spf1 a mx ptr ~all"
 
-.. warning:: Please make sure to include all other servers that should be able to send mails from your domain
+warning: Please make sure to include all other servers that should be able to send mails from your domain
 
 DKIM
 ~~~~
@@ -42,6 +42,17 @@ DKIM is an email authentication method designed to detect email spoofing.
 
     dkim._domainkey     IN TXT     "v=DKIM1; k=rsa; t=s; s=email; p=YOURKEY"
 
+DMARC
+~~~~~
+
+It allows the owner of a domain to publish a policy on which mechanism (DKIM, SPF or both) is employed and how the receiver should deal with failures.
+
+User `DMARC Record Assistant <http://www.kitterman.com/dmarc/assistant.html>`__ for your correct config.
+
+::
+
+    _dmarc              IN TXT     "v=DMARC1; p=reject; rua=mailto:mailauth-reports@example.org"
+
 Web interface
 -------------
 
@@ -50,7 +61,7 @@ All relevant settings can be made in the Mailcow web interface. The web interfac
 Add Domain and Mailboxes
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-New domains and mailboxes can be addes under ``Configuration -> Mailboxes``.
+New domains and mailboxes can be added under ``Configuration -> Mailboxes``.
 
 Important: You will need to restart SOGo after adding a new domain!
 
