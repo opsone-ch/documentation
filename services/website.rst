@@ -220,7 +220,8 @@ uwsgi
 -  PostgreSQL 9.4 with database, user, and grants
    (``"dbtype": "postgresql"``)
 -  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
--  all requests are redirected to the uwsgi daemon by default. To serve
+-
+cumentation: Cronjob Settings
    static files, add appropriate locations to the `Custom configuration`_ like this:
 
    ::
@@ -981,7 +982,7 @@ Some deployment workflows require other locations, which you can select through 
         "custom_webroot": "deploy/current/html"
 
 PHP
-~~~
+^^^
 
 You can set custom PHP configurations trough a ``.user.ini`` files in
 the corresponding directory, e.g. ``~/www/.user.ini``. See the `PHP
