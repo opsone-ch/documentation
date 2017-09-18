@@ -1063,6 +1063,32 @@ the corresponding directory, e.g. ``~/www/.user.ini``. See the `PHP
 Documentation <http://php.net/manual/en/configuration.file.per-user.php>`__
 for details.
 
+Cronjobs
+--------
+
+.. hint:: If you use a certain website type, application specific cronjobs will be predefined already (for example, TYPO3 scheduler job on TYPO3 types)
+
+Add custom cronjobs through the `crontab -e` command:
+
+::
+
+    SHELL=/usr/local/vzscripts/sfoutputtosyslog
+    PHP_INI_SCAN_DIR=:/etc/php5/cli/user/<username>/
+
+    #       +------------------------------------ minute (0 - 59)
+    #       |       +---------------------------- hour (0 - 23)
+    #       |       |       +-------------------- day of month (1 - 31)
+    #       |       |       |       +------------ month (1 - 12)
+    #       |       |       |       |       +---- day of week (0 - 6) (Sunday=0 or 7)
+    #       |       |       |       |       |
+
+    #       10      2       *       *       *       <command>
+
+            5	    *       *       *       *       <path-to-job>
+
+.. hint:: For PHP based jobs, please set `PHP_INI_SCANDIR` manually to make sure that user specific settings are respected 
+
+
 Listen
 ------
 
