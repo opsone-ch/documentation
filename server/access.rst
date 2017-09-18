@@ -46,6 +46,9 @@ available to execute certain commands with root privileges:
 -  ``elastic-restart``: restart elasticsearch daemon
 -  ``elastic-force-reload``: force-reload elasticsearch daemon
 
+
+.. _ssh-key-handling:
+
 Key Handling
 ~~~~~~~~~~~~
 
