@@ -1244,6 +1244,21 @@ deactivate monitoring by setting ``"monitoring": "false"``.
         "env":        "PROD"
         "monitoring": "false"
 
+SSH Access Keys
+----------------
+
+.. hint:: To add a SSH key globally for all users, see :ref:`ssh-key-handling`
+
+::
+
+    website::sites:
+      "examplenet":
+        "ssh_key":
+          "contact@example.net":
+            "key": "ssh-rsa AAAAB....."
+
+.. hint:: You can also add more, custom configuration options, see :ref:`ssh-key-handling` for details
+
 Delete website
 --------------
 
