@@ -84,6 +84,13 @@ DKIM is an email authentication method designed to detect email spoofing. You ch
     Selector: mailcow
     DKIM key length: 2048 bits
 
+    .. image:: ../_static/create_dkim.gif
+       :width: 907px
+       :height: 573px
+       :scale: 100 %
+       :alt: create dkim key
+       :align: left
+
 Client configuration
 --------------------
 
