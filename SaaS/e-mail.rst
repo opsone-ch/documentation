@@ -15,11 +15,25 @@ All relevant settings can be made in the Mailcow web interface.
 2. klick on ``Configuration (top right) -> Mailboxes -> Add domain`` and fill in all relevant information
 4. restart the SOGo service container after adding a new domain, klick on ``Restart SOGo`` in the upper right corner
 
+.. image:: ../_static/create_domain.gif
+   :width: 907px
+   :height: 573px
+   :scale: 100 %
+   :alt: create new domain
+   :align: left
+
 Add new mailboxes
 ~~~~~~~~~~~~~~~~~
 
 1. login as administrator to Mailcow
 2. klick on ``Configuration (top right) -> Mailboxes -> Mailboxes (tab) -> Add mailbox`` and fill in all relevant information
+
+.. image:: ../_static/create_mailbox.gif
+   :width: 907px
+   :height: 573px
+   :scale: 100 %
+   :alt: create new mailbox
+   :align: left
 
 DNS configuration
 -----------------
@@ -56,7 +70,7 @@ note: für autodiscover und autoconfig musst du die domain ebenfalls im cockpit 
     memers: localhost:8080
     Let's Encrypt: Yes
 
-The following DNS entries are highly optional.
+The following DNS entries are optional.
 
 ::
 
@@ -90,6 +104,13 @@ Thunderbird
 ~~~~~~~~~~~
 
 Mozilla Thunderbird support autoconfig. Settings are detected automatically.
+
+.. image:: ../_static/thunderbird_configuration.gif
+   :width: 726px
+   :height: 487px
+   :scale: 100 %
+   :alt: mozilla thunderbird configuration
+   :align: left
 
 Microsoft Outlook
 ~~~~~~~~~~~~~~~~~
