@@ -20,7 +20,7 @@ This concept allows you to select the appropriate version depending on the appli
 and also to switch to a newer generation in a planned way according to your needs.
 Right now, you are looking at the documentation for the version 6:
 
-.. list-table:: 
+.. list-table::
    :stub-columns: 1
 
    * - OS Release
@@ -65,6 +65,6 @@ This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 Int
   server/index
   services/index
   development/index
+  saas/index
   support
   faq
-
