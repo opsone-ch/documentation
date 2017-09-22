@@ -130,3 +130,28 @@ We support ActiveSync for synchronization of email, calendar and contacts. Pleas
    :scale: 100 %
    :alt: outlook 2016 configuration
    :align: left
+
+Other options
+-------------
+
+Subaddressing
+~~~~~~~~~~~~~
+
+Mialcow support email tagging trough a plus indicator. The user `john@example.tld` will also receiver email for `john+facebook@example.tld` or `john+support@example.tld` or so on. Thins option can be configured in the Mailcow user-settings.
+
+1. open mail.yourdomain.tld and login to mailcow with your mailbox user (not as administrator)
+2. her you can set "Set handling for tagged mail" to "In Subfolder" or "In subject"
+
+* In subfolder: a new subfolder named after the tag will be created below INBOX ("INBOX/facebook").
+* In subject: the tags name will be prepended to the mails subject, example: "[facebook] mail subject".
+
+Filter rules
+~~~~~~~~~~~~
+
+Server side filter rules for your mailbox can found in the SOGo settings.
+
+1. open webmail.yourdomain.tld an login to SOGo with your mailbox user
+2. klick the sittings-ico to the right of your name
+3. configure your filter under "E-Mail > Filter"
+
+Please note: Active filter must be checked with a green pick. Also save your settings with the save-icon top right.
