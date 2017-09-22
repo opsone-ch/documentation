@@ -23,4 +23,5 @@ but others wont due to different requirements.
   rabbitmq
   javascript
   globalrepo
+  solr
 
