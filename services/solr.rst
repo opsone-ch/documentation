@@ -79,12 +79,13 @@ The Solr admin interface is reachable on `http://localhost:port`. To access Solr
 Add core
 """"""""
 
-To add new core for a certain site or language, use the following command:
+To add new core for a certain site or language, use the following URL:
 
-http://localhost:8983/solr/admin/cores?action=CREATE&name=core-name&configSet=ext_solr_7_0_0&schema=/schema.xml
+`http://localhost:8983/solr/admin/cores?action=CREATE&name=<core-name>&configSet=<version>&schema=<language>/schema.xml`
 
 * name: name of the new core
-* configSet: desired template as provided within the `Resources/Private/Solr/configsets/` folder in TYPO3 Solr
+* configSet: desired template as provided within the `Resources/Private/Solr/configsets/` folder in TYPO3 Solr, e.g. `ext_solr_7_0_0`
+* schema: `<language>/schema.xml` as provided within the `Resources/Private/Solr/configsets/<version>/conf/` folder in TYPO3 Solr, e.g. `german/schema.xml`
 
 For details, please consult the `TYPO3 Solr Documentation <https://docs.typo3.org/typo3cms/extensions/solr/>`__.
 
