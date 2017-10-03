@@ -1,7 +1,7 @@
-E-Mail
-======
+Mail Server
+===========
 
-We offer a mailserver based on Postfix, Dovecot and SOGo Groupware. Our mailserver is 24x7 monitored.
+We offer a mail server based on Postfix, Dovecot and SOGo Groupware. Our mail server is 24x7 monitored and regularly backed up.
 
 Add a new customer
 ------------------
@@ -11,7 +11,7 @@ A new domain and mailbox can simply added with a webui. All you ned is a adminis
 Add new domain
 ~~~~~~~~~~~~~~
 
-1. open mail.yourbrandedmaildomain.tld and login to Mailcow as administrator
+1. open mail.example.com and login to Mailcow as administrator
 2. klick on ``Configuration (top right) -> Mailboxes -> Add domain`` and fill in your new domain name
 3. restart SOGo after adding a new domain, klick on ``Restart SOGo`` in the upper right corner
 
@@ -25,7 +25,7 @@ Add new domain
 Add new mailboxes
 ~~~~~~~~~~~~~~~~~
 
-1. open mail.yourbrandedmaildomain.tld and login to Mailcow as administrator
+1. open mail.example.com and login to Mailcow as administrator
 2. klick on ``Configuration (top right) -> Mailboxes -> Mailboxes (tab) -> Add mailbox`` and fill in your desired Username, Full name and Password.
 
 .. image:: ../_static/create_mailbox.gif
@@ -35,7 +35,7 @@ Add new mailboxes
    :alt: add new mailbox
    :align: left
 
-The new user can now login via webmail.yourbrandedmaildomain.tld.
+The new user can now login via webmail.example.com.
 
 DNS configuration
 -----------------
@@ -45,7 +45,7 @@ The following DNS entries for your customer domain are required.
 ::
 
     # Name              Type       Value
-    @                   IN MX 10   mail.yourbrandedmaildomain.tld
+    @                   IN MX 10   mail.example.com
 
 - The mx-record is necessary so that the server can also receive email.
 
@@ -63,13 +63,13 @@ The following DNS entries are recommended.
 ::
 
     # Name              Type       Value
-    dkim._domainkey     IN TXT     "v=DKIM1; k=rsa; t=s; s=email; p=DKIM key"
+    dkim._domainkey     IN TXT     "v=DKIM1; k=rsa; t=s; s=email; p=DKIM YOUROWNKEY"
 
 DKIM is an email authentication method designed to detect email spoofing. You can generate a public key in the web interface from mailcow. Use the following settings.
 
 ::
 
-    Domain: customerdomain.tld
+    Domain: example.com
     Selector: dkim
     DKIM key length: 2048 bits
 
@@ -87,13 +87,13 @@ Our mailservice support IMAP, POP3, SMTP and ActiveSync and has also a Webmail.
 
 ::
 
-    # Typ           # Server hostname                 # Port    # SSL       # Authentication
-    IMAP            mail.yourbrandedmaildomain.tld    993       SSL/TLS     Normal password
-    POP3            mail.yourbrandedmaildomain.tld    995       SSL/TLS     Normal password
-    SMTP            mail.yourbrandedmaildomain.tld    465       SSL/TLS     Normal password
-    ActiveSync      mail.yourbrandedmaildomain.tld    auto      auto        auto
+    # Typ           # Server hostname      # Port    # SSL       # Authentication
+    IMAP            mail.example.com       993       SSL/TLS     Normal password
+    POP3            mail.example.com       995       SSL/TLS     Normal password
+    SMTP            mail.example.com       465       SSL/TLS     Normal password
+    ActiveSync      mail.example.com       auto      auto        auto
 
-Webmail: webmail.yourbrandedmaildomain.tld
+Webmail: webmail.example.com
 
 Thunderbird
 ~~~~~~~~~~~
@@ -102,7 +102,7 @@ For Mozilla Thunderbird use the following configuration.
 
 .. image:: ../_static/thunderbird_configuration.png
    :width: 892px
-   :height: 415px
+   :height: 484px
    :scale: 100 %
    :alt: mozilla thunderbird configuration
    :align: left
@@ -110,38 +110,36 @@ For Mozilla Thunderbird use the following configuration.
 Microsoft Outlook
 ~~~~~~~~~~~~~~~~~
 
-We support ActiveSync for synchronization of email, calendar and contacts. Please add the e-mail account via "Control Panel > User Accounts and Parental Controls > E-mail".
+For Microsoft Outlook use the following configuration.
 
-.. image:: ../_static/outlook_activesync_configuration.png
-   :width: 688px
-   :height: 504px
+.. image:: ../_static/outlook_configuration.png
+   :width: 817px
+   :height: 490px
    :scale: 100 %
    :alt: outlook configuration
    :align: left
 
-or for IMAP:
+Backup
+------
 
-.. image:: ../_static/outlook_imap_configuration01.png
-   :width: 683px
-   :height: 498px
-   :scale: 100 %
-   :alt: outlook configuration
-   :align: left
+The entire server will backed up one a day. The backup is stored safe in a different location.
 
-.. image:: ../_static/outlook_imap_configuration02.png
-   :width: 429px
-   :height: 464px
-   :scale: 75 %
-   :alt: outlook configuration
-   :align: left
+Emails
+~~~~~~
 
-.. image:: ../_static/outlook_imap_configuration03.png
-   :width: 428px
-   :height: 465px
-   :scale: 75 %
-   :alt: outlook configuration
-   :align: left
+Current e-mails and folders can be viewed under ``/var/lib/docker/volumes/mailcowdockerized_vmail-vol-1/_data/``.
+Each email is stored in a single file and can be drag & drop as required. This also applies to all folders.
 
+Backups are managed with the BackupPC tool.
+If you want to restore backups on your own, we can set up an account for you.
+
+Contacts and calendars
+~~~~~~~~~~~~~~~~~~~~~~
+
+Under ``/user/mailcow/backup`` there is a current database dump.
+This is overwritten every evening at 9 p. m. and then copied also to our backup server.
+
+The database dump is compressed with lzop and can be decompressed with ``lzop -d mailcow.sql.lzo``.
 
 Other options
 -------------
@@ -149,9 +147,9 @@ Other options
 Subaddressing
 ~~~~~~~~~~~~~
 
-Mialcow support email tagging trough a plus indicator. The user `john@customerdomain.tld` will also receiver email for `john+facebook@customerdomain.tld` or `john+support@customerdomain.tld` or so on. Thins option can be configured in the Mailcow user-settings.
+Mialcow support email tagging trough a plus indicator. The user `john@example.com` will also receiver email for `john+facebook@example.com` or `john+support@example.com` or so on. Thins option can be configured in the Mailcow user-settings.
 
-1. open mail.yourbrandedmaildomain.tld and login to mailcow with your mailbox user (not as administrator)
+1. open mail.example.com and login to mailcow with your mailbox user (not as administrator)
 2. her you can set "Set handling for tagged mail" to "In Subfolder" or "In subject"
 
 * In subfolder: a new subfolder named after the tag will be created below INBOX ("INBOX/facebook").
@@ -162,8 +160,17 @@ Filter rules
 
 Server side filter rules for your mailbox can found in the SOGo settings.
 
-1. open webmail.yourbrandedmaildomain.tld an login to SOGo with your mailbox user
+1. open webmail.example.com an login to SOGo with your mailbox user
 2. klick the sittings-ico to the right of your name
 3. configure your filter under "E-Mail > Filter"
 
 Please note: Active filter must be checked with a green pick. Also save your settings with the save-icon top right.
+
+Create domain administrators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can create a separate domain administrator account for each domain.
+
+1. open mail.example.com and login to Mailcow as administrator
+2. klick on ``access`` and scroll down
+3. klick on ``Add domain administrator`` and fill in your information.
