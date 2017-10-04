@@ -11,6 +11,8 @@ This is the snowflake Ops documentation.
 It's targeted at an technical audience, mainly developers and sysadmins.
 Marketing and contract related details are available on our `website <https://snowflakeops.ch>`_.
 
+.. warning::  This document is for the development version 6 which is currently in alpha stage. The current main version is 5-0-stable.
+
 Version 6
 -------------------------------------------
 
