@@ -34,7 +34,7 @@ deploy STAGE:
   - pip install git+https://github.com/snide/sphinx_rtd_theme.git@master -U
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
-  - sphinx-versioning build . $OUTPUTDIR --show-banner --banner-main-ref 5-0-stable --root-ref 6-0-stable
+  - sphinx-versioning build . $OUTPUTDIR --root-ref saas
   - rsync -avz --delete $OUTPUTDIR $STAGE_USERNAME@$STAGE_SERVERNAME:~/www/
 
 deploy PROD:
