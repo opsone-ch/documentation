@@ -1,36 +1,35 @@
-Mail Server
-===========
+Mailserver
+==========
 
-We offer a mail server based on Postfix, Dovecot and SOGo Groupware. Our mail server is 24x7 monitored and regularly backed up.
-We recommend that you choose your own domain for your mail server installation and administration.
-Any number of domains can then be set up on the mail server.
+We offer mailservers based on Postfix, Dovecot and SOGo Groupware. Each server is dedicated to a certain customer,
+therefore you can add any number of domains and accounts limited only by the ressources available (CPU/RAM/Diskspace).
 
-Add a new customer
-------------------
+.. note:: We recommend that you use a dedicated domain for your mailserver installation (e.g. opsmail.ch)
 
-A new domain and mailbox can simply added with a webui. All you ned is a administrator user for mailcow and the possibility to edit your dns settings (for mx-record).
+Mailserver
+----------
 
-Add new domain
-~~~~~~~~~~~~~~
+Add Domain
+~~~~~~~~~~
 
-1. open mail.example.com and login to Mailcow as administrator
+1. open mail.example.com and login as global administrator
 2. klick on ``Configuration (top right) -> Mailboxes -> Add domain`` and fill in your new domain name
 3. restart SOGo after adding a new domain, klick on ``Restart SOGo`` in the upper right corner
 
-.. image:: ../_static/create_domain.gif
+.. image:: _static/create_domain.gif
    :width: 907px
    :height: 573px
    :scale: 100 %
    :alt: add new domain
    :align: left
 
-Add new mailboxes
-~~~~~~~~~~~~~~~~~
+Add Mailbox
+~~~~~~~~~~~
 
-1. open mail.example.com and login to Mailcow as administrator
+1. open mail.example.com and login as global or domain administrator
 2. klick on ``Configuration (top right) -> Mailboxes -> Mailboxes (tab) -> Add mailbox`` and fill in your desired Username, Full name and Password.
 
-.. image:: ../_static/create_mailbox.gif
+.. image:: _static/create_mailbox.gif
    :width: 907px
    :height: 573px
    :scale: 100 %
@@ -39,35 +38,25 @@ Add new mailboxes
 
 The new user can now login via webmail.example.com.
 
-DNS configuration
------------------
-
-The following DNS entries for your customer domain are required.
+DNS
+---
 
 ::
 
     # Name              Type       Value
     @                   IN MX 10   mail.example.com
+    @                   IN TXT     v=spf1 mx -all
 
-- The mx-record is necessary so that the server can also receive email.
+.. note:: Good secured mail services will discard mails sent from hosts which are not particularly allowed to, eventhough the default behaviour is to accept every mail. To explicitly allow our mailserver to send mails from your domain you need to add an SPF record to your DNS zone
 
-The following DNS entries are highly recommended.
+.. warning:: Please make sure to include all other servers that should be able to send mails from your domain
 
-::
+DKIM
+~~~~
 
-    # Name              Type       Value
-    @                   IN TXT     "v=spf1 a mx ptr -all"
+DKIM is an email authentication method designed to detect email spoofing. While it is not required to add those records, we recommend to do so.
 
-- Good secured mail services will discard mails sent from hosts which are not particularly allowed to, eventhough the default behaviour is to accept every mail. To explicitly allow our mailserver to send mails from your domain you need to add an SPF record to your DNS zone. Please make sure to include all other servers that should be able to send mails from your domain
-
-The following DNS entries are recommended.
-
-::
-
-    # Name              Type       Value
-    dkim._domainkey     IN TXT     "v=DKIM1; k=rsa; t=s; s=email; p=DKIM YOUROWNKEY"
-
-DKIM is an email authentication method designed to detect email spoofing. You can generate a public key in the web interface from mailcow. Use the following settings.
+Generate a new key for this domain through the webinterface. Use the following settings:
 
 ::
 
@@ -75,17 +64,24 @@ DKIM is an email authentication method designed to detect email spoofing. You ca
     Selector: dkim
     DKIM key length: 2048 bits
 
-.. image:: ../_static/create_dkim.gif
+.. image:: _static/create_dkim.gif
    :width: 907px
    :height: 573px
    :scale: 100 %
    :alt: create dkim key
    :align: left
 
-Client configuration
+Add created public key to the `dkim._domiankey` DNS record:
+
+::
+
+    # Name              Type       Value
+    dkim._domainkey     IN TXT     v=DKIM1; k=rsa; t=s; s=email; p=DKIM YOUROWNKEY
+
+Client Configuration
 --------------------
 
-Our mailservice support IMAP, POP3, SMTP and ActiveSync and has also a Webmail.
+Our mailservers support IMAP, POP3, SMTP, ActiveSync and webmail access.
 
 ::
 
@@ -100,9 +96,7 @@ Webmail: webmail.example.com
 Thunderbird
 ~~~~~~~~~~~
 
-For Mozilla Thunderbird use the following configuration.
-
-.. image:: ../_static/thunderbird_configuration.png
+.. image:: _static/thunderbird_configuration.png
    :width: 892px
    :height: 484px
    :scale: 100 %
@@ -112,9 +106,7 @@ For Mozilla Thunderbird use the following configuration.
 Microsoft Outlook
 ~~~~~~~~~~~~~~~~~
 
-For Microsoft Outlook use the following configuration.
-
-.. image:: ../_static/outlook_configuration.png
+.. image:: _static/outlook_configuration.png
    :width: 817px
    :height: 490px
    :scale: 100 %
@@ -122,16 +114,19 @@ For Microsoft Outlook use the following configuration.
    :align: left
 
 Monitoring
-------
+----------
 
-Please note that we require an e-mail account for monitoring.
-Via this account we automatically send and receive e-mails to various providers.
-This ensures that your e-mails reach their destination.
+Our mailservers are monitored 24x7. We make sure that all services are up and running,
+and also check email delivery to some common targets.
+
+.. note:: For end2end monitoring, a dedicated email account on your server is required to send and receive mails
 
 Backup
 ------
 
-The entire server will backed up one a day. The backup is stored safe in a different location.
+All data will backed up to another location once a day.
+
+.. note:: If you need assistance with restoring emails or other data, don't hesitate to contact us
 
 Emails
 ~~~~~~
@@ -139,47 +134,41 @@ Emails
 Current e-mails and folders can be viewed under ``/var/lib/docker/volumes/mailcowdockerized_vmail-vol-1/_data/``.
 Each email is stored in a single file and can be drag & drop as required. This also applies to all folders.
 
-Backups are managed with the BackupPC tool.
-If you want to restore backups on your own, we can set up an account for you.
+Database
+~~~~~~~~
 
-Contacts and calendars
-~~~~~~~~~~~~~~~~~~~~~~
+Configuration, contacts and calendars are stored within a MySQL database, which is dumped to ``/home/mailcow/backup/`` daily.
 
-Under ``/user/mailcow/backup`` there is a current database dump.
-This is overwritten every evening at 9 p. m. and then copied also to our backup server.
-
-The database dump is compressed with lzop and can be decompressed with ``lzop -d mailcow.sql.lzo``.
-
-Other options
+Other Options
 -------------
 
 Subaddressing
 ~~~~~~~~~~~~~
 
-Mialcow support email tagging trough a plus indicator. The user `john@example.com` will also receiver email for `john+facebook@example.com` or `john+support@example.com` or so on. Thins option can be configured in the Mailcow user-settings.
+Email subaddressing trough the plus indicator is supported: The user `john@example.com` will also receive email for `john+newsletter@example.com`, `john+support@example.com` and so on. This option can be configured within the user settings.
 
-1. open mail.example.com and login to mailcow with your mailbox user (not as administrator)
-2. her you can set "Set handling for tagged mail" to "In Subfolder" or "In subject"
+1. open mail.example.com and login with your mailbox user (not as administrator)
+2. set "Set handling for tagged mail" to "In Subfolder" or "In subject"
 
-* In subfolder: a new subfolder named after the tag will be created below INBOX ("INBOX/facebook").
-* In subject: the tags name will be prepended to the mails subject, example: "[facebook] mail subject".
+* In subfolder: a new subfolder named after the tag will be created below INBOX ("INBOX/newsletter").
+* In subject: the tags name will be prepended to the mails subject, example: "[newsletter] mail subject".
 
-Filter rules
+Filter Rules
 ~~~~~~~~~~~~
 
-Server side filter rules for your mailbox can found in the SOGo settings.
+Server side filter rules for your mailbox can be configured within SOGo settings:
 
 1. open webmail.example.com an login to SOGo with your mailbox user
-2. klick the sittings-ico to the right of your name
-3. configure your filter under "E-Mail > Filter"
+2. configure your filters in "Settings > E-Mail > Filter"
 
-Please note: Active filter must be checked with a green pick. Also save your settings with the save-icon top right.
+.. note:: Active filters must be checked with a green pick. Modifications must be saved with the save icon
 
-Create domain administrators
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Domain Administrators
+~~~~~~~~~~~~~~~~~~~~~
 
-You can create a separate domain administrator account for each domain.
+You can create a separate domain administrator to delegate access for certain domains:
 
-1. open mail.example.com and login to Mailcow as administrator
-2. klick on ``access`` and scroll down
-3. klick on ``Add domain administrator`` and fill in your information.
+1. open mail.example.com and login as administrator
+2. select `access` and scroll down
+3. select `Add domain administrator`
+
