@@ -2,6 +2,8 @@ Mail Server
 ===========
 
 We offer a mail server based on Postfix, Dovecot and SOGo Groupware. Our mail server is 24x7 monitored and regularly backed up.
+We recommend that you choose your own domain for your mail server installation and administration.
+Any number of domains can then be set up on the mail server.
 
 Add a new customer
 ------------------
@@ -118,6 +120,13 @@ For Microsoft Outlook use the following configuration.
    :scale: 100 %
    :alt: outlook configuration
    :align: left
+
+Monitoring
+------
+
+Please note that we require an e-mail account for monitoring.
+Via this account we automatically send and receive e-mails to various providers.
+This ensures that your e-mails reach their destination.
 
 Backup
 ------
