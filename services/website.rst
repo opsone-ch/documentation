@@ -1019,6 +1019,15 @@ or add a IP protection:
 
 .. hint:: Always allow access from `91.199.98.23` and `2a04:503:0:102::2:4` (monitoring)
 
+or add custom MIME types:
+
+::
+
+    include mime.types;
+    types {
+        text/cache-manifest appcache;
+    }
+
 if you like to run PHP in this subdirectory, don't forget to add this
 nested in the location section from the example on top:
 
