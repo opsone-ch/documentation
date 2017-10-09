@@ -194,6 +194,23 @@ wordpress
         "type":        "wordpress"
         "password":    "Aiw7vaakos04h7e"
 
+wordpress70
+^^^^^^^^^^^
+
+-  nginx 1.6 with naxsi WAF, core rule set and wordpress
+   white/blacklists
+-  PHP-FPM 7.0 (self compiled and packaged version in `/opt/php/php70`)
+-  MariaDB 10.x with database, user, and grants
+
+::
+
+    website::sites: 
+      "wordpressexample":
+        "server_name": "wordpress.example.net"
+        "env":         "PROD"
+        "type":        "wordpress70"
+        "password":    "Aiw7vaakos04h7e"
+
 drupal
 ^^^^^^
 
