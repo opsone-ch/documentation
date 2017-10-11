@@ -163,6 +163,23 @@ Server side filter rules for your mailbox can be configured within SOGo settings
 
 .. note:: Active filters must be checked with a green pick. Modifications must be saved with the save icon
 
+Spam to Inbox
+~~~~~~~~~~~~~
+
+Spam end up in junk folder by default. We can change this behavior.
+
+Create a filter (see `Filter Rules <#filter-rules>`__) in SOGo with the following options.
+
+::
+
+    For incoming messages that match all of the following rules:
+    Header X-Spam-Flag contains YES
+
+    Perform these actions:
+    Flag the message with Junk
+    File the message in INBOX
+    Stop pricessing filter rules
+
 Domain Administrators
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -171,4 +188,3 @@ You can create a separate domain administrator to delegate access for certain do
 1. open mail.example.com and login as administrator
 2. select `access` and scroll down
 3. select `Add domain administrator`
-
