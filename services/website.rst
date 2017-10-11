@@ -1180,7 +1180,7 @@ deactivate monitoring by setting ``"monitoring": "false"``.
         "monitoring": "false"
 
 SSH Access Keys
-----------------
+---------------
 
 .. hint:: To add a SSH key globally for all users, see :ref:`ssh-key-handling`
 
@@ -1193,6 +1193,20 @@ SSH Access Keys
             "key": "ssh-rsa AAAAB....."
 
 .. hint:: You can also add more, custom configuration options, see :ref:`ssh-key-handling` for details
+
+Environment Variables
+---------------------
+
+You can set or override environment variables per website by setting the ``envvar`` option:
+
+::
+
+    website::sites:
+      "examplenet":
+        "envvar":
+          "MYENVVAR":   "this is the value"
+          "DB_HOST":    "override global DB_HOST variable here"
+          "http_proxy": "override global http_proxy variable here"
 
 Delete website
 --------------
