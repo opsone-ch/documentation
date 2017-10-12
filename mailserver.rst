@@ -9,6 +9,13 @@ therefore you can add any number of domains and accounts limited only by the res
 Mailserver
 ----------
 
+Administrator Access
+~~~~~~~~~~~~~~~~~~~~
+
+There is an administrator user (username: admin) which can be used under mail.example.com.
+
+.. note:: The administrator password must not be changed.
+
 Add Domain
 ~~~~~~~~~~
 
