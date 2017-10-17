@@ -16,7 +16,7 @@ your domain you need to add an SPF record to your DNS zone.
 
 ::
 
-    example.com.              3600     IN      TXT     "v=spf1 mx a:mailrelay.snowflakehosting.ch"
+    example.com.              3600     IN      TXT     "v=spf1 mx a:mailrelay.snowflakehosting.ch -all"
 
 .. warning:: Please make sure to include all other servers that should be able to send mails from your domain
 
