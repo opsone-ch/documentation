@@ -26,13 +26,9 @@ automatically, for example:
 Custom rules
 ------------
 
-You can also add custom rules.
+Where applicable, both IPv4 and IPv6 Rules are added by default (For example INPUT chains for a particular Port).
 
-Where applicable, both IPv4 and IPv6 Rules are added by default (For
-example INPUT chains for a particular Port).
-
-Warning: Try your best to avoid such custom rules. For outgoing
-connections, use our Proxy Servers instead (see below)
+.. warning:: Try to avoid custom rules whenever possible. For outgoing HTTP(S) connections, please use our Proxy Servers instead (see below)
 
 Allow
 ~~~~~
@@ -41,15 +37,15 @@ Allow
 
     base::firewall::rules:
       "020 accept Puppet to puppetmaster":
-        "port":         "8140"
+        "dport":        "8140"
         "destination":  "192.168.0.22"
         "destination6": "2001:db8::22"
       "021 accept HTTP to Package Server":
-        "port":         "80"
+        "dport":        "80"
         "destination":  "192.168.0.21"
       "040 accept incoming HTTP":
         "chain":        "INPUT"
-        "port":         "80"
+        "dport":        "80"
 
 Deny
 ~~~~
@@ -61,12 +57,12 @@ You can add custom rules to deny services, too:
     base::firewall::rules:
       "020 deny HTTP because we want to force a secure site with HTTPS only":
         "chain":  "INPUT"
-        "port":   "80"
+        "dport":   "80"
         "action": "reject"
 
-Hint: HTTP(S) nginx rules are numbered 040 so you must use a lower
-number for your rule to be processed before the default allow all from
-nginx-configuration
+.. hint:: HTTP(S) nginx rules are numbered 040 so you must use a lower number for your rule to be processed before the default allow all from nginx-configuration
+
+.. warning:: Always use "dport"/"sport" instead of "port" to prevent TCP source port firewall attacks
 
 Outgoing proxy
 --------------
