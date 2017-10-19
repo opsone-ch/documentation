@@ -62,8 +62,6 @@ You can add custom rules to deny services, too:
 
 .. hint:: HTTP(S) nginx rules are numbered 040 so you must use a lower number for your rule to be processed before the default allow all from nginx-configuration
 
-.. warning:: Always use "dport"/"sport" instead of "port" to prevent TCP source port firewall attacks
-
 Outgoing proxy
 --------------
 
