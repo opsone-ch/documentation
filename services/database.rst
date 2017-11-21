@@ -177,17 +177,6 @@ simply access your database over the shell:
 Postgresql
 ----------
 
-Prerequisites
-~~~~~~~~~~~~~
-
-You have to set ``postgresql::server::postgres_password`` manually.
-
-::
-
-    postgresql::server::postgres_password: "password"
-
-.. hint:: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only
-
 Databases
 ~~~~~~~~~
 
