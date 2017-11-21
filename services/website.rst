@@ -364,6 +364,50 @@ todoyu
         "env":         "PROD"
         "type":        "todoyu"
 
+ruby
+^^^^
+
+-  nginx 1.6 with naxsi WAF and core rule set
+-  Python virtualenv ``venv-<sitename>`` configured within the
+   user login shell
+-  ruby rbenv configured within foreman and the
+   user login shell
+-  foreman daemon, controlled by monit
+-  symlink your Procfile to ~/ or overwrite path or other daemon
+   options in ``OPTIONS`` at ``~/cnf/ruby-daemon``:
+
+   ::
+
+       OPTIONS="start web -f project/Procfile"
+
+-  ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission
+   ``660``
+-  there is no database added by default, choose one of
+    -  PostgreSQL 9.4 with database, user, and grants
+       (``"dbtype": "postgresql"``)
+    -  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
+-  all requests are redirected to the ruby daemon by default. To serve
+   static files, add appropriate locations to the `Custom configuration`_ like this:
+
+   ::
+
+       location /static/
+       {
+           root /home/user/application/;
+       }
+
+::
+
+    website::sites:
+      "ruby":
+        "server_name": "ruby.example.net"
+        "env":         "PROD"
+        "type":        "ruby"
+        "dbtype":      "mysql"
+        "password":    "ohQueeghoh0bath"
+
+.. hint:: to control the nodejs daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
+
 Environments
 ------------
 

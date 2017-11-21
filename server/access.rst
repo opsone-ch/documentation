@@ -45,6 +45,9 @@ available to execute certain commands with root privileges:
 -  ``elastic-stop``: stop elasticsearch daemon
 -  ``elastic-restart``: restart elasticsearch daemon
 -  ``elastic-force-reload``: force-reload elasticsearch daemon
+-  ``ruby-restart``: restart current ruby daemon
+-  ``ruby-start``: start current ruby daemon
+-  ``ruby-stop``: stop current ruby daemon
 
 
 .. _ssh-key-handling:
