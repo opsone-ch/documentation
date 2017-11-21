@@ -21,6 +21,18 @@ take up to 1/8 of this servers total memory.
 
 .. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
 
+address
+~~~~~~~
+
+By default, memcached will listen on the localhost interface. If memcached has to
+bind to another address, use the ``address`` parameter to specify it.
+
+port
+~~~~
+
+By default, memcached will listen on port 11211. If memcached has to bind to
+another port, use the ``port`` parameter to specify it.
+
 Full example
 ~~~~~~~~~~~~
 
@@ -30,6 +42,8 @@ Full example
       "memcached":
         "ensure":       "present"
         "memory_ratio": "8"
+        "address":      "127.0.0.1"
+        "port":         "11211"
 
 Varnish
 -------
