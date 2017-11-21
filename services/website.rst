@@ -311,8 +311,7 @@ uwsgi
 -  PostgreSQL 9.4 with database, user, and grants
    (``"dbtype": "postgresql"``)
 -  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
--
-cumentation: Cronjob Settings
+-  all requests are redirected to the uwsgi daemon by default. To serve
    static files, add appropriate locations to the `Custom configuration`_ like this:
 
    ::
