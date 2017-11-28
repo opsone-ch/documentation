@@ -1296,6 +1296,27 @@ To use Symfony 2 with composer, use the following command:
     # Create Web/tmp directory, install Symfony2 with composer, move to users home directory and cleanup
     mkdir ~/web/tmp/ && cd ~/web/tmp/ && composer create-project symfony/framework-standard-edition symfony && rsync -a --delete-after ~/web/tmp/symfony/ ~/
 
+Ioncube
+-------
+
+You can enable ionCube loader globally by using the following configuration:
+
+PHP 5
+^^^^^
+
+::
+
+    base::modules:
+      - "website::wrapper::phpioncube"
+
+PHP 7
+^^^^^
+
+::
+
+    base::modules:
+      - "website::wrapper::php70ioncube"
+
 Monitoring
 ----------
 
