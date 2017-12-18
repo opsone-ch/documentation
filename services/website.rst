@@ -849,6 +849,23 @@ and configure them trough `website::ssl_dhparam`:
     ...
     -----END DH PARAMETERS-----
 
+HSTS Header
+^^^^^^^^^^^
+
+By default, we add a HTTP Strict Transport Security (HSTS) header to each TLS enabled website:
+
+::
+
+ Strict-Transport-Security max-age=63072000;
+
+Use the `header_hsts` parameter to override the default HSTS header:
+
+::
+
+ header_hsts: "max-age=3600; includeSubDomains; preload"
+
+.. hint:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet>`__ for details
+
 Test
 ^^^^
 
