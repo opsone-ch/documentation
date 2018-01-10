@@ -42,7 +42,7 @@ we strongly recommend to use SMTP directly:
 
     'MAIL' => [
         'transport' => 'smtp',
-        'transport_smtp_server'] => 'localhost',
+        'transport_smtp_server'] => 'mail.example.net',
         'transport_smtp_encrypt'] => 'ssl', // ssl, sslv3, tls
         'transport_smtp_username'] => 'johndoe',
         'transport_smtp_password'] => 'cooLSecret'
@@ -50,6 +50,8 @@ we strongly recommend to use SMTP directly:
 
 You can get the credentials from your Mailprovider.
 See https://docs.typo3.org/typo3cms/CoreApiReference/latest/ApiOverview/Mail/ for more details.
+
+.. warning:: Make sure to add a appropriate :doc:`../services/firewall` rule to allow the corresponding outgoing SMTP connection
 
 Mail Forms
 ~~~~~~~~~~
