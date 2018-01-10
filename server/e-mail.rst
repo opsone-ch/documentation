@@ -76,3 +76,20 @@ to adapt the parameters to:
 
     parameters:
         mailer_transport: mail
+
+If you do not want to fiddle arround with SPF and other mail setup stuff,
+we strongly recommend to use SMTP directly:
+
+::
+
+    parameters:
+        mailer_transport: smtp
+        mailer_host: "mail.example.net"
+        mailer_user: "johndoe"
+        mailer_password: "cooLSecret"
+
+You can get the credentials from your Mailprovider.
+
+See https://symfony.com/doc/master/reference/configuration/swiftmailer.html for more details.
+
+.. warning:: Make sure to add a appropriate :doc:`../services/firewall` rule to allow the corresponding outgoing SMTP connection
