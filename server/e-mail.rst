@@ -35,6 +35,22 @@ mailer daemon. Use the following snippet in your TYPO3 config:
         'transport' => 'mail',
     ),
 
+If you do not want to fiddle arround with SPF and other mail setup stuff,
+we strongly recommend to use SMTP directly:
+
+::
+
+    'MAIL' => [
+        'transport' => 'smtp',
+        'transport_smtp_server'] => 'localhost',
+        'transport_smtp_encrypt'] => 'ssl', // ssl, sslv3, tls
+        'transport_smtp_username'] => 'johndoe',
+        'transport_smtp_password'] => 'cooLSecret'
+    ]
+
+You can get the credentials from your Mailprovider.
+See https://docs.typo3.org/typo3cms/CoreApiReference/latest/ApiOverview/Mail/ for more details.
+
 Mail Forms
 ~~~~~~~~~~
 
