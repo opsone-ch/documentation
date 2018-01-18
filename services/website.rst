@@ -572,11 +572,23 @@ to true. You can select a specific ACME provider by
 ``ssl_acme_provider``, however by now only ``letsencrypt`` is available
 and already set as default, so you can omit this usually.
 
-Warning: Let's Encrypt will try to reach your server by HTTP. Make sure
-that all hosts added to ``server_name`` end up on your server already,
-otherwise validation will fail.
+.. warning:: Let's Encrypt will try to reach your server by HTTP. Make sure that all hosts added to ``server_name`` end up on your server already, otherwise validation will fail
 
-Configuration example:
+Debug validation problems
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to debug validation issues, we introduced the ``letsencrypt-renew`` shortcut which will trigger a run of our Let's Encrypt client, and let you see all debug output to identifiy possible problems.
+
+Renewal
+~~~~~~~
+
+Certificates from Let's Encrypt will be valid for 90 days. They are renewed automatically as soon as they expire in under 30 days. You can follow these checks and renewals by grep for ``letsencrypt`` in ``/var/log/syslog``.
+
+Furthermore, we check all certificates from our monitoring and will contact you if there are certificates expiring in less than 21 days.
+
+
+Configuration example
+~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
