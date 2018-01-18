@@ -260,7 +260,7 @@ php70
       "phpexamplenet":
         "server_name": "php.example.net"
         "env":         "PROD"
-        "type":        "php"
+        "type":        "php70"
     # uncomment the following lines if you need an automatically created database
     #    "dbtype":      "mysql"
     #    "password":    "Aiw7vaakos04h7e"
