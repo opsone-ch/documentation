@@ -48,6 +48,7 @@ available to execute certain commands with root privileges:
 -  ``ruby-restart``: restart current ruby daemon
 -  ``ruby-start``: start current ruby daemon
 -  ``ruby-stop``: stop current ruby daemon
+-  ``letsencrypt-renew``: Check and renew active Let`s Encrypt certificates
 
 
 .. _ssh-key-handling:
