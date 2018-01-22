@@ -25,7 +25,6 @@ Add Domain
 
 .. image:: _static/create_domain.gif
    :width: 907px
-   :height: 573px
    :scale: 100 %
    :alt: add new domain
    :align: left
@@ -38,7 +37,6 @@ Add Mailbox
 
 .. image:: _static/create_mailbox.gif
    :width: 907px
-   :height: 573px
    :scale: 100 %
    :alt: add new mailbox
    :align: left
@@ -73,7 +71,6 @@ Generate a new key for this domain through the webinterface. Use the following s
 
 .. image:: _static/create_dkim.gif
    :width: 907px
-   :height: 573px
    :scale: 100 %
    :alt: create dkim key
    :align: left
@@ -105,7 +102,6 @@ Thunderbird
 
 .. image:: _static/thunderbird_configuration.png
    :width: 892px
-   :height: 484px
    :scale: 100 %
    :alt: mozilla thunderbird configuration
    :align: left
@@ -115,10 +111,18 @@ Microsoft Outlook
 
 .. image:: _static/outlook_configuration.png
    :width: 817px
-   :height: 490px
    :scale: 100 %
    :alt: outlook configuration
    :align: left
+
+macOS Apple Mail
+~~~~~~~~~~~~~~~~
+
+Email, contacts and calendar can be configured automatically by installing a profile.
+
+1. Open mail.example.com and log in with your mailbox credentials (not with your admin account)
+2. Click on "Show configuration guides for email clients and smartphones" and then choose "macOS"
+3. There you can download a mobileconfig profile to setup your client
 
 Monitoring
 ----------
