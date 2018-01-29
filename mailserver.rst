@@ -48,9 +48,10 @@ DNS
 
 ::
 
-    # Name              Type       Value
-    @                   IN MX 10   mail.example.com
-    @                   IN TXT     v=spf1 mx -all
+    # Name                Type        Value
+    @                     IN MX 10    mail.example.com
+    @                     IN TXT      v=spf1 mx -all
+    _autodiscover._tcp    IN SRV      0 1 143 mail.example.org
 
 .. note:: Good secured mail services will discard mails sent from hosts which are not particularly allowed to, eventhough the default behaviour is to accept every mail. To explicitly allow our mailserver to send mails from your domain you need to add an SPF record to your DNS zone
 
