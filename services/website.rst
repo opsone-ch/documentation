@@ -50,37 +50,7 @@ You have to define one of the following types for each website.
 
 .. note:: If you need a type not mentioned here yet, do not hesitate to contact us
 
-typo3cms
-^^^^^^^^
-
--  nginx 1.6 with naxsi WAF, core rule set and TYPO3 white/blacklists
--  PHP-FPM 5.6
--  MariaDB 10.x with database, user, and grants
--  TYPO3 CMS 6.2 cloned into /var/lib/typo3/TYPO3\_6-2/
--  TYPO3 Scheduler executed every 5 minutes
-
-::
-
-    website::sites: 
-      "examplenet":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "typo3.example.net www.typo3.example.net"
-        "env":         "PROD"
-        "type":        "typo3cms"
-
-To use other TYPO3 CMS versions, add the following array:
-
-::
-
-    website::typo3versions:
-      - "4.5"
-
-At the moment, only TYPO3 CMS 4.5 and 6.2 are available. For TYPO3 CMS
-7.x, see seperate type below.
-
-.. note:: please note that some older TYPO3 versions may not be fully compatible with this generation
-
-typo3cmsv7
+typo3cmsv8
 ^^^^^^^^^^
 
 -  nginx 1.6 with naxsi WAF, core rule set and TYPO3 7.x compatible
@@ -100,11 +70,11 @@ typo3cmsv7
         "password":           "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
         "server_name":        "typo3.example.net www.typo3.example.net"
         "env":                "PROD"
-        "type":               "typo3cmsv7"
+        "type":               "typo3cmsv8"
         "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
 
-typo3neos
-^^^^^^^^^
+neos
+^^^^
 
 -  nginx 1.6 with naxsi WAF, core rule set and TYPO3 Neos
    white/blacklists
@@ -118,7 +88,7 @@ typo3neos
         "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
         "server_name": "neos.example.net www.neos.example.net"
         "env":         "PROD"
-        "type":        "typo3neos"
+        "type":        "neos"
 
 magento
 ^^^^^^^
@@ -343,25 +313,6 @@ nodejs
         "password":    "ohQueeghoh0bath"
 
 Hint: to control the nodejs daemon, use the ``nodejs-restart`` shortcut
-
-todoyu
-^^^^^^
-
--  nginx 1.6 with naxsi WAF, core rule set and todoyu white/blacklists
--  PHP-FPM 5.6
--  MariaDB 10.x with database, user, and grants
--  access to external SMTP/POP3/IMAP ports
--  todoyu cronjob
--  todoyu access rules
-
-::
-
-    website::sites: 
-      "todoyuexample":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "todoyu.example.net www.todoyu.example.net"
-        "env":         "PROD"
-        "type":        "todoyu"
 
 ruby
 ^^^^
@@ -1178,13 +1129,13 @@ Every PHP based website type has composer installed and auto updated.
 
 .. hint:: For details, see the `Composer <https://getcomposer.org/doc/>`__ documentation
 
-TYPO3 7
+TYPO3 8
 ^^^^^^^
 
-On composer based TYPO3 7 installations, composer runs after every TYPO3
+On composer based TYPO3 8 installations, composer runs after every TYPO3
 core update, if the following conditions are fulfilled:
 
--  ``type: typo3cmsv7``
+-  ``type: typo3cmsv8``
 -  ``~/composer.json`` exists
 -  ``~/composer.json`` contains ``typo3/cms``
 
@@ -1339,7 +1290,7 @@ Full configuration example
         "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
         "server_name": "neos.example.net www.neos.example.net"
         "env":         "PROD"
-        "type":        "typo3neos"
+        "type":        "neos"
       "uwsgiexample":
         "server_name": "uwsgi.example.net"
         "env":         "PROD"
@@ -1360,7 +1311,7 @@ Full configuration example
         "server_name": "proxy.to"
         "env":         "PROD"
         "type":        "proxy"
-        "members":     
+        "members":
           - localhost:8080
           - 127.0.0.1:8081
           - unix:/tmp/backend
