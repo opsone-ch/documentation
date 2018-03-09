@@ -74,6 +74,11 @@ Tomcat instance among others
 -  Result: 4GB Memory \* 80% = 3.2GB / 3 (ratio) = 1.07GB Memory for
    Tomcat
 
+Diskspace
+---------
+
+If you want to know which files (or folders) use the most space, you can use the command ``diskusage``. The command can only be executed with the `devop user <access.html#generic-devop-user>`__.
+
 Server sizing
 -------------
 
