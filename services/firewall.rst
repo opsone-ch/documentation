@@ -83,6 +83,15 @@ Variables by default
 Example usage
 ~~~~~~~~~~~~~
 
+TYPO3 8
+^^^^^^^
+
+::
+
+  if ( isset( $_SERVER['http_proxy'] ) ) $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy'] = $_SERVER['http_proxy'];
+
+
+
 TYPO3
 ^^^^^
 
