@@ -119,6 +119,7 @@ html_context = {
     "github_version": "6-0-stable",
     "conf_py_path": "/",
     "source_suffix": '.rst',
+    "theme_vcs_pageview_mode": "blob",
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme
