@@ -1,0 +1,6 @@
+Allgemeine Geschäftsbedingungen
+===============================
+
+.. toctree::
+   agb
+
