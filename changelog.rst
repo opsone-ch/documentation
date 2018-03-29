@@ -16,6 +16,7 @@ Changes between 5.0 - 6.0
 - removed HHVM website type which was not used anymore
 - removed typo3cms & typo3cmsv7 website types
 - removed drupal website type as we can achieve the very same configuration with the php72 type
+- removed magento type
 - renamed typo3neos website type to neos
 - switched nginx web application firewall from naxsi to modsecurity
 

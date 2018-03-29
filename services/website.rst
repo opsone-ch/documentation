@@ -90,22 +90,6 @@ neos
         "env":         "PROD"
         "type":        "neos"
 
-magento
-^^^^^^^
-
--  nginx 1.6 with naxsi WAF, core rule set and magento white/blacklists
--  PHP-FPM 5.6 with mcrypt module
--  MariaDB 10.x with database, user, and grants
-
-::
-
-    website::sites: 
-      "magentoexample":
-        "server_name": "magento.example.net"
-        "env":         "PROD"
-        "type":        "magento"
-        "password":    "Aiw7vaakos04h7e"
-
 magento2
 ^^^^^^^^
 
@@ -128,24 +112,8 @@ wordpress
         "type":        "wordpress"
         "password":    "Aiw7vaakos04h7e"
 
-drupal
-^^^^^^
-
--  nginx 1.6 with naxsi WAF, core rule set and drupal white/blacklists
--  PHP-FPM 5.6
--  MariaDB 10.x with database, user, and grants
-
-::
-
-    website::sites: 
-      "drupalexample":
-        "server_name": "drupal.example.net"
-        "env":         "PROD"
-        "type":        "drupal"
-        "password":    "Aiw7vaakos04h7e"
-
-php
-^^^
+php72
+^^^^^
 
 -  nginx 1.6 with naxsi WAF and core rule set
 -  PHP-FPM 5.6
