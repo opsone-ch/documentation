@@ -1,13 +1,24 @@
 Mailserver
 ==========
 
-We offer mailservers based on Postfix, Dovecot and SOGo Groupware. Each server is dedicated to a certain customer,
+We offer mailservers based on Postfix, Dovecot, rspamd and SOGo Groupware. Each server is dedicated to a certain customer,
 therefore you can add any number of domains and accounts limited only by the ressources available (CPU/RAM/Diskspace).
 
 .. note:: We recommend that you use a dedicated domain for your mailserver installation (e.g. opsmail.ch)
 
-Mailserver
-----------
+Migration
+---------
+
+Necessary steps for a mail server migration:
+
+1. Change the TTL of the existing MX record to 5 minutes or less.
+2. `Create all new mailboxes. <#add-mailbox>`__
+3. `Change MX record to new one. <#dns>`__
+
+.. note:: Depending on how high the old TTL entry was, we recommend waiting one day between steps one and three.
+
+WebUI
+-----
 
 Administrator Access
 ~~~~~~~~~~~~~~~~~~~~
@@ -19,9 +30,8 @@ There is an administrator user (username: admin) which can be used under mail.ex
 Add Domain
 ~~~~~~~~~~
 
-1. open mail.example.com and login as global administrator
-2. klick on ``Configuration (top right) -> Mailboxes -> Add domain`` and fill in your new domain name
-3. restart SOGo after adding a new domain, klick on ``Restart SOGo`` in the upper right corner
+1. navigate to ``Configuration (top right) -> Mailboxes -> Add domain`` and fill in your domain name
+2. add the new domain with ``Add domain and restart SOGo``
 
 .. image:: _static/create_domain.gif
    :width: 907px
@@ -32,8 +42,8 @@ Add Domain
 Add Mailbox
 ~~~~~~~~~~~
 
-1. open mail.example.com and login as global or domain administrator
-2. klick on ``Configuration (top right) -> Mailboxes -> Mailboxes (tab) -> Add mailbox`` and fill in your desired Username, Full name and Password.
+1. navigate to ``Configuration (top right) -> Mailboxes -> Mailboxes (tab) -> Add mailbox`` and fill in your desired Username, Full name and Password
+2. Save your settings with the ``Add``-Button
 
 .. image:: _static/create_mailbox.gif
    :width: 907px
@@ -41,13 +51,19 @@ Add Mailbox
    :alt: add new mailbox
    :align: left
 
-The new user can now login via webmail.example.com.
+The new user can now...
+
+* login to webmail on webmail.example.com (SOGo with integerated calendar and addressbook)
+* login to mail.example.com to adjust certain settings (Spam filter, Sync jobs)
+* access his mails in a mailclient like thunderbird or outlook with `IMAP/SMTP <#client-configuration>`__.
 
 DNS
 ---
 
 Minimal DNS configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
 ::
 
@@ -57,7 +73,7 @@ Minimal DNS configuration
 
 .. note:: Good secured mail services will discard mails sent from hosts which are not particularly allowed to, eventhough the default behaviour is to accept every mail. To explicitly allow our mailserver to send mails from your domain you need to add an SPF record to your DNS zone
 
-.. warning:: Please make sure to include all other servers that should be able to send mails from your domain
+.. warning:: Please make sure to include all other servers that should be able to send mails from your domain.
 
 SRV Records
 ~~~~~~~~~~~
@@ -106,7 +122,7 @@ Add created public key to the `dkim._domiankey` DNS record:
 Client Configuration
 --------------------
 
-Our mailservers support IMAP, POP3, SMTP, ActiveSync and webmail access.
+Our mailservers support IMAP, POP3, SMTP, ActiveSync, CalDAV, CardDAV and webmail access. You can find your webmail at webmail.example.com.
 
 ::
 
@@ -116,10 +132,10 @@ Our mailservers support IMAP, POP3, SMTP, ActiveSync and webmail access.
     SMTP            mail.example.com       465       SSL/TLS     Normal password
     ActiveSync      mail.example.com       auto      auto        auto
 
-Webmail: webmail.example.com
+.. note:: ActiveSync is not a complete Microsoft Exchange replacement. We recommend IMAP for most clients. ActiveSync can be useful for e.g. Android.
 
-Thunderbird
-~~~~~~~~~~~
+Mozilla Thunderbird
+~~~~~~~~~~~~~~~~~~~
 
 .. image:: _static/thunderbird_configuration.png
    :width: 892px
