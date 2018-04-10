@@ -14,6 +14,7 @@ Necessary steps for a mail server migration:
 1. Change the TTL of the existing MX record to 5 minutes or less.
 2. `Create all new mailboxes. <#add-mailbox>`__
 3. `Change MX record to new one. <#dns>`__
+4. Migrate your emails manually with IMAP or with a `Sync Job <#sync-jobs>`__.
 
 .. note:: Depending on how high the old TTL entry was, we recommend waiting one day between steps one and three.
 
@@ -43,7 +44,7 @@ Add Mailbox
 ~~~~~~~~~~~
 
 1. navigate to ``Configuration (top right) -> Mailboxes -> Mailboxes (tab) -> Add mailbox`` and fill in your desired Username, Full name and Password
-2. Save your settings with the ``Add``-Button
+2. save your settings with the ``Add``-Button
 
 .. image:: _static/create_mailbox.gif
    :width: 907px
@@ -55,7 +56,16 @@ The new user can now...
 
 * login to webmail on webmail.example.com (SOGo with integerated calendar and addressbook)
 * login to mail.example.com to adjust certain settings (Spam filter, Sync jobs)
-* access his mails in a mailclient like thunderbird or outlook with `IMAP/SMTP <#client-configuration>`__.
+* access his mails in a mailclient like thunderbird or outlook with `IMAP/SMTP or ActiveSync <#client-configuration>`__.
+
+Sync Jobs
+~~~~~~~~~
+
+You can import your old email with a Sync Job.
+
+1. Navigate to ``Configuration (top right) -> Mailboxes -> Mailboxes (tab) -> Sync Jobs``
+2. Create a new sync job with your settings
+3. A sync job remains until you delete it. Remember to delete the sync job if you no longer need it.
 
 DNS
 ---
