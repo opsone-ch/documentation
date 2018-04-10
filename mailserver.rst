@@ -73,8 +73,6 @@ DNS
 Minimal DNS configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
 ::
 
     # Name                Type        Value
