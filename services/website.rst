@@ -964,7 +964,7 @@ Configure WAF exeptions here, see `Web Application Firewall`_ for details.
 /etc/nginx/custom/http.conf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This file is directly integrated in ``http { }``, befor ``server { }`` and can only be edited with the ``devop`` user. You can use this file for settings that must be configured at nginx http context.
+This file is directly integrated in ``http { }``, before ``server { }`` and can only be edited with the ``devop`` user. You can use this file for settings that must be configured at nginx http context.
 
 custom webroot
 ^^^^^^^^^^^^^^
