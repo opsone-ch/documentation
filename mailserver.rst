@@ -18,6 +18,8 @@ Necessary steps for a mail server migration:
 
 .. note:: Depending on how high the old TTL entry was, we recommend waiting one day between steps one and three.
 
+.. warning:: Local delivery: E-mails from the mail server to another domain, which are also created on the same mail server, are delivered locally. Even if the mail server is not yet in use by the recipient.
+
 WebUI
 -----
 
@@ -35,7 +37,7 @@ Add Domain
 2. add the new domain with ``Add domain and restart SOGo``
 
 .. image:: _static/create_domain.gif
-   :width: 907px
+   :width: 100 %
    :scale: 100 %
    :alt: add new domain
    :align: left
