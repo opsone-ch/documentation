@@ -38,7 +38,7 @@ Add Domain
 
 .. image:: _static/create_domain.gif
    :width: 100 %
-   :scale: 100 %
+   :height: 100 %
    :alt: add new domain
    :align: left
 
