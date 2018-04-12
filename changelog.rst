@@ -19,4 +19,5 @@ Changes between 5.0 - 6.0
 - removed magento type
 - renamed typo3neos website type to neos
 - switched nginx web application firewall from naxsi to modsecurity
+- removed rabbitmq service which was not used at all. Please contact us if you plan to use this service for a new project
 
