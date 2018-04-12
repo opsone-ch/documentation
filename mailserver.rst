@@ -48,8 +48,7 @@ Add Mailbox
 2. save your settings with the ``Add``-Button
 
 .. image:: _static/create_mailbox.gif
-   :width: 907px
-   :scale: 100 %
+   :width: 100%
    :alt: add new mailbox
    :align: left
 
@@ -116,8 +115,7 @@ Generate a new key for this domain through the webinterface. Use the following s
     DKIM key length: 2048 bits
 
 .. image:: _static/create_dkim.gif
-   :width: 907px
-   :scale: 100 %
+   :width: 100%
    :alt: create dkim key
    :align: left
 
@@ -147,8 +145,7 @@ Mozilla Thunderbird
 ~~~~~~~~~~~~~~~~~~~
 
 .. image:: _static/thunderbird_configuration.png
-   :width: 892px
-   :scale: 100 %
+   :width: 100%
    :alt: mozilla thunderbird configuration
    :align: left
 
@@ -156,8 +153,7 @@ Microsoft Outlook
 ~~~~~~~~~~~~~~~~~
 
 .. image:: _static/outlook_configuration.png
-   :width: 817px
-   :scale: 100 %
+   :width: 100%
    :alt: outlook configuration
    :align: left
 
