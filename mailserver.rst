@@ -37,7 +37,7 @@ Add Domain
 2. add the new domain with ``Add domain and restart SOGo``
 
 .. image:: _static/create_domain.gif
-   :width: 80%
+   :width: 100%
    :alt: add new domain
    :align: left
 
