@@ -994,6 +994,17 @@ the corresponding directory, e.g. ``~/www/.user.ini``. See the `PHP
 Documentation <http://php.net/manual/en/configuration.file.per-user.php>`__
 for details.
 
+custom log format
+^^^^^^^^^^^^^^^^^
+
+To alter the format used for nginx access logs, for example due to privacy reasons, you can use the ``website::wrapper::nginx::log_format`` configuration.
+
+This configuration is only available globally for all websites on a server, to change to default "combined" format to replace the actual visitors ip address with 127.0.0.1, use the following example:
+
+::
+
+    website::wrapper::nginx::log_format: "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
+
 Cronjobs
 --------
 
