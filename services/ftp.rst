@@ -4,7 +4,7 @@ FTP Service
 This service will install and configure ProFTPD and manage virtual
 users.
 
-.. warning:: use FTP only if really required (for example for webcam access). Most use cases are just fine with SSH/SCP
+.. warning:: for your daily operations, please use SSH/SCP which is already in place by default
 
 Users
 -----
@@ -26,14 +26,9 @@ Users
         "gid":      "1005"
         "home":     "/home/examplenet/www/webcam/"
 
-Hint: The password has to be encrypted. Use the following command to
-encrypt your desired password: ``mkpasswd -m sha-512``
+.. hint:: The password has to be encrypted. Use the following command to encrypt your desired password: ``mkpasswd -m sha-512``
 
-Hint: Use the "id" command to determine the appropriate uid/gid
-
-Note: Access is enabled by both FTP and FTPS. Use the server FQDN to
-connect by FTPS as we use the \*.snowflakehosting.ch wildcard
-certificate by default
+.. hint:: Use the "id" command to determine the appropriate uid/gid
 
 Directories
 -----------
@@ -60,3 +55,42 @@ will led to this ProFTPD configuration:
             AllowUser alice
         </Limit>
     </Directory>
+
+TLS Certificates
+----------------
+
+- TLS is enabled and required by default
+- there is a option to disable the TLS requirement. As we try to avoid the usage of unencrypted FTP connections, this option is not documented. Please contact us in case you have to enable plain-text access
+
+default certificate
+^^^^^^^^^^^^^^^^^^^
+
+If not configured otherwise (see below), a self signed certificate bearing the hostname of the server will be created and used for ProFTPD.
+
+own certificate
+^^^^^^^^^^^^^^^
+
+Specify your own certificate with the ``tls_key`` and ``tls_crt`` options.
+
+::
+
+    ftp::wrapper::proftpd::tls_crt: |
+      -----BEGIN CERTIFICATE-----
+      MY-TLS-CERTIFICATE
+
+    ftp::wrapper::proftpd::tls_key: |
+      -----BEGIN PRIVATE KEY-----
+      MY-TLS-KEY
+
+own certificate in file
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Another option is to use existing certificates already in place on this server, for example one thats used with nginx already. Specify the certificates location with the ``tls_key_file`` and ``tls_crt_file`` options.
+
+::
+
+    ftp::wrapper::proftpd::tls_crt_file: "/etc/nginx/tls/<websitename>.crt"
+    ftp::wrapper::proftpd::tls_key_file: "/etc/nginx/tls/<websitename>.key"
+
+.. hint:: With this option, you can also use certificates issued through nginx by Let's Encrypt
+
