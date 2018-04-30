@@ -21,4 +21,5 @@ Changes between 5.0 - 6.0
 - removed rabbitmq service which was not used at all. Please contact us if you plan to use this service for a new project
 - removed subversion package and configuration. If you still need subversion somewhere, please install manually through base::packages
 - switched nginx web application firewall from naxsi to modsecurity
+- proxy website type: removed "members" option, add "proxy_pass" option
 

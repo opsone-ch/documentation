@@ -222,11 +222,7 @@ Redirect
 Proxy
 ^^^^^
 
--  nginx 1.6
--  Proxy requests to a server or group of servers:
--  hostname, IPs and ports are available
--  works also with unix sockets
--  TLS / SSL is supported
+-  nginx vhost configured as reverse proxy
 
 ::
 
@@ -234,13 +230,9 @@ Proxy
         "server_name": "proxy.to"
         "env":         "PROD"
         "type":        "proxy"
-        "members":     
-          - localhost:8080
-          - 127.0.0.1:8081
-          - unix:/tmp/backend
+        "proxy_pass":  "http://127.0.0.1:8080"
 
-Hint: to proxy external sites / hosts please contact our support.
-(outgoing firewall rules needs to be applied)
+.. hint: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point proxy_pass to it
 
 nodejs
 ^^^^^^
