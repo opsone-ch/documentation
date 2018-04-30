@@ -227,12 +227,12 @@ Proxy
 ::
 
        "proxyexample":
-        "server_name": "proxy.to"
+        "server_name": "example.net"
         "env":         "PROD"
         "type":        "proxy"
         "proxy_pass":  "http://127.0.0.1:8080"
 
-.. hint: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point proxy_pass to it
+.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point proxypass to it
 
 nodejs
 ^^^^^^
