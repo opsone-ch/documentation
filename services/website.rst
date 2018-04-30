@@ -232,7 +232,7 @@ Proxy
         "type":        "proxy"
         "proxy_pass":  "http://127.0.0.1:8080"
 
-.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point proxypass to it
+.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it
 
 nodejs
 ^^^^^^
@@ -1206,24 +1206,4 @@ You can set or override environment variables per website by setting the ``envva
           "MYENVVAR":   "this is the value"
           "DB_HOST":    "override global DB_HOST variable here"
           "http_proxy": "override global http_proxy variable here"
-
-Delete website
---------------
-
-As a security measure, you have to define explicit that you want to
-delete a website:
-
-::
-
-    website::sites: 
-      "examplenet":
-        "ensure": "absent"
-
-As soon as "ensure" equals set to "absent", all configurations and data
-related to this site gets removed at once. After the next configuration
-run, you can remove the whole part from the website::sites hash.
-
-Warning: After setting ``ensure`` to ``absent``, do not run
-``puppet-agent`` with this particular user. Use another, remaining user
-or the generic ``devop`` user to run ``puppet-agent``
 
