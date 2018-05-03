@@ -39,11 +39,11 @@ Databases
 ::
 
     database::databases:
-      "withoutuser":
+      "<database-name-without-user>":
         "type": "mysql"
-      "withuser":
+      "<database-name-with-user>":
         "type": "mysql"
-        "user_password": "cleartext-password"
+        "user_password": "<cleartext-password>"
 
 Users
 ~~~~~
@@ -56,10 +56,10 @@ Users
 ::
 
     database::users:
-      "alice@localhost":
-        "password": "cleartext-password"
-      "box@remote.host":
-        "password": "cleartext-password"
+      "<username>@localhost":
+        "password": "<cleartext-password>"
+      "<username>@<remote-hostname>":
+        "password": "<cleartext-password>"
 
 Grants
 ~~~~~~
@@ -69,18 +69,18 @@ Grants
 ::
 
     database::grants:
-      "alice@localhost":
-        "user":     "alice@localhost"
-        "database": "withoutuser"
+      "<username>@localhost":
+        "user":     "<username>@localhost"
+        "database": "<database-name>"
         "table":    "*"
-      "box@remote.host":
-        "user":     "box@remote.host"
-        "database": "withoutuser"
+      "<username>@<remote-hostname>":
+        "user":     "<username>@<remote-hostname>"
+        "database": "<database-name>"
         "table":    "*"
-      "specifictable@localhost":
-        "user":     "specifictable@localhost"
-        "database": "withoutuser"
-        "table":    "tablename"
+      "<username-for-specific-table>@<remote-hostname>":
+        "user":     "<username-for-specific-table>@<remote-hostname>"
+        "database": "<database-name>"
+        "table":    "<specific-table-name>"
 
 Additional configuration options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
