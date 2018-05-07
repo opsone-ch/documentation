@@ -586,6 +586,20 @@ You can add such uers for yourself and your co-workers. If you work on
 multiple websites, you do not have to look up the corresponding password
 all the time but just use the global one.
 
+To rename the default "preview" username, use the ``preview_username`` parameter on a website:
+
+::
+
+    "devexamplenet":
+        "type":             "typo3cms"
+        "env":              "DEV"
+        "server_name":      "dev.example.net www.dev.example.net"
+        "password":         "1234"
+        "preview_username": "showme"
+        "htpasswd":          "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+
+Furthermore, its possible to set the preview username globally through ``website::preview_username``.
+
 .. note:: Please keep in mind that this password gets often transfered over unencrypted connections. As always, we recommend to use a particular password for only this purpose
 
 Disable exeptions
