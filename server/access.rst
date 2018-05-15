@@ -23,33 +23,8 @@ to the ``adm`` group which enable access to all system log files in
 Shortcuts and sudo configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Depending on the installed services, the following shortcuts might be
-available to execute certain commands with root privileges:
-
--  ``puppet-agent``: trigger puppet agent run
--  ``nginx-reload``: reload nginx webserver
--  ``nginx-restart``: restart nginx webserver
--  ``fpm-reload``: reload PHP-FPM daemon
--  ``fpm-restart``: restart PHP-FPM daemon
--  ``uwsgi-reload``: reload uwsgi daemon
--  ``uwsgi-restart``: restart uwsgi daemon
--  ``varnish-reload``: reload Varnish daemon
--  ``varnish-restart``: restart Varnish daemon
--  ``nodejs-restart``: restart current nodejs daemon
--  ``nodejs-start``: start current nodejs daemon
--  ``nodejs-stop``: stop current nodejs daemon
--  ``tomcat8-reload``: reload Tomcat daemon
--  ``tomcat8-restart``: restart Tomcat daemon
--  ``docker-restart``: restart Docker daemon
--  ``elastic-start``: start elasticsearch daemon
--  ``elastic-stop``: stop elasticsearch daemon
--  ``elastic-restart``: restart elasticsearch daemon
--  ``elastic-force-reload``: force-reload elasticsearch daemon
--  ``ruby-restart``: restart current ruby daemon
--  ``ruby-start``: start current ruby daemon
--  ``ruby-stop``: stop current ruby daemon
--  ``letsencrypt-renew``: Check and renew active Let`s Encrypt certificates
-
+Depending on the installed services, some shortcuts are available to execute certain commands with root privileges.
+You will find a list of all shortcuts by typing ``help``.
 
 .. _ssh-key-handling:
 
