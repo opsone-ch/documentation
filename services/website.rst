@@ -335,7 +335,7 @@ STAGE
 ^^^^^
 
 -  for stage / preview / testing access
--  password protected (User "preview", password from "htpasswd" option)
+-  password protected (User "preview", password from "preview_htpasswd" option)
 -  phpinfo enabled
 -  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
 
@@ -343,7 +343,7 @@ DEV
 ^^^
 
 -  for development
--  password protected (User "preview", password from "htpasswd" option)
+-  password protected (User "preview", password from "preview_htpasswd" option)
 -  phpinfo enabled
 -  Xdebug enabled, see :doc:`../development/phpdebugging` for details)
 -  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
@@ -353,7 +353,7 @@ User Handling
 
 The preview user gets applied to all non PROD environments and is
 intended for your own use, but also to allow access to other parties
-like your customer. Use the "htpasswd" option to set a particular
+like your customer. Use the "preview_htpasswd" option to set a particular
 password to the preview user. You have to use a htpasswd encrypted value
 which you can generate like this on your local workstation:
 
@@ -366,11 +366,11 @@ Configuration example:
 ::
 
     "devexamplenet":
-        "type":        "typo3cms"
-        "env":         "DEV"
-        "server_name": "dev.example.net www.dev.example.net"
-        "password":    "1234"
-        "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+        "type":             "typo3cms"
+        "env":              "DEV"
+        "server_name":      "dev.example.net www.dev.example.net"
+        "password":         "1234"
+        "preview_htpasswd": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
 
 Furthermore, you can add additional users trough the "website::users"
 configuration like this:
@@ -397,7 +397,7 @@ To rename the default "preview" username, use the ``preview_username`` parameter
         "server_name":      "dev.example.net www.dev.example.net"
         "password":         "1234"
         "preview_username": "showme"
-        "htpasswd":          "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+        "preview_htpasswd": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
 
 Furthermore, its possible to set the preview username globally through ``website::preview_username``.
 
