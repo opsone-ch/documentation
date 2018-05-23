@@ -1238,6 +1238,8 @@ nginx vhost does not have to listen on external interfaces.
         "ipv6_listen_port":    "8080"
         "ipv6_listen_options": "option_value"
 
+.. hint:: If you set ``listen_options`` and ``ipv6_listen_options`` to ``default_server``, the corresponding web page becomes the default server and listens to every server name.
+
 GeoIP
 -----
 
