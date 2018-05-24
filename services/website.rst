@@ -180,10 +180,11 @@ magento2
 wordpress
 ^^^^^^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and wordpress
+-  nginx 1.6 with naxsi WAF, core rule set and WordPress
    white/blacklists
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
+-  WP-CLI
 
 ::
 
@@ -197,10 +198,11 @@ wordpress
 wordpress70
 ^^^^^^^^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and wordpress
+-  nginx 1.6 with naxsi WAF, core rule set and WordPress
    white/blacklists
 -  PHP-FPM 7.0 (self compiled and packaged version in `/opt/php/php70`)
 -  MariaDB 10.x with database, user, and grants
+-  WP-CLI
 
 ::
 
