@@ -171,10 +171,10 @@ lib/Zend/Http/Client/Adapter/Proxy.php
     ...
     }
 
-Wordpress
+WordPress
 ^^^^^^^^^
 
-To configure Wordpress to use the proxy, set the following options in
+To configure WordPress to use the proxy, set the following options in
 your wp-config.php file:
 
 ::

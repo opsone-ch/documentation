@@ -98,10 +98,11 @@ The `magento2` type is not yet ready on version 6. Please use a server of versio
 wordpress
 ^^^^^^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and wordpress
+-  nginx 1.6 with naxsi WAF, core rule set and WordPress
    white/blacklists
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
+-  WP-CLI
 
 ::
 
