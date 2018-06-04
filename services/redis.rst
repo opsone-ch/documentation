@@ -1,5 +1,5 @@
-Redis Service
-=============
+Redis
+=====
 
 The redis service is used to install and run Redis.
 
