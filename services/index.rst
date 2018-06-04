@@ -24,4 +24,5 @@ but others wont due to different requirements.
   javascript
   globalrepo
   solr
+  redis
 
