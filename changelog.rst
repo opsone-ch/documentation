@@ -17,6 +17,7 @@ System Wide
 - switched from SysVinit to systemd
 - removed rabbitmq service which was not used at all. Please contact us if you plan to use this service for a new project
 - removed subversion package and configuration. Please install and configure manually, if you still need subversion somewhere
+- msmtp was replaced by Postfix to send outgoing mails. See :doc:`server/e-mail` for details
 
 Website Service
 ^^^^^^^^^^^^^^^
