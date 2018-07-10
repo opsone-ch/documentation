@@ -8,6 +8,17 @@ We closely monitor all aspects of your server and take appropriate actions if re
 By now, access to our monitoring system Icinga is only granted on request, however we plan
 to implement this into a next version of our cockpit.
 
+Status
+------
+
+Monit, nginx and PHP FPM (if installed) status pages are available at ``http://localhost:2813/``.
+
+* `/monit/`: Monit service manager displaying status of all locally monitored processes
+* `/nginx/`: nginx `stub status <http://nginx.org/en/docs/http/ngx_http_stub_status_module.html>`__ output
+* `/fpm-<poolname>/`: PHP FPM per pool status page
+
+.. hint:: this status vhost is running on localhost only. Expose port 2813 through SSH to access locally: ``ssh <hostname> -L 2813:localhost:2813``
+
 Utilization
 -----------
 
