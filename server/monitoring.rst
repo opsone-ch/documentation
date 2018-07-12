@@ -5,8 +5,7 @@ Availability
 ------------
 
 We closely monitor all aspects of your server and take appropriate actions if required.
-By now, access to our monitoring system Icinga is only granted on request, however we plan
-to implement this into a next version of our cockpit.
+You see the status of all service checks in the cockpit.
 
 Status
 ------
