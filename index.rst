@@ -3,6 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. toctree::
+  :hidden:
+
+  mailserver/index
+  support
+
 ===========================================
 snowflake Ops: Welcome
 ===========================================
@@ -34,9 +40,3 @@ we are working hard to publish our Puppet wrapper modules as well.
 Checkout our `GitHub Organisation <https://github.com/snowflakeOps>`_ or `Twitter <https://twitter.com/snowflakeOps>`_ for updates.
 
 This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_.
-
-.. toctree::
-  :hidden:
-
-  mailserver
-  support
