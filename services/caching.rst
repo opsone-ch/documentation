@@ -93,6 +93,13 @@ take up to 50% of this servers total memory.
 
 .. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
 
+daemon_options
+~~~~~~~~~~~~~~
+
+Add one or more startup options to the Varnish daemon with ``daemon_options``.
+
+.. warning:: changing this value can led to unintended consequences. Please make sure to plan any changes carefully and ask us for advice if you're in doubt
+
 Full example
 ~~~~~~~~~~~~
 
@@ -108,3 +115,4 @@ Full example
         "vcl_type":     "default"
         "vcl_include":  "/home/user/cnf/varnish.vcl"
         "memory_ratio": "4"
+    caching::wrapper::varnish::daemon_options: "-p vcc_allow_inline_c=on",
