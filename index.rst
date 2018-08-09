@@ -7,6 +7,7 @@
   :hidden:
 
   mailserver/index
+  nextcloud/index
   support
 
 ===========================================
