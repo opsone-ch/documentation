@@ -27,7 +27,7 @@ Website Service
 - proxy type: removed "members" option, add "proxy_pass" option
 - added php71 type
 - added php72 type
-- added typo3cmsv8 type
+- added typo3cmsv9 type
 - renamed typo3neos website type to neos
 - removed javascript service, install a up-to-date nodejs version trough the nodejs website service instead
 - removed HHVM website type which was not used anymore

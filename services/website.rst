@@ -73,6 +73,28 @@ typo3cmsv8
         "type":               "typo3cmsv8"
         "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
 
+typo3cmsv9
+^^^^^^^^^^
+
+-  nginx with  WAF, core rule set and TYPO3 9.x compatible white/blacklists
+-  PHP 7.2
+-  MariaDB 10.x with database, user, and grants
+-  latest TYPO3 CMS 9 LTS cloned into /opt/typo3/TYPO3\_9/
+-  Default webroot is ~/web
+-  PHP-Settings adjusted to 9.x-requirements
+-  TYPO3 ApplicationContext can be set
+-  TYPO3 Scheduler executed every 5 minutes
+
+::
+
+    website::sites: 
+      "examplenet":
+        "password":           "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
+        "server_name":        "typo3.example.net www.typo3.example.net"
+        "env":                "PROD"
+        "type":               "typo3cmsv9"
+        "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
+
 neos
 ^^^^
 
