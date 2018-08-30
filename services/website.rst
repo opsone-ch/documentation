@@ -182,26 +182,6 @@ uwsgi
 Hint: to control the uwsgi daemon, use the ``uwsgi-reload`` and
 ``uwsgi-restart`` shortcuts
 
-Symfony
-^^^^^^^
-
--  nginx 1.6 with naxsi WAF, core rule set and Symfony white/blacklists
--  PHP-FPM 5.6
--  MariaDB 10.x with database, user, and grants
-
-::
-
-    website::sites: 
-      "symfonyexample":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "symfony.example.net www.symfony.example.net"
-        "env":         "PROD"
-        "type":        "symfony"
-
-Hint: For security reason, PHP execution is just allow for app.php,
-app\_dev.php, config.php. All other requests end up in a 403 forbidden
-error.
-
 Redirect
 ^^^^^^^^
 

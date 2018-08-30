@@ -22,13 +22,20 @@ System Wide
 Website Service
 ^^^^^^^^^^^^^^^
 
+- switched nginx web application firewall from naxsi to modsecurity
+- renamed the ``htpasswd`` parameter to ``preview_htpasswd``
+- proxy type: removed "members" option, add "proxy_pass" option
+- added php71 type
+- added php72 type
+- added typo3cmsv8 type
+- renamed typo3neos website type to neos
 - removed javascript service, install a up-to-date nodejs version trough the nodejs website service instead
 - removed HHVM website type which was not used anymore
-- removed typo3cms & typo3cmsv7 website types
+- removed typo3cms & typo3cmsv7 website types which are EOL
+- removed magento (v1) type which is EOL
+- removed php type which is EOL
+- removed php70 type which is EOL
 - removed drupal website type as we can achieve the very same configuration with the php72 type
-- removed magento type
-- renamed typo3neos website type to neos
-- switched nginx web application firewall from naxsi to modsecurity
-- proxy type: removed "members" option, add "proxy_pass" option
-- website service: renamed the ``htpasswd`` parameter to ``preview_htpasswd``
+- removed todoyu website type as we can achieve the very same configuration with the php72 type
+- removed symfony website type as we can achieve the very same configuration with the php72 type
 
