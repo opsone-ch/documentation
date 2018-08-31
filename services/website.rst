@@ -932,10 +932,7 @@ or you can password protect a subdirectory:
         auth_basic "Example name";
         auth_basic_user_file /home/user/www/example/.htpasswd;
         root /home/user/www/;
-        include /etc/nginx/custom/security.conf;
     }
-
-.. warning:: when overriding default locations, make sure to deny access to private files and directories manually, or include our global security locations from ``/etc/nginx/custom/security.conf``.
 
 or add a IP protection:
 
@@ -1026,6 +1023,16 @@ This configuration is only available globally for all websites on a server, to c
 ::
 
     website::wrapper::nginx::log_format: "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
+
+security configuration
+^^^^^^^^^^^^^^^^^^^^^^
+
+Access to certain private files and directories like ``.git`` is forbidden by including the global ``/etc/nginx/custom/security.conf`` file within the vhost configuration.
+
+You can disable this include by setting ``security_conf`` to ``false`` within the custom JSON configuration. Please be aware of any ramifications, and do not disable this
+settings unless you absolutely know what you're doing.
+
+.. warning:: make sure to deny access to private files and directories manually, or include our global security locations from ``/etc/nginx/custom/security.conf`` within your own configuration.
 
 Cronjobs
 --------
