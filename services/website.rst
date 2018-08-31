@@ -932,7 +932,10 @@ or you can password protect a subdirectory:
         auth_basic "Example name";
         auth_basic_user_file /home/user/www/example/.htpasswd;
         root /home/user/www/;
+        include /etc/nginx/custom/security.conf;
     }
+
+.. warning:: when overriding default locations, make sure to deny access to private files and directories manually, or include our global security locations from ``/etc/nginx/custom/security.conf``.
 
 or add a IP protection:
 
