@@ -1157,6 +1157,16 @@ Configure WAF exeptions here, see `Web Application Firewall`_ for details.
 
 This file is directly integrated in ``http { }``, before ``server { }`` and can only be edited with the ``devop`` user. You can use this file for settings that must be configured at nginx http context.
 
+custom configuration include
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Include your own, external configuration files within ``server { }`` or ``http { }``.
+
+* http level: set ``website::global_config_http``
+* server level: set ``website::global_config_server``
+
+.. hint:: with this setting, you can deploy own, system wide configuration files from a Git repository. See :doc:`globalrepo` for details.
+
 custom webroot
 ^^^^^^^^^^^^^^
 
