@@ -13,4 +13,5 @@ Server
   ssh-keys
   hosts
   monitoring
+  maintenance
 

@@ -730,7 +730,7 @@ Web Application Firewall
 We use `Naxsi <https://github.com/nbs-system/naxsi>`__ as additional
 protection against application level attacks such as cross
 site-scripting or SQL injections. We also block common vulnerabilities
-and zero day attacks, see our `status site <http://status.snowflake.ch/>`__ for updates.
+and zero day attacks, see our `status site <http://opsstatus.ch/>`__ for updates.
 
 Warning: this is just a additional security measure. Regardless its
 existence, remember to keep your application, extensions and libraries
