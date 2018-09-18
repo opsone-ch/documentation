@@ -5,7 +5,7 @@ If not specified otherwise, we conduct maintenance work starting **every Tuesday
 
 All work is announced in advance through our `status site <http://opsstatus.ch/>`__.
 
-.. hint: Make sure there is no manual interaction required to start all required services
+.. hint:: Make sure there is no manual interaction required to start all required services
 
 Service Restarts
 ----------------
