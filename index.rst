@@ -14,8 +14,9 @@ Anschrift
 ^^^^^^^^^
 
 | snowflake Ops AG
-| Birmensdorferstrasse 94
-| CH-8003 Zürich
+| Weststrasse 77
+| 8003 Zürich
+| Schweiz
 
 Handelsregister & MWST
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -30,6 +31,7 @@ Bankverbindung
 | Raiffeisenbank Zürich
 | Limmatquai 68
 | 8001 Zürich
+| Schweiz
 
 | Bankclearing: 81487
 | Postkonto: 87-71996-7
