@@ -1037,8 +1037,6 @@ settings unless you absolutely know what you're doing.
 Cronjobs
 --------
 
-.. hint:: If you use a certain website type, application specific cronjobs will be predefined already (for example, TYPO3 scheduler job on TYPO3 types)
-
 Add custom cronjobs through the `crontab -e` command:
 
 ::
@@ -1059,6 +1057,11 @@ Add custom cronjobs through the `crontab -e` command:
 
 .. hint:: For PHP based jobs, please set `PHP_INI_SCANDIR` manually to make sure that user specific settings are respected 
 
+type related cronjobs
+^^^^^^^^^^^^^^^^^^^^^
+
+* Application specific cronjobs are predefined already (for example, TYPO3 scheduler job on TYPO3 types, see type description for details)
+* if you want to disable this type related cronjob defined by us, set ``type_cronjob`` to ``false``
 
 Listen
 ------
