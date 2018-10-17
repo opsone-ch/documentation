@@ -965,6 +965,21 @@ nested in the location section from the example on top:
 
 .. hint:: for Details, see the `Server Block Examples <http://wiki.nginx.org/ServerBlockExample>`__ and `Rewrite Rule <http://wiki.nginx.org/HttpRewriteModule#rewrite>`__ documentation
 
+~/cnf/nginx-prod.conf
+^^^^^^^^^^^^^^^^^^^^^
+
+Included within the server block on each website with environment set to PROD. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
+
+~/cnf/nginx-stage.conf
+^^^^^^^^^^^^^^^^^^^^^
+
+Included within the server block on each website with environment set to STAGE. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
+
+~/cnf/nginx-dev.conf
+^^^^^^^^^^^^^^^^^^^^^
+
+Included within the server block on each website with environment set to DEV. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
+
 ~/cnf/nginx\_waf.conf
 ^^^^^^^^^^^^^^^^^^^^^
 

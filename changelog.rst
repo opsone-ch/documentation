@@ -25,6 +25,7 @@ Website Service
 - switched nginx web application firewall from naxsi to modsecurity
 - renamed the ``htpasswd`` parameter to ``preview_htpasswd``
 - proxy type: removed "members" option, add "proxy_pass" option
+- added local, environment dependent nginx configuration files ``nginx-prod.conf``, ``nginx-stage.conf``, ``nginx-dev.conf``
 - added php71 type
 - added php72 type
 - added typo3cmsv9 type
