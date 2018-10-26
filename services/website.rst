@@ -1023,10 +1023,15 @@ Some deployment workflows require other locations, which you can select through 
 PHP
 ^^^
 
-You can set custom PHP configurations trough a ``.user.ini`` files in
-the corresponding directory, e.g. ``~/www/.user.ini``. See the `PHP
-Documentation <http://php.net/manual/en/configuration.file.per-user.php>`__
-for details.
+You can set custom PHP configurations trough the ``~/cnf/php.ini`` file.
+See the `PHP Documentation <http://php.net/manual/en/configuration.file.per-user.php>`__ for details.
+
+::
+
+    memory_limit = 1G
+    extension = ldap.so
+
+.. hint:: list available extensions in ``/opt/php/php72/lib/php/extensions/no-debug-non-zts-20170718/``
 
 custom log format
 ^^^^^^^^^^^^^^^^^
@@ -1129,31 +1134,6 @@ on your server and add the following configuration:
       "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
 
 .. hint:: for details, see the `Module ngx\_http\_geoip\_module <http://nginx.org/en/docs/http/ngx_http_geoip_module.html>`__ documentation
-
-PHP Modules
------------
-
-To install additional PHP modules, use the following configuration:
-
-::
-
-    website::php:
-      "modulename":
-        "ensure": "installed"
-        "package": "php5-packagename"
-
-For example if you like to install php5-ldap use:
-
-::
-
-    website::php:
-      "ldap":
-        "ensure": "installed"
-        "package": "php5-ldap"
-
-.. hint:: some types might have the needed package preinstalled. For example "magento" comes with "php5-mcrypt"
-
-You will find a list of supported PHP modules `here <http://puppet-php.readthedocs.org/en/latest/extensions.html>`__.
 
 Composer
 --------

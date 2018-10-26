@@ -29,6 +29,7 @@ Website Service
 - added php71 type
 - added php72 type
 - added typo3cmsv9 type
+- removed different PHP configuration settings and added central ``~/cnf/php.ini`` configuration file instead
 - renamed typo3neos website type to neos
 - removed javascript service, install a up-to-date nodejs version trough the nodejs website service instead
 - removed HHVM website type which was not used anymore
