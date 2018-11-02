@@ -11,8 +11,6 @@ This is the Ops One documentation.
 It's targeted at an technical audience, mainly developers and sysadmins.
 Marketing and contract related details are available on our `website <https://opsone.ch>`_.
 
-.. warning::  This document is for the development version 6 which is currently in alpha stage. The current main version is 5-0-stable.
-
 Version 6
 -------------------------------------------
 
@@ -28,11 +26,10 @@ Right now, you are looking at the documentation for the version 6:
    * - OS Release
      - Debian 9 (Stretch)
    * - Webserver
-     - nginx 1.10
+     - nginx 1.13
    * - Database
-     - MariaDB 10
-   * - PHP
-     - PHP 7.0
+     - MariaDB 10.1
+   * - PHP 7.1, 7.2
    * - EOL
      - ~ May 2022
 
