@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# snowflake Ops documentation build configuration file, created by
+# Ops One documentation build configuration file, created by
 # sphinx-quickstart on Sat Nov 19 12:26:29 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,9 +46,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'snowflake Ops'
-copyright = 'snowflake Ops AG'
-author = 'snowflake Ops AG'
+project = 'Ops One'
+copyright = 'Ops One AG'
+author = 'Ops One AG'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -234,8 +234,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'snowflakeOps.tex', 'snowflake Ops Documentation',
-     'snowflake Ops AG', 'manual'),
+    (master_doc, 'snowflakeOps.tex', 'Ops One Documentation',
+     'Ops One AG', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -264,7 +264,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'snowflakeops', 'snowflake Ops Documentation',
+    (master_doc, 'snowflakeops', 'Ops One Documentation',
      [author], 1)
 ]
 
@@ -278,7 +278,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'snowflakeOps', 'snowflake Ops Documentation',
+    (master_doc, 'snowflakeOps', 'Ops One Documentation',
      author, 'snowflakeOps', 'One line description of project.',
      'Miscellaneous'),
 ]

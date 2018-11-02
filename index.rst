@@ -1,4 +1,4 @@
-.. snowflake Ops documentation master file, created by
+.. Ops One documentation master file, created by
    sphinx-quickstart on Sat Nov 19 12:26:29 2016.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -11,10 +11,10 @@
   support
 
 ===========================================
-snowflake Ops: Welcome
+Ops One: Welcome
 ===========================================
 
-This is the snowflake Ops documentation.
+This is the Ops One documentation.
 It's targeted at an technical audience, mainly developers and sysadmins.
 Marketing and contract related details are available on our `website <https://snowflakeops.ch>`_.
 
