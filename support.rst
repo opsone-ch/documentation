@@ -5,7 +5,7 @@ We are glad to help you
 -----------------------
 
 If you have any questions, feel free to get in touch by
-`E-Mail <mailto:team@snowflakeops.ch>`__.
+`E-Mail <mailto:team@opsone.ch>`__.
 
 Business hours
 --------------
@@ -15,7 +15,7 @@ Monday - Friday 08:30 - 11:30 13:30 - 17:30
 Hotline
 -------
 
-Please use `E-Mail <mailto:team@snowflakeops.ch>`__ to contact us whenever possible.
+Please use `E-Mail <mailto:team@opsone.ch>`__ to contact us whenever possible.
 We are pretty fast with answering, even in case of emergencies.
 
 However, you can contact us by phone as well of course:
