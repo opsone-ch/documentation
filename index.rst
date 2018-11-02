@@ -29,7 +29,8 @@ Right now, you are looking at the documentation for the version 6:
      - nginx 1.13
    * - Database
      - MariaDB 10.1
-   * - PHP 7.1, 7.2
+   * - PHP
+     - 7.1, 7.2
    * - EOL
      - ~ May 2022
 
