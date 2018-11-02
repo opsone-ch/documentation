@@ -1,4 +1,4 @@
-snowflake Ops: Legal Informations
+Ops One: Legal Informations
 =================================
 
 Dokumente
@@ -13,7 +13,7 @@ Kontakt
 Anschrift
 ^^^^^^^^^
 
-| snowflake Ops AG
+| Ops One AG
 | Weststrasse 77
 | 8003 Zürich
 | Schweiz
