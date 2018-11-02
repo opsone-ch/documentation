@@ -9,7 +9,7 @@ Ops One: Welcome
 
 This is the Ops One documentation.
 It's targeted at an technical audience, mainly developers and sysadmins.
-Marketing and contract related details are available on our `website <https://snowflakeops.ch>`_.
+Marketing and contract related details are available on our `website <https://opsone.ch>`_.
 
 Version 5 (Generation 201501)
 -------------------------------------------
@@ -44,8 +44,8 @@ We're here and happy to help.
 If you have any questions, don't hesitate to contact us:
 
 * Livechat (see below)
-* `Slack <https://snowflakeops.slack.com>`_ (`Registration <https://slack.snowflakeops.ch>`_)
-* E-Mail: `team@snowflakeops.ch <mailto:team@snowflakeops.ch>`_
+* `Slack <https://snowflakeops.slack.com>`_ (`Registration <https://slack.opsone.ch>`_)
+* E-Mail: `team@opsone.ch <mailto:team@opsone.ch>`_
 * Phone: `058 255 00 22 <tel:+41582550022>`_
 
 Open source

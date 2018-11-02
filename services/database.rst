@@ -139,7 +139,7 @@ phpmyadmin
 ^^^^^^^^^^
 
 We provide a central `phpMyAdmin
-installation <https://dbadmin.snowflakeops.ch>`__ to access your
+installation <https://dbadmin.opsone.ch>`__ to access your
 database. Use the following settings to connect:
 
 -  Server: database hostname, e.g. customer01.snowflakehosting.ch
