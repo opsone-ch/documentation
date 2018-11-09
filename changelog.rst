@@ -18,6 +18,7 @@ System Wide
 - removed rabbitmq service which was not used at all. Please contact us if you plan to use this service for a new project
 - removed subversion package and configuration. Please install and configure manually, if you still need subversion somewhere
 - msmtp was replaced by Postfix to send outgoing mails. See :doc:`server/e-mail` for details
+- new feature to add custom ca certificates to the servers key chain. See :doc:`server/ca-certificates` for details
 
 Website Service
 ^^^^^^^^^^^^^^^

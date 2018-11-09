@@ -12,6 +12,7 @@ Server
   e-mail
   ssh-keys
   hosts
+  ca-certificates
   monitoring
   maintenance
 
