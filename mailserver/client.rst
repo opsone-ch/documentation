@@ -5,11 +5,14 @@ Our mailservers support IMAP, POP3, SMTP, ActiveSync, CalDAV, CardDAV and webmai
 
 ::
 
-    # Typ           # Server hostname      # Port    # SSL       # Authentication
-    IMAP            mail.example.com       993       SSL/TLS     Normal password
-    POP3            mail.example.com       995       SSL/TLS     Normal password
-    SMTP            mail.example.com       465       SSL/TLS     Normal password
-    ActiveSync      mail.example.com       auto      auto        auto
+    # Typ           # Server hostname      # Port    # Encryption  # Authentication
+    IMAP            mail.example.com       143       STARTTLS      Normal password / Plain
+    IMAPS           mail.example.com       993       SSL           Normal password / Plain
+    POP3            mail.example.com       110       STARTTLS      Normal password / Plain
+    POP3S           mail.example.com       995       SSL           Normal password / Plain
+    SMTP            mail.example.com       587       STARTTLS      Normal password / Plain
+    SMTPS           mail.example.com       465       SSL/TLS       Normal password / Plain
+    ActiveSync      mail.example.com       auto      auto          auto
 
 .. note:: ActiveSync is not a complete Microsoft Exchange replacement. We recommend IMAP for most clients. ActiveSync can be useful for e.g. Android.
 
