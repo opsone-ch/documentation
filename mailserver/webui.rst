@@ -6,8 +6,6 @@ Administrator Access
 
 There is an administrator user (username: admin) which can be used under mail.example.com.
 
-.. note:: The administrator password must not be changed.
-
 Domain Administrators
 ---------------------
 
