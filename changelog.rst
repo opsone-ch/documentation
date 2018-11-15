@@ -26,7 +26,7 @@ Website Service
 - switched nginx web application firewall from naxsi to modsecurity
 - renamed the ``htpasswd`` parameter to ``preview_htpasswd``
 - proxy type: removed ``members`` option, add ``proxy_pass`` option
-- nodejs type: select custom node version trough nvm, installs latest lts version by default
+- nodejs type: select desired node version trough nvm. By default, the latest lts version is installed
 - added local, environment dependent nginx configuration files ``nginx-prod.conf``, ``nginx-stage.conf``, ``nginx-dev.conf``
 - added php71 type
 - added php72 type
