@@ -1008,6 +1008,17 @@ Some deployment workflows require other locations, which you can select through 
         "type":           "php"
         "custom_webroot": "deploy/current/html"
 
+custom log format
+^^^^^^^^^^^^^^^^^
+
+To alter the format used for nginx access logs, for example due to privacy reasons, you can use the ``website::wrapper::nginx::log_format`` configuration.
+
+This configuration is only available globally for all websites on a server, to change to default "combined" format to replace the actual visitors ip address with 127.0.0.1, use the following example:
+
+::
+
+    website::wrapper::nginx::log_format: "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
+
 PHP
 ^^^
 
@@ -1021,16 +1032,28 @@ See the `PHP Documentation <http://php.net/manual/en/configuration.file.per-user
 
 .. hint:: list available extensions in ``/opt/php/php72/lib/php/extensions/no-debug-non-zts-20170718/``
 
-custom log format
-^^^^^^^^^^^^^^^^^
+node
+^^^^
 
-To alter the format used for nginx access logs, for example due to privacy reasons, you can use the ``website::wrapper::nginx::log_format`` configuration.
+.. warning:: use only to enable node within another website type for actions like gulp. To run your own node based website, use the `nodejs`_ type
 
-This configuration is only available globally for all websites on a server, to change to default "combined" format to replace the actual visitors ip address with 127.0.0.1, use the following example:
+To execute custom node commands (for example gulp), add nvm (Node Version Manager) to any website by setting
+the following custom JSON:
 
 ::
 
-    website::wrapper::nginx::log_format: "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
+    {
+      "nvm": true
+    }
+
+By default, the latest node lts version will be installed, however you can also install and select any other version.
+
+::
+
+    $ nvm ls-remote
+    $ nvm install <version>
+
+.. hint:: see the `nvm readme <https://github.com/creationix/nvm#usage>`__ for details
 
 security configuration
 ^^^^^^^^^^^^^^^^^^^^^^
