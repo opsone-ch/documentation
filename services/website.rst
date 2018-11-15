@@ -207,20 +207,16 @@ Hint: to control the uwsgi daemon, use the ``uwsgi-reload`` and
 Redirect
 ^^^^^^^^
 
--  nginx 1.6
--  301 redirect domain(s) (add server name) to custom target
--  `$scheme://www.example.com`\ request\_uri (with request uri parameters)
--  `$scheme://www.example.com` (request every uri to www.example.com)
--  `$scheme://www.example.com/subsite/` (redirect the domain to any subsite of example.com)
--  TLS / SSL is available
+- redirects everything to a custom target
+- by default, we send a 307 HTTP code. To use your own code, add the ``target_code`` parameter to the websites custom JSON:
 
 ::
 
-       "redirectexample":
-        "server_name": "example.to"
-        "target":      "$scheme://domain.com$request_uri"
-        "env":         "PROD"
-        "type":        "redirect"
+    {
+      "target_code": "301"
+    }
+
+.. hint:: you can use any nginx variable as target (for example ``$scheme://www.example.com$request_uri``), see the `nginx Documentation <http://nginx.org/en/docs/varindex.html>`__ for available variables
 
 Proxy
 ^^^^^

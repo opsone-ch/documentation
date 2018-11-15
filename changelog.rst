@@ -27,6 +27,7 @@ Website Service
 - renamed the ``htpasswd`` parameter to ``preview_htpasswd``
 - proxy type: removed ``members`` option, add ``proxy_pass`` option
 - nodejs type: select desired node version trough nvm. By default, the latest lts version is installed
+- redirect type: added ``target_code`` parameter
 - added local, environment dependent nginx configuration files ``nginx-prod.conf``, ``nginx-stage.conf``, ``nginx-dev.conf``
 - added php71 type
 - added php72 type
