@@ -25,11 +25,13 @@ Website Service
 
 - switched nginx web application firewall from naxsi to modsecurity
 - renamed the ``htpasswd`` parameter to ``preview_htpasswd``
-- proxy type: removed "members" option, add "proxy_pass" option
+- proxy type: removed ``members`` option, add ``proxy_pass`` option
+- nodejs type: select custom node version trough nvm, installs latest lts version by default
 - added local, environment dependent nginx configuration files ``nginx-prod.conf``, ``nginx-stage.conf``, ``nginx-dev.conf``
 - added php71 type
 - added php72 type
 - added typo3cmsv9 type
+- added ``nvm`` parameter to each website to enable node on any website type
 - removed different PHP configuration settings and added central ``~/cnf/php.ini`` configuration file instead
 - renamed typo3neos website type to neos
 - removed javascript service, install a up-to-date nodejs version trough the nodejs website service instead

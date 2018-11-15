@@ -240,42 +240,30 @@ Proxy
 nodejs
 ^^^^^^
 
--  nginx 1.6 with naxsi WAF and core rule set
--  nodejs daemon, controlled by monit
--  symlink your app.js to ~/app.js or overwrite path or other daemon
-   options in ``OPTIONS`` at ``~/cnf/nodejs-daemon``:
+- nodejs daemon, controlled by monit
+- select custom node version trough `nvm <https://github.com/creationix/nvm#usage>`__, by default, the latest node lts version is installed
+- symlink your app.js to ~/app.js or overwrite path or other daemon
+  options in ``OPTIONS`` at ``~/cnf/nodejs-daemon``:
 
    ::
 
        OPTIONS="/home/nodejs/application/app.js --prod"
 
--  nodejs has to listen on the ``~/cnf/nodejs.sock`` socket, permission
-   ``660``
--  there is no database added by default, choose one of
--  PostgreSQL 9.4 with database, user, and grants
-   (``"dbtype": "postgresql"``)
--  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
--  all requests are redirected to the nodejs daemon by default. To serve
-   static files, add appropriate locations to the `Custom configuration`_ like this:
+- nodejs has to listen on the ``~/cnf/nodejs.sock`` socket, permission ``660``
+- there is no database added by default, choose one of
+    - PostgreSQL with database, user, and grants (``"dbtype": "postgresql"``)
+    - MariaDB with database, user, and grants (``"dbtype": "mysql"``)
+- all requests are redirected to the nodejs daemon by default. To serve
+  static files, add appropriate locations to the `Custom configuration`_ like this:
 
    ::
 
-       location /static/
-       {
-           root /home/user/application/;
+       location /static/ {
+         root /home/user/application/;
+         include /etc/nginx/custom/security.conf;
        }
 
-::
-
-    website::sites:
-      "nodejs":
-        "server_name": "nodejs.example.net"
-        "env":         "PROD"
-        "type":        "nodejs"
-        "dbtype":      "mysql"
-        "password":    "ohQueeghoh0bath"
-
-Hint: to control the nodejs daemon, use the ``nodejs-restart`` shortcut
+.. hint:: to control the nodejs daemon, use the ``nodejs-restart`` shortcut
 
 ruby
 ^^^^
