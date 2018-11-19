@@ -10,17 +10,6 @@ MySQL / MariaDB
 Instead of MySQL, we use MariaDB, which is a drop-in replacement with
 API/ABI compatibility to MySQL.
 
-Prerequisites
-~~~~~~~~~~~~~
-
-You have to set mysql::server::root\_password manually.
-
-::
-
-    mysql::server::root_password: "password"
-
-.. hint:: Min-Length: 8, Max-Length: 32, A-Za-z0-9 only
-
 Databases
 ~~~~~~~~~
 

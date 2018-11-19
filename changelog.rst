@@ -45,3 +45,8 @@ Website Service
 - removed todoyu website type as we can achieve the very same configuration with the php72 type
 - removed symfony website type as we can achieve the very same configuration with the php72 type
 
+Database Service
+^^^^^^^^^^^^^^^^
+
+- removed ``mysql::server::root_password`` altogether. We're using the unix_socket plugin to login as root now.
+
