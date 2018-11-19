@@ -16,6 +16,8 @@ Our mailservers support IMAP, POP3, SMTP, ActiveSync, CalDAV, CardDAV and webmai
 
 .. note:: ActiveSync is not a complete Microsoft Exchange replacement. We recommend IMAP for most clients. ActiveSync can be useful for e.g. Android.
 
+If your email client asks you for ``IMAP Path Prefix``, you can leave this value empty. All relevant folders are located directly in the root directory of the mailbox.
+
 Mozilla Thunderbird
 -------------------
 
