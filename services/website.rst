@@ -1056,6 +1056,12 @@ security configuration
 
 Access to certain private files and directories like ``.git`` is forbidden by including the global ``/etc/nginx/custom/security.conf`` file within the vhost configuration.
 
+This file also contains the following security headers:
+
+* ``add_header X-Frame-Options "SAMEORIGIN" always;``
+* ``add_header X-Content-Type-Options "nosniff" always;``
+* ``add_header X-XSS-Protection "1; mode=block";``
+
 You can disable this include by setting ``security_conf`` to ``false`` within the custom JSON configuration. Please be aware of any ramifications, and do not disable this
 settings unless you absolutely know what you're doing.
 
