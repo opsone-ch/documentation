@@ -12,7 +12,7 @@ To install a preconfigured RabbitMQ, add the service to your server:
 
     # additional Puppet Modules
     base::modules:
-      - "rabbitmq"
+      - "base::rabbitmq"
 
 User add
 --------
