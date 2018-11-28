@@ -70,17 +70,24 @@ Grants
 
     database::grants:
       "<username>@localhost":
-        "user":     "<username>@localhost"
-        "database": "<database-name>"
-        "table":    "*"
+        "user":       "<username>@localhost"
+        "database":   "<database-name>"
+        "table":      "*"
       "<username>@<remote-hostname>":
-        "user":     "<username>@<remote-hostname>"
-        "database": "<database-name>"
-        "table":    "*"
+        "user":       "<username>@<remote-hostname>"
+        "database":   "<database-name>"
+        "table":      "*"
       "<username-for-specific-table>@<remote-hostname>":
-        "user":     "<username-for-specific-table>@<remote-hostname>"
-        "database": "<database-name>"
-        "table":    "<specific-table-name>"
+        "user":       "<username-for-specific-table>@<remote-hostname>"
+        "database":   "<database-name>"
+        "table":      "<specific-table-name>"
+      "<username-for-specific-table-with-privileges>@<remote-hostname>":
+        "user":       "<username-for-specific-table>@<remote-hostname>"
+        "database":   "<database-name>"
+        "table":      "<specific-table-name>"
+        "privileges":
+          - "SELECT"
+          - "INSERT"
 
 Additional configuration options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
