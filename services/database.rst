@@ -70,6 +70,13 @@ Grants
         "user":     "<username-for-specific-table>@<remote-hostname>"
         "database": "<database-name>"
         "table":    "<specific-table-name>"
+      "<username-for-specific-table-with-privileges>@<remote-hostname>":
+        "user":       "<username-for-specific-table>@<remote-hostname>"
+        "database":   "<database-name>"
+        "table":      "<specific-table-name>"
+        "privileges":
+          - "SELECT"
+          - "INSERT"
 
 Additional configuration options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
