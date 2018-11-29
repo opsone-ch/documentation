@@ -53,7 +53,7 @@ You have to define one of the following types for each website.
 typo3cmsv8
 ^^^^^^^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and TYPO3 7.x compatible
+-  nginx 1.6 with naxsi WAF, core rule set and TYPO3 8.x compatible
    white/blacklists
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
