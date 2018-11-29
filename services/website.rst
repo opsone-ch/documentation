@@ -648,6 +648,19 @@ are evaluated before the default redirect vHost, for example by adding a
         "env": "PROD"
         "ssl_key": "multi domain certificate for www.example.com and www.example.net here"
 
+HTTP redirect
+^^^^^^^^^^^^^
+
+By default, all HTTP requests within a given vHost are redirected to HTTPS keeping the hostname supplied by the client. If you want to change this behaviour somehow, for example by always redirect to the first hostname of the vhost, you can set ``http_redirect_dest`` to another value like ``https://$server_name$request_uri``.
+
+Furthermore, its possible to set the redirect destination globally through ``website::http_redirect_dest`` which will be used on all HTTP redirects without a explicitly set ``http_redirect_dest``.
+
+
+~/cnf/nginx-redirect.conf
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Included within the server block of each HTTP to HTTPS redirect. You can use this file to configure specific redirect rules and settings.
+
 
 Cipher Suite
 ^^^^^^^^^^^^
