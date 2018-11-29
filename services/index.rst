@@ -20,7 +20,6 @@ but others wont due to different requirements.
   networking
   firewall
   tomcat
-  rabbitmq
   javascript
   globalrepo
   solr
