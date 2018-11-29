@@ -57,7 +57,7 @@ typo3cmsv8
    white/blacklists
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
--  latest TYPO3 CMS 7.x cloned into /var/lib/typo3/TYPO3\_7/
+-  latest TYPO3 CMS 8 LTS cloned into /opt/typo3/TYPO3\_8/
 -  Default webroot is ~/web
 -  PHP-Settings adjusted to 7.x-requirements
 -  TYPO3 ApplicationContext can be set
