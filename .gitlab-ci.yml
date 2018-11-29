@@ -46,6 +46,6 @@ deploy PROD:
   - pip install sphinx_rtd_theme
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
-  - sphinx-versioning build . $OUTPUTDIR --root-ref 6-0-stable
+  - sphinx-versioning build . $OUTPUTDIR --whitelist-branches "^([0-9]+-[0-9]+-stable|saas|legal)$" --root-ref 6-0-stable
   - rsync -avz --delete $OUTPUTDIR $PROD_USERNAME@$PROD_SERVERNAME:~/www/
 
