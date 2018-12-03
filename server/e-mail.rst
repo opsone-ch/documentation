@@ -36,6 +36,13 @@ relayhost
 * see the `Postfix documentation <http://www.postfix.org/postconf.5.html#relayhost>`__ for details
 * default: empty
 
+envelope_from
+~~~~~~~~~~~~~
+
+* rewrite envelope from of each sent mail to the address specified
+* useful to catch any return errors at a particular mailbox without configuring all applications independently
+* default: empty (internally defaults to <username>@server-domain>)
+
 smtp_fallback_relay
 ~~~~~~~~~~~~~~~~~~~
 
