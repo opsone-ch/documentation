@@ -33,12 +33,13 @@ Website Service
 - added php71 type
 - added php72 type
 - added typo3cmsv9 type
+- typo3cmsv7 and typo3cmsv8 types will use PHP 7.2
 - added ``nvm`` parameter to each website to enable node on any website type
 - removed different PHP configuration settings and added central ``~/cnf/php.ini`` configuration file instead
 - renamed typo3neos website type to neos
 - removed javascript service, install a up-to-date nodejs version trough the nodejs website service instead
 - removed HHVM website type which was not used anymore
-- removed typo3cms & typo3cmsv7 website types which are EOL
+- removed typo3cms website type which is EOL
 - removed magento (v1) type which is EOL
 - removed php type which is EOL
 - removed php70 type which is EOL

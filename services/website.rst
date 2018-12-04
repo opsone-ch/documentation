@@ -50,28 +50,29 @@ You have to define one of the following types for each website.
 
 .. note:: If you need a type not mentioned here yet, do not hesitate to contact us
 
+typo3cmsv7
+^^^^^^^^^^
+
+-  nginx with  WAF, core rule set and TYPO3 7.x compatible white/blacklists
+-  PHP 7.2
+-  MariaDB 10.x with database, user, and grants
+-  latest TYPO3 CMS 7 LTS cloned into /opt/typo3/TYPO3\_7/
+-  Default webroot is ~/web
+-  PHP-Settings adjusted to 7.x-requirements
+-  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
+-  TYPO3 Scheduler executed every 5 minutes
+
 typo3cmsv8
 ^^^^^^^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and TYPO3 8.x compatible
-   white/blacklists
--  PHP-FPM 5.6
+-  nginx with  WAF, core rule set and TYPO3 8.x compatible white/blacklists
+-  PHP 7.2
 -  MariaDB 10.x with database, user, and grants
 -  latest TYPO3 CMS 8 LTS cloned into /opt/typo3/TYPO3\_8/
 -  Default webroot is ~/web
--  PHP-Settings adjusted to 7.x-requirements
--  TYPO3 ApplicationContext can be set
+-  PHP-Settings adjusted to 8.x-requirements
+-  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
 -  TYPO3 Scheduler executed every 5 minutes
-
-::
-
-    website::sites: 
-      "examplenet":
-        "password":           "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name":        "typo3.example.net www.typo3.example.net"
-        "env":                "PROD"
-        "type":               "typo3cmsv8"
-        "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
 
 typo3cmsv9
 ^^^^^^^^^^
@@ -82,18 +83,8 @@ typo3cmsv9
 -  latest TYPO3 CMS 9 LTS cloned into /opt/typo3/TYPO3\_9/
 -  Default webroot is ~/web
 -  PHP-Settings adjusted to 9.x-requirements
--  TYPO3 ApplicationContext can be set
+-  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
 -  TYPO3 Scheduler executed every 5 minutes
-
-::
-
-    website::sites: 
-      "examplenet":
-        "password":           "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name":        "typo3.example.net www.typo3.example.net"
-        "env":                "PROD"
-        "type":               "typo3cmsv9"
-        "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
 
 neos
 ^^^^
@@ -105,7 +96,7 @@ neos
 
 ::
 
-    website::sites: 
+    website::sites:
       "neosexample":
         "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
         "server_name": "neos.example.net www.neos.example.net"
