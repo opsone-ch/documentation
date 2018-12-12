@@ -1067,7 +1067,7 @@ This file also contains the following security headers:
 * ``add_header X-XSS-Protection "1; mode=block always";``
 * ``add_header Referrer-Policy "strict-origin-when-cross-origin" always;``
 
-You can disable this include by setting ``security_conf`` to ``false`` within the custom JSON configuration. Please be aware of any ramifications, and do not disable this
+You can disable this include by setting ``security_conf`` to ``false`` within the custom JSON configuration. If you disable this, we recommend to copy the content into your own nginx.conf and adjust it to your own needs (you can view the content with the devop user). Please be aware of any ramifications, and do not disable this
 settings unless you absolutely know what you're doing.
 
 .. warning:: make sure to deny access to private files and directories manually, or include our global security locations from ``/etc/nginx/custom/security.conf`` within your own configuration.
