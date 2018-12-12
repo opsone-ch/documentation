@@ -10,7 +10,7 @@ If you have any questions, feel free to get in touch by
 Business hours
 --------------
 
-Monday - Friday 08:30 - 11:30 13:30 - 17:30
+Monday - Friday 09:00 - 18:00
 
 Hotline
 -------
