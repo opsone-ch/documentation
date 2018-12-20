@@ -53,7 +53,7 @@ You have to define one of the following types for each website.
 typo3cmsv7
 ^^^^^^^^^^
 
--  nginx with  WAF, core rule set and TYPO3 7.x compatible white/blacklists
+-  nginx with ModSecurity WAF, core rule set and TYPO3 7.x compatible white/blacklists
 -  PHP 7.2
 -  MariaDB 10.x with database, user, and grants
 -  latest TYPO3 CMS 7 LTS cloned into /opt/typo3/TYPO3\_7/
@@ -65,7 +65,7 @@ typo3cmsv7
 typo3cmsv8
 ^^^^^^^^^^
 
--  nginx with  WAF, core rule set and TYPO3 8.x compatible white/blacklists
+-  nginx with ModSecurity WAF, core rule set and TYPO3 8.x compatible white/blacklists
 -  PHP 7.2
 -  MariaDB 10.x with database, user, and grants
 -  latest TYPO3 CMS 8 LTS cloned into /opt/typo3/TYPO3\_8/
@@ -78,7 +78,7 @@ typo3cmsv8
 typo3cmsv9
 ^^^^^^^^^^
 
--  nginx with  WAF, core rule set and TYPO3 9.x compatible white/blacklists
+-  nginx with ModSecurity WAF, core rule set and TYPO3 9.x compatible white/blacklists
 -  PHP 7.2
 -  MariaDB 10.x with database, user, and grants
 -  latest TYPO3 CMS 9 LTS cloned into /opt/typo3/TYPO3\_9/
@@ -90,7 +90,7 @@ typo3cmsv9
 neos
 ^^^^
 
--  nginx with  WAF, core rule set and Neos compatible white/blacklists
+-  nginx with ModSecurity WAF, core rule set and Neos compatible white/blacklists
 -  PHP 7.2
 -  MariaDB 10.x with database, user, and grants
 -  Default webroot is ~/Web
@@ -101,7 +101,7 @@ neos
 magento2
 ^^^^^^^^
 
--  nginx with  WAF, core rule set and Neos compatible white/blacklists
+-  nginx with ModSecurity WAF, core rule set and Neos compatible white/blacklists
 -  PHP 7.1
 -  MariaDB 10.x with database, user, and grants
 -  Default webroot is ~/pub
@@ -111,59 +111,39 @@ magento2
 wordpress
 ^^^^^^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and WordPress
-   white/blacklists
--  PHP-FPM 5.6
+-  nginx with ModSecurity WAF, core rule set and Wordpress compatible white/blacklists
+-  PHP 7.2
 -  MariaDB 10.x with database, user, and grants
--  WP-CLI
+-  PHP and nginx settings adjusted to Wordpress requirements
+-  WP-CLI installed and available by using the ``wp`` command
 
-::
+php71
+^^^^^
 
-    website::sites: 
-      "wordpressexample":
-        "server_name": "wordpress.example.net"
-        "env":         "PROD"
-        "type":        "wordpress"
-        "password":    "Aiw7vaakos04h7e"
+-  nginx with ModSecurity WAF and core rule set
+-  PHP 7.1
+-  MariaDB 10.x with database, user, and grants (use ``"dbtype": "mysql"``,
+   otherwise without database)
 
 php72
 ^^^^^
 
--  nginx 1.6 with naxsi WAF and core rule set
--  PHP-FPM 5.6
--  MariaDB 10.x with database, user, and grants (use "dbtype": "mysql",
+-  nginx with ModSecurity WAF and core rule set
+-  PHP 7.2
+-  MariaDB 10.x with database, user, and grants (use ``"dbtype": "mysql"``,
    otherwise without database)
-
-::
-
-    website::sites: 
-      "phpexamplenet":
-        "server_name": "php.example.net"
-        "env":         "PROD"
-        "type":        "php"
-    # uncomment the following lines if you need an automatically created database
-    #    "dbtype":      "mysql"
-    #    "password":    "Aiw7vaakos04h7e"
 
 html
 ^^^^
 
--  nginx 1.6 with naxsi and core rule set
+-  nginx with ModSecurity WAF and core rule set
 -  for static content only (this documentation is served trough the html
    type)
-
-::
-
-    website::sites: 
-      "htmlexamplenet":
-        "server_name": "html.example.net"
-        "env":         "PROD"
-        "type":        "html"
 
 uwsgi
 ^^^^^
 
--  nginx 1.6 with naxsi WAF and core rule set
+-  nginx with ModSecurity WAF and core rule set
 -  uwsgi Daemon (Symlink your appropriate wsgi configuration to
    ~/wsgi.py)
 -  Python virtualenv ``venv-<sitename>`` configured within uwsgi and the
@@ -255,7 +235,7 @@ nodejs
 ruby
 ^^^^
 
--  nginx 1.6 with naxsi WAF and core rule set
+-  nginx with ModSecurity WAF and core rule set
 -  Python virtualenv ``venv-<sitename>`` configured within the
    user login shell
 -  ruby rbenv configured within foreman and the

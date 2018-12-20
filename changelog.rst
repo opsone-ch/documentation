@@ -29,6 +29,7 @@ Website Service
 - nodejs type: select desired node version trough nvm. By default, the latest lts version is installed
 - redirect type: added ``target_code`` parameter
 - neos type: will use PHP 7.2
+- wordpress type: will use PHP 7.2
 - added local, environment dependent nginx configuration files ``nginx-prod.conf``, ``nginx-stage.conf``, ``nginx-dev.conf``
 - added ``~/cnf/nginx-redirect.conf`` include to each http to http redirect vhost to influence its behaviour
 - added php71 type
