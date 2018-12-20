@@ -58,7 +58,7 @@ typo3cmsv7
 -  MariaDB 10.x with database, user, and grants
 -  latest TYPO3 CMS 7 LTS cloned into /opt/typo3/TYPO3\_7/
 -  Default webroot is ~/web
--  PHP-Settings adjusted to 7.x-requirements
+-  PHP and nginx settings adjusted to TYPO3 7 requirements
 -  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
 -  TYPO3 Scheduler executed every 5 minutes
 
@@ -71,6 +71,7 @@ typo3cmsv8
 -  latest TYPO3 CMS 8 LTS cloned into /opt/typo3/TYPO3\_8/
 -  Default webroot is ~/web
 -  PHP-Settings adjusted to 8.x-requirements
+-  PHP and nginx settings adjusted to TYPO3 8 requirements
 -  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
 -  TYPO3 Scheduler executed every 5 minutes
 
@@ -82,26 +83,20 @@ typo3cmsv9
 -  MariaDB 10.x with database, user, and grants
 -  latest TYPO3 CMS 9 LTS cloned into /opt/typo3/TYPO3\_9/
 -  Default webroot is ~/web
--  PHP-Settings adjusted to 9.x-requirements
+-  PHP and nginx settings adjusted to TYPO3 9 requirements
 -  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
 -  TYPO3 Scheduler executed every 5 minutes
 
 neos
 ^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and TYPO3 Neos
-   white/blacklists
--  PHP-FPM 5.6
+-  nginx with  WAF, core rule set and Neos compatible white/blacklists
+-  PHP 7.2
 -  MariaDB 10.x with database, user, and grants
-
-::
-
-    website::sites:
-      "neosexample":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "neos.example.net www.neos.example.net"
-        "env":         "PROD"
-        "type":        "neos"
+-  Default webroot is ~/Web
+-  PHP and nginx settings adjusted to Neos requirements
+-  ``FLOW_CONTEXT`` set according the selected environment (see `Environments`_)
+-  ``FLOW_REWRITEURLS`` enabled
 
 magento2
 ^^^^^^^^
@@ -1177,8 +1172,8 @@ Command used on all other environments:
 
 .. hint:: Composer runs only after changes within the global TYPO3 core in ``/var/lib/typo3``. During deployments, you still have to run composer manually
 
-TYPO3 CMS with Composer
-^^^^^^^^^^^^^^^^^^^^^^^
+Instakk TYPO3 CMS with Composer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
 
@@ -1196,18 +1191,18 @@ To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
     # Download the Base Distribution, the "dev" 6.2 branch
     composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.x-dev
 
-TYPO3 Neos with Composer
-^^^^^^^^^^^^^^^^^^^^^^^^
+Install Neos with Composer
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use TYPO3 Neos 1.2 with composer, use the following command:
+To install Neos with composer, use the following command:
 
 ::
 
-    # Create Web/tmp directory, install Neos 1.2 with composer, move to users home directory and cleanup
-    mkdir ~/Web/tmp/ && cd ~/Web/tmp/ && composer create-project --no-dev typo3/neos-base-distribution TYPO3-Neos-1.2 && rsync -a --delete-after ~/Web/tmp/TYPO3-Neos-1.2/ ~/
+    # Create Web/tmp directory, install Neos, move to users home directory and cleanup
+    composer create-project --no-dev neos/neos-base-distribution neos && rsync -a --delete-after ~/neos/ ~/
 
-Symfony with Composer
-^^^^^^^^^^^^^^^^^^^^^
+Install Symfony with Composer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use Symfony 2 with composer, use the following command:
 
