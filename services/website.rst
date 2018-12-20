@@ -101,7 +101,12 @@ neos
 magento2
 ^^^^^^^^
 
-The `magento2` type is not yet ready on version 6. Please use a server of version 5 to host Magento 2 sites by now.
+-  nginx with  WAF, core rule set and Neos compatible white/blacklists
+-  PHP 7.1
+-  MariaDB 10.x with database, user, and grants
+-  Default webroot is ~/pub
+-  PHP and nginx settings adjusted to Magento 2 requirements
+-  Magento 2 cronjobs running every minute
 
 wordpress
 ^^^^^^^^^

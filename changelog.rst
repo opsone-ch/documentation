@@ -34,6 +34,7 @@ Website Service
 - added php71 type
 - added php72 type
 - added typo3cmsv9 type
+- added magento2 type
 - typo3cmsv7 and typo3cmsv8 types will use PHP 7.2
 - added ``nvm`` parameter to each website to enable node on any website type
 - removed different PHP configuration settings and added central ``~/cnf/php.ini`` configuration file instead
