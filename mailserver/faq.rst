@@ -45,4 +45,4 @@ Create a filter in SOGo with the following options.
     Perform these actions:
     Flag the message with Junk
     File the message in INBOX
-    Stop pricessing filter rules
+    Stop processing filter rules
