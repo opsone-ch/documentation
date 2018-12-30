@@ -85,9 +85,9 @@ Server sizing
 Scale
 ^^^^^
 
-Every new server comes with 1GB RAM, 1CPU Core and 20GB Space (regarding
+Every new server comes with 1CPU Core, 2GB RAM and 50GB Space (regarding
 to `our
-offers <https://www.snowflake.ch/hosting-betrieb/managed-server/>`__ )
+offers <https://opsone.ch/hosting/managed-server/>`__ )
 This is a very basic setup and it's recommended to plan and check the
 sizing of your server carefully before going live. You can simply scale
 every option of your server - regarding to your actual needs (without
