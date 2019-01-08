@@ -41,7 +41,7 @@ Bankverbindung
 Open source
 -----------
 
-Wir verwenden und lieben Open Source Software und stellen die meisten unserer Arbeiten ebenfalls als Open Source zur Verfügung. Diese Dokumente sind Bestandteil unserer Dokumentation und unter der `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_ auf `GitHub <https://github.com/snowflakeOps/docs>`_ verfügbar. Dort lassen sich auch sämtliche `Änderungen <https://github.com/snowflakeOps/documentation/commits/legal>`_ schnell und einfach nachvollziehen.
+Wir verwenden und lieben Open Source Software und stellen die meisten unserer Arbeiten ebenfalls als Open Source zur Verfügung. Diese Dokumente sind Bestandteil unserer Dokumentation und unter der `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_ auf `GitHub <https://github.com/opsone-ch/documentation>`_ verfügbar. Dort lassen sich auch sämtliche `Änderungen <https://github.com/opsone-ch/documentation/commits/legal>`_ schnell und einfach nachvollziehen.
 
 .. toctree::
   :hidden:
