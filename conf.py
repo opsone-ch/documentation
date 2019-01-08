@@ -114,7 +114,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_context = {
     "display_github": True,
     "github_host": "github.com",
-    "github_user": "snowflakeOps",
+    "github_user": "opsone-ch",
     "github_repo": 'documentation',
     "github_version": "5-0-stable",
     "conf_py_path": "/",
