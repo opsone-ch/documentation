@@ -44,7 +44,7 @@ We're here and happy to help.
 If you have any questions, don't hesitate to contact us:
 
 * Livechat (see below)
-* `Slack <https://snowflakeops.slack.com>`_ (`Registration <https://slack.opsone.ch>`_)
+* `Slack <https://opsone-ch.slack.com>`_
 * E-Mail: `team@opsone.ch <mailto:team@opsone.ch>`_
 * Phone: `058 255 00 22 <tel:+41582550022>`_
 
@@ -52,9 +52,9 @@ Open source
 -------------------------------------------
 
 We strongly believe in open source software.
-While this documentation is released as open soure already (`GitHub Project <https://github.com/snowflakeOps/docs>`_),
+While this documentation is released as open soure already (`GitHub Project <https://github.com/opsone-ch/documentation>`_),
 we are working hard to publish our Puppet wrapper modules as well.
-Checkout our `GitHub Organisation <https://github.com/snowflakeOps>`_ or `Twitter <https://twitter.com/snowflakeOps>`_ for updates.
+Checkout our `GitHub Organisation <https://github.com/opsone-ch>`_ or `Twitter <https://twitter.com/opsone_ch>`_ for updates.
 
 This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_.
 
