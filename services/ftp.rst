@@ -89,8 +89,8 @@ Another option is to use existing certificates already in place on this server, 
 
 ::
 
-    ftp::wrapper::proftpd::tls_crt_file: "/etc/nginx/tls/<websitename>.crt"
-    ftp::wrapper::proftpd::tls_key_file: "/etc/nginx/tls/<websitename>.key"
+    ftp::wrapper::proftpd::tls_crt_file: "/etc/nginx/ssl/<websitename>.crt"
+    ftp::wrapper::proftpd::tls_key_file: "/etc/nginx/ssl/<websitename>.key"
 
 .. hint:: With this option, you can also use certificates issued through nginx by Let's Encrypt
 
