@@ -60,7 +60,7 @@ monitoring
 Full example
 """"""""""""
 
-::
+.. code-block:: json
 
     {
       "solr::webappv6": {
@@ -148,7 +148,8 @@ monitoring
 Full example
 """"""""""""
 
-::
+.. code-block:: json
+
     {
       "solr::webappv7": {
         "<name>": {
