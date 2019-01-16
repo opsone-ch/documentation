@@ -3,8 +3,6 @@ Solr
 
 Install and manage Apache Solr instances for different use cases.
 
-.. warning:: Due to dependencies to different Java versions, running Solr version 6 with other, older instances is not supported
-
 Solr 6 for TYPO3
 ----------------
 
