@@ -9,7 +9,7 @@ the following docs.
 Deploy to your server
 ---------------------
 
-First of all, make sure that you've configured and installed all desired :doc:`../services/index` (e.g. website, tomcat, caching etc).
+First of all, make sure that you've configured and installed all desired :doc:`../services/index` (e.g. website, caching etc).
 In the following documentation we're talking about website deployments.
 
 .. warning:: please make sure, that you're using appropriate usernames.  Don't use confusing names like "examplestage" for PROD envs etc

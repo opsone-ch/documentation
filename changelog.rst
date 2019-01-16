@@ -55,3 +55,9 @@ Database Service
 
 - removed ``mysql::server::root_password`` altogether. We're using the unix_socket plugin to login as root now.
 
+Tomcat Service
+^^^^^^^^^^^^^^^
+
+- removed service altogether as it was used for Solr only which runs standalone in recent versions
+- please contact us if you plan to use Tomcat for a new project
+
