@@ -55,6 +55,13 @@ Database Service
 
 - removed ``mysql::server::root_password`` altogether. We're using the unix_socket plugin to login as root now.
 
+Solr Service
+^^^^^^^^^^^^^^^
+
+- added Solr 7
+- removed Solr 5 which is EOL
+- removed Solr 4 which is EOL
+
 Tomcat Service
 ^^^^^^^^^^^^^^^
 
