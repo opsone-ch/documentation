@@ -78,7 +78,7 @@ Solr Admin
 
 The Solr admin interface is reachable on `http://localhost:port`. To access Solr externally, please use a website service (proxy type), and make sure access is allowed only by basic or ip address auth. If the webapplication using Solr is installed on the same server, best practice is to let Solr run on localhost only and access Solr admin for management purposes by forwarding the corresponding port through SSH.
 
-
+.. hint:: Example ssh command for port forwarding: ``ssh -N -L 8983:localhost:8983 user@server``. The command assumes that solr runs its web interface on port 8983 (as it is shown in the configuration example above). ``user`` is an existing ssh user on the ``server`` where the solr instance is installed. After running the command in terminal, point your browser to ``http://localhost:8983/solr/`` to access the solr web interface.
 
 Add core
 """"""""
@@ -166,11 +166,9 @@ Full example
 Solr Admin
 ^^^^^^^^^^
 
-The Solr admin interface is reachable on `http://localhost:port`. To access Solr externally, please use a website service (proxy type), and make sure access is allowed only by basic or ip address auth. If the webapplication using Solr is installed on the same server, best practice is to let Solr run on localhost only and access Solr admin for management purposes by forwarding the corresponding port through SSH. Example ssh command for port forwarding is:
+The Solr admin interface is reachable on `http://localhost:port`. To access Solr externally, please use a website service (proxy type), and make sure access is allowed only by basic or ip address auth. If the webapplication using Solr is installed on the same server, best practice is to let Solr run on localhost only and access Solr admin for management purposes by forwarding the corresponding port throgh SSH.
 
-`ssh -N -L 8983:localhost:8983 user@server`
-
-The command above assumes that solr runs its web interface on port `8983` (as it is shown in the configuration example above). `user` is an existing ssh user on the `server` where the solr instance is installed. After running the command in terminal, point your browser to `http://localhost:8983/solr/` to see the solr web interface.
+.. hint:: Example ssh command for port forwarding: ``ssh -N -L 8983:localhost:8983 user@server``. The command assumes that solr runs its web interface on port 8983 (as it is shown in the configuration example above). ``user`` is an existing ssh user on the ``server`` where the solr instance is installed. After running the command in terminal, point your browser to ``http://localhost:8983/solr/`` to access the solr web interface.
 
 Add core
 """"""""
