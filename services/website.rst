@@ -1157,7 +1157,7 @@ Command used on all other environments:
 
 .. hint:: Composer runs only after changes within the global TYPO3 core in ``/var/lib/typo3``. During deployments, you still have to run composer manually
 
-Instakk TYPO3 CMS with Composer
+Install TYPO3 CMS with Composer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
