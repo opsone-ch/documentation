@@ -59,7 +59,8 @@ typo3cmsv7
 -  latest TYPO3 CMS 7 LTS cloned into /opt/typo3/TYPO3\_7/
 -  Default webroot is ~/web
 -  PHP and nginx settings adjusted to TYPO3 7 requirements
--  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
+-  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
+   see `Environment Variables`_ for details.
 -  TYPO3 Scheduler executed every 5 minutes
 
 typo3cmsv8
@@ -72,7 +73,8 @@ typo3cmsv8
 -  Default webroot is ~/web
 -  PHP-Settings adjusted to 8.x-requirements
 -  PHP and nginx settings adjusted to TYPO3 8 requirements
--  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
+-  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
+   see `Environment Variables`_ for details.
 -  TYPO3 Scheduler executed every 5 minutes
 
 typo3cmsv9
@@ -84,7 +86,8 @@ typo3cmsv9
 -  latest TYPO3 CMS 9 LTS cloned into /opt/typo3/TYPO3\_9/
 -  Default webroot is ~/web
 -  PHP and nginx settings adjusted to TYPO3 9 requirements
--  TYPO3 ApplicationContext can be set by setting ``applicationContext`` in custom JSON
+-  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
+   see `Environment Variables`_ for details.
 -  TYPO3 Scheduler executed every 5 minutes
 
 neos
