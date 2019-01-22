@@ -1206,30 +1206,13 @@ All sites with ``"env": "PROD"`` are monitored 24/7 by default. If you
 have some sites with frequent outages (e.g. for development purposes),
 which have to have ``"env": "PROD"`` for other reasons, or sites which
 are not reachable from everywhere due to security reasons, please
-deactivate monitoring by setting ``"monitoring": "false"``.
+deactivate monitoring by setting ``"monitoring": "false"`` in custom JSON:
 
 ::
 
-    website::sites: 
-      "examplenet":
-        "type":       "html"
-        "env":        "PROD"
-        "monitoring": "false"
-
-SSH Access Keys
----------------
-
-.. hint:: To add a SSH key globally for all users, see :ref:`ssh-key-handling`
-
-::
-
-    website::sites:
-      "examplenet":
-        "ssh_key":
-          "contact@example.net":
-            "key": "ssh-rsa AAAAB....."
-
-.. hint:: You can also add more, custom configuration options, see :ref:`ssh-key-handling` for details
+    {
+      "monitoring": false
+    }
 
 Environment Variables
 ---------------------
@@ -1238,7 +1221,6 @@ To set or override environment variables per website, use the ``envvar`` option 
 
 ::
 
-    website::sites:
     {
       "envvar": {
         "MYENVVAR": "this is the value",
