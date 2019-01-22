@@ -425,8 +425,8 @@ If you configure your application like this, you can copy all data
 between different servers or vhosts (DEV/STAGE/PROD) and all settings
 are applied as desired.
 
-Example usage within typoscript
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Example usage in typoscript
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -1234,14 +1234,16 @@ SSH Access Keys
 Environment Variables
 ---------------------
 
-You can set or override environment variables per website by setting the ``envvar`` option:
+To set or override environment variables per website, use the ``envvar`` option in custom JSON:
 
 ::
 
     website::sites:
-      "examplenet":
-        "envvar":
-          "MYENVVAR":   "this is the value"
-          "DB_HOST":    "override global DB_HOST variable here"
-          "http_proxy": "override global http_proxy variable here"
+    {
+      "envvar": {
+        "MYENVVAR": "this is the value",
+        "DB_HOST": "override global DB_HOST variable here",
+        "http_proxy": "override global http_proxy variable here"
+      }
+    }
 
