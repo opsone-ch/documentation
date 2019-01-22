@@ -364,8 +364,8 @@ Furthermore, its possible to set the preview username globally through ``website
 
 .. note:: Please keep in mind that this password gets often transfered over unencrypted connections. As always, we recommend to use a particular password for only this purpose
 
-Disable exeptions
-^^^^^^^^^^^^^^^^^
+Disable exceptions
+^^^^^^^^^^^^^^^^^^
 
 Never show detailed application based exeptions on PROD, to avoid
 `information
@@ -376,8 +376,8 @@ Disable the output directly in your application. For example in TYPO3:
 
     $TYPO3_CONF_VARS['SYS']['displayErrors'] = '0'; 
 
-Environment Variables
-~~~~~~~~~~~~~~~~~~~~~
+Default Environment Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For each website, the following environment variables are created by
 default, and are available within the shell and also the webserver.
@@ -390,8 +390,8 @@ default, and are available within the shell and also the webserver.
 
 .. hint:: to use the .profile environmet within a cronjob, prepend the following code to your command: ``/bin/bash -c 'source $HOME/.profile; ~/original/command'``
 
-Example usage within PHP
-^^^^^^^^^^^^^^^^^^^^^^^^
+Example usage in PHP
+~~~~~~~~~~~~~~~~~~~~
 
 As soon there is a database installed, the following variables are added
 to the environment and can be used from within your application. TYPO3
