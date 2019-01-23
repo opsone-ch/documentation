@@ -180,15 +180,18 @@ magento2
 wordpress
 ^^^^^^^^^
 
--  nginx 1.6 with naxsi WAF, core rule set and WordPress
-   white/blacklists
--  PHP-FPM 5.6
--  MariaDB 10.x with database, user, and grants
--  WP-CLI
+- nginx 1.6 with naxsi WAF, core rule set and WordPress
+  white/blacklists
+- PHP-FPM 5.6
+- MariaDB 10.x with database, user, and grants
+- WP-CLI
+- wp-cron.php is called every 5 minutes over CLI
+
+.. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and will lower the load of your system.
 
 ::
 
-    website::sites: 
+    website::sites:
       "wordpressexample":
         "server_name": "wordpress.example.net"
         "env":         "PROD"
