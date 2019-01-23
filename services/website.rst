@@ -187,7 +187,7 @@ wordpress
 - WP-CLI
 - wp-cron.php is called every 5 minutes over CLI
 
-.. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and will lower the load of your system.
+.. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 
 ::
 
