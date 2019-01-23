@@ -104,7 +104,7 @@ neos
 magento2
 ^^^^^^^^
 
--  nginx with ModSecurity WAF, core rule set and Neos compatible white/blacklists
+-  nginx with ModSecurity WAF, core rule set and Magento 2 compatible white/blacklists
 -  PHP 7.1
 -  MariaDB 10.x with database, user, and grants
 -  Default webroot is ~/pub
@@ -114,11 +114,14 @@ magento2
 wordpress
 ^^^^^^^^^
 
--  nginx with ModSecurity WAF, core rule set and Wordpress compatible white/blacklists
--  PHP 7.2
--  MariaDB 10.x with database, user, and grants
--  PHP and nginx settings adjusted to Wordpress requirements
--  WP-CLI installed and available by using the ``wp`` command
+- nginx with ModSecurity WAF, core rule set and Wordpress compatible white/blacklists
+- PHP 7.2
+- MariaDB 10.x with database, user, and grants
+- PHP and nginx settings adjusted to Wordpress requirements
+- WP-CLI installed and available by using the ``wp`` command
+- wp-cron.php is called every 5 minutes over CLI
+
+.. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and will lower the load of your system.
 
 php71
 ^^^^^
