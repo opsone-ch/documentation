@@ -704,9 +704,9 @@ Web Application Firewall
 We use `ModSecurity <https://modsecurity.org>`__ as additional protection against application level attacks such as cross site-scripting or SQL injections.
 By default, the core rules set will be loaded, and we block common vulnerabilities and zero day attacks by adding some more global rules
 
-.. hint:: Keep up to date with changes by subscribing to our status uppdates at `opsstatus.ch <http://opsstatus.ch/>`__
-
 .. warning:: this is just a additional security measure. Regardless its existence, remember to keep your application, extensions and libraries secure and up to date
+
+.. hint:: keep up to date with changes by subscribing to our status uppdates at `opsstatus.ch <http://opsstatus.ch/>`__
 
 Identify blocks
 ^^^^^^^^^^^^^^^
@@ -717,17 +717,18 @@ nginx error log
 If a request is blocked, the server will issue a `403 forbidden` error. There are detailed informations available in the error log file:
 
 ::
+
     YYYY/MM/DD HH:MM:SS [error] 171896#0: *29428 [client 2a04:500::1] ModSecurity: Access denied with code 403 (phase 2). Matched "Operator `Ge' with parameter `5' against variable `TX:ANOMALY_SCORE' (Value: `5' ) [file "/etc/nginx/modsecurity/crs/rules/REQUEST-949-BLOCKING-EVALUATION.conf"] [line "80"] [id "949110"] [rev ""] [msg "Inbound Anomaly Score Exceeded (Total Score: 5)"] [data ""] [severity "2"] [ver ""] [maturity "0"] [accuracy "0"] [tag "application-multi"] [tag "language-multi"] [tag "platform-multi"] [tag "attack-generic"] [hostname "2a04:500::1"] [uri "/"] [unique_id "154850909196.529239"] [ref ""], client: 2a04:500::1, server: example.net, request: "GET /?union%20select=%22waf%20demo HTTP/2.0", host: "example.net"
 
-.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__.
+.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__
 
 modsecurity audit log
 ~~~~~~~~~~~~~~~~~~~~~
 
 More detailed informations including a full dump of the request and response can be obtained from the audit log file.
-You'll find this at ``/var/log/nginx/modsecurity.log``
+You'll find this at ``/var/log/nginx/modsecurity.log``.
 
-.. hint:: you cannot read ``/var/log`` from within the web applications context for security reasons. Connect to the server by using the generic ``devop`` account to take a look at those logs
+.. hint:: you cannot read ``/var/log/`` from within the web applications context for security reasons, please use the generic ``devop`` account to take a look at them
 
 custom WAF configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -753,7 +754,7 @@ through the local nginx configuration located in ``~/cnf/nginx.conf``:
 
 .. hint:: to apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut
 
-.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__.
+.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__
 
 Request limits
 --------------
