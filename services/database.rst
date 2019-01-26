@@ -224,35 +224,6 @@ setup a Proxy as follows:
         "members":
           - localhost:9200
 
-Protection
-~~~~~~~~~~
-
-If you want to protect your instance, you can do so on the proxy set
-above. If you put following example in your ``~cnf/nginx.conf``, you can
-only write to elasticsearch from the ip/netmask set and will have naxsi
-activated for all requests.
-
-::
-
-    location ~ /.* {
-        limit_except GET {
-            allow 154.132.02.15;
-            deny all;
-        }
-
-        include /etc/nginx/naxsi/naxsi.rules;
-        include /home/elastic/cnf/nginx_waf.conf;
-
-        proxy_pass          http://elasticproxy;
-        proxy_read_timeout  90;
-        proxy_connect_timeout  90;
-        proxy_redirect  default;
-        proxy_set_header        Host $host;
-        proxy_set_header        X-Real-IP $remote_addr;
-        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-
-    }
-
 Example
 ~~~~~~~
 

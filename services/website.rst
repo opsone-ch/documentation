@@ -701,125 +701,59 @@ We recommend the following online services for testing:
 Web Application Firewall
 ------------------------
 
-We use `Naxsi <https://github.com/nbs-system/naxsi>`__ as additional
-protection against application level attacks such as cross
-site-scripting or SQL injections. We also block common vulnerabilities
-and zero day attacks, see our `status site <http://opsstatus.ch/>`__ for updates.
+We use `ModSecurity <https://modsecurity.org>`__ as additional protection against application level attacks such as cross site-scripting or SQL injections.
+By default, the core rules set will be loaded, and we block common vulnerabilities and zero day attacks by adding some more global rules
 
-Warning: this is just a additional security measure. Regardless its
-existence, remember to keep your application, extensions and libraries
-secure and up to date
+.. hint:: Keep up to date with changes by subscribing to our status uppdates at `opsstatus.ch <http://opsstatus.ch/>`__
+
+.. warning:: this is just a additional security measure. Regardless its existence, remember to keep your application, extensions and libraries secure and up to date
 
 Identify blocks
 ^^^^^^^^^^^^^^^
 
-If a request is blocked, the server will issue a "403 forbidden" error.
-There are detailed informations available in the error log file:
+nginx error log
+~~~~~~~~~~~~~~~
+
+If a request is blocked, the server will issue a `403 forbidden` error. There are detailed informations available in the error log file:
+
+::
+    YYYY/MM/DD HH:MM:SS [error] 171896#0: *29428 [client 2a04:500::1] ModSecurity: Access denied with code 403 (phase 2). Matched "Operator `Ge' with parameter `5' against variable `TX:ANOMALY_SCORE' (Value: `5' ) [file "/etc/nginx/modsecurity/crs/rules/REQUEST-949-BLOCKING-EVALUATION.conf"] [line "80"] [id "949110"] [rev ""] [msg "Inbound Anomaly Score Exceeded (Total Score: 5)"] [data ""] [severity "2"] [ver ""] [maturity "0"] [accuracy "0"] [tag "application-multi"] [tag "language-multi"] [tag "platform-multi"] [tag "attack-generic"] [hostname "2a04:500::1"] [uri "/"] [unique_id "154850909196.529239"] [ref ""], client: 2a04:500::1, server: example.net, request: "GET /?union%20select=%22waf%20demo HTTP/2.0", host: "example.net"
+
+.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__.
+
+modsecurity audit log
+~~~~~~~~~~~~~~~~~~~~~
+
+More detailed informations including a full dump of the request and response can be obtained from the audit log file.
+You'll find this at ``/var/log/nginx/modsecurity.log``
+
+.. hint:: you cannot read ``/var/log`` from within the web applications context for security reasons. Connect to the server by using the generic ``devop`` account to take a look at those logs
+
+custom WAF configuration
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The rules added from the core rules set and the custom rules added by us are there for a reason.
+If you trigger a false positive, you should think about changing your application first of all.
+As this is not always possible or feasible, you can disable certain rules or even the whole WAF
+through the local nginx configuration located in ``~/cnf/nginx.conf``:
 
 ::
 
-    2015/02/17 14:03:04 [error] 15296#0: *1855 NAXSI_FMT: ip=192.168.0.22&server=www.example.net&uri=/admin/&learning=0&vers=0.53-1&total_processed=1&total_blocked=1&block=1&cscore0=$XSS&score0=8&zone0=BODY|NAME&id0=1310&var_name0=login[username]&zone1=BODY|NAME&id1=1311&var_name1=login[username], client: 192.168.0.22, server: www.example.net, request: "POST /admin/ HTTP/1.1", host: "www.example.net", referrer: "http://www.example.net/admin/"
+    # disable blocking triggered requests but still detect and log them
+    modsecurity_rules 'SecRuleEngine DetectionOnly';
 
-To learn more about the log syntax, vist the `Naxsi
-documentation <https://github.com/nbs-system/naxsi/wiki>`__.
+    # disable WAF alltogether
+    modsecurity_rules 'SecRuleEngine Off';
 
-Extensive logging
-^^^^^^^^^^^^^^^^^
+    # disable certain rule
+    modsecurity_rules 'SecRuleRemoveById 90001';
 
-If you want to debug the WAF block (often used with internal rules), you
-can increase the nginx error log level to "debug".
-
-See `Nginx documentation error
-log <http://nginx.org/en/docs/ngx_core_module.html#error_log>`__ for
-more information.
-
-Manage false positives
-~~~~~~~~~~~~~~~~~~~~~~
-
-If you are certain, that your request to the application is valid (and
-well coded), you can whitelist the affected rule(s) within the
-~/cnf/nginx\_waf.conf File:
-
-::
-
-    BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
-    BasicRule wl:1310,1311 "mz:$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
-
-See the `Naxsi
-documentation <https://github.com/nbs-system/naxsi/wiki/whitelists>`__
-for details.
+    # add custom rule
+    modsecurity_rules 'SecRule "ARGS_NAMES|ARGS" "@contains blocked-value" "deny,msg:blocled,id:91001,chain"'
 
 .. hint:: to apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut
 
-.. hint:: we strongly recommend to add the ``~/cnf/`` directory to the source code management of your choice
-
-Autocreate rules
-~~~~~~~~~~~~~~~~
-
-With nx\_util, you can parse & analyze naxsi log files. It will propose
-appropriate whitelist rules tailored to your application
-
-Warning: Use on DEV/STAGE Environment only. Otherwise you will end up
-whitelisting actual attacks.
-
-::
-
-    /usr/local/bin/nx_util.py -lo error.log
-
-    Deleting old database :naxsi_sig
-    List of imported files :['error.log']
-    Importing file error.log
-            Successful events :6
-            Filtered out events :0
-            Non-naxsi lines :0
-            Malformed/incomplete lines 5
-    End of db commit...
-    Count (lines) success:6
-    ########### Optimized Rules Suggestion ##################
-    # total_count:2 (33.33%), peer_count:1 (100.0%) | ], possible js
-    BasicRule wl:1311 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
-    # total_count:2 (33.33%), peer_count:1 (100.0%) | [, possible js
-    BasicRule wl:1310 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[controller]|NAME";
-    # total_count:1 (16.67%), peer_count:1 (100.0%) | ], possible js
-    BasicRule wl:1311 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
-    # total_count:1 (16.67%), peer_count:1 (100.0%) | [, possible js
-    BasicRule wl:1310 "mz:$URL:/events/event/|$ARGS_VAR:tx_sfpevents_sfpevents[event]|NAME";
-
-Learning Mode
-~~~~~~~~~~~~~
-
-To enable the Naxsi learning mode, set the Naxsi flag in the
-``~/cnf/nginx.conf`` file:
-
-::
-
-     set $naxsi_flag_learning 1;
-
-Which means that Naxsi will not block any request, but logs the
-"to-be-blocked" requests in your ``~log/error.log``.
-
-Warning: Use on DEV/STAGE Enviroment only. Otherwise you will end up
-with an unprotected installation.
-
-Make sure, that you analyze the error.log carefully and only whitelist
-valid requests afterwards.
-
-Dynamic configuration
-^^^^^^^^^^^^^^^^^^^^^
-
-Naxsi supports a limited set of variables, that can override or modify
-its behavoir. You can use them in your ``~/cnf/nginx.conf`` file. For
-example, enable the learning mode for an specific ip:
-
-::
-
-     if ($remote_addr = "1.2.3.4") {
-      set $naxsi_flag_learning 1;
-     }
-
-More on the `dynamicmodifiers page <https://github.com/nbs-system/naxsi/wiki/dynamicmodifiers>`__.
-
-.. hint:: this is a powerful feature in use with the `nginx vars <http://nginx.org/en/docs/varindex.html>`
+.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__.
 
 Request limits
 --------------

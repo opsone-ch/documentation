@@ -23,7 +23,7 @@ System Wide
 Website Service
 ^^^^^^^^^^^^^^^
 
-- switched nginx web application firewall from naxsi to modsecurity
+- switched nginx web application firewall from naxsi to ModSecurity
 - renamed the ``htpasswd`` parameter to ``preview_htpasswd``
 - proxy type: removed ``members`` option, add ``proxy_pass`` option
 - nodejs type: select desired node version trough nvm. By default, the latest lts version is installed
