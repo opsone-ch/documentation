@@ -702,7 +702,7 @@ Web Application Firewall
 ------------------------
 
 We use `ModSecurity <https://modsecurity.org>`__ as additional protection against application level attacks such as cross site-scripting or SQL injections.
-By default, the core rules set will be loaded, and we block common vulnerabilities and zero day attacks by adding some more global rules
+By default, the core rules set will be loaded, and we block common vulnerabilities and zero day attacks by adding some more global rules.
 
 .. warning:: this is just a additional security measure. Regardless its existence, remember to keep your application, extensions and libraries secure and up to date
 
