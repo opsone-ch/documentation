@@ -26,6 +26,7 @@ Website Service
 - switched nginx web application firewall from naxsi to ModSecurity
 - renamed the ``htpasswd`` parameter to ``preview_htpasswd``
 - proxy type: removed ``members`` option, add ``proxy_pass`` option
+- proxy type: export Proxy Pass as ``PROXY_PASS`` Environment Variable
 - nodejs type: select desired node version trough nvm. By default, the latest lts version is installed
 - redirect type: added ``target_code`` parameter
 - neos type: will use PHP 7.2

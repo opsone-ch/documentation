@@ -390,6 +390,7 @@ default, and are available within the shell and also the webserver.
 -  DB\_NAME (Database name, only if there is a database)
 -  DB\_USERNAME (Database username, only if there is a database)
 -  DB\_PASSWORD (Database password, only if there is a database)
+-  PROXY\_PASS (Proxy Pass, only for type proxy)
 
 .. hint:: to use the .profile environmet within a cronjob, prepend the following code to your command: ``/bin/bash -c 'source $HOME/.profile; ~/original/command'``
 
