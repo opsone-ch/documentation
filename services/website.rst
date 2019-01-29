@@ -200,13 +200,13 @@ Proxy
 
 -  nginx vhost configured as reverse proxy
 
-::
+.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it
 
-       "proxyexample":
-        "server_name": "example.net"
-        "env":         "PROD"
-        "type":        "proxy"
-        "proxy_pass":  "http://127.0.0.1:8080"
+Docker
+^^^^^^
+
+-  nginx vhost configured as reverse proxy
+-  install docker and puts the user into the docker group
 
 .. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it
 
