@@ -60,11 +60,11 @@ evaluated), use the following command:
 
 ::
 
-    $ cat ~/tmp/mail.2015-06-26_10-11-06.ZuQ.eml | msmtp -t
+    $ cat ~/tmp/mail.2015-06-26_10-11-06.ZuQ.eml | mail -t
 
 To forward a saved e-mail to another recipient, use the following
 command:
 
 ::
 
-    $ cat ~/tmp/mail.2015-06-26_10-11-06.ZuQ.eml | msmtp box@example.net
+    $ cat ~/tmp/mail.2015-06-26_10-11-06.ZuQ.eml | mail -ta To:box@example.net
