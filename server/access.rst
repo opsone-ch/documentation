@@ -20,7 +20,7 @@ are no other services/users configured. Furthermore, this user belongs
 to the ``adm`` group which enable access to all system log files in
 ``/var/log/``.
 
-.. hint:: use the `lnav`` utility to display logs in a meaningful way (Website logs: ``lnav ~/log/`` as website user, global logs: ``lnav`` as ``devop`` user)
+.. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
 
 Shortcuts and sudo configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
