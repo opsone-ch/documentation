@@ -26,7 +26,7 @@ Right now, you are looking at the documentation for the version 6:
    * - OS Release
      - Debian 9 (Stretch)
    * - Webserver
-     - nginx 1.13
+     - nginx 1.14
    * - Database
      - MariaDB 10.1
    * - PHP
