@@ -5,6 +5,11 @@ variables:
 # Docker image
 image: "python:latest"
 
+stages:
+- mirror
+- deploy stage
+- deploy prod
+
 # Dependencies
 before_script:
   # SSH deploy key
@@ -16,6 +21,10 @@ before_script:
 
 # Github mirror
 mirror Github:
+  stage: mirror
+  allow_failure: true
+  only:
+  - legal
   script:
   - cd $CI_PROJECT_DIR
   - git checkout --track origin/$CI_BUILD_REF_NAME
@@ -24,6 +33,7 @@ mirror Github:
 
 # Deploy
 deploy STAGE:
+  stage: deploy stage
   type: deploy
   environment: STAGE
   script:
@@ -39,6 +49,7 @@ deploy STAGE:
   - rsync -avz --delete $OUTPUTDIR $STAGE_USERNAME@$STAGE_SERVERNAME:~/www/
 
 deploy PROD:
+  stage: deploy prod
   type: deploy
   when: manual
   environment: PROD
