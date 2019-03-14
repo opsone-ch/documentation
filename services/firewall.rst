@@ -18,27 +18,36 @@ By default, all incoming and outgoing traffic is blocked, expect:
     - POP3(S): TCP Ports 110, 995
     - IMAP(S): TCP Ports 143, 993
 
-.. note:: depending on your companys guideline, outgoing connection might not be allowed by default
+.. note:: depending on your companys guideline, outgoing connections might not be allowed by default
 
-.. hint:: to enhance the security level of your server, disable outgoing connections to common services by setting ``"base::firewall::allow_outgoing_ports": false`` in your servers custom JSON configuration
+Disable common outgoing services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To enhance the security level of your server, disable outgoing connections to common services by adding the following custom JSON configuration:
+
+::
+
+    {
+      "base::firewall::allow_outgoing_ports": false
+    }
 
 Custom rules trough service
 ---------------------------
 
 Where applicable, all services will add the firewall rules required automatically, for example:
 
-- website module will allow HTTP/HTTPS
-- mysql type in database module will allow mysql from admin server
+- website module will allow incoming HTTP(S)
+- ftp module will allow incoming FTP
 
 Custom rules
 ------------
 
-Where applicable, both IPv4 and IPv6 Rules are added by default (For example INPUT chains for a particular Port).
+Where applicable, both IPv4 and IPv6 Rules are added by default (for example INPUT chains for a particular port).
 
 Configuration
 ^^^^^^^^^^^^^
 
-.. hint:: this service as based on the official firewall Puppet module. For further configuration details, see the `firewall documentation <https://github.com/puppetlabs/puppetlabs-firewall#firewall>`__ on Github
+.. hint:: this service as based on the official Puppet firewall module. For further configuration details, see the `firewall documentation <https://github.com/puppetlabs/puppetlabs-firewall#firewall>`__ on Github
 
 chain
 """""
@@ -77,8 +86,8 @@ IPv4 destination address or network. Examples:
 * `192.168.0.1`
 * `192.168.0.0/24`
 
-destionation6
-"""""""""""""
+destination6
+""""""""""""
 
 IPv6 destination address or network. Examples:
 
@@ -88,12 +97,12 @@ IPv6 destination address or network. Examples:
 sport
 """""
 
-Source port number
+Source port number.
 
 dport
 """""
 
-Destination port number
+Destination port number.
 
 Examples
 ^^^^^^^^
