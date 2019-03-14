@@ -18,6 +18,8 @@ By default, all incoming and outgoing traffic is blocked, expect:
     - POP3(S): TCP Ports 110, 995
     - IMAP(S): TCP Ports 143, 993
 
+.. note:: depending on your companys guideline, outgoing connection might not be allowed by default
+
 .. hint:: to enhance the security level of your server, disable outgoing connections to common services by setting ``"base::firewall::allow_outgoing_ports": false`` in your servers custom JSON configuration
 
 Custom rules trough service
