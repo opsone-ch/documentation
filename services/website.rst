@@ -12,13 +12,17 @@ Add website
 
 Add a website with a configuration like this:
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "username":
-        "server_name": "example.net www.example.net"
-        "env":         "PROD"
-        "type":        "php"
+  {
+    "website::sites": {
+      "username": {
+        "server_name": "example.net www.example.net",
+        "env": "PROD",
+        "type": "php"
+      }
+    }
+  }
 
 -  username: Is used as system user name (SSH Login, CGI User) and
    database name, if a database exist
@@ -59,21 +63,28 @@ typo3cms
 -  TYPO3 CMS 6.2 cloned into /var/lib/typo3/TYPO3\_6-2/
 -  TYPO3 Scheduler executed every 5 minutes
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "examplenet":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "typo3.example.net www.typo3.example.net"
-        "env":         "PROD"
-        "type":        "typo3cms"
+  {
+    "website::sites": {
+      "examplenet": {
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "server_name": "typo3.example.net www.typo3.example.net",
+        "env": "PROD",
+        "type": "typo3cms"
+      }
+    }
+  }
 
 To use other TYPO3 CMS versions, add the following array:
 
-::
+.. code-block:: json
 
-    website::typo3versions:
-      - "4.5"
+  {
+    "website::typo3versions": [
+      "4.5"
+    ]
+  }
 
 At the moment, only TYPO3 CMS 4.5 and 6.2 are available. For TYPO3 CMS
 7.x, see seperate type below.
@@ -93,15 +104,19 @@ typo3cmsv7
 -  TYPO3 ApplicationContext can be set
 -  TYPO3 Scheduler executed every 5 minutes
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "examplenet":
-        "password":           "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name":        "typo3.example.net www.typo3.example.net"
-        "env":                "PROD"
-        "type":               "typo3cmsv7"
-        "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
+  {
+    "website::sites": {
+      "examplenet": {
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "server_name": "typo3.example.net www.typo3.example.net",
+        "env": "PROD",
+        "type": "typo3cmsv7",
+        "applicationContext": "Production/Live"
+      }
+    }
+  }
 
 typo3cmsv8
 ^^^^^^^^^^
@@ -115,15 +130,19 @@ typo3cmsv8
 -  TYPO3 ApplicationContext can be set
 -  TYPO3 Scheduler executed every 5 minutes
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "examplenet":
-        "password":           "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name":        "typo3.example.net www.typo3.example.net"
-        "env":                "PROD"
-        "type":               "typo3cmsv8"
-        "applicationContext": "Production/Live" #optional, see TYPO3 Documentation
+  {
+    "website::sites": {
+      "examplenet": {
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "server_name": "typo3.example.net www.typo3.example.net",
+        "env": "PROD",
+        "type": "typo3cmsv8",
+        "applicationContext": "Production/Live"
+      }
+    }
+  }
 
 typo3neos
 ^^^^^^^^^
@@ -133,14 +152,18 @@ typo3neos
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "neosexample":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "neos.example.net www.neos.example.net"
-        "env":         "PROD"
-        "type":        "typo3neos"
+  {
+    "website::sites": {
+      "neosexample": {
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "server_name": "neos.example.net www.neos.example.net",
+        "env": "PROD",
+        "type": "typo3neos"
+      }
+    }
+  }
 
 magento
 ^^^^^^^
@@ -149,14 +172,18 @@ magento
 -  PHP-FPM 5.6 with mcrypt module
 -  MariaDB 10.x with database, user, and grants
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "magentoexample":
-        "server_name": "magento.example.net"
-        "env":         "PROD"
-        "type":        "magento"
-        "password":    "Aiw7vaakos04h7e"
+  {
+    "website::sites": {
+      "magentoexample": {
+        "server_name": "magento.example.net",
+        "env": "PROD",
+        "type": "magento",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 magento2
 ^^^^^^^^
@@ -167,15 +194,18 @@ magento2
 -  nginx vHost adjusted to Magento 2 requirements
 -  MariaDB 10.x with database, user, and grants
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "magentotwoexample":
-        "server_name": "magento2.example.net"
-        "env":         "PROD"
-        "type":        "magento2"
-        "password":    "Aiw7vaakos04h7e"
-
+  {
+    "website::sites": {
+      "magentotwoexample": {
+        "server_name": "magento2.example.net",
+        "env": "PROD",
+        "type": "magento2",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 wordpress
 ^^^^^^^^^
@@ -189,14 +219,18 @@ wordpress
 
 .. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 
-::
+.. code-block:: json
 
-    website::sites:
-      "wordpressexample":
-        "server_name": "wordpress.example.net"
-        "env":         "PROD"
-        "type":        "wordpress"
-        "password":    "Aiw7vaakos04h7e"
+  {
+    "website::sites": {
+      "wordpressexample": {
+        "server_name": "wordpress.example.net",
+        "env": "PROD",
+        "type": "wordpress",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 wordpress70
 ^^^^^^^^^^^
@@ -207,14 +241,18 @@ wordpress70
 -  MariaDB 10.x with database, user, and grants
 -  WP-CLI
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "wordpressexample":
-        "server_name": "wordpress.example.net"
-        "env":         "PROD"
-        "type":        "wordpress70"
-        "password":    "Aiw7vaakos04h7e"
+  {
+    "website::sites": {
+      "wordpressexample": {
+        "server_name": "wordpress.example.net",
+        "env": "PROD",
+        "type": "wordpress70",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 drupal
 ^^^^^^
@@ -223,14 +261,18 @@ drupal
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "drupalexample":
-        "server_name": "drupal.example.net"
-        "env":         "PROD"
-        "type":        "drupal"
-        "password":    "Aiw7vaakos04h7e"
+  {
+    "website::sites": {
+      "drupalexample": {
+        "server_name": "drupal.example.net",
+        "env": "PROD",
+        "type": "drupal",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 php
 ^^^
@@ -240,16 +282,19 @@ php
 -  MariaDB 10.x with database, user, and grants (use "dbtype": "mysql",
    otherwise without database)
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "phpexamplenet":
-        "server_name": "php.example.net"
-        "env":         "PROD"
-        "type":        "php"
-    # uncomment the following lines if you need an automatically created database
-    #    "dbtype":      "mysql"
-    #    "password":    "Aiw7vaakos04h7e"
+  {
+    "website::sites": {
+      "phpexamplenet": {
+        "server_name": "php.example.net",
+        "env": "PROD",
+        "type": "php",
+        "dbtype": "mysql",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 php70
 ^^^^^
@@ -259,16 +304,19 @@ php70
 -  MariaDB 10.x with database, user, and grants (use "dbtype": "mysql",
    otherwise without database)
 
-::
+.. code-block:: json
 
-    website::sites:
-      "phpexamplenet":
-        "server_name": "php.example.net"
-        "env":         "PROD"
-        "type":        "php70"
-    # uncomment the following lines if you need an automatically created database
-    #    "dbtype":      "mysql"
-    #    "password":    "Aiw7vaakos04h7e"
+  {
+    "website::sites": {
+      "phpexamplenet": {
+        "server_name": "php.example.net",
+        "env": "PROD",
+        "type": "php70",
+        "dbtype": "mysql",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 php72
 ^^^^^
@@ -278,16 +326,19 @@ php72
 -  MariaDB 10.x with database, user, and grants (use "dbtype": "mysql",
    otherwise without database)
 
-::
+.. code-block:: json
 
-    website::sites:
-      "phpexamplenet":
-        "server_name": "php.example.net"
-        "env":         "PROD"
-        "type":        "php72"
-    # uncomment the following lines if you need an automatically created database
-    #    "dbtype":      "mysql"
-    #    "password":    "Aiw7vaakos04h7e"
+  {
+    "website::sites": {
+      "phpexamplenet": {
+        "server_name": "php.example.net",
+        "env": "PROD",
+        "type": "php72",
+        "dbtype": "mysql",
+        "password": "Aiw7vaakos04h7e"
+      }
+    }
+  }
 
 hhvm
 ^^^^
@@ -298,15 +349,19 @@ hhvm
    otherwise without database)
 -  please contact us to evaluate the feasibility within your project
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "hhvmexamplenet":
-        "server_name": "hhvm.example.net"
-        "env":         "PROD"
-        "type":        "hhvm"
-        "dbtype":      "mysql"
-        "password":    "ohQueeghoh0bath"
+  {
+    "website::sites": {
+      "hhvmexamplenet": {
+        "server_name": "hhvm.example.net",
+        "env": "PROD",
+        "type": "hhvm",
+        "dbtype": "mysql",
+        "password": "ohQueeghoh0bath"
+      }
+    }
+  }
 
 html
 ^^^^
@@ -315,13 +370,17 @@ html
 -  for static content only (this documentation is served trough the html
    type)
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "htmlexamplenet":
-        "server_name": "html.example.net"
-        "env":         "PROD"
-        "type":        "html"
+  {
+    "website::sites": {
+      "htmlexamplenet": {
+        "server_name": "html.example.net",
+        "env": "PROD",
+        "type": "html"
+      }
+    }
+  }
 
 uwsgi
 ^^^^^
@@ -345,15 +404,19 @@ uwsgi
        root /home/user/application/;
        }
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "uwsgiexample":
-        "server_name": "uwsgi.example.net"
-        "env":         "PROD"
-        "type":        "uwsgi"
-        "dbtype":      "postgresql"
-        "password":    "ohQueeghoh0bath"
+  {
+    "website::sites": {
+      "uwsgiexample": {
+        "server_name": "uwsgi.example.net",
+        "env": "PROD",
+        "type": "uwsgi",
+        "dbtype": "postgresql",
+        "password": "ohQueeghoh0bath"
+      }
+    }
+  }
 
 Hint: to control the uwsgi daemon, use the ``uwsgi-reload`` and
 ``uwsgi-restart`` shortcuts
@@ -365,14 +428,18 @@ Symfony
 -  PHP-FPM 5.6
 -  MariaDB 10.x with database, user, and grants
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "symfonyexample":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "symfony.example.net www.symfony.example.net"
-        "env":         "PROD"
-        "type":        "symfony"
+  {
+    "website::sites": {
+      "symfonyexample": {
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "server_name": "symfony.example.net www.symfony.example.net",
+        "env": "PROD",
+        "type": "symfony"
+      }
+    }
+  }
 
 Hint: For security reason, PHP execution is just allow for app.php,
 app\_dev.php, config.php. All other requests end up in a 403 forbidden
@@ -388,13 +455,16 @@ Redirect
 -  `$scheme://www.example.com/subsite/` (redirect the domain to any subsite of example.com)
 -  TLS / SSL is available
 
-::
+.. code-block:: json
 
-       "redirectexample":
-        "server_name": "example.to"
-        "target":      "$scheme://domain.com$request_uri"
-        "env":         "PROD"
-        "type":        "redirect"
+  {
+    "redirectexample": {
+      "server_name": "example.to",
+      "target": "$scheme://domain.com$request_uri",
+      "env": "PROD",
+      "type": "redirect"
+    }
+  }
 
 Proxy
 ^^^^^
@@ -405,16 +475,20 @@ Proxy
 -  works also with unix sockets
 -  TLS / SSL is supported
 
-::
+.. code-block:: json
 
-       "proxyexample":
-        "server_name": "proxy.to"
-        "env":         "PROD"
-        "type":        "proxy"
-        "members":     
-          - localhost:8080
-          - 127.0.0.1:8081
-          - unix:/tmp/backend
+  {
+    "proxyexample": {
+      "server_name": "proxy.to",
+      "env": "PROD",
+      "type": "proxy",
+      "members": [
+        "localhost:8080",
+        "127.0.0.1:8081",
+        "unix:/tmp/backend"
+      ]
+    }
+  }
 
 Hint: to proxy external sites / hosts please contact our support.
 (outgoing firewall rules needs to be applied)
@@ -447,15 +521,19 @@ nodejs
            root /home/user/application/;
        }
 
-::
+.. code-block:: json
 
-    website::sites:
-      "nodejs":
-        "server_name": "nodejs.example.net"
-        "env":         "PROD"
-        "type":        "nodejs"
-        "dbtype":      "mysql"
-        "password":    "ohQueeghoh0bath"
+  {
+    "website::sites": {
+      "nodejs": {
+        "server_name": "nodejs.example.net",
+        "env": "PROD",
+        "type": "nodejs",
+        "dbtype": "mysql",
+        "password": "ohQueeghoh0bath"
+      }
+    }
+  }
 
 Hint: to control the nodejs daemon, use the ``nodejs-restart`` shortcut
 
@@ -469,14 +547,18 @@ todoyu
 -  todoyu cronjob
 -  todoyu access rules
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "todoyuexample":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "todoyu.example.net www.todoyu.example.net"
-        "env":         "PROD"
-        "type":        "todoyu"
+  {
+    "website::sites": {
+      "todoyuexample": {
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "server_name": "todoyu.example.net www.todoyu.example.net",
+        "env": "PROD",
+        "type": "todoyu"
+      }
+    }
+  }
 
 ruby
 ^^^^
@@ -510,15 +592,19 @@ ruby
            root /home/user/application/;
        }
 
-::
+.. code-block:: json
 
-    website::sites:
-      "ruby":
-        "server_name": "ruby.example.net"
-        "env":         "PROD"
-        "type":        "ruby"
-        "dbtype":      "mysql"
-        "password":    "ohQueeghoh0bath"
+  {
+    "website::sites": {
+      "ruby": {
+        "server_name": "ruby.example.net",
+        "env": "PROD",
+        "type": "ruby",
+        "dbtype": "mysql",
+        "password": "ohQueeghoh0bath"
+      }
+    }
+  }
 
 .. hint:: to control the nodejs daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
 
@@ -567,25 +653,33 @@ which you can generate like this on your local workstation:
 
 Configuration example:
 
-::
+.. code-block:: json
 
-    "devexamplenet":
-        "type":        "typo3cms"
-        "env":         "DEV"
-        "server_name": "dev.example.net www.dev.example.net"
-        "password":    "1234"
-        "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+  {
+    "devexamplenet": {
+      "type": "typo3cms",
+      "env": "DEV",
+      "server_name": "dev.example.net www.dev.example.net",
+      "password": "1234",
+      "htpasswd": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+    }
+  }
 
 Furthermore, you can add additional users trough the "website::users"
 configuration like this:
 
-::
+.. code-block:: json
 
-    website::users:
-      "alice":
+  {
+    "website::users": {
+      "alice": {
         "preview": "$apr1$RXDs3l18$w0VJrVN5uoU6DMY.0xgTr/"
-      "bob":
+      },
+      "bob": {
         "preview": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+      }
+    }
+  }
 
 You can add such uers for yourself and your co-workers. If you work on
 multiple websites, you do not have to look up the corresponding password
@@ -593,15 +687,18 @@ all the time but just use the global one.
 
 To rename the default "preview" username, use the ``preview_username`` parameter on a website:
 
-::
+.. code-block:: json
 
-    "devexamplenet":
-        "type":             "typo3cms"
-        "env":              "DEV"
-        "server_name":      "dev.example.net www.dev.example.net"
-        "password":         "1234"
-        "preview_username": "showme"
-        "htpasswd":          "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+  {
+    "devexamplenet": {
+      "type": "typo3cms",
+      "env": "DEV",
+      "server_name": "dev.example.net www.dev.example.net",
+      "password": "1234",
+      "preview_username": "showme",
+      "htpasswd": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
+    }
+  }
 
 Furthermore, its possible to set the preview username globally through ``website::preview_username``.
 
@@ -719,15 +816,17 @@ Furthermore, we check all certificates from our monitoring and will contact you 
 Configuration example
 ~~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: json
 
-    "devexamplenet":
-      "type":              "html"
-      "env":               "PROD"
-      "ssl_acme":          "true"
-      "ssl_acme_provider": "letsencrypt" # not required, as letsencrypt is already the default
-      "server_name":       "dev.example.net www.dev.example.net" # make sure that all this hosts 
-                                                                 # point to this server already
+  {
+    "devexamplenet": {
+      "type": "html",
+      "env": "PROD",
+      "ssl_acme": "true",
+      "ssl_acme_provider": "letsencrypt",
+      "server_name": "dev.example.net www.dev.example.net"
+    }
+  }
 
 Order certificate
 ^^^^^^^^^^^^^^^^^
@@ -774,67 +873,20 @@ Configure website
 
 Note: make sure to use the correct line indenting
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "magentoexample":
-        "server_name": "magento.example.net"
-        "env":         "PROD"
-        "type":        "magento"
-        "password":    "Aiw7vaakos04h7e"
-        "ssl_key": |
-         -----BEGIN PRIVATE KEY-----
-         MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRHc47/0zg+cAg
-         MkHKY1U7TOFChPawiNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXU
-         zjTTTUN/dGoElGz4gFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/T
-         KyW85hETMLi+tRw9Kbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYib
-         z05C6+BVpw9w+BWFERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9
-         ZKrlPcUZNReWxgX+ZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR
-         5fn4i8hbAgMBAAECggEAYv66MBr3GRYChvtju9z0b2NAzE3HvuC6KFRYAlpI1Hl8
-         umWCF/JKGpBD2NKU4yMvaPrCvtsdH8DaVLjdtx4/kunYepyNTcLrsRoMl6uvTCCv
-         oVW3Dw6x6MK3TEzjrwM+gHr+S235qsyjp2MotVkwwiXxf46bdLT5MWuOgnyEhkQQ
-         cmv6qDmjgDP5vH5r4riAlPKMq+jGtLc/2QWs22UxQS0/a7n0pks472AonLI8r1M8
-         sYcCAC6uEvxRZdVcJOlRK78dPI3NLxFhSbvv/GcVOypyhvQ3uVYV71xA/AgcpBLd
-         Fc2FULRCCU/UEjmo62uYNkG09lCchBwK8BLYYWrCoQKBgQDqL5Eo9oLMTuzysu8I
-         vemXODOTfxQb1OTH1dyA4kSAtmNF2IO5rNnvVsS5YlbSjZMEXRMYTSflp7L7ae2l
-         XLqjhijdB6l5cdgsPyHD2phYOvJzWMuzjkCtIjm5QfdMfsUZnBSPbwaRF1zWxbVn
-         mHlWi3Zcu8U65l9gsJviZelqqwKBgQDkmG4W1SEySON4i44JwzsmXQHP1d8KHES1
-         hB1IETNYV2HzIAWnnX/fqPwqyahzegKTGut9U7kJ8QHsHvz56nHdiQ8zw4BZxQPw
-         j4Pms1IpzpO48yf4swskqwgkk5W6wTHCD/Q48tqFtAMPwC/D88F966ipc6lyldsJ
-         UXvLeeMZEQKBgGTHYZWaOAGKOYfcHufJKnwMEI350wKDJI0m6ISCWu51DtWg7lb6
-         HrNTyMbqnehwSoNHNo9vrKq0914gYMeX1y3F71HnGTSNHHU2Gea57HOTsoCXBtpX
-         blfTcbnavHyr1VBHDcYIBnBr+GTooj9Zq2XmEGKp35+QQh1PA1ZzevaPAoGASdop
-         Lv06VVmRC9/iSqslT/aaYEATZ9vMIuyE3USZVwAcKAT/brCGoIaiuVwfLPeNH2OC
-         EyJaVKjlWxiD2GXy1YSzQaD2tYneBPkIvx7N+62+sfD0x/doMTeEUPTRWd2SqsSm
-         vUNQcAPBPXR0uhTlPT5GZkB0zQ03D6KgoRNG2FECgYEAgXPJjIsqhcC0PNEuRgdC
-         9pZq+Prvp4TniVwQKyPniw/FjAplI4uN/+1fiYPexaLzINnXUuvOTYPABec3T2DZ
-         GV0lffmdZ+CleU1Xi5DjLGn8m0Gdy6mecE2Le9/Q13o3owF9rm0Drhqqd8T6vVt3
-         hiw7C+lCp2XheqP+QchwxiY=
-         -----END PRIVATE KEY-----
-        "ssl_cert": |
-         -----BEGIN CERTIFICATE-----
-         MIIEATCCAumgAwIBAgIJAMdVCMOVZl30MA0GCSqGSIb3DQEBCwUAMIGWMQswCQYD
-         VQQGEwJDSDEPMA0GA1UECAwGWnVyaWNoMQ8wDQYDVQQHDAZadXJpY2gxIzAhBgNV
-         BAoMGnNub3dmbGFrZSBwcm9kdWN0aW9ucyBHbWJIMRowGAYDVQQDDBF0eXBvMy5l
-         eGFtcGxlLm5ldDEkMCIGCSqGSIb3DQEJARYVd2VibWFzdGVyQGV4YW1wbGUubmV0
-         MB4XDTE1MDIxMjEyMDU1MloXDTI1MDIwOTEyMDU1MlowgZYxCzAJBgNVBAYTAkNI
-         MQ8wDQYDVQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEjMCEGA1UECgwac25v
-         d2ZsYWtlIHByb2R1Y3Rpb25zIEdtYkgxGjAYBgNVBAMMEXR5cG8zLmV4YW1wbGUu
-         bmV0MSQwIgYJKoZIhvcNAQkBFhV3ZWJtYXN0ZXJAZXhhbXBsZS5uZXQwggEiMA0G
-         CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRHc47/0zg+cAgMkHKY1U7TOFChPaw
-         iNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXUzjTTTUN/dGoElGz4
-         gFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/TKyW85hETMLi+tRw9
-         Kbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYibz05C6+BVpw9w+BWF
-         ERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9ZKrlPcUZNReWxgX+
-         ZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR5fn4i8hbAgMBAAGj
-         UDBOMB0GA1UdDgQWBBSSJyPyLa8CNKMDR3BAOcuuzzEqlTAfBgNVHSMEGDAWgBSS
-         JyPyLa8CNKMDR3BAOcuuzzEqlTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUA
-         A4IBAQAMKv2Kdw2LkskJm/GAkEsavoYf6qAPruwcsp8cx+7doXOpptZ/w+m8NK8i
-         6ffi65wQ4TGlFxEvXM1Ts4S1xF/+6JVnnp8RVGvfgDL7xi6juMqbtM5yBxjHKO6W
-         AuxOmwPcd6cO5qL+MCSgIe13bn/V4bw/JLv9LONuwXHJuv0FEoazbSyB6uTwYf2D
-         pWHEkXvkz5A1hqu3y2jFq2cQffoO31GGx29U3uSl+Esp5bL/J0bQd3TUbwvu6FY1
-         NgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS
-         v8jOaIjDp5AMoZxbPMlv/5Tk85uF
+  {
+    "website::sites": {
+      "magentoexample": {
+        "server_name": "magento.example.net",
+        "env": "PROD",
+        "type": "magento",
+        "password": "Aiw7vaakos04h7e",
+        "ssl_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRHc47/0zg+cAg\nMkHKY1U7TOFChPawiNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXU\nzjTTTUN/dGoElGz4gFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/T\nKyW85hETMLi+tRw9Kbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYib\nz05C6+BVpw9w+BWFERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9\nZKrlPcUZNReWxgX+ZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR\n5fn4i8hbAgMBAAECggEAYv66MBr3GRYChvtju9z0b2NAzE3HvuC6KFRYAlpI1Hl8\numWCF/JKGpBD2NKU4yMvaPrCvtsdH8DaVLjdtx4/kunYepyNTcLrsRoMl6uvTCCv\noVW3Dw6x6MK3TEzjrwM+gHr+S235qsyjp2MotVkwwiXxf46bdLT5MWuOgnyEhkQQ\ncmv6qDmjgDP5vH5r4riAlPKMq+jGtLc/2QWs22UxQS0/a7n0pks472AonLI8r1M8\nsYcCAC6uEvxRZdVcJOlRK78dPI3NLxFhSbvv/GcVOypyhvQ3uVYV71xA/AgcpBLd\nFc2FULRCCU/UEjmo62uYNkG09lCchBwK8BLYYWrCoQKBgQDqL5Eo9oLMTuzysu8I\nvemXODOTfxQb1OTH1dyA4kSAtmNF2IO5rNnvVsS5YlbSjZMEXRMYTSflp7L7ae2l\nXLqjhijdB6l5cdgsPyHD2phYOvJzWMuzjkCtIjm5QfdMfsUZnBSPbwaRF1zWxbVn\nmHlWi3Zcu8U65l9gsJviZelqqwKBgQDkmG4W1SEySON4i44JwzsmXQHP1d8KHES1\nhB1IETNYV2HzIAWnnX/fqPwqyahzegKTGut9U7kJ8QHsHvz56nHdiQ8zw4BZxQPw\nj4Pms1IpzpO48yf4swskqwgkk5W6wTHCD/Q48tqFtAMPwC/D88F966ipc6lyldsJ\nUXvLeeMZEQKBgGTHYZWaOAGKOYfcHufJKnwMEI350wKDJI0m6ISCWu51DtWg7lb6\nHrNTyMbqnehwSoNHNo9vrKq0914gYMeX1y3F71HnGTSNHHU2Gea57HOTsoCXBtpX\nblfTcbnavHyr1VBHDcYIBnBr+GTooj9Zq2XmEGKp35+QQh1PA1ZzevaPAoGASdop\nLv06VVmRC9/iSqslT/aaYEATZ9vMIuyE3USZVwAcKAT/brCGoIaiuVwfLPeNH2OC\nEyJaVKjlWxiD2GXy1YSzQaD2tYneBPkIvx7N+62+sfD0x/doMTeEUPTRWd2SqsSm\nvUNQcAPBPXR0uhTlPT5GZkB0zQ03D6KgoRNG2FECgYEAgXPJjIsqhcC0PNEuRgdC\n9pZq+Prvp4TniVwQKyPniw/FjAplI4uN/+1fiYPexaLzINnXUuvOTYPABec3T2DZ\nGV0lffmdZ+CleU1Xi5DjLGn8m0Gdy6mecE2Le9/Q13o3owF9rm0Drhqqd8T6vVt3\nhiw7C+lCp2XheqP+QchwxiY=\n-----END PRIVATE KEY-----\n",
+        "ssl_cert": "-----BEGIN CERTIFICATE-----\nMIIEATCCAumgAwIBAgIJAMdVCMOVZl30MA0GCSqGSIb3DQEBCwUAMIGWMQswCQYD\nVQQGEwJDSDEPMA0GA1UECAwGWnVyaWNoMQ8wDQYDVQQHDAZadXJpY2gxIzAhBgNV\nBAoMGnNub3dmbGFrZSBwcm9kdWN0aW9ucyBHbWJIMRowGAYDVQQDDBF0eXBvMy5l\neGFtcGxlLm5ldDEkMCIGCSqGSIb3DQEJARYVd2VibWFzdGVyQGV4YW1wbGUubmV0\nMB4XDTE1MDIxMjEyMDU1MloXDTI1MDIwOTEyMDU1MlowgZYxCzAJBgNVBAYTAkNI\nMQ8wDQYDVQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEjMCEGA1UECgwac25v\nd2ZsYWtlIHByb2R1Y3Rpb25zIEdtYkgxGjAYBgNVBAMMEXR5cG8zLmV4YW1wbGUu\nbmV0MSQwIgYJKoZIhvcNAQkBFhV3ZWJtYXN0ZXJAZXhhbXBsZS5uZXQwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRHc47/0zg+cAgMkHKY1U7TOFChPaw\niNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXUzjTTTUN/dGoElGz4\ngFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/TKyW85hETMLi+tRw9\nKbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYibz05C6+BVpw9w+BWF\nERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9ZKrlPcUZNReWxgX+\nZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR5fn4i8hbAgMBAAGj\nUDBOMB0GA1UdDgQWBBSSJyPyLa8CNKMDR3BAOcuuzzEqlTAfBgNVHSMEGDAWgBSS\nJyPyLa8CNKMDR3BAOcuuzzEqlTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUA\nA4IBAQAMKv2Kdw2LkskJm/GAkEsavoYf6qAPruwcsp8cx+7doXOpptZ/w+m8NK8i\n6ffi65wQ4TGlFxEvXM1Ts4S1xF/+6JVnnp8RVGvfgDL7xi6juMqbtM5yBxjHKO6W\nAuxOmwPcd6cO5qL+MCSgIe13bn/V4bw/JLv9LONuwXHJuv0FEoazbSyB6uTwYf2D\npWHEkXvkz5A1hqu3y2jFq2cQffoO31GGx29U3uSl+Esp5bL/J0bQd3TUbwvu6FY1\nNgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS\nv8jOaIjDp5AMoZxbPMlv/5Tk85uF"
+      }
+    }
+  }
 
 Warning: Make sure the first ``server_name`` used is valid within your
 certificate as we redirect all HTTP requests within this vHost to
@@ -852,9 +904,11 @@ Cipher Suite
 
 You can configure a desired cipher suite configuration trough `website::ssl_ciphers`:
 
-::
+.. code-block:: json
 
- website::ssl_ciphers: "desired-cipher-suites"
+  {
+    "website::ssl_ciphers": "desired-cipher-suites"
+  }
 
 .. warning:: We configure and update this value with sane defaults. Overwrite only when really required, and if you are aware of the consequences.
 
@@ -872,13 +926,11 @@ your own Diffie-Hellman parameters, you can generate them:
 
 and configure them trough `website::ssl_dhparam`:
 
-::
+.. code-block:: json
 
-  website::ssl_dhparam: |
-    -----BEGIN DH PARAMETERS-----
-    MIICCAKCAgEAoOePp+Uv2M34IA+basW9CBHp/jsZihB3FI8KVRLVFJPIUJ9Llm8F
-    ...
-    -----END DH PARAMETERS-----
+  {
+    "website::ssl_dhparam": "-----BEGIN DH PARAMETERS-----\nMIICCAKCAgEAoOePp+Uv2M34IA+basW9CBHp/jsZihB3FI8KVRLVFJPIUJ9Llm8F\n...\n-----END DH PARAMETERS-----"
+  }
 
 HSTS Header
 ^^^^^^^^^^^
@@ -891,9 +943,11 @@ By default, we add a HTTP Strict Transport Security (HSTS) header to each TLS en
 
 Use the `header_hsts` parameter to override the default HSTS header:
 
-::
+.. code-block:: json
 
- header_hsts: "max-age=3600; includeSubDomains; preload"
+  {
+    "header_hsts": "max-age=3600; includeSubDomains; preload"
+  }
 
 .. hint:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet>`__ for details
 
@@ -1181,14 +1235,18 @@ Some deployment workflows require other locations, which you can select through 
 
 .. warning:: by now, the directory specified here needs to be a real directory (**no symlinks allowed**)
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "username":
-        "server_name":    "example.net www.example.net"
-        "env":            "PROD"
-        "type":           "php"
+  {
+    "website::sites": {
+      "username": {
+        "server_name": "example.net www.example.net",
+        "env": "PROD",
+        "type": "php",
         "custom_webroot": "deploy/current/html"
+      }
+    }
+  }
 
 PHP
 ^^^
@@ -1205,9 +1263,11 @@ To alter the format used for nginx access logs, for example due to privacy reaso
 
 This configuration is only available globally for all websites on a server, to change to default "combined" format to replace the actual visitors ip address with 127.0.0.1, use the following example:
 
-::
+.. code-block:: json
 
-    website::wrapper::nginx::log_format: "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
+  {
+    "website::wrapper::nginx::log_format": "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
+  }
 
 Cronjobs
 --------
@@ -1246,18 +1306,22 @@ interface and the 80/443 port. You can specify listen options explicitly
 per website, for example within setups where Varnish is used and the
 nginx vhost does not have to listen on external interfaces.
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "username":
-        "env":                 "PROD"
-        "type":                "php"
-        "listen_ip":           "127.0.0.1"
-        "listen_port":         "8080"
-        "listen_options":      "option_value"
-        "ipv6_listen_ip":      "::1"
-        "ipv6_listen_port":    "8080"
+  {
+    "website::sites": {
+      "username": {
+        "env": "PROD",
+        "type": "php",
+        "listen_ip": "127.0.0.1",
+        "listen_port": "8080",
+        "listen_options": "option_value",
+        "ipv6_listen_ip": "::1",
+        "ipv6_listen_port": "8080",
         "ipv6_listen_options": "option_value"
+      }
+    }
+  }
 
 .. hint:: If you set ``listen_options`` and ``ipv6_listen_options`` to ``default_server``, the corresponding web page becomes the default server and listens to every server name.
 
@@ -1267,26 +1331,31 @@ GeoIP
 To use your GeoIP database with nginx, store the appropriate data files
 on your server and add the following configuration:
 
-::
+.. code-block:: json
 
-    # GeoIP Settings for nginx
-    nginx::http_cfg_append:
-      - "geoip_country  /home/user/geoip/GeoIPv6.dat"
-      - "geoip_city /home/user/geoip/GeoLiteCityv6.dat"
+  # GeoIP Settings for nginx
+  {
+    "nginx::http_cfg_append": [
+      "geoip_country  /home/user/geoip/GeoIPv6.dat",
+      "geoip_city /home/user/geoip/GeoLiteCityv6.dat"
+    ]
+  }
 
-    # GeoIP related environment variables
-    environment::variables:
-      "GEOIP_ADDR":         "$remote_addr"
-      "GEOIP_ADDR":         "$remote_addr"
-      "GEOIP_COUNTRY_CODE": "$geoip_country_code"
-      "GEOIP_COUNTRY_NAME": "$geoip_country_name"
-      "GEOIP_REGION":       "$geoip_region"
-      "GEOIP_REGION_NAME":  "$geoip_region_name"
-      "GEOIP_CITY":         "$geoip_city"
-      "GEOIP_AREA_CODE":    "$geoip_area_code"
-      "GEOIP_LATITUDE":     "$geoip_latitude"
-      "GEOIP_LONGITUDE":    "$geoip_longitude"
-      "GEOIP_POSTAL_CODE":  "$geoip_postal_code"
+  # GeoIP related environment variables
+  {
+    "environment::variables": {
+      "GEOIP_ADDR": "$remote_addr",
+      "GEOIP_COUNTRY_CODE": "$geoip_country_code",
+      "GEOIP_COUNTRY_NAME": "$geoip_country_name",
+      "GEOIP_REGION": "$geoip_region",
+      "GEOIP_REGION_NAME": "$geoip_region_name",
+      "GEOIP_CITY": "$geoip_city",
+      "GEOIP_AREA_CODE": "$geoip_area_code",
+      "GEOIP_LATITUDE": "$geoip_latitude",
+      "GEOIP_LONGITUDE": "$geoip_longitude",
+      "GEOIP_POSTAL_CODE": "$geoip_postal_code"
+    }
+  }
 
 .. hint:: for details, see the `Module ngx\_http\_geoip\_module <http://nginx.org/en/docs/http/ngx_http_geoip_module.html>`__ documentation
 
@@ -1295,21 +1364,29 @@ PHP Modules
 
 To install additional PHP modules, use the following configuration:
 
-::
+.. code-block:: json
 
-    website::php:
-      "modulename":
-        "ensure": "installed"
+  {
+    "website::php": {
+      "modulename": {
+        "ensure": "installed",
         "package": "php5-packagename"
+      }
+    }
+  }
 
 For example if you like to install php5-ldap use:
 
-::
+.. code-block:: json
 
-    website::php:
-      "ldap":
-        "ensure": "installed"
+  {
+    "website::php": {
+      "ldap": {
+        "ensure": "installed",
         "package": "php5-ldap"
+      }
+    }
+  }
 
 .. hint:: some types might have the needed package preinstalled. For example "magento" comes with "php5-mcrypt"
 
@@ -1386,18 +1463,24 @@ You can enable ionCube loader globally by using the following configuration:
 PHP 5
 ^^^^^
 
-::
+.. code-block:: json
 
-    base::modules:
-      - "website::wrapper::phpioncube"
+  {
+    "base::modules": [
+      "website::wrapper::phpioncube"
+    ]
+  }
 
 PHP 7
 ^^^^^
 
-::
+.. code-block:: json
 
-    base::modules:
-      - "website::wrapper::php70ioncube"
+  {
+    "base::modules": [
+      "website::wrapper::php70ioncube"
+    ]
+  }
 
 Monitoring
 ----------
@@ -1408,26 +1491,36 @@ which have to have ``"env": "PROD"`` for other reasons, or sites which
 are not reachable from everywhere due to security reasons, please
 deactivate monitoring by setting ``"monitoring": "false"``.
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "examplenet":
-        "type":       "html"
-        "env":        "PROD"
+  {
+    "website::sites": {
+      "examplenet": {
+        "type": "html",
+        "env": "PROD",
         "monitoring": "false"
+      }
+    }
+  }
 
 SSH Access Keys
 ---------------
 
 .. hint:: To add a SSH key globally for all users, see :ref:`ssh-key-handling`
 
-::
+.. code-block:: json
 
-    website::sites:
-      "examplenet":
-        "ssh_key":
-          "contact@example.net":
+  {
+    "website::sites": {
+      "examplenet": {
+        "ssh_key": {
+          "contact@example.net": {
             "key": "ssh-rsa AAAAB....."
+          }
+        }
+      }
+    }
+  }
 
 .. hint:: You can also add more, custom configuration options, see :ref:`ssh-key-handling` for details
 
@@ -1436,14 +1529,19 @@ Environment Variables
 
 You can set or override environment variables per website by setting the ``envvar`` option:
 
-::
+.. code-block:: json
 
-    website::sites:
-      "examplenet":
-        "envvar":
-          "MYENVVAR":   "this is the value"
-          "DB_HOST":    "override global DB_HOST variable here"
+  {
+    "website::sites": {
+      "examplenet": {
+        "envvar": {
+          "MYENVVAR": "this is the value",
+          "DB_HOST": "override global DB_HOST variable here",
           "http_proxy": "override global http_proxy variable here"
+        }
+      }
+    }
+  }
 
 Delete website
 --------------
@@ -1451,11 +1549,15 @@ Delete website
 As a security measure, you have to define explicit that you want to
 delete a website:
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "examplenet":
+  {
+    "website::sites": {
+      "examplenet": {
         "ensure": "absent"
+      }
+    }
+  }
 
 As soon as "ensure" equals set to "absent", all configurations and data
 related to this site gets removed at once. After the next configuration
@@ -1468,131 +1570,97 @@ or the generic ``devop`` user to run ``puppet-agent``
 Full configuration example
 --------------------------
 
-::
+.. code-block:: json
 
-    website::sites: 
-      "examplenet":
-        "password":    "1234"
-        "server_name": "typo3.example.net www.typo3.example.net"
-        "env":         "PROD"
-        "type":        "typo3cms"
-      "devexamplenet":
-        "password":    "1234"
-        "server_name": "dev.example.net www.dev.example.net"
-        "env":         "DEV"
-        "htpasswd":    "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
-        "type":        "typo3cms"
-      "wordpressexample":
-        "server_name": "wordpress.example.net"
-        "env":         "PROD"
-        "type":        "wordpress"
-        "password":    "Aiw7vaakos04h7e"
-      "drupalexample":
-        "server_name": "drupal.example.net"
-        "env":         "PROD"
-        "type":        "drupal"
-        "password":    "Aiw7vaakos04h7e"
-      "phpexamplenet":
-        "server_name": "php.example.net"
-        "env":         "PROD"
-        "type":        "php"
-      "hhvmexamplenet":
-        "server_name": "hhvm.example.net"
-        "env":         "PROD"
-        "type":        "php"
-        "dbtype":      "mysql"
-        "password":    "ohQueeghoh0bath"
-      "htmlexamplenet":
-        "server_name": "html.example.net"
-        "env":         "PROD"
-        "type":        "html"
-      "neosexample":
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "server_name": "neos.example.net www.neos.example.net"
-        "env":         "PROD"
-        "type":        "typo3neos"
-      "uwsgiexample":
-        "server_name": "uwsgi.example.net"
-        "env":         "PROD"
-        "type":        "uwsgi"
-        "dbtype":      "postgresql"
-        "password":    "ohQueeghoh0bath"
-      "symfonyexample":
-        "server_name": "symfony.example.net www.symfony.example.net"
-        "password":    "Efo9ohh4EiN3Iifeing7eijeeP4iesae"
-        "env":         "PROD"
-        "type":        "symfony"
-       "redirectexample":
-        "server_name": "example.to"
-        "target":      "$scheme://domain.com$request_uri"
-        "env":         "PROD"
-        "type":        "redirect"
-       "proxyexample":
-        "server_name": "proxy.to"
-        "env":         "PROD"
-        "type":        "proxy"
-        "members":     
-          - localhost:8080
-          - 127.0.0.1:8081
-          - unix:/tmp/backend
-      "magentoexample":
-        "server_name": "magento.example.net"
-        "env":         "PROD"
-        "type":        "magento"
-        "password":    "Aiw7vaakos04h7e"
-        "ssl_key": |
-         -----BEGIN PRIVATE KEY-----
-         MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRHc47/0zg+cAg
-         MkHKY1U7TOFChPawiNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXU
-         zjTTTUN/dGoElGz4gFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/T
-         KyW85hETMLi+tRw9Kbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYib
-         z05C6+BVpw9w+BWFERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9
-         ZKrlPcUZNReWxgX+ZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR
-         5fn4i8hbAgMBAAECggEAYv66MBr3GRYChvtju9z0b2NAzE3HvuC6KFRYAlpI1Hl8
-         umWCF/JKGpBD2NKU4yMvaPrCvtsdH8DaVLjdtx4/kunYepyNTcLrsRoMl6uvTCCv
-         oVW3Dw6x6MK3TEzjrwM+gHr+S235qsyjp2MotVkwwiXxf46bdLT5MWuOgnyEhkQQ
-         cmv6qDmjgDP5vH5r4riAlPKMq+jGtLc/2QWs22UxQS0/a7n0pks472AonLI8r1M8
-         sYcCAC6uEvxRZdVcJOlRK78dPI3NLxFhSbvv/GcVOypyhvQ3uVYV71xA/AgcpBLd
-         Fc2FULRCCU/UEjmo62uYNkG09lCchBwK8BLYYWrCoQKBgQDqL5Eo9oLMTuzysu8I
-         vemXODOTfxQb1OTH1dyA4kSAtmNF2IO5rNnvVsS5YlbSjZMEXRMYTSflp7L7ae2l
-         XLqjhijdB6l5cdgsPyHD2phYOvJzWMuzjkCtIjm5QfdMfsUZnBSPbwaRF1zWxbVn
-         mHlWi3Zcu8U65l9gsJviZelqqwKBgQDkmG4W1SEySON4i44JwzsmXQHP1d8KHES1
-         hB1IETNYV2HzIAWnnX/fqPwqyahzegKTGut9U7kJ8QHsHvz56nHdiQ8zw4BZxQPw
-         j4Pms1IpzpO48yf4swskqwgkk5W6wTHCD/Q48tqFtAMPwC/D88F966ipc6lyldsJ
-         UXvLeeMZEQKBgGTHYZWaOAGKOYfcHufJKnwMEI350wKDJI0m6ISCWu51DtWg7lb6
-         HrNTyMbqnehwSoNHNo9vrKq0914gYMeX1y3F71HnGTSNHHU2Gea57HOTsoCXBtpX
-         blfTcbnavHyr1VBHDcYIBnBr+GTooj9Zq2XmEGKp35+QQh1PA1ZzevaPAoGASdop
-         Lv06VVmRC9/iSqslT/aaYEATZ9vMIuyE3USZVwAcKAT/brCGoIaiuVwfLPeNH2OC
-         EyJaVKjlWxiD2GXy1YSzQaD2tYneBPkIvx7N+62+sfD0x/doMTeEUPTRWd2SqsSm
-         vUNQcAPBPXR0uhTlPT5GZkB0zQ03D6KgoRNG2FECgYEAgXPJjIsqhcC0PNEuRgdC
-         9pZq+Prvp4TniVwQKyPniw/FjAplI4uN/+1fiYPexaLzINnXUuvOTYPABec3T2DZ
-         GV0lffmdZ+CleU1Xi5DjLGn8m0Gdy6mecE2Le9/Q13o3owF9rm0Drhqqd8T6vVt3
-         hiw7C+lCp2XheqP+QchwxiY=
-         -----END PRIVATE KEY-----
-        "ssl_cert": |
-         -----BEGIN CERTIFICATE-----
-         MIIEATCCAumgAwIBAgIJAMdVCMOVZl30MA0GCSqGSIb3DQEBCwUAMIGWMQswCQYD
-         VQQGEwJDSDEPMA0GA1UECAwGWnVyaWNoMQ8wDQYDVQQHDAZadXJpY2gxIzAhBgNV
-         BAoMGnNub3dmbGFrZSBwcm9kdWN0aW9ucyBHbWJIMRowGAYDVQQDDBF0eXBvMy5l
-         eGFtcGxlLm5ldDEkMCIGCSqGSIb3DQEJARYVd2VibWFzdGVyQGV4YW1wbGUubmV0
-         MB4XDTE1MDIxMjEyMDU1MloXDTI1MDIwOTEyMDU1MlowgZYxCzAJBgNVBAYTAkNI
-         MQ8wDQYDVQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEjMCEGA1UECgwac25v
-         d2ZsYWtlIHByb2R1Y3Rpb25zIEdtYkgxGjAYBgNVBAMMEXR5cG8zLmV4YW1wbGUu
-         bmV0MSQwIgYJKoZIhvcNAQkBFhV3ZWJtYXN0ZXJAZXhhbXBsZS5uZXQwggEiMA0G
-         CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRHc47/0zg+cAgMkHKY1U7TOFChPaw
-         iNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXUzjTTTUN/dGoElGz4
-         gFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/TKyW85hETMLi+tRw9
-         Kbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYibz05C6+BVpw9w+BWF
-         ERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9ZKrlPcUZNReWxgX+
-         ZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR5fn4i8hbAgMBAAGj
-         UDBOMB0GA1UdDgQWBBSSJyPyLa8CNKMDR3BAOcuuzzEqlTAfBgNVHSMEGDAWgBSS
-         JyPyLa8CNKMDR3BAOcuuzzEqlTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUA
-         A4IBAQAMKv2Kdw2LkskJm/GAkEsavoYf6qAPruwcsp8cx+7doXOpptZ/w+m8NK8i
-         6ffi65wQ4TGlFxEvXM1Ts4S1xF/+6JVnnp8RVGvfgDL7xi6juMqbtM5yBxjHKO6W
-         AuxOmwPcd6cO5qL+MCSgIe13bn/V4bw/JLv9LONuwXHJuv0FEoazbSyB6uTwYf2D
-         pWHEkXvkz5A1hqu3y2jFq2cQffoO31GGx29U3uSl+Esp5bL/J0bQd3TUbwvu6FY1
-         NgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS
-         v8jOaIjDp5AMoZxbPMlv/5Tk85uF
-         -----END CERTIFICATE-----
-      "deleteme":
-         "ensure": "absent"
+  {
+    "website::sites": {
+      "examplenet": {
+        "password": "1234",
+        "server_name": "typo3.example.net www.typo3.example.net",
+        "env": "PROD",
+        "type": "typo3cms"
+      },
+      "devexamplenet": {
+        "password": "1234",
+        "server_name": "dev.example.net www.dev.example.net",
+        "env": "DEV",
+        "htpasswd": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/",
+        "type": "typo3cms"
+      },
+      "wordpressexample": {
+        "server_name": "wordpress.example.net",
+        "env": "PROD",
+        "type": "wordpress",
+        "password": "Aiw7vaakos04h7e"
+      },
+      "drupalexample": {
+        "server_name": "drupal.example.net",
+        "env": "PROD",
+        "type": "drupal",
+        "password": "Aiw7vaakos04h7e"
+      },
+      "phpexamplenet": {
+        "server_name": "php.example.net",
+        "env": "PROD",
+        "type": "php"
+      },
+      "hhvmexamplenet": {
+        "server_name": "hhvm.example.net",
+        "env": "PROD",
+        "type": "php",
+        "dbtype": "mysql",
+        "password": "ohQueeghoh0bath"
+      },
+      "htmlexamplenet": {
+        "server_name": "html.example.net",
+        "env": "PROD",
+        "type": "html"
+      },
+      "neosexample": {
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "server_name": "neos.example.net www.neos.example.net",
+        "env": "PROD",
+        "type": "typo3neos"
+      },
+      "uwsgiexample": {
+        "server_name": "uwsgi.example.net",
+        "env": "PROD",
+        "type": "uwsgi",
+        "dbtype": "postgresql",
+        "password": "ohQueeghoh0bath"
+      },
+      "symfonyexample": {
+        "server_name": "symfony.example.net www.symfony.example.net",
+        "password": "Efo9ohh4EiN3Iifeing7eijeeP4iesae",
+        "env": "PROD",
+        "type": "symfony"
+      },
+      "redirectexample": {
+        "server_name": "example.to",
+        "target": "$scheme://domain.com$request_uri",
+        "env": "PROD",
+        "type": "redirect"
+      },
+      "proxyexample": {
+        "server_name": "proxy.to",
+        "env": "PROD",
+        "type": "proxy",
+        "members": [
+          "localhost:8080",
+          "127.0.0.1:8081",
+          "unix:/tmp/backend"
+        ]
+      },
+      "magentoexample": {
+        "server_name": "magento.example.net",
+        "env": "PROD",
+        "type": "magento",
+        "password": "Aiw7vaakos04h7e",
+        "ssl_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRHc47/0zg+cAg\nMkHKY1U7TOFChPawiNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXU\nzjTTTUN/dGoElGz4gFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/T\nKyW85hETMLi+tRw9Kbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYib\nz05C6+BVpw9w+BWFERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9\nZKrlPcUZNReWxgX+ZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR\n5fn4i8hbAgMBAAECggEAYv66MBr3GRYChvtju9z0b2NAzE3HvuC6KFRYAlpI1Hl8\numWCF/JKGpBD2NKU4yMvaPrCvtsdH8DaVLjdtx4/kunYepyNTcLrsRoMl6uvTCCv\noVW3Dw6x6MK3TEzjrwM+gHr+S235qsyjp2MotVkwwiXxf46bdLT5MWuOgnyEhkQQ\ncmv6qDmjgDP5vH5r4riAlPKMq+jGtLc/2QWs22UxQS0/a7n0pks472AonLI8r1M8\nsYcCAC6uEvxRZdVcJOlRK78dPI3NLxFhSbvv/GcVOypyhvQ3uVYV71xA/AgcpBLd\nFc2FULRCCU/UEjmo62uYNkG09lCchBwK8BLYYWrCoQKBgQDqL5Eo9oLMTuzysu8I\nvemXODOTfxQb1OTH1dyA4kSAtmNF2IO5rNnvVsS5YlbSjZMEXRMYTSflp7L7ae2l\nXLqjhijdB6l5cdgsPyHD2phYOvJzWMuzjkCtIjm5QfdMfsUZnBSPbwaRF1zWxbVn\nmHlWi3Zcu8U65l9gsJviZelqqwKBgQDkmG4W1SEySON4i44JwzsmXQHP1d8KHES1\nhB1IETNYV2HzIAWnnX/fqPwqyahzegKTGut9U7kJ8QHsHvz56nHdiQ8zw4BZxQPw\nj4Pms1IpzpO48yf4swskqwgkk5W6wTHCD/Q48tqFtAMPwC/D88F966ipc6lyldsJ\nUXvLeeMZEQKBgGTHYZWaOAGKOYfcHufJKnwMEI350wKDJI0m6ISCWu51DtWg7lb6\nHrNTyMbqnehwSoNHNo9vrKq0914gYMeX1y3F71HnGTSNHHU2Gea57HOTsoCXBtpX\nblfTcbnavHyr1VBHDcYIBnBr+GTooj9Zq2XmEGKp35+QQh1PA1ZzevaPAoGASdop\nLv06VVmRC9/iSqslT/aaYEATZ9vMIuyE3USZVwAcKAT/brCGoIaiuVwfLPeNH2OC\nEyJaVKjlWxiD2GXy1YSzQaD2tYneBPkIvx7N+62+sfD0x/doMTeEUPTRWd2SqsSm\nvUNQcAPBPXR0uhTlPT5GZkB0zQ03D6KgoRNG2FECgYEAgXPJjIsqhcC0PNEuRgdC\n9pZq+Prvp4TniVwQKyPniw/FjAplI4uN/+1fiYPexaLzINnXUuvOTYPABec3T2DZ\nGV0lffmdZ+CleU1Xi5DjLGn8m0Gdy6mecE2Le9/Q13o3owF9rm0Drhqqd8T6vVt3\nhiw7C+lCp2XheqP+QchwxiY=\n-----END PRIVATE KEY-----\n",
+        "ssl_cert": "-----BEGIN CERTIFICATE-----\nMIIEATCCAumgAwIBAgIJAMdVCMOVZl30MA0GCSqGSIb3DQEBCwUAMIGWMQswCQYD\nVQQGEwJDSDEPMA0GA1UECAwGWnVyaWNoMQ8wDQYDVQQHDAZadXJpY2gxIzAhBgNV\nBAoMGnNub3dmbGFrZSBwcm9kdWN0aW9ucyBHbWJIMRowGAYDVQQDDBF0eXBvMy5l\neGFtcGxlLm5ldDEkMCIGCSqGSIb3DQEJARYVd2VibWFzdGVyQGV4YW1wbGUubmV0\nMB4XDTE1MDIxMjEyMDU1MloXDTI1MDIwOTEyMDU1MlowgZYxCzAJBgNVBAYTAkNI\nMQ8wDQYDVQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEjMCEGA1UECgwac25v\nd2ZsYWtlIHByb2R1Y3Rpb25zIEdtYkgxGjAYBgNVBAMMEXR5cG8zLmV4YW1wbGUu\nbmV0MSQwIgYJKoZIhvcNAQkBFhV3ZWJtYXN0ZXJAZXhhbXBsZS5uZXQwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRHc47/0zg+cAgMkHKY1U7TOFChPaw\niNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXUzjTTTUN/dGoElGz4\ngFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/TKyW85hETMLi+tRw9\nKbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYibz05C6+BVpw9w+BWF\nERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9ZKrlPcUZNReWxgX+\nZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR5fn4i8hbAgMBAAGj\nUDBOMB0GA1UdDgQWBBSSJyPyLa8CNKMDR3BAOcuuzzEqlTAfBgNVHSMEGDAWgBSS\nJyPyLa8CNKMDR3BAOcuuzzEqlTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUA\nA4IBAQAMKv2Kdw2LkskJm/GAkEsavoYf6qAPruwcsp8cx+7doXOpptZ/w+m8NK8i\n6ffi65wQ4TGlFxEvXM1Ts4S1xF/+6JVnnp8RVGvfgDL7xi6juMqbtM5yBxjHKO6W\nAuxOmwPcd6cO5qL+MCSgIe13bn/V4bw/JLv9LONuwXHJuv0FEoazbSyB6uTwYf2D\npWHEkXvkz5A1hqu3y2jFq2cQffoO31GGx29U3uSl+Esp5bL/J0bQd3TUbwvu6FY1\nNgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS\nv8jOaIjDp5AMoZxbPMlv/5Tk85uF\n-----END CERTIFICATE-----\n"
+      },
+      "deleteme": {
+        "ensure": "absent"
+      }
+    }
+  }

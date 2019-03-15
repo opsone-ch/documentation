@@ -65,28 +65,36 @@ exec_after
 Minimal configuration
 ---------------------
 
-::
+.. code-block:: json
 
-    globalrepo::repo:
-      "myproject":
+  {
+    "globalrepo::repo": {
+      "myproject": {
         "source": "git@git.example.net:myproject.git"
+      }
+    }
+  }
 
 Full example
 ------------
 
-::
+.. code-block:: json
 
-    globalrepo::repo:
-      "myproject":
-        "source":
-          "origin":        "git@git.example.net:myproject.git"
-          "upstream":      "git@git.example.com:myproject.git"
-          "mirror":        "git@git.example.org:myproject.git"
-        "path":            "/opt/global/myproject"
-        "ensure":          "present"
-        "provider"         "git"
-        "remote":          "origin"
-        "revision":        "master"
-        "ssh_private_key": "ssh-private-key"
-        "exec_after":      "composer update"
-
+  {
+    "globalrepo::repo": {
+      "myproject": {
+        "source": {
+          "origin": "git@git.example.net:myproject.git",
+          "upstream": "git@git.example.com:myproject.git",
+          "mirror": "git@git.example.org:myproject.git"
+        },
+        "path": "/opt/global/myproject",
+        "ensure": "present",
+        "provider": "git",
+        "remote": "origin",
+        "revision": "master",
+        "ssh_private_key": "ssh-private-key",
+        "exec_after": "composer update"
+      }
+    }
+  }

@@ -18,18 +18,21 @@ Configuration
    worry about network configuration
 -  for special cases, you can add the following settings
 
-::
+.. code-block:: json
 
-    # Network Configuration
-    networking::interfaces:
-      "eth0":
-        "address":           "99"
-        "address_prefix_v4": "192.168.0"
-        "netmask_v4":        "255.255.255.0"
-        "gateway_v4":        "192.168.0.1"
-        "address_prefix_v6": "2001:db8::"
-        "netmask_v6":        "64"
-        "gateway_v6":        "2001:db8::1"
+  {
+    "networking::interfaces": {
+      "eth0": {
+        "address": "99",
+        "address_prefix_v4": "192.168.0",
+        "netmask_v4": "255.255.255.0",
+        "gateway_v4": "192.168.0.1",
+        "address_prefix_v6": "2001:db8::",
+        "netmask_v6": "64",
+        "gateway_v6": "2001:db8::1"
+      }
+    }
+  }
 
 -  this will led to the following Network Configuration
 
