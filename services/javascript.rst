@@ -11,11 +11,15 @@ Nodejs
 
 To install Node.js, add ``nodejs`` to the ``javascript::backend`` hash:
 
-::
+.. code-block:: json
 
-    javascript::backend:
-      "nodejs":
+  {
+    "javascript::backend": {
+      "nodejs": {
         "ensure": "present"
+      }
+    }
+  }
 
 NPM
 ---

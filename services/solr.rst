@@ -60,16 +60,20 @@ monitoring
 Full example
 """"""""""""
 
-::
+.. code-block:: json
 
-    solr::webappv6:
-      "name":
-        "ensure":       "present"
-        "solrVersion":  "6.6.1"
-        "extVersion":   "7.0.1"
-        "port":         "8983"
-        "memory_ratio": "4"
-        "monitoring":   "true"
+  {
+    "solr::webappv6": {
+      "name": {
+        "ensure": "present",
+        "solrVersion": "6.6.1",
+        "extVersion": "7.0.1",
+        "port": "8983",
+        "memory_ratio": "4",
+        "monitoring": "true"
+      }
+    }
+  }
 
 Solr Admin
 ^^^^^^^^^^

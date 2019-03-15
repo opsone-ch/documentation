@@ -9,11 +9,13 @@ Plain Tomcat
 To install a preconfigured Tomcat and run your own .war file, install
 Tomcat with:
 
-::
+.. code-block:: json
 
-    # additional Puppet Modules
-    base::modules:
-      - "tomcat"
+  {
+    "base::modules": [
+      "tomcat"
+    ]
+  }
 
 Apache Solr
 -----------
@@ -30,18 +32,20 @@ Based on:
 TYPO3
 ^^^^^
 
-::
+.. code-block:: json
 
-    # additional Puppet Modules
-    base::modules:
-      - "solr"
-
-    # Solr Configuration
-    solr::webappv4:
-      "solr-example-net":
-        "password":    "oiphiengukei4paMahch0thoo"
-        "solrVersion": "4.8.1"
-        "extVersion":  "3.0.0"
+  {
+    "base::modules": [
+      "solr"
+    ],
+    "solr::webappv4": {
+      "solr-example-net": {
+        "password": "oiphiengukei4paMahch0thoo",
+        "solrVersion": "4.8.1",
+        "extVersion": "3.0.0"
+      }
+    }
+  }
 
 This will install Solr 4.8 configured for the usage of with the
 inofficial TYPO3 Solr extension.
@@ -49,17 +53,20 @@ inofficial TYPO3 Solr extension.
 Magento
 ^^^^^^^
 
-::
+.. code-block:: json
 
-    # additional Puppet Modules
-    base::modules:
-      - "solr"
-
-    solr::instance::magento:
-      "solr-example-ch":
-        "password":    "pai3xohw0ieGhieSheuge3oaf"
-        "solrVersion": "4.8.1"
-        "extVersion":  "1.0.0"
+  {
+    "base::modules": [
+      "solr"
+    ],
+    "solr::instance::magento": {
+      "solr-example-ch": {
+        "password": "pai3xohw0ieGhieSheuge3oaf",
+        "solrVersion": "4.8.1",
+        "extVersion": "1.0.0"
+      }
+    }
+  }
 
 Access
 ^^^^^^
