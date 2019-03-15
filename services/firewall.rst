@@ -33,32 +33,42 @@ Where applicable, both IPv4 and IPv6 Rules are added by default (For example INP
 Allow
 ~~~~~
 
-::
+.. code-block:: json
 
-    base::firewall::rules:
-      "020 accept Puppet to puppetmaster":
-        "dport":        "8140"
-        "destination":  "192.168.0.22"
+  {
+    "base::firewall::rules": {
+      "020 accept Puppet to puppetmaster": {
+        "dport": "8140",
+        "destination": "192.168.0.22",
         "destination6": "2001:db8::22"
-      "021 accept HTTP to Package Server":
-        "dport":        "80"
-        "destination":  "192.168.0.21"
-      "040 accept incoming HTTP":
-        "chain":        "INPUT"
-        "dport":        "80"
+      },
+      "021 accept HTTP to Package Server": {
+        "dport": "80",
+        "destination": "192.168.0.21"
+      },
+      "040 accept incoming HTTP": {
+        "chain": "INPUT",
+        "dport": "80"
+      }
+    }
+  }
 
 Deny
 ~~~~
 
 You can add custom rules to deny services, too:
 
-::
+.. code-block:: json
 
-    base::firewall::rules:
-      "020 deny HTTP because we want to force a secure site with HTTPS only":
-        "chain":  "INPUT"
-        "dport":   "80"
+  {
+    "base::firewall::rules": {
+      "020 deny HTTP because we want to force a secure site with HTTPS only": {
+        "chain": "INPUT",
+        "dport": "80",
         "action": "reject"
+      }
+    }
+  }
 
 .. hint:: HTTP(S) nginx rules are numbered 040 so you must use a lower number for your rule to be processed before the default allow all from nginx-configuration
 

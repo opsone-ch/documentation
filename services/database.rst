@@ -25,14 +25,19 @@ Databases
       Configurations (e.g. external access or grants to particular
       Tables use users/grants below)
 
-::
+.. code-block:: json
 
-    database::databases:
-      "<database-name-without-user>":
+  {
+    "database::databases": {
+      "<database-name-without-user>": {
         "type": "mysql"
-      "<database-name-with-user>":
-        "type": "mysql"
+      },
+      "<database-name-with-user>": {
+        "type": "mysql",
         "user_password": "<cleartext-password>"
+      }
+    }
+  }
 
 Users
 ~~~~~
@@ -42,41 +47,54 @@ Users
 -  if you add Users for remote Hosts, also add corresponding Firewall
    Rule
 
-::
+.. code-block:: json
 
-    database::users:
-      "<username>@localhost":
+  {
+    "database::users": {
+      "<username>@localhost": {
         "password": "<cleartext-password>"
-      "<username>@<remote-hostname>":
+      },
+      "<username>@<remote-hostname>": {
         "password": "<cleartext-password>"
+      }
+    }
+  }
 
 Grants
 ~~~~~~
 
 -  grant Access for a User to a Database and Tables
 
-::
+.. code-block:: json
 
-    database::grants:
-      "<username>@localhost":
-        "user":     "<username>@localhost"
-        "database": "<database-name>"
-        "table":    "*"
-      "<username>@<remote-hostname>":
-        "user":     "<username>@<remote-hostname>"
-        "database": "<database-name>"
-        "table":    "*"
-      "<username-for-specific-table>@<remote-hostname>":
-        "user":     "<username-for-specific-table>@<remote-hostname>"
-        "database": "<database-name>"
-        "table":    "<specific-table-name>"
-      "<username-for-specific-table-with-privileges>@<remote-hostname>":
-        "user":       "<username-for-specific-table>@<remote-hostname>"
-        "database":   "<database-name>"
-        "table":      "<specific-table-name>"
-        "privileges":
-          - "SELECT"
-          - "INSERT"
+  {
+    "database::grants": {
+      "<username>@localhost": {
+        "user": "<username>@localhost",
+        "database": "<database-name>",
+        "table": "*"
+      },
+      "<username>@<remote-hostname>": {
+        "user": "<username>@<remote-hostname>",
+        "database": "<database-name>",
+        "table": "*"
+      },
+      "<username-for-specific-table>@<remote-hostname>": {
+        "user": "<username-for-specific-table>@<remote-hostname>",
+        "database": "<database-name>",
+        "table": "<specific-table-name>"
+      },
+      "<username-for-specific-table-with-privileges>@<remote-hostname>": {
+        "user": "<username-for-specific-table>@<remote-hostname>",
+        "database": "<database-name>",
+        "table": "<specific-table-name>",
+        "privileges": [
+          "SELECT",
+          "INSERT"
+        ]
+      }
+    }
+  }
 
 Additional configuration options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,12 +200,16 @@ Databases
 -  user\_password: adds a User with the same Name as the Database with
    this Password and grant all privileges
 
-::
+.. code-block:: json
 
-    database::databases:
-      "withuser":
-        "type": "postgresql"
+  {
+    "database::databases": {
+      "withuser": {
+        "type": "postgresql",
         "user_password": "cleartext-password"
+      }
+    }
+  }
 
 Backup
 ~~~~~~
@@ -215,27 +237,37 @@ Access
 Elasticsearch only locally accessible through localhost:9200. You can
 setup a Proxy as follows:
 
-::
+.. code-block:: json
 
-    websites::site:
-      "elasticproxy":
-        "server_name": "elastic.host"
-        "type":        "proxy"
-        "members":
-          - localhost:9200
+  {
+    "websites::site": {
+      "elasticproxy": {
+        "server_name": "elastic.host",
+        "type": "proxy",
+        "members": [
+          "localhost:9200"
+        ]
+      }
+    }
+  }
 
 Example
 ~~~~~~~
 
-::
+.. code-block:: json
 
-    database::databases:
-      "elastic":
-        "type":         "elasticsearch"
-        "memory_ratio": "1.5"
-        "custom_conf":
-          - "node.name: my_elastic_node_004"
-          - "discovery.zen.minimum_master_nodes: 2"
+  {
+    "database::databases": {
+      "elastic": {
+        "type": "elasticsearch",
+        "memory_ratio": "1.5",
+        "custom_conf": [
+          "node.name: my_elastic_node_004",
+          "discovery.zen.minimum_master_nodes: 2"
+        ]
+      }
+    }
+  }
 
 Backup
 ~~~~~~

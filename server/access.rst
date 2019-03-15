@@ -35,12 +35,17 @@ Key Handling
 
 You can add global keys to your server like this:
 
-::
+.. code-block:: json
 
-    ssh::keys:
-      "enduser":
-        "contact@example.net":
+  {
+    "ssh::keys": {
+      "enduser": {
+        "contact@example.net": {
           "key": "ssh-rsa AAAAB....."
+        }
+      }
+    }
+  }
 
 Please use a valid contact address, so we are able to get in touch if
 something comes up.
@@ -48,18 +53,24 @@ something comes up.
 Additionaly, you can add custom environment variables to those keys.
 They get applied on every SSH login:
 
-::
+.. code-block:: json
 
-    ssh::keys:
-      "enduser":
-        "contact@example.net":
-          "environment":
-            "EDITOR":              "/usr/bin/vi"
-            "GIT_AUTHOR_NAME":     "Bob"
-            "GIT_AUTHOR_EMAIL":    "bob@example.net"
-            "GIT_COMMITTER_NAME":  "Bob"
+  {
+    "ssh::keys": {
+      "enduser": {
+        "contact@example.net": {
+          "environment": {
+            "EDITOR": "/usr/bin/vi",
+            "GIT_AUTHOR_NAME": "Bob",
+            "GIT_AUTHOR_EMAIL": "bob@example.net",
+            "GIT_COMMITTER_NAME": "Bob",
             "GIT_COMMITTER_EMAIL": "bob@example.net"
+          },
           "key": "ssh-rsa AAAAB....."
+        }
+      }
+    }
+  }
 
 Create SSH Key
 ~~~~~~~~~~~~~~
@@ -80,12 +91,15 @@ SSH client configuration
 Add client configurations to ``/etc/ssh/ssh_config`` by setting the
 ``ssh::config`` hash:
 
-::
+.. code-block:: json
 
-    ssh::config:
-      "Host":     "git"
-      "HostName": "code.example.com"
-      "User":     "git"
+  {
+    "ssh::config": {
+      "Host": "git",
+      "HostName": "code.example.com",
+      "User": "git"
+    }
+  }
 
 .. Hint:: use ``man ssh_config`` (`online version <http://man.openbsd.org/ssh_config>`_) for available configuration options
 
