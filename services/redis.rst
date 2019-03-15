@@ -11,8 +11,10 @@ There are no options available currently. Please contact us if you need somethin
 Full example
 ------------
 
-::
+.. code-block:: json
 
-    base::modules:
-      - "redis"
-
+  {
+    "base::modules": [
+      "redis"
+    ]
+  }

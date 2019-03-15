@@ -36,14 +36,18 @@ another port, use the ``port`` parameter to specify it.
 Full example
 ~~~~~~~~~~~~
 
-::
+.. code-block:: json
 
-    caching::backend:
-      "memcached":
-        "ensure":       "present"
-        "memory_ratio": "8"
-        "address":      "127.0.0.1"
-        "port":         "11211"
+  {
+    "caching::backend": {
+      "memcached": {
+        "ensure": "present",
+        "memory_ratio": "8",
+        "address": "127.0.0.1",
+        "port": "11211"
+      }
+    }
+  }
 
 Varnish
 -------
@@ -103,16 +107,20 @@ Add one or more startup options to the Varnish daemon with ``daemon_options``.
 Full example
 ~~~~~~~~~~~~
 
-::
+.. code-block:: json
 
-    caching::backend:
-      "varnish":
-        "ensure":       "present"
-        "address":      "185.17.68.153"
-        "port":         "80"
-        "address6":     "2a04:503:0:1003::153"
-        "port6":        "80"
-        "vcl_type":     "default"
-        "vcl_include":  "/home/user/cnf/varnish.vcl"
+  {
+    "caching::backend": {
+      "varnish": {
+        "ensure": "present",
+        "address": "185.17.68.153",
+        "port": "80",
+        "address6": "2a04:503:0:1003::153",
+        "port6": "80",
+        "vcl_type": "default",
+        "vcl_include": "/home/user/cnf/varnish.vcl",
         "memory_ratio": "4"
-    caching::wrapper::varnish::daemon_options: "-p vcc_allow_inline_c=on",
+      },
+      "caching::wrapper::varnish::daemon_options": "-p vcc_allow_inline_c=on"
+    }
+  }

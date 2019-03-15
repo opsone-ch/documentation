@@ -26,10 +26,12 @@ Custom Xdebug Port/Host
 
 You can specify own  values for ``xdebug.remote_port`` and ``xdebug.remote_host`` through Hiera.
 
-::
+.. code-block:: json
 
-    xdebug::remote_port: "9000"
-    xdebug::remote_host: "192.168.0.1"
+  {
+    "xdebug::remote_port": "9000",
+    "xdebug::remote_host": "192.168.0.1"
+  }
 
 .. warning:: If set, those values will apply for all websites on this server. You'll loose the ability to debug multiple websites concurrently.
 

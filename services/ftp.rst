@@ -17,14 +17,18 @@ Users
    adding.
 -  home: access is restricted to this directory
 
-::
+.. code-block:: json
 
-    ftp::users:
-      "alice":
-        "password": "$6$1sLLOf5.$GAZDHYXEjs0MpR5uHBAR5eD00MpUasTgbyIP27PZ8WprL98XeU01N502ogYn1JKrgqEiTXn1/lkFBNZ46zZHY/"
-        "uid":      "1005"
-        "gid":      "1005"
-        "home":     "/home/examplenet/www/webcam/"
+  {
+    "ftp::users": {
+      "alice": {
+        "password": "$6$1sLLOf5.$GAZDHYXEjs0MpR5uHBAR5eD00MpUasTgbyIP27PZ8WprL98XeU01N502ogYn1JKrgqEiTXn1/lkFBNZ46zZHY/",
+        "uid": "1005",
+        "gid": "1005",
+        "home": "/home/examplenet/www/webcam/"
+      }
+    }
+  }
 
 .. hint:: The password has to be encrypted. Use the following command to encrypt your desired password: ``mkpasswd -m sha-512``
 
@@ -36,14 +40,20 @@ Directories
 -  add custom per directory options
 -  see ProFTPD Documentation for Details: http://www.proftpd.org/docs/
 
-::
+.. code-block:: json
 
-    ftp::directories:
-      "/home/examplenet/tmp/":
-        "limit":
-          "WRITE":
-            "DenyAll":
+  {
+    "ftp::directories": {
+      "/home/examplenet/tmp/": {
+        "limit": {
+          "WRITE": {
+            "DenyAll": null,
             "AllowUser": "alice"
+          }
+        }
+      }
+    }
+  }
 
 will led to this ProFTPD configuration:
 
@@ -74,23 +84,20 @@ Specify your own certificate with the ``tls_key`` and ``tls_crt`` options.
 
 ::
 
-    ftp::wrapper::proftpd::tls_crt: |
-      -----BEGIN CERTIFICATE-----
-      MY-TLS-CERTIFICATE
-
-    ftp::wrapper::proftpd::tls_key: |
-      -----BEGIN PRIVATE KEY-----
-      MY-TLS-KEY
+  "ftp::wrapper::proftpd::tls_crt": "-----BEGIN CERTIFICATE-----\nMY-TLS-CERTIFICATE\n",
+  "ftp::wrapper::proftpd::tls_key": "-----BEGIN PRIVATE KEY-----\nMY-TLS-KEY"
 
 own certificate in file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Another option is to use existing certificates already in place on this server, for example one thats used with nginx already. Specify the certificates location with the ``tls_key_file`` and ``tls_crt_file`` options.
 
-::
+.. code-block:: json
 
-    ftp::wrapper::proftpd::tls_crt_file: "/etc/nginx/ssl/<websitename>.crt"
-    ftp::wrapper::proftpd::tls_key_file: "/etc/nginx/ssl/<websitename>.key"
+  {
+    "ftp::wrapper::proftpd::tls_crt_file": "/etc/nginx/ssl/<websitename>.crt",
+    "ftp::wrapper::proftpd::tls_key_file": "/etc/nginx/ssl/<websitename>.key"
+  }
 
 .. hint:: With this option, you can also use certificates issued through nginx by Let's Encrypt
 
