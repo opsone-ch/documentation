@@ -7,36 +7,9 @@ to select a particular type (e.g. typo3cms) and environment (e.g. PROD).
 According those settings, our automation will setup the server/vhost as
 required.
 
-Add website
------------
-
-Add a website with a configuration like this:
-
-.. code-block:: json
-
-  {
-    "website::sites": {
-      "username": {
-        "server_name": "example.net www.example.net",
-        "env": "PROD",
-        "type": "php"
-      }
-    }
-  }
-
--  username: Is used as system user name (SSH Login, CGI User) and
-   database name, if a database exist
--  2 - 16 lowercase letters only (as this name is used in several
-   places, we have to limit its value to the least common denominator)
--  server\_name: add host names which this vhost will listen on. You
-   have to define all names explicit, also with and/or without www.
--  env: One of DEV, STAGE or PROD (see `Environments`_)
--  type: software type of this particular website (see `Types`_)
-
 By adding a website, the following parts are created on the server:
 
--  system user
--  system group
+-  system user and group
 -  home directory (/home/username/)
 -  directory for temporary files (/home/username/tmp/)
 -  directory for log files (/home/username/log/)
@@ -54,53 +27,81 @@ You have to define one of the following types for each website.
 
 .. note:: If you need a type not mentioned here yet, do not hesitate to contact us
 
-typo3cmsv7
+typo3cmsv9
 ^^^^^^^^^^
 
--  nginx with ModSecurity WAF, core rule set and TYPO3 7.x compatible white/blacklists
--  PHP 7.2
--  MariaDB 10.x with database, user, and grants
--  latest TYPO3 CMS 7 LTS cloned into /opt/typo3/TYPO3\_7/
--  Default webroot is ~/web
--  PHP and nginx settings adjusted to TYPO3 7 requirements
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF, core rule set and TYPO3 9.x compatible white/blacklists
+   * - runtime environment
+     - PHP 7.2
+   * - Database
+     - MySQL (MariaDB 10.x ) with database, user, and grants
+   * - Default webroot
+     - ~/web
+
+-  PHP and nginx settings adjusted to TYPO3 9 requirements
+-  latest TYPO3 CMS 9 LTS cloned into ``/opt/typo3/TYPO3\_9/``
+-  PHP and nginx settings adjusted to TYPO3 9 requirements
 -  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
-   see `Environment Variables`_ for details.
+   see `Environment Variables`_ for details
 -  TYPO3 Scheduler executed every 5 minutes
 
 typo3cmsv8
 ^^^^^^^^^^
 
--  nginx with ModSecurity WAF, core rule set and TYPO3 8.x compatible white/blacklists
--  PHP 7.2
--  MariaDB 10.x with database, user, and grants
--  latest TYPO3 CMS 8 LTS cloned into /opt/typo3/TYPO3\_8/
--  Default webroot is ~/web
--  PHP-Settings adjusted to 8.x-requirements
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF, core rule set and TYPO3 8.x compatible white/blacklists
+   * - runtime environment
+     - PHP 7.2
+   * - Database
+     - MySQL (MariaDB 10.x ) with database, user, and grants
+   * - Default webroot
+     - ~/web
+
 -  PHP and nginx settings adjusted to TYPO3 8 requirements
+-  latest TYPO3 CMS 8 LTS cloned into ``/opt/typo3/TYPO3\_8/``
 -  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
-   see `Environment Variables`_ for details.
+   see `Environment Variables`_ for details
 -  TYPO3 Scheduler executed every 5 minutes
 
-typo3cmsv9
+typo3cmsv7
 ^^^^^^^^^^
 
--  nginx with ModSecurity WAF, core rule set and TYPO3 9.x compatible white/blacklists
--  PHP 7.2
--  MariaDB 10.x with database, user, and grants
--  latest TYPO3 CMS 9 LTS cloned into /opt/typo3/TYPO3\_9/
--  Default webroot is ~/web
--  PHP and nginx settings adjusted to TYPO3 9 requirements
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF, core rule set and TYPO3 7.x compatible white/blacklists
+   * - runtime environment
+     - PHP 7.2
+   * - Database
+     - MySQL (MariaDB 10.x ) with database, user, and grants
+   * - Default webroot
+     - ~/web
+
+-  PHP and nginx settings adjusted to TYPO3 7 requirements
+-  latest TYPO3 CMS 7 LTS cloned into ``/opt/typo3/TYPO3\_7/``
 -  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
-   see `Environment Variables`_ for details.
+   see `Environment Variables`_ for details
 -  TYPO3 Scheduler executed every 5 minutes
 
 neos
 ^^^^
 
--  nginx with ModSecurity WAF, core rule set and Neos compatible white/blacklists
--  PHP 7.2
--  MariaDB 10.x with database, user, and grants
--  Default webroot is ~/Web
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF, core rule set and Neos compatible white/blacklists
+   * - runtime environment
+     - PHP 7.2
+   * - Database
+     - MySQL (MariaDB 10.x ) with database, user, and grants
+   * - Default webroot
+     - ~/web
+
 -  PHP and nginx settings adjusted to Neos requirements
 -  ``FLOW_CONTEXT`` set according the selected environment (see `Environments`_)
 -  ``FLOW_REWRITEURLS`` enabled
@@ -108,110 +109,165 @@ neos
 magento2
 ^^^^^^^^
 
--  nginx with ModSecurity WAF, core rule set and Magento 2 compatible white/blacklists
--  PHP 7.1
--  MariaDB 10.x with database, user, and grants
--  Default webroot is ~/pub
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF, core rule set and Magento 2 compatible white/blacklists
+   * - runtime environment
+     - PHP 7.1
+   * - Database
+     - MySQL (MariaDB 10.x ) with database, user, and grants
+   * - Default webroot
+     - ~/pub
+
 -  PHP and nginx settings adjusted to Magento 2 requirements
 -  Magento 2 cronjobs running every minute
 
 wordpress
 ^^^^^^^^^
 
-- nginx with ModSecurity WAF, core rule set and Wordpress compatible white/blacklists
-- PHP 7.2
-- MariaDB 10.x with database, user, and grants
-- PHP and nginx settings adjusted to Wordpress requirements
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF, core rule set and Wordpress compatible white/blacklists
+   * - runtime environment
+     - PHP 7.2
+   * - Database
+     - MySQL (MariaDB 10.x ) with database, user, and grants
+   * - Default webroot
+     - ~/www
+
+- PHP and nginx settings adjusted to WordPress requirements
 - WP-CLI installed and available by using the ``wp`` command
 - wp-cron.php is called every 5 minutes over CLI
 
 .. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 
-php71
-^^^^^
-
--  nginx with ModSecurity WAF and core rule set
--  PHP 7.1
--  MariaDB 10.x with database, user, and grants (use ``"dbtype": "mysql"``,
-   otherwise without database)
-
 php72
 ^^^^^
 
--  nginx with ModSecurity WAF and core rule set
--  PHP 7.2
--  MariaDB 10.x with database, user, and grants (use ``"dbtype": "mysql"``,
-   otherwise without database)
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - PHP 7.2
+   * - Database
+     - Optional: MySQL, MongoDB or PostgreSQL
+   * - Default webroot
+     - ~/www
+
+php71
+^^^^^
+
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - PHP 7.1
+   * - Database
+     - Optional: MySQL, MongoDB or PostgreSQL
+   * - Default webroot
+     - ~/www
 
 html
 ^^^^
 
--  nginx with ModSecurity WAF and core rule set
--  for static content only (this documentation is served trough the html
-   type)
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - for static content only
+   * - Database
+     - unavailable
+   * - Default webroot
+     - ~/www
 
 uwsgi
 ^^^^^
 
--  nginx with ModSecurity WAF and core rule set
--  uwsgi Daemon (Symlink your appropriate wsgi configuration to
-   ~/wsgi.py)
--  Python virtualenv ``venv-<sitename>`` configured within uwsgi and the
-   user login shell
--  there is no database added by default, choose one of
--  PostgreSQL 9.4 with database, user, and grants
-   (``"dbtype": "postgresql"``)
--  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
--  all requests are redirected to the uwsgi daemon by default. To serve
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - uWSGI Daemon, Python virtualenv
+   * - Database
+     - Optional: MySQL, MongoDB or PostgreSQL
+   * - Default webroot
+     - ~/www
+
+-  uWSGI Daemon (Symlink your appropriate wsgi configuration to ``~/wsgi.py``)
+-  Python virtualenv ``venv-<sitename>`` configured within uWSGI and the user login shell
+-  all requests are redirected to the uWSGI daemon by default. To serve
    static files, add appropriate locations to the `Custom configuration`_ like this:
 
    ::
 
-       location /static/
-       {
-       root /home/user/application/;
+       location /static/ {
+         root /home/user/application/;
        }
 
-.. code-block:: json
+.. hint:: to control the uwsgi daemon, use the ``uwsgi-reload`` and ``uwsgi-restart`` shortcuts
 
-  {
-    "website::sites": {
-      "uwsgiexample": {
-        "server_name": "uwsgi.example.net",
-        "env": "PROD",
-        "type": "uwsgi",
-        "dbtype": "postgresql",
-        "password": "ohQueeghoh0bath"
-      }
-    }
-  }
-
-Hint: to control the uwsgi daemon, use the ``uwsgi-reload`` and
-``uwsgi-restart`` shortcuts
-
-Redirect
+redirect
 ^^^^^^^^
+
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - for redirects only
+   * - Database
+     - unavailable
+   * - Default webroot
+     - unavailable
 
 - redirects everything to a custom target
 - by default, we send a 307 HTTP code. To use your own code, add the ``target_code`` parameter to the websites custom JSON:
 
-.. code-block:: json
+  .. code-block:: json
 
-    {
-      "target_code": "301"
-    }
+      {
+        "target_code": "301"
+      }
 
 .. hint:: you can use any nginx variable as target (for example ``$scheme://www.example.com$request_uri``), see the `nginx Documentation <http://nginx.org/en/docs/varindex.html>`__ for available variables
 
-Proxy
+proxy
 ^^^^^
+
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - for reverse proxy only
+   * - Database
+     - unavailable
+   * - Default webroot
+     - unavailable
 
 -  nginx vhost configured as reverse proxy
 
 .. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it
 
-Docker
+docker
 ^^^^^^
+
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - own container with docker
+   * - Database
+     - Optional: MySQL, MongoDB or PostgreSQL
+   * - Default webroot
+     - unavailable
 
 -  nginx vhost configured as reverse proxy
 -  install docker and puts the user into the docker group
@@ -221,41 +277,56 @@ Docker
 nodejs
 ^^^^^^
 
-- nodejs daemon, controlled by monit
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - nodejs daemon, controlled by monit
+   * - Database
+     - Optional: MySQL, MongoDB or PostgreSQL
+   * - Default webroot
+     - socket: ~/cnf/nodejs.sock
+
 - select custom node version trough `nvm <https://github.com/creationix/nvm#usage>`__, by default, the latest node lts version is installed
-- symlink your app.js to ~/app.js or overwrite path or other daemon
+- symlink your app.js to ``~/app.js`` or overwrite path or other daemon
   options in ``OPTIONS`` at ``~/cnf/nodejs-daemon``:
 
-   ::
+  ::
 
-       OPTIONS="/home/nodejs/application/app.js --prod"
+      OPTIONS="/home/nodejs/application/app.js --prod"
 
 - nodejs has to listen on the ``~/cnf/nodejs.sock`` socket, permission ``660``
-- there is no database added by default, choose one of
-    - PostgreSQL with database, user, and grants (``"dbtype": "postgresql"``)
-    - MariaDB with database, user, and grants (``"dbtype": "mysql"``)
 - all requests are redirected to the nodejs daemon by default. To serve
   static files, add appropriate locations to the `Custom configuration`_ like this:
 
-   ::
+  ::
 
-       location /static/ {
-         root /home/user/application/;
-         include /etc/nginx/custom/security.conf;
-       }
+      location /static/ {
+        root /home/user/application/;
+        include /etc/nginx/custom/security.conf;
+      }
 
 .. hint:: to control the nodejs daemon, use the ``nodejs-restart`` shortcut
 
 ruby
 ^^^^
 
--  nginx with ModSecurity WAF and core rule set
--  Python virtualenv ``venv-<sitename>`` configured within the
-   user login shell
--  ruby rbenv configured within foreman and the
-   user login shell
+.. list-table:: 
+
+   * - Web server
+     - nginx with ModSecurity WAF and core rule set
+   * - runtime environment
+     - Python virtualenv, ruby rbenv and foreman daemon
+   * - Database
+     - Optional: MySQL, MongoDB or PostgreSQL
+   * - Default webroot
+     - socket: ``~/cnf/nodejs.sock``
+
+-  Python virtualenv ``venv-<sitename>`` configured within the user login shell
+-  ruby rbenv configured within foreman and the user login shell
 -  foreman daemon, controlled by monit
--  symlink your Procfile to ~/ or overwrite path or other daemon
+-  symlink your Procfile to ``~/`` or overwrite path or other daemon
    options in ``OPTIONS`` at ``~/cnf/ruby-daemon``:
 
    ::
@@ -264,33 +335,14 @@ ruby
 
 -  ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission
    ``660``
--  there is no database added by default, choose one of
-    -  PostgreSQL 9.4 with database, user, and grants
-       (``"dbtype": "postgresql"``)
-    -  MariaDB 10.x with database, user, and grants (``"dbtype": "mysql"``)
 -  all requests are redirected to the ruby daemon by default. To serve
    static files, add appropriate locations to the `Custom configuration`_ like this:
 
    ::
 
-       location /static/
-       {
+       location /static/ {
            root /home/user/application/;
        }
-
-.. code-block:: json
-
-  {
-    "website::sites": {
-      "ruby": {
-        "server_name": "ruby.example.net",
-        "env": "PROD",
-        "type": "ruby",
-        "dbtype": "mysql",
-        "password": "ohQueeghoh0bath"
-      }
-    }
-  }
 
 .. hint:: to control the nodejs daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
 
