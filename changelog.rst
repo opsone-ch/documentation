@@ -19,6 +19,7 @@ System Wide
 - removed subversion package and configuration. Please install and configure manually, if you still need subversion somewhere
 - msmtp was replaced by Postfix to send outgoing mails. See :doc:`server/e-mail` for details
 - new feature to add custom ca certificates to the servers key chain. See :doc:`server/ca-certificates` for details
+- Netdata added for realtime metrics monitoring, see :doc:`server/monitoring` for details
 
 Website Service
 ^^^^^^^^^^^^^^^
