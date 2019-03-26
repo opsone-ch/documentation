@@ -1,25 +1,38 @@
 Monitoring
 ==========
 
-Availability
-------------
+Availability (external)
+-----------------------
 
 We closely monitor all aspects of your server and take appropriate actions if required.
-You see the status of all service checks in the cockpit.
 
-Status
-------
+Availability (internal)
+-----------------------
 
-Monit, nginx and PHP FPM (if installed) status pages are available at ``http://localhost:2813/``.
+Monit, nginx and PHP FPM (if installed) status pages are available at ``http://localhost:2813/``:
 
-* `/monit/`: Monit service manager displaying status of all locally monitored processes
-* `/nginx/`: nginx `stub status <http://nginx.org/en/docs/http/ngx_http_stub_status_module.html>`__ output
-* `/fpm-<poolname>/`: PHP FPM per pool status page
+* ``http://localhost:2813/monit/``: Monit service manager displaying status of all locally monitored processes
+* ``http://localhost:2813/nginx/``: nginx `stub status <http://nginx.org/en/docs/http/ngx_http_stub_status_module.html>`__ output
+* ``http://localhost:2813/fpm-<poolname>/``: PHP FPM per pool status page
 
 .. hint:: this status vhost is running on localhost only. Expose port 2813 through SSH to access locally: ``ssh <hostname> -L 2813:localhost:2813``
 
 Utilization
 -----------
+
+Netdata
+~~~~~~~
+
+Netdata is a real-time, interactive web dashboard collecting data every second. Metrics are saved in memory
+and kept for 1 hour only. You can reach its webinterface at ``http://localhost:19999``.
+
+To connect from your local computer, either forward port 19999 through SSH (``ssh <hostname> -L 19999:localhost:19999``),
+or add a reverse proxy website forwarding requests to ``http://localhost:19999``
+
+.. warning:: when using the reverse proxy method, make sure to enable HTTPS and password protection
+
+collectd
+~~~~~~~~
 
 System statistics are collected every 10 seconds by collectd and written to RRD files in
 `/var/lib/collectd`. For performance reasons, we don't create graphs by default, therefore you have
@@ -30,10 +43,9 @@ within the collectd wiki. We use `collectd-web <https://github.com/httpdss/colle
 
 
 Examine with `collectd-web`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install
-^^^^^^^
+* installation
 
 ::
 
@@ -41,10 +53,7 @@ Install
   git clone https://github.com/httpdss/collectd-web.git
   echo 'datadir: "/tmp/rrd"' | sudo tee /etc/collectd/collection.conf
 
-
-Fetch data and render graphs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+* fetch data and render graphs
 
 ::
 
@@ -52,5 +61,5 @@ Fetch data and render graphs
   cd /path/to/collectd-web
   python runserver.py
 
-Then open `collectd-web` at http://127.0.0.1:8888/.
+* then open `collectd-web` at http://127.0.0.1:8888/
 
