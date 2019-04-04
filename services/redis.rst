@@ -24,6 +24,7 @@ Redis from PHP. The extension is precompiled and installed, but not loaded by de
 To load *phpredis* in your environment, specify the extenion in ``~/cnf/php.ini``:
 
 .. code-block:: ini
+
   extension = redis.so
 
 .. hint:: see :ref:`php.ini` for details
