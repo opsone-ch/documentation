@@ -982,6 +982,8 @@ This configuration is only available globally for all websites on a server, to c
 
   "website::wrapper::nginx::log_format": "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
 
+.. _php.ini:
+
 PHP
 ^^^
 
