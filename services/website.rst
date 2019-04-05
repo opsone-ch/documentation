@@ -91,7 +91,7 @@ typo3cmsv7
 neos
 ^^^^
 
-.. list-table:: 
+.. list-table::
 
    * - Web server
      - nginx with ModSecurity WAF, core rule set and Neos compatible white/blacklists
@@ -106,10 +106,29 @@ neos
 -  ``FLOW_CONTEXT`` set according the selected environment (see `Environments`_)
 -  ``FLOW_REWRITEURLS`` enabled
 
+required configuration
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: our approach to dynamically configure PHP is not compatible with Neos by default
+
+As a workaround, we have to let know Neos about the environment variable
+required to load the appropriate PHP settings, by defining the the
+``PHP_INI_SCAN_DIR`` environment variable in ``Configuration/Settings.yaml``:
+
+.. code-block:: yaml
+
+  Neos:
+    Flow:
+      core:
+        subRequestEnvironmentVariables:
+          PHP_INI_SCAN_DIR: '/etc/php72/<username>/neos/:/home/<username>/cnf/'
+
+.. hint:: see `this Neos Discuss thread <https://discuss.neos.io/t/setup-process-error-with-custom-php-environment/4174>`__ for technical details
+
 magento2
 ^^^^^^^^
 
-.. list-table:: 
+.. list-table::
 
    * - Web server
      - nginx with ModSecurity WAF, core rule set and Magento 2 compatible white/blacklists
@@ -1124,69 +1143,6 @@ on your server and add the following configuration:
   }
 
 .. hint:: for details, see the `Module ngx\_http\_geoip\_module <http://nginx.org/en/docs/http/ngx_http_geoip_module.html>`__ documentation
-
-Composer
---------
-
-Every PHP based website type has composer installed and auto updated.
-
-.. hint:: For details, see the `Composer <https://getcomposer.org/doc/>`__ documentation
-
-TYPO3 8
-^^^^^^^
-
-On composer based TYPO3 8 installations, composer runs after every TYPO3
-core update, if the following conditions are fulfilled:
-
--  ``type: typo3cmsv8``
--  ``~/composer.json`` exists
--  ``~/composer.json`` contains ``typo3/cms``
-
-Command used on websites with ``env: DEV``:
-``/usr/local/bin/composer update -n -o typo3/cms``
-Command used on all other environments:
-``/usr/local/bin/composer update --no-dev -n -o typo3/cms``
-
-.. hint:: Composer runs only after changes within the global TYPO3 core in ``/var/lib/typo3``. During deployments, you still have to run composer manually
-
-Install TYPO3 CMS with Composer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To use TYPO3 CMS 6.x or 7.x with composer, use the following command:
-
-::
-
-    # Export HTTPS PROXY settings to use with get.typo3.org
-    export HTTPS_PROXY_REQUEST_FULLURI=false
-
-    # Download the Base Distribution, the latest "stable" release (6.2)
-    composer create-project typo3/cms-base-distribution CmsBaseDistribution
-
-    # Download the Base Distribution, the "dev" branch (7.x)
-    composer create-project typo3/cms-base-distribution CmsBaseDistribution dev-master
-
-    # Download the Base Distribution, the "dev" 6.2 branch
-    composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.x-dev
-
-Install Neos with Composer
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To install Neos with composer, use the following command:
-
-::
-
-    # Create Web/tmp directory, install Neos, move to users home directory and cleanup
-    composer create-project --no-dev neos/neos-base-distribution neos && rsync -a --delete-after ~/neos/ ~/
-
-Install Symfony with Composer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To use Symfony 2 with composer, use the following command:
-
-::
-
-    # Create Web/tmp directory, install Symfony2 with composer, move to users home directory and cleanup
-    mkdir ~/web/tmp/ && cd ~/web/tmp/ && composer create-project symfony/framework-standard-edition symfony && rsync -a --delete-after ~/web/tmp/symfony/ ~/
 
 Monitoring
 ----------
