@@ -4,7 +4,8 @@ Monitoring
 Availability (external)
 -----------------------
 
-We closely monitor all aspects of your server and take appropriate actions if required.
+We closely monitor all aspects of your server. According to your service level, our on call organisation
+will take appropriate actions if required.
 
 Availability (internal)
 -----------------------
@@ -16,6 +17,16 @@ Monit, nginx and PHP FPM (if installed) status pages are available at ``http://l
 * ``http://localhost:2813/fpm-<poolname>/``: PHP FPM per pool status page
 
 .. hint:: this status vhost is running on localhost only. Expose port 2813 through SSH to access locally: ``ssh <hostname> -L 2813:localhost:2813``
+
+Reboots
+-------
+
+A automatic reboot is initiated to solve certain high usage scenarios:
+
+* 5 minute average load higher than CPU count * 10 for 5 minutes
+* memory usage highter than 95% for 5 minutes
+
+.. hint:: always make sure that any required services will be up and running after a server reboot
 
 Utilization
 -----------
