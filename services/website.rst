@@ -1238,14 +1238,7 @@ Some deployment workflows require other locations, which you can select through 
 .. code-block:: json
 
   {
-    "website::sites": {
-      "username": {
-        "server_name": "example.net www.example.net",
-        "env": "PROD",
-        "type": "php",
-        "custom_webroot": "deploy/current/html"
-      }
-    }
+    "custom_webroot": "deploy/current/html"
   }
 
 PHP
