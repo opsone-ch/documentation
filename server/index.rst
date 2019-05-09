@@ -8,7 +8,6 @@ Server
   create
   access
   dualstack
-  configuration
   e-mail
   ssh-keys
   hosts

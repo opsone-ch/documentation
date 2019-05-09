@@ -1,24 +1,28 @@
 Access
 ======
 
-The following ways are provided to access your server and files.
-
 SSH
 ---
 
-Warning: due to security reasons, we allow key based logins only
+Your server is accessible trough SSH by default. There are no personal
+SSH login users supported to ensure uniformity between SSH and web actions,
+we support key based logins as non privileged user only.
 
-Your server is accessible trough SSH by default. We allow only key based
-logins as non privileged user (no root Login).
+.. hint:: due to security reasons, we allow key based logins only
 
 Generic ``devop`` user
 ~~~~~~~~~~~~~~~~~~~~~~
 
-On all servers, a user named ``devop`` is created by default. This user
-is required to execute the ``puppet-agent`` shortcut as long as there
-are no other services/users configured. Furthermore, this user belongs
-to the ``adm`` group which enable access to all system log files in
-``/var/log/``.
+A user named ``devop`` is created by default. You can log into the server
+with this user for debugging purposes or to execute some global task:
+
+* user belongs to the ``adm`` group which enables read access to all system log files in ``/var/log/``
+* ``puppet-agent`` to trigger a manual configuration management run
+* ``reboot`` to trigger a manual server reboot
+* ``diskusage`` to search for big files and folders
+* ``sudo iptables -L`` to show IPv4 firewall rules
+* ``sudo ip6tables -L`` to show IPv6 firewall rules
+* ``update-ca-certificates``, see :doc:`ca-certificates` for details
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
 
@@ -27,63 +31,6 @@ Shortcuts and sudo configuration
 
 Depending on the installed services, some shortcuts are available to execute certain commands with root privileges.
 You will find a list of all shortcuts by typing ``help``.
-
-.. _ssh-key-handling:
-
-Key Handling
-~~~~~~~~~~~~
-
-You can add global keys to your server like this:
-
-.. code-block:: json
-
-  {
-    "ssh::keys": {
-      "enduser": {
-        "contact@example.net": {
-          "key": "ssh-rsa AAAAB....."
-        }
-      }
-    }
-  }
-
-Please use a valid contact address, so we are able to get in touch if
-something comes up.
-
-Additionaly, you can add custom environment variables to those keys.
-They get applied on every SSH login:
-
-.. code-block:: json
-
-  {
-    "ssh::keys": {
-      "enduser": {
-        "contact@example.net": {
-          "environment": {
-            "EDITOR": "/usr/bin/vi",
-            "GIT_AUTHOR_NAME": "Bob",
-            "GIT_AUTHOR_EMAIL": "bob@example.net",
-            "GIT_COMMITTER_NAME": "Bob",
-            "GIT_COMMITTER_EMAIL": "bob@example.net"
-          },
-          "key": "ssh-rsa AAAAB....."
-        }
-      }
-    }
-  }
-
-Create SSH Key
-~~~~~~~~~~~~~~
-
--  use 4096 bit RSA Keys
--  encrypt with PKCS8
-
-::
-
-    ssh-keygen -b 4096 -C user@domain.ch -f ~/.ssh/id_rsa_tmp
-    openssl pkcs8 -topk8 -v2 des3 -in ~/.ssh/id_rsa_tmp -out ~/.ssh/id_rsa
-    mv ~/.ssh/id_rsa_tmp.pub ~/.ssh/id_rsa.pub
-    rm ~/.ssh/id_rsa_tmp 
 
 SSH client configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
