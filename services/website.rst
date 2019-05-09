@@ -1499,8 +1499,6 @@ deactivate monitoring by setting ``"monitoring": "false"``.
 SSH Access Keys
 ---------------
 
-.. hint:: To add a SSH key globally for all users, see :ref:`ssh-key-handling`
-
 .. code-block:: json
 
   {
@@ -1514,8 +1512,6 @@ SSH Access Keys
       }
     }
   }
-
-.. hint:: You can also add more, custom configuration options, see :ref:`ssh-key-handling` for details
 
 Environment Variables
 ---------------------
