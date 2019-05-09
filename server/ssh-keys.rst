@@ -65,14 +65,13 @@ Mac, Linux
 Create an SSH key pair
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If you have access to a SHELL and openssh (Mac/Linux) use the following
-command to create a new SSH key pair:
+Make sure the openssh-client package is installed and issue this command in your favorite shell:
 
 ::
 
     $ ssh-keygen -t ed25519 -a 100 -C '<e-mail@address>'
 
-.. hint:: do not create keys without passphrase. If you do, everyone with access to the key file will gain access to the server immediatelly.
+.. warning:: do not create keys without passphrase. If you do so, everyone with access to the key file will gain access to the server immediatelly
 
 Agent Forwarding
 ~~~~~~~~~~~~~~~~
@@ -109,7 +108,7 @@ Then you need to add your private key to the ssh-agent cache:
 
 ::
 
-    $ssh-add -c <keyfile>
+    $ ssh-add -c <keyfile>
 
 You can now connect to any SSH server without typing your passphrase.
 You can check for a running SSH agent with the command
