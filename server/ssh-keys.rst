@@ -90,52 +90,9 @@ command to create a new SSH key pair:
 
 ::
 
-    $ ssh-keygen -t rsa -b 4096 -m PKCS8 -C '<e-mail@address>' -f <keyfile>
+    $ ssh-keygen -t ed25519 -a 100 -C '<e-mail@address>'
 
-Note: Please use your real email address
-
-Note: The ``-m key_format`` flag allows you to specify a different
-digest algorithm for your private key. Since MD5 is the default digest
-algorithm a ``-m PKCS8`` incrieses your security drastically.
-
-::
-
-    $ ssh-keygen -t rsa -b 4096 -m PKCS8 -C 'alice@example.net' -f id_rsa_snowflake
-    Generating public/private rsa key pair.
-    Enter passphrase (empty for no passphrase): 
-    Enter same passphrase again: 
-    Your identification has been saved in id_rsa_snowflake
-    Your public key has been saved in id_rsa_snowflake.pub.
-    The key fingerprint is:
-    09:16:ae:76:9e:8b:25:64:64:63:c7:7a:d1:6f:28:fd alice@example.net
-    The key's randomart image is:
-    +--[ RSA 4096]----+
-    |      .          |
-    |     o o         |
-    |    = B .        |
-    |   + * + +       |
-    |    * + S o      |
-    |   + + o o       |
-    |    . +   E      |
-    |     + .         |
-    |    . .          |
-    +-----------------+
-
-Submit public key
-~~~~~~~~~~~~~~~~~
-
-Copy the content of the public key into an email and send it to
-us with a note on which server it should get added,
-for example:
-
-::
-
-    Add this key to example01.snowflakehosting.ch
-
-    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDdvVZsd/DhuL0uOpvU7uSTgm1C+jwXmO/kiN4BTxAexB0GAcfOW5hu99P5I2IlT1rjmlEeXSYlic9kMHEz6NJjj8/Hh9lftpz3IpjCS80I2y8KJ8K5FctZUh8ovzNOxya5SGyBiUWf7zZr4+exFnyqdfgqENA87pHJnZS63cZOq71vIHtacDX3azZbbg6cnkMlWJetOXGAfxQa1ZbAdrGBRadKccvbekO1LckALMd048HGS7I4jjN7lMd/uhq9cnjzpWNrYNODa1mlRX9tVyAt2pTc1s6TD496uuf3J0EwH5HXSfXd78cu/NtGINrqFnlMVrXYoGFO/4h3wEnv1ZhnRlpGXTWCCjQHTdxv/rEef37S0EbQf6asXyeMDxP/oR4gmN7QXs4l1gRVob6PaIzx9bYXIxwmQUVkSXcSANQaxjHUjTon6gufJYIagVodDN7ckwaKH3E5cRJ1Glwo60WgMcLA1lejNVn/ppjX4Xbp6S9kD293+7r684+QXCQ8JWK5qG+LaEmPS2yi6WHXji0+cJEeCGZrm7fhpbTkIFC9qDnZCaleeuXT9i+ALvbouhbV1oa6DK0FtEdf4xvdWeKE8rIlIrTcgGeQXWzA6iu7WlO69vZOWPcjeTlFH4TS1IV/U1FvGuXHMXwrmiEagcIWhXQr3VCWInARuJ2pxgXt4w== alice@example.net
-
-WARNING: Never send your private key to anyone, we will request a
-completely new key if you send us your private key.
+.. hint:: do not create keys without passphrase. If you do, everyone with access to the key file will gain access to the server immediatelly.
 
 Agent Forwarding
 ~~~~~~~~~~~~~~~~
