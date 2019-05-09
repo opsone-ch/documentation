@@ -26,26 +26,6 @@ the upmost field:
 
 .. figure:: putty-end-screen.png
 
-Note: Please use your real email address
-
-Submit public key
-~~~~~~~~~~~~~~~~~
-
-Paste the content of the field
-``Public key for pasting into OpenSSH authorized_keys file`` in an
-e-mail to us and add a note on which server it should
-get added, for example:
-
-::
-
-    Add this key to example01.snowflakehosting.ch
-
-    ssh-rsa
-    AAAAB3NzaC1yc2EAAAABJQAAAgEAihdXXTGZiIVDCHGVyTSRF4CnZKKs8g+jBI5pmxsn2gWISyecyp1FEf+A/j6FLWIuKAIOU3InRlJTJ+M/7zN8B6/JOyCtpl97dO7CKZOIVOVCPRG0nHsv8AqTb6hdF9neEDMklL+qeM0nPeQm7AmqrBL1FbJQpCmSH9jjFIGqE60iKtpsScQK9zTln66vLt1gWozg5SGYtzNYDYW0clHcy54XnHdcbKwlD0aAyi+ThfF+JKjbYE0JT+iABDB7K+lxAkOwAzWbjFaan6yBj6K9sL/zOaaeHdPgSEMkk3MXZNUfjhHKeFy3p/u3UoK1FigvxSUkgh9cuXHajOfgsRhp1wXGVw4yJ3W0gp3sziZ67WYuTtCxkiQCKA0frjrP4mb2M+3xKUFBbttbz+NQcvr+VQ71zjYQqL/mbN/wP19fpAisIPsKq1XHGpt0RVcsCu2ILt8U+GZoVb5ZoLFECcmH43H3FT4TyADZCCLSKtZfJyrqyulxdy79N9Qohp//PcbVq71654g/Yj2lwDj0VKF/Eh8lLt+nUlH5y9dJIiFXjiCylC74/QAQEEfX+k2Yt/bjEKklagZ0OdhjMUe2yVb80VI9eZrpjnk03922a1EYyeCZpTkKSqq05ZFGXS+7X57PDImGz66xsR7JuVOJ+J0Wr+zmeaOEFzG5yHskgNncnSk=
-    alice@example.net
-
-.. warning:: Never send your private key to anyone, we will request a completely new key if you send us your private key
-
 SSH Agent (Pageant)
 ~~~~~~~~~~~~~~~~~~~
 
