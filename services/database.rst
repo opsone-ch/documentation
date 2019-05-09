@@ -138,11 +138,11 @@ Nightly restore
 '''''''''''''''
 
 for a complete restore of the nightly database backup, decompress the
-backup, import it and remove the .sql file:
+backup, import it and remove the latest .sql.lzo file:
 
 ::
 
-    cd ~/backup/ && lzop -d database.sql.lzo && mysql database < database.sql && rm database.sql
+    lzop -dc ~/backup/<database>.sql.lzo | mysql <database>
 
 the database.sql.lzo.1 is the backup from yesterday.
 
