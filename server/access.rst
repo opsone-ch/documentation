@@ -5,18 +5,29 @@ SSH
 ---
 
 Your server is accessible trough SSH by default. There are no personal
-SSH login users supported to ensure uniformity between SSH and web actions,
-we support key based logins as non privileged user only.
+SSH login users supported to ensure uniformity between SSH and web actions.
 
-.. hint:: due to security reasons, we allow key based logins only
+.. hint:: for security reasons, we allow key based logins only
+
+Every aspect of the configuration is controlled through our configuration
+management software. There is no root access possible neither for the
+customer or ourself.
+
+Shortcuts and sudo configuration
+--------------------------------
+
+Depending on the installed services, some shortcuts are available to execute certain commands with root privileges.
+You will find a list of all shortcuts by typing ``help``.
 
 Generic ``devop`` user
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 A user named ``devop`` is created by default. You can log into the server
-with this user for debugging purposes or to execute some global task:
+with this user for debugging purposes or to execute some global tasks:
 
-* user belongs to the ``adm`` group which enables read access to all system log files in ``/var/log/``
+* read access to all system log files in ``/var/log/``
+* read access to nginx vhosts in ``/etc/nginx/websites/``
+* read access to the global modsecurity configuration in ``/etc/nginx/modsecurity/``
 * ``puppet-agent`` to trigger a manual configuration management run
 * ``reboot`` to trigger a manual server reboot
 * ``diskusage`` to search for big files and folders
@@ -26,14 +37,8 @@ with this user for debugging purposes or to execute some global task:
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
 
-Shortcuts and sudo configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Depending on the installed services, some shortcuts are available to execute certain commands with root privileges.
-You will find a list of all shortcuts by typing ``help``.
-
 SSH client configuration
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 Add client configurations to ``/etc/ssh/ssh_config`` by setting the
 ``ssh::config`` hash:
@@ -51,7 +56,7 @@ Add client configurations to ``/etc/ssh/ssh_config`` by setting the
 .. Hint:: use ``man ssh_config`` (`online version <http://man.openbsd.org/ssh_config>`_) for available configuration options
 
 SFTP
-~~~~
+----
 
 After adding your publickey to the server, is it possible to connect
 over SFTP. We recommend to use one of the following clients:
@@ -60,11 +65,4 @@ over SFTP. We recommend to use one of the following clients:
 -  `Cyperduck <https://cyberduck.io>`__
 
 .. Hint:: To store your key in the memory and not having to enter the password for every connection - use pageant (Windows) or ssh-add it (Linux)
-
-FTP
----
-
-There is no FTP daemon installed by default. Please consider to use
-SSH/SCP when possible. If you really need access by FTP, follow the
-instructions on :doc:`../services/ftp`.
 
