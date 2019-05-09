@@ -331,18 +331,17 @@ nodejs
 ruby
 ^^^^
 
-.. list-table:: 
+.. list-table::
 
    * - Web server
      - nginx with ModSecurity WAF and core rule set
    * - runtime environment
-     - Python virtualenv, ruby rbenv and foreman daemon
+     - ruby rbenv and foreman daemon
    * - Database
      - Optional: MySQL, MongoDB or PostgreSQL
    * - Default webroot
-     - socket: ``~/cnf/nodejs.sock``
+     - socket: ``~/cnf/ruby.sock``
 
--  Python virtualenv ``venv-<sitename>`` configured within the user login shell
 -  ruby rbenv configured within foreman and the user login shell
 -  foreman daemon, controlled by monit
 -  symlink your Procfile to ``~/`` or overwrite path or other daemon
@@ -352,8 +351,7 @@ ruby
 
        OPTIONS="start web -f project/Procfile"
 
--  ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission
-   ``660``
+-  ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission ``660``
 -  all requests are redirected to the ruby daemon by default. To serve
    static files, add appropriate locations to the `Custom configuration`_ like this:
 
