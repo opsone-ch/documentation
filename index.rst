@@ -43,7 +43,6 @@ Do you struggle with some configurations, or can we advise you somehow?
 We're here and happy to help.
 If you have any questions, don't hesitate to contact us:
 
-* Livechat (see below)
 * `Slack <https://opsone-ch.slack.com>`_
 * E-Mail: `team@opsone.ch <mailto:team@opsone.ch>`_
 * Phone: `058 255 00 22 <tel:+41582550022>`_
