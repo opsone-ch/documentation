@@ -221,4 +221,5 @@ Elasticsearch
 
 We provide Elasticsearch as Managed Service. Setup is individual according to your needs.
 
-`Get in touch with us<mailto:team@opsone.ch>`__ for further details.
+`Get in touch with us <mailto:team@opsone.ch>`__ for further details.
+
