@@ -1,0 +1,9 @@
+deploy PROD:
+  stage: deploy prod
+  type: deploy
+  when: manual
+  environment: PROD
+  allow_failure: false
+  script:
+  - apt-get -y update && apt-get -y install rsync
+  - rsync -avz --delete $OUTPUTDIR $PROD_USERNAME@$PROD_SERVERNAME:~/www/

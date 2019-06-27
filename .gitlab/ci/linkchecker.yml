@@ -1,0 +1,9 @@
+# Test
+linkchecker:
+  stage: test on prod
+  allow_failure: true
+  script:
+  - apt -y install linkchecker
+  - ls -li
+  - ls -li /tmp
+  - linkchecker $URL
