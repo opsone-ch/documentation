@@ -28,7 +28,7 @@ before_script:
 include:
   - project: 'opensource/docs'
     ref: 6-0-stable
-    file: 'gitlab/ci/mirror.yml'
+    file: '.gitlab/ci/mirror.yml'
   - project: 'opensource/docs'
     ref: 6-0-stable
     file: '.gitlab/ci/build.yml'
