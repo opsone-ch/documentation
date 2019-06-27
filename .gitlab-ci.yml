@@ -1,67 +1,43 @@
 # Configuration
 variables:
-  OUTPUTDIR: /tmp/docs-html/
+  OUTPUTDIR: _build
+  URL: https://docs.opsone.ch/legal/
+  VERSION: legal
 
 # Docker image
 image: "python:latest"
 
+# Define stages
 stages:
 - mirror
+- build
 - deploy stage
 - deploy prod
+- test on prod
 
 # Dependencies
 before_script:
   # SSH deploy key
+  - apt-get update
   - 'which ssh-agent || apt-get -y install openssh-client'
   - eval $(ssh-agent -s)
   - ssh-add <(echo "$SSH_PRIVATE_KEY")
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
-# Github mirror
-mirror Github:
-  stage: mirror
-  allow_failure: true
-  only:
-  - legal
-  script:
-  - cd $CI_PROJECT_DIR
-  - git checkout --track origin/$CI_BUILD_REF_NAME
-  - git remote add github git@github.com:opsone-ch/documentation.git
-  - git push github $CI_BUILD_REF_NAME
-
-# Deploy
-deploy STAGE:
-  stage: deploy stage
-  type: deploy
-  environment: STAGE
-  script:
-  - apt-get -y update && apt-get -y install rsync
-# Remove version as soon as https://github.com/Robpol86/sphinxcontrib-versioning/issues/39 is fixed
-  - pip install Sphinx==1.5.6
-# Remove install from Github as soon as https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304d30ed7aa1eacc6cca04514913b8d2385 is released
-#  - pip install sphinx_rtd_theme
-  - pip install git+https://github.com/snide/sphinx_rtd_theme.git@master -U
-  - pip install sphinxcontrib-versioning
-  - cd $CI_PROJECT_DIR
-  - sphinx-versioning build . $OUTPUTDIR --root-ref legal
-  - rsync -avz --delete $OUTPUTDIR $STAGE_USERNAME@$STAGE_SERVERNAME:~/www/
-
-deploy PROD:
-  stage: deploy prod
-  type: deploy
-  when: manual
-  environment: PROD
-  script:
-  - apt-get -y update && apt-get -y install rsync
-# Remove version as soon as https://github.com/Robpol86/sphinxcontrib-versioning/issues/39 is fixed
-  - pip install Sphinx==1.5.6
-# Remove install from Github as soon as https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304d30ed7aa1eacc6cca04514913b8d2385 is released
-#  - pip install sphinx_rtd_theme
-  - pip install git+https://github.com/snide/sphinx_rtd_theme.git@master -U
-  - pip install sphinxcontrib-versioning
-  - cd $CI_PROJECT_DIR
-  - sphinx-versioning build . $OUTPUTDIR --root-ref legal
-  - rsync -avz --delete $OUTPUTDIR $PROD_USERNAME@$PROD_SERVERNAME:~/www/
-
+include:
+  - project: 'opensource/docs'
+    ref: 6-0-stable
+    file: '.gitlab/ci/mirror.yml'
+  - project: 'opensource/docs'
+    ref: 6-0-stable
+    file: '.gitlab/ci/build.yml'
+  - project: 'opensource/docs'
+    ref: 6-0-stable
+    file: '.gitlab/ci/deploy_stage.yml'
+  - project: 'opensource/docs'
+    ref: 6-0-stable
+    file: '.gitlab/ci/deploy_prod.yml'
+  - project: 'opensource/docs'
+    ref: 6-0-stable
+    file: '.gitlab/ci/linkchecker.yml'
