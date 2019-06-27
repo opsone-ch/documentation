@@ -1,0 +1,10 @@
+# Github mirror
+mirror Github:
+  stage: mirror
+  allow_failure: true
+  only:
+  - $VERSION
+  script:
+  - cd $CI_PROJECT_DIR
+  - git remote add github git@github.com:opsone-ch/documentation.git
+  - git push github $CI_BUILD_REF_NAME
