@@ -41,7 +41,7 @@ envelope_from
 
 * rewrite envelope from of each sent mail to the address specified
 * useful to catch any return errors at a particular mailbox without configuring all applications independently
-* default: empty (internally defaults to <username>@server-domain>)
+* default: empty (internally defaults to <username@server-domain>)
 
 smtp_fallback_relay
 ~~~~~~~~~~~~~~~~~~~
@@ -77,8 +77,17 @@ smtpd_tls_cert_file
 * default: empty
 
 smtpd_tls_key_file
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 * path to a TLS key used for incoming SMTP connections
 * default: empty
 
+Example
+~~~~~~~
+
+.. code-block:: json
+
+  {
+    "postfix::relayhost": "example.net",
+    "postfix::envelope_from": "webserver@example.net"
+  }
