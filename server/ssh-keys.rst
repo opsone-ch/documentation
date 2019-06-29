@@ -11,8 +11,9 @@ page <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`__
 Create an SSH key pair
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Start puttygen, increase the ``Number of bits in a generated key`` field
-to 4096 and press the Generate button:
+Start puttygen, select ``ED25519`` and press the Generate button. 
+Alternatively you can select ``SSH-2 RSA`` and increase the 
+``Number of bits in a generated key`` field to ``4096``:
 
 .. figure:: putty-start-screen.png
 
