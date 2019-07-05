@@ -1,7 +1,8 @@
 # Configuration
 variables:
   OUTPUTDIR: _build
-  URL: https://docs.opsone.ch/5-0-stable/
+  PROD_URL: https://docs.opsone.ch/5-0-stable/
+  STAGE_URL: https://test.docs.opsone.ch/5-0-stable/
   VERSION: 5-0-stable
 
 # Docker image
