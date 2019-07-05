@@ -13,8 +13,8 @@ stages:
 - mirror
 - build
 - deploy stage
+- test
 - deploy prod
-- test on prod
 
 # Dependencies
 before_script:
