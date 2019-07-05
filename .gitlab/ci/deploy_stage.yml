@@ -1,7 +1,6 @@
 # Deploy
 deploy STAGE:
   stage: deploy stage
-  type: deploy
   environment: STAGE
   script:
   - apt-get -y update && apt-get -y install rsync

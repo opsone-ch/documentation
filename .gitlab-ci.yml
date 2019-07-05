@@ -1,7 +1,8 @@
 # Configuration
 variables:
   OUTPUTDIR: _build
-  URL: https://docs.opsone.ch/6-0-stable/
+  PROD_URL: https://docs.opsone.ch/6-0-stable/
+  STAGE_URL: https://test.docs.opsone.ch/6-0-stable/
   VERSION: 6-0-stable
 
 # Docker image
@@ -12,8 +13,8 @@ stages:
 - mirror
 - build
 - deploy stage
+- test
 - deploy prod
-- test on prod
 
 # Dependencies
 before_script:
