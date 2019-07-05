@@ -6,4 +6,4 @@ deploy PROD:
     - $VERSION == $CI_COMMIT_REF_NAME
   script:
   - apt-get -y update && apt-get -y install rsync
-  - rsync -avz --delete $OUTPUTDIR $PROD_USERNAME@$PROD_SERVERNAME:~/www/
+  - rsync -avz --delete $OUTPUTDIR/ $PROD_USERNAME@$PROD_SERVERNAME:~/www/
