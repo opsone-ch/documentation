@@ -4,4 +4,4 @@ deploy STAGE:
   environment: STAGE
   script:
   - apt-get -y update && apt-get -y install rsync
-  - rsync -avz --delete $OUTPUTDIR $STAGE_USERNAME@$STAGE_SERVERNAME:~/www/
+  - rsync -avz --delete $OUTPUTDIR/ $STAGE_USERNAME@$STAGE_SERVERNAME:~/www/
