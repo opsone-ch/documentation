@@ -927,10 +927,16 @@ This file is directly integrated in ``http { }``, before ``server { }`` and can 
 custom configuration include
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Include your own, external configuration files within ``server { }`` or ``http { }``.
+Include your own, external configuration files within ``server { }`` or ``http { }`` by including the following configuration to your server's ``Custom JSON``:
 
 * server level: set ``nginx::global_config::server_file``
 * http level: set ``nginx::global_config::http_file``
+
+.. warning:: if the configured files can not be found, the webserver will not be able to start.
+
+::
+
+    "nginx::global_config::server_file": "/absolut/path/to/your/file.conf"
 
 .. hint:: with this setting, you can deploy own, system wide configuration files from a Git repository. See :doc:`globalrepo` for details.
 
