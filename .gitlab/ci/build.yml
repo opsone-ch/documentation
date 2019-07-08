@@ -11,4 +11,4 @@ build:
   - pip install sphinx_rtd_theme
   - pip install sphinxcontrib-versioning
   - cd $CI_PROJECT_DIR
-  - sphinx-versioning build . $OUTPUTDIR --root-ref $VERSION
+  - sphinx-versioning build . $OUTPUTDIR --whitelist-branches "^([0-9]+-[0-9]+-stable|saas|legal)$" --root-ref $VERSION
