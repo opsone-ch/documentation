@@ -70,7 +70,8 @@ TLS Certificates
 ----------------
 
 - TLS is enabled and required by default
-- there is a option to disable the TLS requirement. As we try to avoid the usage of unencrypted FTP connections, this option is not documented. Please contact us in case you have to enable plain-text access
+
+.. warning:: You can disable the TLS requirement with ``"ftp::wrapper::proftpd::tlsrequired": "off",``. As we try to avoid the usage of unencrypted FTP connections, this option is strongly not recommended. Please contact us if we can help find another solution.
 
 default certificate
 ^^^^^^^^^^^^^^^^^^^
