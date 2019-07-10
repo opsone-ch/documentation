@@ -7,6 +7,10 @@ Dokumente
 * :doc:`agb_index`
 * :doc:`dse_index`
 
+English documents
+-----------------
+* :doc:`dse_en_index`
+
 Kontakt
 -------
 
@@ -48,3 +52,4 @@ Wir verwenden und lieben Open Source Software und stellen die meisten unserer Ar
 
   agb_index
   dse_index
+  dse_en_index
