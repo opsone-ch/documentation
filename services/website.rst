@@ -545,21 +545,20 @@ configurations/features are applied to the vhost:
 -  daily `Qualys SSL Labs <https://www.ssllabs.com/>`__ API Check
 -  global HTTP to HTTPS redirect
 
-Automated Certificate Management Environment (ACME/Let's Encrypt)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Let's Encrypt
+^^^^^^^^^^^^^
 
-We support ACME certificates by `Let's
-Encrypt <https://letsencrypt.org/>`__. To enable this, set ``ssl_acme``
-to true. You can select a specific ACME provider by
-``ssl_acme_provider``, however by now only ``letsencrypt`` is available
-and already set as default, so you can omit this usually.
-
-.. warning:: Let's Encrypt will try to reach your server by HTTP. Make sure that all hosts added to ``server_name`` end up on your server already, otherwise validation will fail
+We support free tls certificates by `Let's Encrypt <https://letsencrypt.org/>`__.
+You can activate Letsencrypt for your website in the cockpit.
+The certificates are automatically renewed 30 days before expiration.
 
 Debug validation problems
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to debug validation issues, we introduced the ``letsencrypt-renew`` shortcut which will trigger a run of our Let's Encrypt client, and let you see all debug output to identifiy possible problems.
+
+-  Make sure that all hosts added to ``Server name`` end up on your server already.
+-  Let's Encrypt will try to reach your website at the endpoint ``/.well-known/acme-challenge/``. Make sure that you do not overwrite this path within your `own nginx configuration <#custom-configuration>`__.
 
 Renewal
 ~~~~~~~
@@ -567,22 +566,6 @@ Renewal
 Certificates from Let's Encrypt will be valid for 90 days. They are renewed automatically as soon as they expire in under 30 days. You can follow these checks and renewals by grep for ``letsencrypt`` in ``/var/log/syslog``.
 
 Furthermore, we check all certificates from our monitoring and will contact you if there are certificates expiring in less than 21 days.
-
-
-Configuration example
-~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: json
-
-  {
-    "devexamplenet": {
-      "type": "html",
-      "env": "PROD",
-      "ssl_acme": "true",
-      "ssl_acme_provider": "letsencrypt", # not required, as letsencrypt is already the default
-      "server_name": "dev.example.net www.dev.example.net" # make sure that all this hosts point to this server already
-    }
-  }
 
 Order certificate
 ^^^^^^^^^^^^^^^^^
@@ -623,28 +606,11 @@ Submit this CSR to us for further processing, or order certificate by yourself f
 Configure website
 ^^^^^^^^^^^^^^^^^
 
--  ssl\_key: generated private key
--  ssl\_cert: signed certificate, including appropriate intermediate
+-  SSL key: generated private key
+-  SSL key: signed certificate, including appropriate intermediate
    certificates
 
-Note: make sure to use the correct line indenting
-
-.. code-block:: json
-
-  {
-    "website::sites": {
-      "magentoexample": {
-        "server_name": "magento.example.net",
-        "env": "PROD",
-        "type": "magento",
-        "password": "Aiw7vaakos04h7e",
-        "ssl_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRHc47/0zg+cAg\nMkHKY1U7TOFChPawiNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXU\nzjTTTUN/dGoElGz4gFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/T\nKyW85hETMLi+tRw9Kbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYib\nz05C6+BVpw9w+BWFERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9\nZKrlPcUZNReWxgX+ZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR\n5fn4i8hbAgMBAAECggEAYv66MBr3GRYChvtju9z0b2NAzE3HvuC6KFRYAlpI1Hl8\numWCF/JKGpBD2NKU4yMvaPrCvtsdH8DaVLjdtx4/kunYepyNTcLrsRoMl6uvTCCv\noVW3Dw6x6MK3TEzjrwM+gHr+S235qsyjp2MotVkwwiXxf46bdLT5MWuOgnyEhkQQ\ncmv6qDmjgDP5vH5r4riAlPKMq+jGtLc/2QWs22UxQS0/a7n0pks472AonLI8r1M8\nsYcCAC6uEvxRZdVcJOlRK78dPI3NLxFhSbvv/GcVOypyhvQ3uVYV71xA/AgcpBLd\nFc2FULRCCU/UEjmo62uYNkG09lCchBwK8BLYYWrCoQKBgQDqL5Eo9oLMTuzysu8I\nvemXODOTfxQb1OTH1dyA4kSAtmNF2IO5rNnvVsS5YlbSjZMEXRMYTSflp7L7ae2l\nXLqjhijdB6l5cdgsPyHD2phYOvJzWMuzjkCtIjm5QfdMfsUZnBSPbwaRF1zWxbVn\nmHlWi3Zcu8U65l9gsJviZelqqwKBgQDkmG4W1SEySON4i44JwzsmXQHP1d8KHES1\nhB1IETNYV2HzIAWnnX/fqPwqyahzegKTGut9U7kJ8QHsHvz56nHdiQ8zw4BZxQPw\nj4Pms1IpzpO48yf4swskqwgkk5W6wTHCD/Q48tqFtAMPwC/D88F966ipc6lyldsJ\nUXvLeeMZEQKBgGTHYZWaOAGKOYfcHufJKnwMEI350wKDJI0m6ISCWu51DtWg7lb6\nHrNTyMbqnehwSoNHNo9vrKq0914gYMeX1y3F71HnGTSNHHU2Gea57HOTsoCXBtpX\nblfTcbnavHyr1VBHDcYIBnBr+GTooj9Zq2XmEGKp35+QQh1PA1ZzevaPAoGASdop\nLv06VVmRC9/iSqslT/aaYEATZ9vMIuyE3USZVwAcKAT/brCGoIaiuVwfLPeNH2OC\nEyJaVKjlWxiD2GXy1YSzQaD2tYneBPkIvx7N+62+sfD0x/doMTeEUPTRWd2SqsSm\nvUNQcAPBPXR0uhTlPT5GZkB0zQ03D6KgoRNG2FECgYEAgXPJjIsqhcC0PNEuRgdC\n9pZq+Prvp4TniVwQKyPniw/FjAplI4uN/+1fiYPexaLzINnXUuvOTYPABec3T2DZ\nGV0lffmdZ+CleU1Xi5DjLGn8m0Gdy6mecE2Le9/Q13o3owF9rm0Drhqqd8T6vVt3\nhiw7C+lCp2XheqP+QchwxiY=\n-----END PRIVATE KEY-----\n",
-        "ssl_cert": "-----BEGIN CERTIFICATE-----\nMIIEATCCAumgAwIBAgIJAMdVCMOVZl30MA0GCSqGSIb3DQEBCwUAMIGWMQswCQYD\nVQQGEwJDSDEPMA0GA1UECAwGWnVyaWNoMQ8wDQYDVQQHDAZadXJpY2gxIzAhBgNV\nBAoMGnNub3dmbGFrZSBwcm9kdWN0aW9ucyBHbWJIMRowGAYDVQQDDBF0eXBvMy5l\neGFtcGxlLm5ldDEkMCIGCSqGSIb3DQEJARYVd2VibWFzdGVyQGV4YW1wbGUubmV0\nMB4XDTE1MDIxMjEyMDU1MloXDTI1MDIwOTEyMDU1MlowgZYxCzAJBgNVBAYTAkNI\nMQ8wDQYDVQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEjMCEGA1UECgwac25v\nd2ZsYWtlIHByb2R1Y3Rpb25zIEdtYkgxGjAYBgNVBAMMEXR5cG8zLmV4YW1wbGUu\nbmV0MSQwIgYJKoZIhvcNAQkBFhV3ZWJtYXN0ZXJAZXhhbXBsZS5uZXQwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRHc47/0zg+cAgMkHKY1U7TOFChPaw\niNmU94MYjOTzK/Lc4C2op1sDCAP4Ow+qx7BK8NLJkHUPyOXUzjTTTUN/dGoElGz4\ngFaCCkMhk8hRZEs8jTwAm8tq4ruUVk9DIgQ9K/potm5kzT/TKyW85hETMLi+tRw9\nKbn/j4QljWmqcd4mPWyaMT1o4lDTszq7NCHGch+dxa4FJYibz05C6+BVpw9w+BWF\nERlbgG5hvMMXtxexlju24e2fJV/TPCVbgDk/ecFDhupRMdj9ZKrlPcUZNReWxgX+\nZGT8YfWI2tYfW9+H6iVvcwV2gftiDp4+N4r4Ae52cMFxcKBR5fn4i8hbAgMBAAGj\nUDBOMB0GA1UdDgQWBBSSJyPyLa8CNKMDR3BAOcuuzzEqlTAfBgNVHSMEGDAWgBSS\nJyPyLa8CNKMDR3BAOcuuzzEqlTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUA\nA4IBAQAMKv2Kdw2LkskJm/GAkEsavoYf6qAPruwcsp8cx+7doXOpptZ/w+m8NK8i\n6ffi65wQ4TGlFxEvXM1Ts4S1xF/+6JVnnp8RVGvfgDL7xi6juMqbtM5yBxjHKO6W\nAuxOmwPcd6cO5qL+MCSgIe13bn/V4bw/JLv9LONuwXHJuv0FEoazbSyB6uTwYf2D\npWHEkXvkz5A1hqu3y2jFq2cQffoO31GGx29U3uSl+Esp5bL/J0bQd3TUbwvu6FY1\nNgUR7Mx1t/4/uk9FRl87d2rRslc5VyvD5v7MFE6jYJap74j5BrrfUUTNbzVXdPCS\nv8jOaIjDp5AMoZxbPMlv/5Tk85uF"
-      }
-    }
-  }
-
-Warning: Make sure the first ``server_name`` used is valid within your
+Warning: Make sure the first ``Server name`` used is valid within your
 certificate as we redirect all HTTP requests within this vHost to
 ``https://first-in-server_name``
 
