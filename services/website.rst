@@ -398,27 +398,13 @@ User Handling
 
 The preview user gets applied to all non PROD environments and is
 intended for your own use, but also to allow access to other parties
-like your customer. Use the "preview_htpasswd" option to set a particular
+like your customer. Use the "Preview password" option to set a particular
 password to the preview user. You have to use a htpasswd encrypted value
 which you can generate like this on your local workstation:
 
 ::
 
     htpasswd -n preview
-
-Configuration example:
-
-.. code-block:: json
-
-  {
-    "devexamplenet": {
-      "type": "typo3cms",
-      "env": "DEV",
-      "server_name": "dev.example.net www.dev.example.net",
-      "password": "1234",
-      "preview_htpasswd": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
-    }
-  }
 
 Furthermore, you can add additional users trough the "website::users"
 configuration like this:
@@ -445,14 +431,7 @@ To rename the default "preview" username, use the ``preview_username`` parameter
 .. code-block:: json
 
   {
-    "devexamplenet": {
-      "type": "typo3cms",
-      "env": "DEV",
-      "server_name": "dev.example.net www.dev.example.net",
-      "password": "1234",
-      "preview_username": "showme",
-      "preview_htpasswd": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
-    }
+    "preview_username": "showme",
   }
 
 Furthermore, its possible to set the preview username globally through ``website::preview_username``.
