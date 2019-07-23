@@ -37,6 +37,7 @@ Website Service
 - added php71 type
 - added php72 type
 - added typo3cmsv9 type
+- added typo3cmsv10 type
 - added magento2 type
 - added docker type
 - typo3cmsv7 and typo3cmsv8 types will use PHP 7.2

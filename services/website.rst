@@ -27,6 +27,29 @@ You have to define one of the following types for each website.
 
 .. note:: If you need a type not mentioned here yet, do not hesitate to contact us
 
+typo3cmsv10 (Alpha)
+^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+
+   * - Web server
+     - nginx with ModSecurity WAF, core rule set and TYPO3 10.x compatible white/blacklists
+   * - runtime environment
+     - PHP 7.2
+   * - Database
+     - MySQL (MariaDB 10.x ) with database, user, and grants
+   * - Default webroot
+     - ~/web
+
+-  PHP and nginx settings adjusted to TYPO3 10 requirements
+-  latest TYPO3 CMS 10 sprint release cloned into ``/opt/typo3/TYPO3\_10/``
+-  PHP and nginx settings adjusted to TYPO3 10 requirements
+-  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
+   see `Environment Variables`_ for details
+-  TYPO3 Scheduler executed every 5 minutes
+
+.. warning:: This type can change and is meant to test TYPO3 10 sprint releases only. Do not run live applications with this type yet
+
 typo3cmsv9
 ^^^^^^^^^^
 
