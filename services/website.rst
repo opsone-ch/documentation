@@ -1109,3 +1109,17 @@ To set or override environment variables per website, use the ``envvar`` option 
       }
     }
 
+White label
+-----------
+
+Default Virtual Host
+^^^^^^^^^^^^^^^^^^^^
+
+The default vhost is stored in ``/var/www/``. You can use your own content stored in a git repository with the following configuration.
+
+.. code-block:: json
+
+    {
+      "website::default::webroot::gitsource": "git@git.example.com:acme/project",
+      "website::default::webroot::gitkey": "-----BEGIN RSA PRIVATE KEY-----[..]-----END RSA PRIVATE KEY-----",
+    }
