@@ -399,6 +399,8 @@ PROD
 -  phpinfo disabled (visible database credentials from environment variables)
 -  E-Mails get sent to their designated recipient (PHP mail() only, see :doc:`../development/email` for details)
 
+.. hint:: You can enable phpinfo by setting ``disable_functions=`` to a empty string in ``~/cnf/php.ini`` (don’t forget ``php-reload``). Important: phpinfo exposed many infos like environment variables such as database credentials. We recommend not to use phpinfo on a publicly accessible website. Please be careful and deactivate phpinfo afterwards.
+
 STAGE
 ^^^^^
 
