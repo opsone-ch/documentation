@@ -946,6 +946,8 @@ PHP
 You can set custom PHP configurations trough the ``~/cnf/php.ini`` file.
 See the `PHP Documentation <http://php.net/manual/en/configuration.file.per-user.php>`__ for details.
 
+.. warning:: You have to reload php after changes with the ``php-reload`` shortcut
+
 ::
 
     memory_limit = 1G
