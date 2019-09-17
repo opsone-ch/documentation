@@ -62,7 +62,7 @@ action
 * `reject`: The packet is rejected with a suitable ICMP response.
 * `drop`: The packet is dropped.
 
-source
+source (optional)
 """"""
 
 IPv4 source address or network. Examples:
@@ -70,7 +70,7 @@ IPv4 source address or network. Examples:
 * `192.168.0.1`
 * `192.168.0.0/24`
 
-source6
+source6 (optional)
 """""""
 
 IPv6 source address or network. Examples:
@@ -78,7 +78,7 @@ IPv6 source address or network. Examples:
 * `2001:db8::1`
 * `2001:db8::/32`
 
-destination
+destination (optional)
 """""""""""
 
 IPv4 destination address or network. Examples:
@@ -86,7 +86,7 @@ IPv4 destination address or network. Examples:
 * `192.168.0.1`
 * `192.168.0.0/24`
 
-destination6
+destination6 (optional)
 """"""""""""
 
 IPv6 destination address or network. Examples:
