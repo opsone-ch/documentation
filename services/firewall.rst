@@ -133,10 +133,10 @@ You can add custom rules to deny services, too:
 
     {
       "base::firewall::rules": {
-        "020 deny HTTP from evil network":
+        "020 deny HTTP from evil network": {
           "action": "reject",
           "chain": "INPUT",
-          "source" "192.168.0.0/24",
+          "source": "192.168.0.0/24",
           "source6": "2001:db8::/32",
           "dport": "80"
         }
