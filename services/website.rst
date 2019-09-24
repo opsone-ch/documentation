@@ -144,7 +144,7 @@ required to load the appropriate PHP settings, by defining the the
     Flow:
       core:
         subRequestEnvironmentVariables:
-          PHP_INI_SCAN_DIR: '/etc/php72/<username>/neos/:/home/<username>/cnf/'
+          PHP_INI_SCAN_DIR: '/etc/php72/user/<username>/:/home/<username>/cnf/'
 
 .. hint:: see `this Neos Discuss thread <https://discuss.neos.io/t/setup-process-error-with-custom-php-environment/4174>`__ for technical details
 
