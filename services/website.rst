@@ -295,7 +295,7 @@ proxy
 
 -  nginx vhost configured as reverse proxy
 
-.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it
+.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it. For security reasons, we only allow access to this configuration for the :doc:`../server/access.html#generic-devop-user`.
 
 docker
 ^^^^^^
@@ -314,7 +314,7 @@ docker
 -  nginx vhost configured as reverse proxy
 -  install docker and puts the user into the docker group
 
-.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it
+.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it. For security reasons, we only allow access to this configuration for the :doc:`../server/access.html#generic-devop-user`.
 
 nodejs
 ^^^^^^
