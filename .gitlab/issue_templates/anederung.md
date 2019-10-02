@@ -1,0 +1,5 @@
+- [ ] Merge Request vorbereiten, auf Stage Umgebung testen
+- [ ] Merge Request durch Arbeitskollege abnehmen lassen
+- [ ] Merge Request mergen, prüfen ob erfolgreich deployed
+- [ ] Prüfen ob erfolgreich nach GitHub deployed https://github.com/opsone-ch/documentation
+- [ ] Prüfen ob erfolgreich nach GitLab deployed https://gitlab.com/opsone_ch/documentation
