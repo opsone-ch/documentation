@@ -19,5 +19,3 @@ You can add so called services to the VM which will install and configure all ne
   firewall
   globalrepo
   solr
-  redis
-
