@@ -104,6 +104,14 @@ dport
 
 Destination port number.
 
+proto
+"""""
+
+Protocol. Examples:
+
+* `tcp`
+* `udp`
+
 Examples
 ^^^^^^^^
 
