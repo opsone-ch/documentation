@@ -202,4 +202,4 @@ Logged in as user ``devop``, you can diagnose created rules and logs
 trough the following means:
 
 -  Firewall logs in ``/var/log/messages``
--  show created rules with ``sudo iptables -L`` / ``sudo ip6tables -L``
+-  show created rules with ``iptables-list`` or ``iptables-rules``
