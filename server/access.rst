@@ -29,8 +29,8 @@ with this user for debugging purposes or to execute some global tasks:
 * ``puppet-agent`` to trigger a manual configuration management run
 * ``reboot`` to trigger a manual server reboot
 * ``diskusage`` to search for big files and folders
-* ``sudo iptables -L`` to show IPv4 firewall rules
-* ``sudo ip6tables -L`` to show IPv6 firewall rules
+* ``iptables-list`` to list firewall rules and chains
+* ``iptables-rules`` to show firewall rules
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
 

@@ -10,11 +10,9 @@ image: "python:latest"
 
 # Define stages
 stages:
-- mirror
-- build
 - deploy stage
-- test
 - deploy prod
+- test
 
 # Dependencies
 before_script:
@@ -29,16 +27,7 @@ before_script:
 include:
   - project: 'opensource/docs'
     ref: 6-0-stable
-    file: '.gitlab/ci/mirror.yml'
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/build.yml'
-  - project: 'opensource/docs'
-    ref: 6-0-stable
     file: '.gitlab/ci/deploy_stage.yml'
   - project: 'opensource/docs'
     ref: 6-0-stable
     file: '.gitlab/ci/deploy_prod.yml'
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/linkchecker.yml'
