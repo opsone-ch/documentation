@@ -384,7 +384,7 @@ ruby
            root /home/user/application/;
        }
 
-.. hint:: to control the nodejs daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
+.. hint:: to control the ruby daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
 
 Environments
 ------------
