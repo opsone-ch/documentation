@@ -561,8 +561,9 @@ Debug validation problems
 
 In order to debug validation issues, we introduced the ``letsencrypt-renew`` shortcut which will trigger a run of our Let's Encrypt client, and let you see all debug output to identifiy possible problems.
 
--  Make sure that all hosts added to ``Server name`` end up on your server already.
--  Let's Encrypt will try to reach your website at the endpoint ``/.well-known/acme-challenge/``. Make sure that you do not overwrite this path within your `own nginx configuration <#custom-configuration>`__.
+- Make sure that all hosts added to ``Server name`` point to the correct server (A and AAAA DNS records).
+- Let's Encrypt will try to reach your website at the endpoint ``/.well-known/acme-challenge/`` for validation purposes. Make sure that you do not overwrite this path within your `own nginx configuration <#custom-configuration>`__.
+- You can check access to the validation directory by yourself by fetching the control file reachable at ``http://example.com/.well-known/acme-challenge/monitoring``
 
 Renewal
 ~~~~~~~
