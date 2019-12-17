@@ -6,7 +6,7 @@ Firewall
 Default settings
 ----------------
 
-By default, all incoming and outgoing traffic is blocked, expect:
+By default, all incoming and outgoing traffic is blocked, except:
 
 - related or established connections
 - ICMP/ICMPv6
