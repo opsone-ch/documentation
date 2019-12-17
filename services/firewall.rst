@@ -6,7 +6,7 @@ Firewall Service
 Default settings
 ----------------
 
-By default, all incoming and outgoing traffic is blocked, expect the
+By default, all incoming and outgoing traffic is blocked, except the
 following:
 
 -  related or established connections
