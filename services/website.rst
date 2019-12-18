@@ -816,6 +816,15 @@ Certificates from Let's Encrypt will be valid for 90 days. They are renewed auto
 
 Furthermore, we check all certificates from our monitoring and will contact you if there are certificates expiring in less than 21 days.
 
+Export
+~~~~~~
+
+Existing Lets Encrypt certificates can be read with the `devop user <../server/access.html#generic-devop-user>`__.
+This is useful if you want to temporarily use the old certificate on a new server (e.g. for a migration).
+
+You can find your certificates under ``/etc/nginx/tls``.
+
+.. warning:: As soon as the certificates leave our servers, we no longer have control over them. Please be aware of this and be careful.
 
 Configuration example
 ~~~~~~~~~~~~~~~~~~~~~
