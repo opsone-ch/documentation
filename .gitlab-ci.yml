@@ -10,11 +10,9 @@ image: "python:latest"
 
 # Define stages
 stages:
-- mirror
-- build
 - deploy stage
-- test
 - deploy prod
+- test
 
 # Dependencies
 before_script:
@@ -27,12 +25,6 @@ before_script:
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 include:
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/mirror.yml'
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/build.yml'
   - project: 'opensource/docs'
     ref: 6-0-stable
     file: '.gitlab/ci/deploy_stage.yml'
