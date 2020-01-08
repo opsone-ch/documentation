@@ -82,6 +82,12 @@ smtpd_tls_key_file
 * path to a TLS key used for incoming SMTP connections
 * default: empty
 
+smtputf8_enable
+~~~~~~~~~~~~~~~
+* Enable preliminary SMTPUTF8 support for the protocols described in RFC 6531 to 6533
+* see the `Postfix documentation <http://www.postfix.org/postconf.5.html#smtputf8_enable>`__ for details
+* default: ``yes``
+
 Example
 ~~~~~~~
 
