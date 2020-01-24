@@ -182,6 +182,18 @@ wordpress
 - PHP and nginx settings adjusted to WordPress requirements
 - WP-CLI installed and available by using the ``wp`` command
 - wp-cron.php is called every 5 minutes over CLI
+- We have a request limit for ``wp-login.php`` and ``xmlrpc.php`` in place. For both options, our default limit is set to 10 request per minute
+- You can override our defaults inside the Website custom JSON as shown in the exmaple below:
+
+  .. code-block:: json
+
+      {
+        "wordpress_limit_login": "20r/m",
+        "wordpress_limit_xmlrpc": false,
+      }
+  
+  - Request limit for ``wp-login.php`` is set to 20 requests per minute
+  - Request limit for ``xmlrpc.php`` is disabled
 
 .. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 
