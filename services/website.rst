@@ -786,7 +786,6 @@ configurations/features are applied to the vhost:
 -  SNI
 -  HSTS
 -  daily Expiration Date Check
--  daily `Qualys SSL Labs <https://www.ssllabs.com/>`__ API Check
 -  global HTTP to HTTPS redirect
 
 Automated Certificate Management Environment (ACME/Let's Encrypt)
