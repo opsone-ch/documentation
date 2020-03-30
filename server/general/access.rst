@@ -23,11 +23,16 @@ Shortcuts and sudo configuration
 Depending on the installed services, some shortcuts are available to execute certain commands with root privileges.
 You will find a list of all shortcuts by typing ``help``.
 
-Generic ``devop`` user
-----------------------
+.. index::
+   triple: Server; Access; devop
+.. _server-access-devop:
 
-A user named ``devop`` is created by default. You can log into the server
-with this user for debugging purposes or to execute some global tasks:
+Generic admin user
+------------------
+
+A user named `devop` is created by default. You can log into the server
+with this user for debugging purposes and to execute global tasks which are not
+allowed to the website users:
 
 * read access to all system log files in ``/var/log/``
 * read access to nginx vhosts in ``/etc/nginx/websites/``
@@ -40,24 +45,6 @@ with this user for debugging purposes or to execute some global tasks:
 * ``update-ca-certificates``, see :ref:`server-ca_certificates` for details
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
-
-SSH client configuration
-------------------------
-
-Add client configurations to ``/etc/ssh/ssh_config`` by setting the
-``ssh::config`` hash:
-
-.. code-block:: json
-
-  {
-    "ssh::config": {
-      "Host": "git",
-      "HostName": "code.example.com",
-      "User": "git"
-    }
-  }
-
-.. Hint:: use ``man ssh_config`` (`online version <http://man.openbsd.org/ssh_config>`_) for available configuration options
 
 SFTP
 ----

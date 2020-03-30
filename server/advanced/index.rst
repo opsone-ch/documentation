@@ -8,11 +8,12 @@ Here, we document possible configuration options which you won't need on a daily
   :maxdepth: 1
 
   customjson
-  database
   firewall
-  globalrepo
-  ftp
-  hosts
   postfix
+  globalrepo
+  database
+  hosts
+  ssh
   ca-certificates
+  ftp
 
