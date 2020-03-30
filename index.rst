@@ -1,11 +1,6 @@
-.. Ops One documentation master file, created by
-   sphinx-quickstart on Sat Nov 19 12:26:29 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-===========================================
+==============================
 Ops One Platform Documentation
-===========================================
+==============================
 
 .. warning:: This documentation is work in process. Please contact us if you have any questions regarding a version 7 server.
 
@@ -13,9 +8,11 @@ This is the Ops One platform documentation.  It is aimed at a technical audience
 Marketing and contract related details are available on our `website <https://opsone.ch>`_.
 
 Managed Server Version 7
--------------------------------------------
+========================
 
-There are different managed server versions in use. Each version is based on a certain Debian release and tied to versions of additional software like PHP and MySQL.
+You are looking at the documentation of our :doc:`server/index` version 7. Switch to the documentation for other versions by using the versions selector below.
+
+Each version is based on a certain Debian release and tied to versions of additional software like PHP and MySQL.
 This concept allows you to select the appropriate version depending on the application you use, and also to switch to a newer generation in a planned way according to your needs.
 
 Main points of version 7 are as follows:
@@ -34,7 +31,10 @@ Main points of version 7 are as follows:
    * - EOL
      - ~ May 2024
 
-.. hint:: switch to the documentation of other generations by using the versions selector below
+Search and Glossar
+==================
+
+Did not find what you're looking for yet? Beside of the search bar (top left), we also added a :ref:`glossary <genindex>` with all the important topics.
 
 Open source
 -------------------------------------------
@@ -44,7 +44,7 @@ We strongly believe in open source software. This work is licensed under the `Cr
 .. toctree::
   :hidden:
 
-  Changelog <changelog>
-  howto/index
   server/index
+  howto/index
+  Changelog <changelog>
 
