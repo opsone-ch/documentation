@@ -260,6 +260,5 @@ Always check your logfiles after going live.
 Remove local server name
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please remember to remove the local server name (like
-username01.snowflakehosting.ch). Otherwise this URL will be indexed by
+Please remember to remove the local server name (``websitename.fqdn``). Otherwise this URL will be indexed by
 search engines and produce duplicate content.

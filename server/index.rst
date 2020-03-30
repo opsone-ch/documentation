@@ -5,7 +5,6 @@ Server
 .. toctree::
   :maxdepth: 2
 
-  access
   e-mail
   ssh-keys
   hosts

@@ -1,12 +1,6 @@
 FAQ
 ===
 
-Update server configuration
----------------------------
-
-Use the command ``puppet-agent`` to update the configuration on your
-server. This will affect all vHosts on this machine.
-
 Which log files are available
 -----------------------------
 
@@ -62,11 +56,4 @@ Sent mails are lost
    ``~/log/php-mail.log``)
 -  check the system level log file (``/var/log/mail.info``, access
    trough Log Server only)
--  if applicable (``*.snowflakehosting.ch`` servers only), check the
-   mail relay log files (access trough Log Server only)
 
-What does DEV, STAGE and PROD stand for?
-----------------------------------------
-
-Each website has a corresponding environment configured. See environments
-within the website service documentation (:doc:`services/website`) for details.§

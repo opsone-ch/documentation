@@ -1,5 +1,5 @@
-Access
-======
+Means to Access Your Server
+===========================
 
 SSH
 ---

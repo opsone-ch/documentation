@@ -1,4 +1,4 @@
-PHP debugging
+PHP Debugging
 =============
 
 We use `Xdebug <https://xdebug.org/>`__ for debugging purposes. For

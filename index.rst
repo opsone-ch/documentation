@@ -7,6 +7,8 @@
 Ops One Platform Documentation
 ===========================================
 
+.. warning:: This documentation is work in process. Please contact us if you have any questions regarding a version 7 server.
+
 This is the Ops One platform documentation.  It is aimed at a technical audience, mainly developers and sysadmins.
 Marketing and contract related details are available on our `website <https://opsone.ch>`_.
 
@@ -42,10 +44,7 @@ We strongly believe in open source software. This work is licensed under the `Cr
 .. toctree::
   :hidden:
 
-  server/index
   Changelog <changelog>
   howto/index
-  services/index
-  support
-  faq
+  server/index
 

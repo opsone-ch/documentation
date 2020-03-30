@@ -7,9 +7,11 @@ This is a collection of how-to manuals. It supplements the documentation with ex
 .. toctree::
   :maxdepth: 1
 
-  Docker <docker>
-  WordPress <wordpress>
+  access
+  docker
+  wordpress
   email
   deployment
   phpdebugging
+  faq
 

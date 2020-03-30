@@ -156,7 +156,7 @@ We provide a central `phpMyAdmin
 installation <https://dbadmin.opsone.ch>`__ to access your
 database. Use the following settings to connect:
 
--  Server: database hostname, e.g. customer01.snowflakehosting.ch
+-  Server: database hostname
 -  Username: see DB\_USERNAME in ``~/.profile``
 -  Password: see DB\_PASSWORD in ``~/.profile``
 

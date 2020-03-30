@@ -4,8 +4,6 @@ Getting Started with WordPress
 There are dozens of ways you can deploy WordPress.
 The following way describes only one way.
 
-.. hint:: If you have any questions or feedback, don't hesitate to `contact us <mailto:team@opsone.ch>`__.
-
 Create Environment
 ------------------
 

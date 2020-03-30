@@ -76,7 +76,7 @@ default VCL configuration. By now, the following types are available:
    ``vcl_include``
 -  ``typo3``: Varnish configuration for the ``varnish`` TYPO3 extension
    (see
-   `Github <https://github.com/snowflakech/typo3-varnish/blob/master/Resources/Private/Example/default-4.vcl>`__)
+   `GitLab <https://gitlab.com/opsone_ch/typo3/varnish/-/blob/master/Resources/Private/Example/default.vcl>`__)
 
 vcl\_include
 ~~~~~~~~~~~~

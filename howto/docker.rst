@@ -3,8 +3,6 @@ Getting Started with Docker
 
 Goal: Install Docker on the server and make a container available behind a reverse proxy.
 
-.. hint:: If you have any questions or feedback, `don't hesitate to contact us <mailto:team@opsone.ch>`__.
-
 Create Environment
 ------------------
 
