@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ===========================================
-Ops One Platform: Welcome
+Ops One Platform Documentation
 ===========================================
 
 This is the Ops One platform documentation.  It is aimed at a technical audience, mainly developers and sysadmins.
@@ -13,11 +13,12 @@ Marketing and contract related details are available on our `website <https://op
 Managed Server Version 7
 -------------------------------------------
 
-There are different managed server versions in use. Each version is based on a certain Debian release and tied to versions of further software like PHP and MySQL.
+There are different managed server versions in use. Each version is based on a certain Debian release and tied to versions of additional software like PHP and MySQL.
 This concept allows you to select the appropriate version depending on the application you use, and also to switch to a newer generation in a planned way according to your needs.
-Right now, you are looking at the documentation for the version 7:
 
-.. list-table:: 
+Main points of version 7 are as follows:
+
+.. list-table::
    :stub-columns: 1
 
    * - OS Release
@@ -31,30 +32,20 @@ Right now, you are looking at the documentation for the version 7:
    * - EOL
      - ~ May 2024
 
-Switch to the documentation of other generations by using the versions selector below.
-
-Support
--------------------------------------------
-
-Do you struggle with some configurations, or can we advise you somehow?  We're here and happy to help.
-For any questions, don't hesitate to contact us:
-
-* `Slack <https://opsone-ch.slack.com>`_ (according to SLA agreement)
-* E-Mail: `team@opsone.ch <mailto:team@opsone.ch>`_
+.. hint:: switch to the documentation of other generations by using the versions selector below
 
 Open source
 -------------------------------------------
 
-This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_.
+We strongly believe in open source software. This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_.
 
 .. toctree::
   :hidden:
 
-  guides/index
-  changelog
   server/index
+  Changelog <changelog>
+  howto/index
   services/index
-  development/index
   support
   faq
 
