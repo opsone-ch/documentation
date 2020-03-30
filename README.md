@@ -6,5 +6,6 @@ Marketing and contract related details are available on our `website <https://op
 
 # Resources
 
-* Styleguide: https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html
+* https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html
+* https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/GeneralConventions/Index.html
 * Build: `sphinx-build . _build`

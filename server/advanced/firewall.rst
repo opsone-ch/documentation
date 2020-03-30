@@ -1,5 +1,10 @@
-Firewall
-========
+.. index::
+   pair: Server; Firewall
+.. _server-firewall:
+
+======================
+Firewall Configuration
+======================
 
 .. warning:: in server version 7, we switched to the nftables firewall. We will update this documentation in due time.
 

@@ -1,7 +1,7 @@
-Globalrepo Service
-==================
+Git Repository Deployment
+=========================
 
-The globalrepo service is used to checkout and refresh a Git repository.
+The `globalrepo` service is used to checkout and refresh a Git repository.
 
 Options
 -------

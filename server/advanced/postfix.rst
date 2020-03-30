@@ -1,5 +1,10 @@
-E-Mail
-======
+.. index::
+   triple: Server; Outgoing Mail; Postfix
+.. _server-postfix:
+
+====================
+Outgoing Mail Server
+====================
 
 On each server, a local Postfix instance is running to deliver mails to their destination.
 

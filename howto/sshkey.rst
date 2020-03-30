@@ -1,5 +1,10 @@
-SSH Keys
-========
+.. index::
+   triple: How-to; SSH; Key Generate
+.. _howto-sshkey:
+
+================
+SSH Key Handling
+================
 
 Windows
 -------

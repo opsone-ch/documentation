@@ -1,10 +1,9 @@
-FTP
-===
+FTP Access
+==========
 
-This service will install and configure ProFTPD and manage virtual
-users.
+This service will install and configure ProFTPD and manage virtual users.
 
-.. warning:: for your daily operations, please use SSH/SCP which is already in place by default
+.. warning:: Nowadays, FTP is not required for your daily work anymore. Please use SSH/SCP which is already in place by default. See :ref:`server-access-ssh` for details.
 
 Users
 -----

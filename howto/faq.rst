@@ -1,3 +1,8 @@
+.. index::
+   triple: How-to; FAQ
+.. _howto-faq:
+
+===
 FAQ
 ===
 

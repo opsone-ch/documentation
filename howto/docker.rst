@@ -1,3 +1,8 @@
+.. index::
+   triple: How-to; Getting Started with; Docker
+.. _howto-docker:
+
+===========================
 Getting Started with Docker
 ===========================
 

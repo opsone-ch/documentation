@@ -1,3 +1,7 @@
+.. index::
+   triple: Server; Access; SSH
+.. _server-access-ssh:
+
 Means to Access Your Server
 ===========================
 
@@ -31,9 +35,9 @@ with this user for debugging purposes or to execute some global tasks:
 * ``puppet-agent`` to trigger a manual configuration management run
 * ``reboot`` to trigger a manual server reboot
 * ``diskusage`` to search for big files and folders
-* ``iptables-list`` to list firewall rules and chains
-* ``iptables-rules`` to show firewall rules
-* ``update-ca-certificates``, see :doc:`ca-certificates` for details
+* ``nft-list`` to list netfilter configuration
+* ``nft-check`` to validate netfilter configuration
+* ``update-ca-certificates``, see :ref:`ca-certificates` for details
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
 

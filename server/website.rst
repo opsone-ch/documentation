@@ -198,7 +198,8 @@ wordpress
 .. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 
 .. index::
-   triple: website; type; php72
+   triple: Website; Type; PHP 7.2
+.. _website-type-php72:
 
 php72
 ^^^^^
@@ -215,7 +216,8 @@ php72
      - ~/www
 
 .. index::
-   triple: website; type; php71
+   triple: Website; Type; PHP 7.1
+.. _website-type-php71:
 
 php71
 ^^^^^
@@ -694,6 +696,10 @@ and configure them trough `website::ssl_dhparam`:
     "website::ssl_dhparam": "-----BEGIN DH PARAMETERS-----\nMIICCAKCAgEAoOePp+Uv2M34IA+basW9CBHp/jsZihB3FI8KVRLVFJPIUJ9Llm8F\n...\n-----END DH PARAMETERS-----"
   }
 
+.. index::
+   pair: Server; HSTS
+.. _website-hsts:
+
 HSTS Header
 ^^^^^^^^^^^
 
@@ -1053,6 +1059,10 @@ type related cronjobs
 * Application specific cronjobs are predefined already (for example, TYPO3 scheduler job on TYPO3 types, see type description for details)
 * if you want to disable this type related cronjob defined by us, set ``type_cronjob`` to ``false``
 
+.. index::
+   triple: Server; Listen; Port
+.. _website-listen:
+
 Listen
 ------
 
@@ -1094,6 +1104,10 @@ deactivate monitoring by setting ``"monitoring": "false"`` in custom JSON:
     {
       "monitoring": false
     }
+
+.. index::
+   triple: Server; Environment; Variables
+.. _website-envvar:
 
 Environment Variables
 ---------------------

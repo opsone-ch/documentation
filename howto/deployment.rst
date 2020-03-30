@@ -1,3 +1,8 @@
+.. index::
+   triple: How-to; Deployment; Go-Live
+.. _howto-deploy:
+
+===================
 Deploy Applications
 ===================
 

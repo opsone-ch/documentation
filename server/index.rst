@@ -1,6 +1,6 @@
-**************
+==============
 Managed Server
-**************
+==============
 
 Find all documentation regarding our managed server here.
 We recommend to start by making yourself familiar with the :doc:`general/index`,
@@ -12,15 +12,10 @@ and especially the :doc:`general/access`.
   :maxdepth: 2
 
   general/index
-  e-mail
   ssh-keys
-  hosts
-  ca-certificates
   website
   database
   caching
-  ftp
-  firewall
-  globalrepo
   solr
+  advanced/index
 

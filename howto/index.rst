@@ -12,5 +12,6 @@ This is a collection of how-to manuals. It supplements the documentation with ex
   email
   deployment
   phpdebugging
+  sshkey
   faq
 
