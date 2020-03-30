@@ -14,4 +14,12 @@ Server
   ca-certificates
   monitoring
   maintenance
+  website
+  database
+  caching
+  ftp
+  networking
+  firewall
+  globalrepo
+  solr
 
