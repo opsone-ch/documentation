@@ -1,6 +1,8 @@
 Firewall
 ========
 
+.. warning:: in server version 7, we switched to the nftables firewall. We will update this documentation in due time.
+
 .. note:: this site belongs to the IP/network firewall. There is also a web application firewall within the :doc:`website` service
 
 Default settings

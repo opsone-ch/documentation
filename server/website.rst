@@ -197,6 +197,9 @@ wordpress
 
 .. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 
+.. index::
+   triple: website; type; php72
+
 php72
 ^^^^^
 
@@ -210,6 +213,9 @@ php72
      - Optional: MySQL, MongoDB or PostgreSQL
    * - Default webroot
      - ~/www
+
+.. index::
+   triple: website; type; php71
 
 php71
 ^^^^^
