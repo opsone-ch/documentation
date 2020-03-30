@@ -6,9 +6,12 @@
 Firewall Configuration
 ======================
 
-.. warning:: in server version 7, we switched to the nftables firewall. We will update this documentation in due time.
+.. note::
+   This site covers the IP/network firewall.
+   There is also a web application firewall within :ref:`website <website-waf>`.
 
-.. note:: this site belongs to the IP/network firewall. There is also a web application firewall within the :doc:`website` service
+.. warning::
+   In server version 7, we switched to the nftables firewall. We will update this documentation in due time.
 
 Default settings
 ----------------

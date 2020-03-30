@@ -1,7 +1,16 @@
+.. index::
+   pair: Server; Git; Repository Deployment
+.. _server-globalrepo:
+
+=========================
 Git Repository Deployment
 =========================
 
 The `globalrepo` service is used to checkout and refresh a Git repository.
+
+.. hint::
+  You can still clone repositories manually by SSH or through a CI job, which will
+  be better in most use cases. If in doubt, contact us and we will help to select the best approach.
 
 Options
 -------

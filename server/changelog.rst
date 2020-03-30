@@ -1,3 +1,7 @@
+.. index::
+   triple: Server; Changelog, Version 6 to 7 Changes
+.. _server-changelog:
+
 =================================
 Changelog: Version 6 to 7 Changes
 =================================

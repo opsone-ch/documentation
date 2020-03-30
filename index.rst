@@ -34,7 +34,7 @@ Main points of version 7 are as follows:
 Search and Glossar
 ==================
 
-Did not find what you're looking for yet? Beside of the search bar (top left), we also added a :ref:`glossary <genindex>` with all the important topics.
+Did not find what you're looking for yet? Beside of the search bar (top left), we also added a :doc:`glossary <genindex>` with all the important topics.
 
 Open source
 -------------------------------------------
@@ -46,6 +46,5 @@ We strongly believe in open source software. This work is licensed under the `Cr
 
   server/index
   howto/index
-  Changelog <changelog>
-  genindex
+  Glossary <genindex>
 

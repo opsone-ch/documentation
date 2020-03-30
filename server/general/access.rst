@@ -37,7 +37,7 @@ with this user for debugging purposes or to execute some global tasks:
 * ``diskusage`` to search for big files and folders
 * ``nft-list`` to list netfilter configuration
 * ``nft-check`` to validate netfilter configuration
-* ``update-ca-certificates``, see :ref:`ca-certificates` for details
+* ``update-ca-certificates``, see :ref:`server-ca_certificates` for details
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
 

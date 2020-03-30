@@ -406,10 +406,10 @@ ruby
 
 .. hint:: to control the ruby daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
 
-Environments
-------------
+Contex
+------
 
-You have to select one of those environments for each website:
+You have to select one of those contexts for each website:
 
 PROD
 ^^^^
@@ -417,7 +417,7 @@ PROD
 -  for live sites
 -  no access protection
 -  phpinfo disabled (visible database credentials from environment variables)
--  E-Mails get sent to their designated recipient (PHP mail() only, see :doc:`../development/email` for details)
+-  E-Mails get sent to their designated recipient (PHP mail() only, see :ref:`howto-email` for details)
 
 .. hint:: You can enable phpinfo by setting ``disable_functions=`` to a empty string in ``~/cnf/php.ini`` (don’t forget ``php-reload``). Important: phpinfo exposed many infos like environment variables such as database credentials. We recommend not to use phpinfo on a publicly accessible website. Please be careful and deactivate phpinfo afterwards.
 
@@ -427,7 +427,7 @@ STAGE
 -  for stage / preview / testing access
 -  password protected (User "preview", password from "preview_htpasswd" option)
 -  phpinfo enabled
--  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
+-  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :ref:`howto-email` for details)
 
 DEV
 ^^^
@@ -435,8 +435,8 @@ DEV
 -  for development
 -  password protected (User "preview", password from "preview_htpasswd" option)
 -  phpinfo enabled
--  Xdebug enabled, see :doc:`../development/phpdebugging` for details)
--  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :doc:`../development/email` for details)
+-  Xdebug enabled, see :ref:`howto-phpdebugging` for details)
+-  E-Mails get saved as file into the ~/tmp/ directory (PHP mail() only, :ref:`howto-email` for details)
 
 User Handling
 ^^^^^^^^^^^^^
@@ -697,7 +697,7 @@ and configure them trough `website::ssl_dhparam`:
   }
 
 .. index::
-   pair: Server; HSTS
+   pair: Website; HSTS
 .. _website-hsts:
 
 HSTS Header
@@ -727,6 +727,10 @@ We recommend the following online services for testing:
 -  `Qualys SSL Labs <https://www.ssllabs.com/ssltest/>`__
 -  `Symantec SSL
    Toolbox <https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp>`__
+
+.. index::
+   pair: Website; WAF; Web Application Firewall
+.. _website-waf:
 
 Web Application Firewall
 ------------------------
@@ -943,7 +947,7 @@ Include your own, external configuration files within ``server { }`` or ``http {
 
     "nginx::global_config::server_file": "/absolut/path/to/your/file.conf"
 
-.. hint:: with this setting, you can deploy own, system wide configuration files from a Git repository. See :doc:`globalrepo` for details.
+.. hint:: with this setting, you can deploy own, system wide configuration files from a Git repository. See :ref:`server-globalrepo` for details.
 
 custom webroot
 ^^^^^^^^^^^^^^
@@ -1060,7 +1064,7 @@ type related cronjobs
 * if you want to disable this type related cronjob defined by us, set ``type_cronjob`` to ``false``
 
 .. index::
-   triple: Server; Listen; Port
+   triple: Website; Listen; Port
 .. _website-listen:
 
 Listen
@@ -1106,7 +1110,7 @@ deactivate monitoring by setting ``"monitoring": "false"`` in custom JSON:
     }
 
 .. index::
-   triple: Server; Environment; Variables
+   triple: Website; Environment; Variables
 .. _website-envvar:
 
 Environment Variables

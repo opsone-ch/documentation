@@ -6,6 +6,7 @@ General Informations
   :maxdepth: 2
 
   access
+  backup
   monitoring
   maintenance
 

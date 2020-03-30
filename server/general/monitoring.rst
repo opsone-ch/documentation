@@ -1,3 +1,8 @@
+.. index::
+   pair: Server; Monitoring
+.. _server-monitoring:
+
+==========
 Monitoring
 ==========
 
@@ -30,6 +35,10 @@ A automatic reboot is initiated to solve certain high usage scenarios:
 
 Utilization
 -----------
+
+.. index::
+   tripe: Server; Monitoring; Netdata
+.. _server-monitoring_netdata:
 
 Netdata
 ~~~~~~~

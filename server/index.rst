@@ -13,8 +13,8 @@ and especially the :doc:`general/access`.
 
   general/index
   website
-  database
   caching
   solr
   advanced/index
+  Changelog <changelog>
 
