@@ -5,9 +5,7 @@ Server
 .. toctree::
   :maxdepth: 2
 
-  create
   access
-  dualstack
   e-mail
   ssh-keys
   hosts
@@ -18,7 +16,6 @@ Server
   database
   caching
   ftp
-  networking
   firewall
   globalrepo
   solr
