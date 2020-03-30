@@ -47,4 +47,5 @@ We strongly believe in open source software. This work is licensed under the `Cr
   server/index
   howto/index
   Changelog <changelog>
+  genindex
 

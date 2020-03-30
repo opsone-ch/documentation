@@ -12,7 +12,6 @@ and especially the :doc:`general/access`.
   :maxdepth: 2
 
   general/index
-  ssh-keys
   website
   database
   caching
