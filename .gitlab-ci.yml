@@ -36,17 +36,14 @@ deploy_prod:
   only:
     - 7-0-stable@platform/docs
   script:
-    - <<: *build_sphinx
+    - *build_sphinx
     - rsync -avz --delete $OUTPUTDIR/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
 
 deploy_test:
   stage: deploy_test
   environment: test
   script:
-    - apt-get -y update && apt-get -y install rsync
-    - pip install Sphinx==3.0.0b1
-    - pip install sphinx_rtd_theme
-    - sphinx-build . $OUTPUTDIR
+    - *build_sphinx
     - rsync -avz --delete $OUTPUTDIR/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
 
 linkcheck:
