@@ -25,8 +25,6 @@ stages:
   - sphinx-build . ./_build/
 
 deploy_prod:
-  # TODO: remove
-  when: manual
   stage: deploy_prod
   environment: PROD
   only:
