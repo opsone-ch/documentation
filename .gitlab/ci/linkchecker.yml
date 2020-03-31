@@ -1,9 +1,0 @@
-# Test
-linkchecker:
-  stage: test
-  allow_failure: true
-  script:
-  - apt -y install linkchecker
-  - mkdir -p ~/.linkchecker
-  - echo -e "[authentication]\nentry=${STAGE_URL} ${BASICAUTH_USERNAME} ${BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
-  - linkchecker --no-warnings $STAGE_URL

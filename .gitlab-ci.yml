@@ -1,30 +1,59 @@
-# Configuration
+# configuration
+image: python:3-slim
 variables:
   OUTPUTDIR: _build
-  PROD_URL: https://docs.opsone.ch/7-0-stable/
   STAGE_URL: https://test.docs.opsone.ch/7-0-stable/
   VERSION: 7-0-stable
 
-# Docker image
-image: "python:latest"
-
-# Define stages
+# stages
 stages:
-- deploy stage
-- deploy prod
-- test
+- deploy_test
+- linkcheck
+- deploy_prod
 
-# Dependencies
-before_script:
-  # SSH deploy key
-  - apt-get update
-  - 'which ssh-agent || apt-get -y install openssh-client'
-  - eval $(ssh-agent -s)
-  - ssh-add <(echo "$SSH_PRIVATE_KEY")
-  - mkdir -p ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+# hidden job template used on prod and stage
+.build_sphinx: &build_sphinx
+# load SSH deploy key
+- apt-get update
+- 'which ssh-agent || apt-get -y install openssh-client'
+- eval $(ssh-agent -s)
+- ssh-add <(echo "$SSH_PRIVATE_KEY")
+- mkdir -p ~/.ssh
+- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+# install dependencies
+- apt-get -y install rsync
+- pip install Sphinx==3.0.0b1
+- pip install sphinx_rtd_theme
+# build documentation
+- sphinx-build . $OUTPUTDIR
 
-include:
-  - .gitlab/ci/deploy_stage.yml
-  - .gitlab/ci/deploy_prod.yml
-  - .gitlab/ci/linkchecker.yml
+deploy_prod:
+  when: manual # TODO: remove
+  stage: deploy_prod
+  environment: PROD
+  only:
+  - 7-0-stable@platform/docs
+  script:
+  <<: *build_sphinx
+  - rsync -avz --delete $OUTPUTDIR/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+
+deploy_test:
+  stage: deploy_test
+  environment: test
+  script:
+  - apt-get -y update && apt-get -y install rsync
+  - pip install Sphinx==3.0.0b1
+  - pip install sphinx_rtd_theme
+  - sphinx-build . $OUTPUTDIR
+  - rsync -avz --delete $OUTPUTDIR/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+
+linkcheck:
+  image: debian:10
+  stage: test
+  allow_failure: true
+  script:
+  - apt -y install linkchecker
+  - mkdir -p ~/.linkchecker
+  - echo -e "[authentication]\nentry=${STAGE_URL} ${BASICAUTH_USERNAME} ${BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
+  - linkchecker --no-warnings $STAGE_URL
+
