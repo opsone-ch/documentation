@@ -48,7 +48,7 @@ deploy_test:
 
 linkcheck:
   image: debian:10
-  stage: test
+  stage: linkcheck
   allow_failure: true
   script:
     - apt -y install linkchecker
