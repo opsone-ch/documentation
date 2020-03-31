@@ -1,10 +1,6 @@
 ---
 # configuration
 image: python:3-slim
-variables:
-  OUTPUTDIR: _build
-  STAGE_URL: https://test.docs.opsone.ch/7-0-stable/
-  VERSION: 7-0-stable
 
 # stages
 stages:
@@ -26,7 +22,7 @@ stages:
   - pip install Sphinx==3.0.0b1
   - pip install sphinx_rtd_theme
   # build documentation
-  - sphinx-build . $OUTPUTDIR
+  - sphinx-build . ./_build/
 
 deploy_prod:
   # TODO: remove
@@ -37,22 +33,23 @@ deploy_prod:
     - 7-0-stable@platform/docs
   script:
     - *build_sphinx
-    - rsync -avz --delete $OUTPUTDIR/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+    - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
 
 deploy_test:
   stage: deploy_test
   environment: test
   script:
     - *build_sphinx
-    - rsync -avz --delete $OUTPUTDIR/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+    - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
 
 linkcheck:
   image: debian:10
   stage: linkcheck
   allow_failure: true
+  variables:
+    STAGE_URL: https://test.docs.opsone.ch/7-0-stable/
   script:
-    - apt -y install linkchecker
+    - apt-get update && apt -y install linkchecker
     - mkdir -p ~/.linkchecker
     - echo -e "[authentication]\nentry=${STAGE_URL} ${BASICAUTH_USERNAME} ${BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
     - linkchecker --no-warnings $STAGE_URL
-
