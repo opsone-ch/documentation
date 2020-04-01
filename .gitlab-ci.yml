@@ -1,5 +1,8 @@
 ---
 # configuration
+variables:
+  GIT_STRATEGY: none
+  MAINBRANCH: managed-server-7
 image: python:3-slim
 
 # stages
@@ -29,7 +32,7 @@ deploy_prod:
   stage: deploy_prod
   environment: ${CI_BUILD_REF_NAME}
   only:
-    - managed-server-7@platform/docs
+    - ${MAINBRANCH}@platform/docs
   script:
     - *load_sshkey
     - *build_sphinx
@@ -52,7 +55,7 @@ remove_test:
     action: stop
   when: manual
   except:
-    - managed-server-7@platform/docs
+    - ${MAINBRANCH}@platform/docs
   script:
     - *load_sshkey
     - ssh ${STAGE_USERNAME}@${STAGE_SERVERNAME} -- "rm -r ~/www/${CI_BUILD_REF_NAME}/"
