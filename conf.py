@@ -214,6 +214,6 @@ html_show_sphinx = False
 
 # add custom css
 html_css_files = [
-  "opsone.css"
+  "/res/opsone.css"
 ]
 
