@@ -28,7 +28,7 @@ deploy_prod:
   stage: deploy_prod
   environment: PROD
   only:
-    - saas@platform/docs
+    - managed-applications@platform/docs
   script:
     - *build_sphinx
     - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
