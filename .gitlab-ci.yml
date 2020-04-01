@@ -1,73 +1,8 @@
 ---
-# configuration
+# local configuration
 variables:
   MAINBRANCH: managed-server-7
-image: python:3-slim
 
-# stages
-stages:
-  - deploy_test
-  - linkcheck
-  - deploy_prod
-
-# hidden job templates used on prod and stage
-.load_sshkey: &load_sshkey
-  # load SSH deploy key
-  - 'which ssh-agent || apt-get update && apt-get -y install openssh-client'
-  - eval $(ssh-agent -s)
-  - ssh-add <(echo "$SSH_PRIVATE_KEY")
-  - mkdir -p ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-
-.build_sphinx: &build_sphinx
-  # install dependencies
-  - apt-get update && apt-get --yes install rsync
-  - pip install Sphinx==3.0.0b1
-  - pip install sphinx_rtd_theme
-  # build documentation
-  - sphinx-build . ./_build/
-
-deploy_prod:
-  stage: deploy_prod
-  environment: ${CI_BUILD_REF_NAME}
-  only:
-    - ${MAINBRANCH}@platform/docs
-  script:
-    - *load_sshkey
-    - *build_sphinx
-    - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
-
-deploy_test:
-  stage: deploy_test
-  environment:
-    name: ${CI_BUILD_REF_NAME}
-    on_stop: remove_test
-  script:
-    - *load_sshkey
-    - *build_sphinx
-    - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
-
-remove_test:
-  stage: deploy_test
-  environment:
-    name: ${CI_BUILD_REF_NAME}
-    action: stop
-  when: manual
-  except:
-    - ${MAINBRANCH}@platform/docs
-  script:
-    - *load_sshkey
-    - ssh ${STAGE_USERNAME}@${STAGE_SERVERNAME} -- "rm -r ~/www/${CI_BUILD_REF_NAME}/"
-
-linkcheck:
-  # TODO: remove
-  allow_failure: true
-  image: debian:10
-  stage: linkcheck
-  variables:
-    GIT_STRATEGY: none
-  script:
-    - apt-get update && apt -y install linkchecker
-    - mkdir -p ~/.linkchecker
-    - echo -e "[authentication]\nentry=https://${STAGE_HOST}/ ${STAGE_BASICAUTH_USERNAME} ${STAGE_BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
-    - linkchecker --no-warnings https://${STAGE_HOST}/${CI_BUILD_REF_NAME}/
+# include template
+include:
+  - file: .gitlab-ci.template.yml'
