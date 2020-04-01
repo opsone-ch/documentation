@@ -1,4 +1,16 @@
 {% extends "!layout.html" %}
+{% block menu %}
+  {{ super() }}
+  <div id="branch-navigation">
+    <h3>Switch to</h3>
+    <ul class="current">
+      <li class="toctree-l1"><a class="reference internal" href="/7-0-stable/">Platform Version 7</a></li>
+      <li class="toctree-l1"><a class="reference internal" href="/5-0-stable/">Platform Version 5</a></li>
+      <li class="toctree-l1"><a class="reference internal" href="/saas/">Managed Applications</a></li>
+      <li class="toctree-l1"><a class="reference internal" href="/legal/">Legal Information</a></li>
+    </ul>
+  </div>
+{% endblock %}
 {% block footer %}
 
 <!-- Piwik -->
