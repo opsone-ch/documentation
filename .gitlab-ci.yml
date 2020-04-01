@@ -44,10 +44,8 @@ linkcheck:
   image: debian:10
   stage: linkcheck
   allow_failure: true
-  variables:
-    STAGE_URL: https://test.docs.opsone.ch/7-0-stable/
   script:
     - apt-get update && apt -y install linkchecker
     - mkdir -p ~/.linkchecker
-    - echo -e "[authentication]\nentry=${STAGE_URL} ${BASICAUTH_USERNAME} ${BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
-    - linkchecker --no-warnings $STAGE_URL
+    - echo -e "[authentication]\nentry=https://${STAGE_HOST}/ ${BASICAUTH_USERNAME} ${BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
+    - linkchecker --no-warnings https://${STAGE_HOST}/${CI_BUILD_REF_NAME}/
