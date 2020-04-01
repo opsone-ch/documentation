@@ -28,35 +28,36 @@ stages:
 
 deploy_prod:
   stage: deploy_prod
-  environment: ${CI_BUILD_REF_NAME}
-#  only:
-#    - "${MAINBRANCH}@platform/docs"
+  environment: ${CI_COMMIT_REF_NAME}
+  only:
+    variables:
+      - "${MAINBRANCH}@platform/docs" == "@{CI_COMMIT_REF_NAME}/@{CI_PROJECT_PATH}"
   script:
     - *load_sshkey
     - *build_sphinx
-    - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+    - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_COMMIT_REF_NAME}/
 
 deploy_test:
   stage: deploy_test
   environment:
-    name: ${CI_BUILD_REF_NAME}
+    name: ${CI_COMMIT_REF_NAME}
     on_stop: remove_test
   script:
     - *load_sshkey
     - *build_sphinx
-    - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+    - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_COMMIT_REF_NAME}/
 
 remove_test:
   stage: deploy_test
   environment:
-    name: ${CI_BUILD_REF_NAME}
+    name: ${CI_COMMIT_REF_NAME}
     action: stop
   when: manual
   except:
     - ${MAINBRANCH}@platform/docs
   script:
     - *load_sshkey
-    - ssh ${STAGE_USERNAME}@${STAGE_SERVERNAME} -- "rm -r ~/www/${CI_BUILD_REF_NAME}/"
+    - ssh ${STAGE_USERNAME}@${STAGE_SERVERNAME} -- "rm -r ~/www/${CI_COMMIT_REF_NAME}/"
 
 linkcheck:
   # TODO: remove
@@ -69,4 +70,4 @@ linkcheck:
     - apt-get update && apt -y install linkchecker
     - mkdir -p ~/.linkchecker
     - echo -e "[authentication]\nentry=https://${STAGE_HOST}/ ${STAGE_BASICAUTH_USERNAME} ${STAGE_BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
-    - linkchecker --no-warnings https://${STAGE_HOST}/${CI_BUILD_REF_NAME}/
+    - linkchecker --no-warnings https://${STAGE_HOST}/${CI_COMMIT_REF_NAME}/
