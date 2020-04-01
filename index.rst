@@ -3,7 +3,7 @@ Managed Server Version 7
 ========================
 
 You are looking at the documentation of our managed server version 7.
-Switch to the documentation for other versions by using the versions at the bottom of the navigation.
+Switch to other versions by using the `Switch to` selector at the bottom of the navigation.
 
 To start, we recommend you to make yourself familiar with the :doc:`general/index`,
 and especially the :doc:`general/access`.
