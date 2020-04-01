@@ -1,9 +1,10 @@
 ---
+# include template from master branch
+include:
+  - project: platform/docs
+    file: .gitlab-ci.template.yml
+
 # local configuration
 variables:
   MAINBRANCH: managed-server-7
 
-# include template
-include:
-  - project: platform/docs
-    file: .gitlab-ci.template.yml
