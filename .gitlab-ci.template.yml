@@ -41,6 +41,7 @@ deploy_test:
   stage: deploy_test
   environment:
     name: ${CI_COMMIT_REF_NAME}_test
+    url: https://${STAGE_HOST}/${CI_COMMIT_REF_NAME}/
     on_stop: remove_test
   script:
     - *load_sshkey
