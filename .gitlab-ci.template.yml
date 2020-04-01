@@ -31,7 +31,7 @@ deploy_prod:
   environment: ${CI_COMMIT_REF_NAME}
   only:
     variables:
-      - "${MAINBRANCH}@platform/docs" == "@{CI_COMMIT_REF_NAME}/@{CI_PROJECT_PATH}"
+      - "${MAINBRANCH}@platform/docs" == "${CI_COMMIT_REF_NAME}/@${CI_PROJECT_PATH}"
   script:
     - *load_sshkey
     - *build_sphinx
