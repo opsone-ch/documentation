@@ -26,17 +26,6 @@ and also to switch to a newer generation in a planned way according to your need
 
 Switch to the documentation of other generations by using the versions selector below.
 
-We got your back
--------------------------------------------
-
-Do you struggle with some configurations, or can we advise you somehow?
-We're here and happy to help.
-If you have any questions, don't hesitate to contact us:
-
-* `Slack <https://opsone-ch.slack.com>`_
-* E-Mail: `team@opsone.ch <mailto:team@opsone.ch>`_
-* Phone: `058 255 00 22 <tel:+41582550022>`_
-
 Open source
 -------------------------------------------
 
@@ -55,6 +44,5 @@ This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 Int
   server/index
   services/index
   development/index
-  support
   faq
 
