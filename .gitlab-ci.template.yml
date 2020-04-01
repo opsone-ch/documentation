@@ -32,6 +32,7 @@ deploy_prod:
   only:
     - ${MAINBRANCH}@platform/docs
   script:
+    - echo "Mainbranch ${MAINBRANCH}"
     - *load_sshkey
     - *build_sphinx
     - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
