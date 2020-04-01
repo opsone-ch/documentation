@@ -5,4 +5,4 @@ variables:
 
 # include template
 include:
-  - file: .gitlab-ci.template.yml'
+  - file: .gitlab-ci.template.yml
