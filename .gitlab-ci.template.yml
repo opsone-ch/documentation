@@ -40,7 +40,7 @@ deploy_prod:
 deploy_test:
   stage: deploy_test
   environment:
-    name: ${CI_COMMIT_REF_NAME}
+    name: test_${CI_COMMIT_REF_NAME}
     on_stop: remove_test
   script:
     - *load_sshkey
@@ -50,7 +50,7 @@ deploy_test:
 remove_test:
   stage: deploy_test
   environment:
-    name: ${CI_COMMIT_REF_NAME}
+    name: test_${CI_COMMIT_REF_NAME}
     action: stop
   when: manual
   except:
