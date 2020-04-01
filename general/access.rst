@@ -1,6 +1,6 @@
 .. index::
-   triple: Server; Access; SSH
-   :name: server-access-ssh
+   pair: Access; SSH
+   :name: access-ssh
 
 Means to Access Your Server
 ===========================
@@ -24,8 +24,8 @@ Depending on the installed services, some shortcuts are available to execute cer
 You will find a list of all shortcuts by typing ``help``.
 
 .. index::
-   triple: Server; Access; devop
-   :name: server-access-devop
+   pair: Access; devop
+   :name: access_devop
 
 Generic Admin User
 ------------------
@@ -42,7 +42,7 @@ allowed to the website users:
 * ``diskusage`` to search for big files and folders
 * ``nft-list`` to list the current nftables configuration
 * ``nft-check`` to validate the current nftables configuration
-* ``update-ca-certificates``, see :ref:`server-ca_certificates` for details
+* ``update-ca-certificates``, see :ref:`cacertificates` for details
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
 

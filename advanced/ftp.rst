@@ -1,6 +1,6 @@
 .. index::
    triple: Server; FTP; File Transfer Protocol
-   :name: server-ftp
+   :name: ftp
 
 ==========
 FTP Access
@@ -8,7 +8,7 @@ FTP Access
 
 This service will install and configure ProFTPD and manage virtual users.
 
-.. warning:: Nowadays, FTP is not required for your daily work anymore. Please use SSH/SCP which is already in place by default. See :ref:`server-access-ssh` for details.
+.. warning:: Nowadays, FTP is not required for your daily work anymore. Please use SSH/SCP which is already in place by default. See :ref:`access-ssh` for details.
 
 Users
 -----

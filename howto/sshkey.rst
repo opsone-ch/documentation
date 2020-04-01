@@ -1,6 +1,6 @@
 .. index::
    triple: How-to; SSH; Key Generate
-.. _howto-sshkey:
+   :name: howto-sshkey
 
 ================
 SSH Key Handling
@@ -8,7 +8,7 @@ SSH Key Handling
 
 .. index::
    triple: How-to; SSH; Windows
-.. _howto-sshkey_windows:
+   :name: howto-sshkey_windows
 
 Windows
 =======
@@ -63,11 +63,11 @@ to enable the ``Allow agent forwarding`` checkbox.
 
 .. index::
    triple: How-to; SSH; MacOS
-.. _howto-sshkey_macos:
+   :name: howto-sshkey_macos
 
 .. index::
    triple: How-to; SSH; Linux
-.. _howto-sshkey_linux:
+   :name: howto-sshkey_linux
 
 Mac, Linux
 ==========

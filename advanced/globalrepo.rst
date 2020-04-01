@@ -1,6 +1,6 @@
 .. index::
-   pair: Server; Git; Repository Deployment
-.. _server-globalrepo:
+   pair: Git; Repository Deployment
+   :name: globalrepo
 
 =========================
 Git Repository Deployment

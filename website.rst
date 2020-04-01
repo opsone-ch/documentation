@@ -1,6 +1,6 @@
 .. index::
-   twin: Server; Website
-   :name: server-website
+   single: Website
+   :name: website
 
 =======
 Website
@@ -204,7 +204,7 @@ wordpress
 
 .. index::
    triple: Website; Type; PHP 7.2
-.. _website-type-php72:
+   :name: website_type-php72
 
 php72
 ^^^^^
@@ -222,7 +222,7 @@ php72
 
 .. index::
    triple: Website; Type; PHP 7.1
-.. _website-type-php71:
+   :name: website_type-php71
 
 php71
 ^^^^^
@@ -703,7 +703,7 @@ and configure them trough `website::ssl_dhparam`:
 
 .. index::
    pair: Website; HSTS
-.. _website-hsts:
+   :name: website_hsts
 
 HSTS Header
 ^^^^^^^^^^^
@@ -735,7 +735,7 @@ We recommend the following online services for testing:
 
 .. index::
    pair: Website; WAF; Web Application Firewall
-.. _website-waf:
+   :name: website_waf
 
 Web Application Firewall
 ------------------------
@@ -952,7 +952,7 @@ Include your own, external configuration files within ``server { }`` or ``http {
 
     "nginx::global_config::server_file": "/absolut/path/to/your/file.conf"
 
-.. hint:: with this setting, you can deploy own, system wide configuration files from a Git repository. See :ref:`server-globalrepo` for details.
+.. hint:: with this setting, you can deploy own, system wide configuration files from a Git repository. See :ref:`globalrepo` for details.
 
 custom webroot
 ^^^^^^^^^^^^^^
@@ -982,7 +982,9 @@ This configuration is only available globally for all websites on a server, to c
 
   "website::wrapper::nginx::log_format": "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
 
-.. _php.ini:
+.. index::
+   triple: Website; Custom PHP Configuration; php.ini
+   :name: website_php.ini
 
 PHP
 ^^^
@@ -1070,7 +1072,7 @@ type related cronjobs
 
 .. index::
    triple: Website; Listen; Port
-.. _website-listen:
+   :name: website_listen
 
 Listen
 ------
@@ -1116,7 +1118,7 @@ deactivate monitoring by setting ``"monitoring": "false"`` in custom JSON:
 
 .. index::
    triple: Website; Environment; Variables
-.. _website-envvar:
+   :name: website_envvar
 
 Environment Variables
 ---------------------

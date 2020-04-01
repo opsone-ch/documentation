@@ -1,6 +1,6 @@
 .. index::
-   pair: Server; Firewall
-   :name: server-firewall
+   single: Firewall
+   :name: firewall
 
 ==============
 Firewall Rules
@@ -8,7 +8,7 @@ Firewall Rules
 
 .. attention::
    This site covers the IP/network firewall.
-   There is also a web application firewall within :ref:`Website <website-waf>`.
+   There is also a web application firewall within :ref:`Website <website_waf>`.
 
 Default Settings
 ================
@@ -27,7 +27,7 @@ Change Default Allowed Outgoing Ports
 -------------------------------------
 
 Alter the list of allowed outgoing ports by adding only the desired ports to the
-``nftables::allow_outgoing_ports`` array within the `Custom JSON` :ref:`server-customjson_server`:
+``nftables::allow_outgoing_ports`` array within the `Custom JSON` :ref:`customjson_server`:
 
 .. index::
    triple: Server; Firewall; Default Allowed Outgoing Ports
@@ -65,18 +65,18 @@ Automatic Rules
 
 Where possible, we add required firewall rules when you configure a certain service, for example:
 
-* the :ref:`server-website` module will allow incoming HTTP/HTTPS
-* the :ref:`server-ftp` module will allow incoming FTP
+* the :ref:`website` module will allow incoming HTTP/HTTPS
+* the :ref:`ftp` module will allow incoming FTP
 
 .. index::
    triple: Server; Firewall; Custom Rules
-   :name: server-firewall_customrules
+   :name: firewall_customrules
 
 Custom Rules
 ============
 
 To allow your desired incoming or outgoing connections, you can add custom firewll rules ``/etc/nftables.conf``
-by adding the rule to the ``nftables::rules`` hash within the `Custom JSON` :ref:`server-customjson_server`:
+by adding the rule to the ``nftables::rules`` hash within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -112,7 +112,7 @@ nftables can also be used to  limit requests matching certain conditions.
 
 .. tip::
 
-   You can also limit connections within your :ref:`server-firewall_customrules`.
+   You can also limit connections within your :ref:`firewall_customrules`.
    Details about possible configurations are listed in the
    `nftables Wiki <https://wiki.nftables.org/wiki-nftables/index.php/Rate_limiting_matchings>`__.
 
@@ -123,7 +123,7 @@ Incoming SSH
 
 Incoming SSH connections are limited to 15 per minute. You can alter or remove
 this limit by setting the ``nftables::input_ssh_limit`` within the `Custom JSON`
-:ref:`server-customjson_server`:
+:ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -136,7 +136,7 @@ Incoming ICMP
 
 Incoming ICMP connections are limited to 10 per second. You can alter or remove
 this limit by setting the ``nftables::input_icmp_limit`` within the `Custom JSON`
-:ref:`server-customjson_server`:
+:ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -149,7 +149,7 @@ Incoming ICMPv6
 
 Incoming ICMPv6 connections are limited to 10 per second. You can alter or remove
 this limit by setting the ``nftables::input_icmpv6_limit`` within the `Custom JSON`
-:ref:`server-customjson_server`:
+:ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -161,7 +161,7 @@ Debugging
 =========
 
 To debug your firewall configuration syntax or take a look at the log files,
-you can login in with the `devop` user (see :ref:`server-access-devop`).
+you can login in with the `devop` user (see :ref:`access_devop`).
 
 Commands
 --------
@@ -176,5 +176,5 @@ Log Files
 ---------
 
 Blocked connections are logged to `syslog` and written to ``/var/log/messages``.
-This file is readable trough `devop` user (see :ref:`server-access-devop`) as well.
+This file is readable trough `devop` user (see :ref:`access_devop`) as well.
 

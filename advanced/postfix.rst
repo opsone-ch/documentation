@@ -1,6 +1,6 @@
 .. index::
-   triple: Server; Outgoing Mail; Postfix
-.. _server-postfix:
+   pair: Outgoing Mail; Postfix
+   :name: postfix
 
 ====================
 Outgoing Mail Server

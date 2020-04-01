@@ -1,6 +1,6 @@
 .. index::
-   pair: Server; Solr
-.. _server-solr:
+   single: Solr
+   :name: solr
 
 ====
 Solr

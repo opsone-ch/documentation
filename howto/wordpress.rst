@@ -1,6 +1,6 @@
 .. index::
    triple: How-to; Getting Started with; Wordpress
-.. _howto-wordpress:
+   :name: howto-wordpress
 
 ==============================
 Getting Started with WordPress

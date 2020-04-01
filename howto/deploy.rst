@@ -1,6 +1,6 @@
 .. index::
    triple: How-to; Deploy; Application
-.. _howto-deploy:
+   :name: howto-deploy
 
 ==================
 Deploy Application
@@ -14,7 +14,7 @@ Follow this guide to deploy your application to our servers.
 
 .. index::
    triple: How-to; Deployment; Git
-.. _howto-deploy_git:
+   :name: howto-deploy_git
 
 Copy Files by Git
 =================
@@ -32,7 +32,7 @@ or build something more elaborate.
 
 .. index::
    triple: How-to; Deployment; Copy Files
-.. _howto-deploy_files:
+   :name: howto-deploy_files
 
 Copy Files Manually
 ===================
@@ -55,7 +55,7 @@ this approach is also used to copy files between different sites on the same ser
 
 .. index::
    triple: How-to; Deployment; Copy Database
-.. _howto-deploy_database:
+   :name: howto-deploy_database
 
 Copy Database
 =============
@@ -74,7 +74,7 @@ A example mysql command does look as follows:
 
 .. index::
    triple: How-to; Deployment; Go-Live
-.. _howto-deploy_golive:
+   :name: howto-deploy_golive
 
 Go Live
 =======
@@ -86,7 +86,7 @@ For a go live without any troubles and outages, please make sure that:
 
 - Domains and/or nameserver are within your control
 - the desired DNS records TTL was lowered to 300
-- your SPF records are in order (when your application must send mails only, see :ref:`server-postfix`)
+- your SPF records are in order (when your application must send mails only, see :ref:`postfix`)
 - the correct application context was set
 - the correct, final server names are in place
 - possible intermediate server names are removed
@@ -143,5 +143,5 @@ Check logfiles and usage
 ------------------------
 
 Check all access and error logs and make sure your server can bear the new load of the additional visitors.
-A handy tool to gain a good overview is :ref:`server-monitoring_netdata`.
+A handy tool to gain a good overview is :ref:`monitoring_netdata`.
 

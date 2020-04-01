@@ -1,6 +1,6 @@
 .. index::
    triple: How-to; PHP; Debugging
-.. _howto-phpdebugging:
+   :name: howto-phpdebugging
 
 =============
 PHP Debugging

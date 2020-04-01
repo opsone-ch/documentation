@@ -1,6 +1,6 @@
 .. index::
    triple: Server; CA Certificates; SSL Trust Store
-.. _server-ca_certificates:
+   :name: cacertificates
 
 ===============
 CA Certificates

@@ -1,6 +1,6 @@
 .. index::
    triple: How-to; E-Mail; Send
-.. _howto-email:
+   :name: howto-email
 
 =============================
 Context Based E-Mail Handling

@@ -1,6 +1,6 @@
 .. index::
    pair: Server; Monitoring
-.. _server-monitoring:
+   :name: monitoring
 
 ==========
 Monitoring
@@ -38,7 +38,7 @@ Utilization
 
 .. index::
    tripe: Server; Monitoring; Netdata
-.. _server-monitoring_netdata:
+   :name: monitoring_netdata
 
 Netdata
 ~~~~~~~

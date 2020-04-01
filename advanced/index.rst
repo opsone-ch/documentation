@@ -14,6 +14,6 @@ Here, we document possible configuration options which you won't need on a daily
   database
   hosts
   ssh
-  ca-certificates
+  cacertificates
   ftp
 

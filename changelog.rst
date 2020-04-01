@@ -19,12 +19,12 @@ Website
 
 * TODO
 
-See :ref:`server-website`.
+See :ref:`website`.
 
 Firewall
 ========
 
 * switched from iptables to nftables
 
-See  :ref:`server-firewall`.
+See  :ref:`firewall`.
 

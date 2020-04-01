@@ -1,6 +1,6 @@
 .. index::
    triple: How-to; FAQ
-.. _howto-faq:
+   :name: howto-faq
 
 ===
 FAQ
