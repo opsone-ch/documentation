@@ -1,36 +1,54 @@
-# Configuration
-variables:
-  OUTPUTDIR: _build
-  PROD_URL: https://docs.opsone.ch/legal/
-  STAGE_URL: https://test.docs.opsone.ch/legal/
-  VERSION: legal
+---
+# configuration
+image: python:3-slim
 
-# Docker image
-image: "python:latest"
-
-# Define stages
+# stages
 stages:
-- deploy stage
-- deploy prod
-- test
+  - deploy_test
+  - linkcheck
+  - deploy_prod
 
-# Dependencies
-before_script:
-  # SSH deploy key
+# hidden job template used on prod and stage
+.build_sphinx: &build_sphinx
+  # load SSH deploy key
   - apt-get update
   - 'which ssh-agent || apt-get -y install openssh-client'
   - eval $(ssh-agent -s)
   - ssh-add <(echo "$SSH_PRIVATE_KEY")
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  # install dependencies
+  - apt-get -y install rsync
+  - pip install Sphinx==3.0.0b1
+  - pip install sphinx_rtd_theme
+  # build documentation
+  - sphinx-build . ./_build/
 
-include:
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/deploy_stage.yml'
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/deploy_prod.yml'
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/linkchecker.yml'
+deploy_prod:
+  stage: deploy_prod
+  environment: PROD
+  only:
+    - legal@platform/docs
+  script:
+    - *build_sphinx
+    - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+
+deploy_test:
+  stage: deploy_test
+  environment: test
+  script:
+    - *build_sphinx
+    - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+
+linkcheck:
+  # TODO: remove
+  allow_failure: true
+  image: debian:10
+  stage: linkcheck
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - apt-get update && apt -y install linkchecker
+    - mkdir -p ~/.linkchecker
+    - echo -e "[authentication]\nentry=https://${STAGE_HOST}/ ${STAGE_BASICAUTH_USERNAME} ${STAGE_BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
+    - linkchecker --no-warnings https://${STAGE_HOST}/${CI_BUILD_REF_NAME}/
