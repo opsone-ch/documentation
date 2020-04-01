@@ -6,6 +6,12 @@
 Getting Started with Docker
 ===========================
 
+.. warning::
+
+   WIP: This content was not yet adapted and checked for version 7,
+   which we will do as soon as possible.
+   If in doubt, please contact us for details regarding this topic.
+
 Goal: Install Docker on the server and make a container available behind a reverse proxy.
 
 Create Environment

@@ -6,6 +6,12 @@
 Website
 =======
 
+.. warning::
+
+   WIP: This content was not yet adapted and checked for version 7,
+   which we will do as soon as possible.
+   If in doubt, please contact us for details regarding this topic.
+
 Our website module provides everything you need, to manage, deploy and
 run your website. It is type and environment based which means you have
 to select a particular type (e.g. typo3cms) and environment (e.g. PROD).
@@ -131,7 +137,7 @@ neos
      - ~/web
 
 -  PHP and nginx settings adjusted to Neos requirements
--  ``FLOW_CONTEXT`` set according the selected environment (see `Environments`_)
+-  ``FLOW_CONTEXT`` set according the selected context (see :ref:`website_context`)
 -  ``FLOW_REWRITEURLS`` enabled
 
 required configuration
@@ -410,6 +416,10 @@ ruby
        }
 
 .. hint:: to control the ruby daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
+
+.. index::
+   pair: Website; Context
+   :name: website_context
 
 Contex
 ------
@@ -919,12 +929,12 @@ nested in the location section from the example on top:
 Included within the server block on each website with environment set to PROD. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
 
 ~/cnf/nginx-stage.conf
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Included within the server block on each website with environment set to STAGE. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
 
 ~/cnf/nginx-dev.conf
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Included within the server block on each website with environment set to DEV. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
 

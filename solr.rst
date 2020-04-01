@@ -7,7 +7,10 @@ Solr
 ====
 
 .. warning::
-  Solr is not yet ready in generation 7. We will update this documentation in due time.
+
+   WIP: This content was not yet adapted and checked for version 7,
+   which we will do as soon as possible.
+   If in doubt, please contact us for details regarding this topic.
 
 Install and manage Apache Solr instances for different use cases.
 

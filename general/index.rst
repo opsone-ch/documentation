@@ -3,10 +3,10 @@ General Informations
 ====================
 
 .. toctree::
-  :maxdepth: 2
+   :maxdepth: 2
 
-  access
-  backup
-  monitoring
-  maintenance
+   access
+   backup
+   monitoring
+   maintenance
 

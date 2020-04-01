@@ -39,7 +39,7 @@ Default Settings
 .. code-block:: json
 
    {
-     "nftables::firewall::allow_outgoing_ports": [ 25, 80, 110, 143, 443, 465, 587, 993, 995 ]
+     "nftables::allow_outgoing_ports": [ 25, 80, 110, 143, 443, 465, 587, 993, 995 ]
    }
 
 Allow HTTP and HTTP Only
@@ -48,7 +48,7 @@ Allow HTTP and HTTP Only
 .. code-block:: json
 
    {
-     "nftables::firewall::allow_outgoing_ports": [ 80, 443 ]
+     "nftables::allow_outgoing_ports": [ 80, 443 ]
    }
 
 Deny any Outgoing Ports

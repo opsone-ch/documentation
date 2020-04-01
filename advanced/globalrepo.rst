@@ -74,6 +74,8 @@ exec_after
 Minimal configuration
 ---------------------
 
+Use the `Custom JSON` at the :ref:`customjson_server`.
+
 .. code-block:: json
 
   {
@@ -86,6 +88,8 @@ Minimal configuration
 
 Full example
 ------------
+
+Use the `Custom JSON` at the :ref:`customjson_server`.
 
 .. code-block:: json
 

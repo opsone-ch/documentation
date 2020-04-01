@@ -30,7 +30,7 @@ Shell
 
 ::
 
-    $ cat ../tmp/mail.2015-06-26_10-11-06.ZuQ.eml 
+    $ cat ../tmp/mail.2015-06-26_10-11-06.ZuQ.eml
     To: box@example.net
     Subject: test
     X-PHP-Originating-Script: 0:test.php

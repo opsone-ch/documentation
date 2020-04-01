@@ -89,12 +89,21 @@ smtpd_tls_key_file
 
 smtputf8_enable
 ~~~~~~~~~~~~~~~
+
 * Enable preliminary SMTPUTF8 support for the protocols described in RFC 6531 to 6533
 * see the `Postfix documentation <http://www.postfix.org/postconf.5.html#smtputf8_enable>`__ for details
 * default: ``yes``
 
+smtp_sasl_password_maps
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* used to authenticate against your configured smarthost
+* default: empty
+
 Example
 ~~~~~~~
+
+All postfix related configuration is set within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 

@@ -21,6 +21,8 @@ Users
    adding.
 -  home: access is restricted to this directory
 
+Configure the ``ftp::users`` hash within the `Custom JSON` :ref:`customjson_server`:
+
 .. code-block:: json
 
   {
@@ -43,6 +45,8 @@ Directories
 
 -  add custom per directory options
 -  see ProFTPD Documentation for Details: http://www.proftpd.org/docs/
+
+Configure the ``ftp::directories`` hash within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -75,34 +79,47 @@ TLS Certificates
 
 - TLS is enabled and required by default
 
-.. warning:: You can disable the TLS requirement with ``"ftp::wrapper::proftpd::tlsrequired": "off",``. As we try to avoid the usage of unencrypted FTP connections, this option is strongly not recommended. Please contact us if we can help find another solution.
+.. warning::
 
-default certificate
+   You can disable the TLS requirement by setting the  ``ftp::wrapper::proftpd::tlsrequired`` string to ``off``.
+   As the FTP connection is not encrypted anymore, this option is strongly not recommended.
+   Please contact us to find another solution.
+
+Default Certificate
 ^^^^^^^^^^^^^^^^^^^
 
 If not configured otherwise (see below), a self signed certificate bearing the hostname of the server will be created and used for ProFTPD.
 
-own certificate
+Own Certificate
 ^^^^^^^^^^^^^^^
 
 Specify your own certificate with the ``tls_key`` and ``tls_crt`` options.
 
-::
-
-  "ftp::wrapper::proftpd::tls_crt": "-----BEGIN CERTIFICATE-----\nMY-TLS-CERTIFICATE\n",
-  "ftp::wrapper::proftpd::tls_key": "-----BEGIN PRIVATE KEY-----\nMY-TLS-KEY"
-
-own certificate in file
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Another option is to use existing certificates already in place on this server, for example one thats used with nginx already. Specify the certificates location with the ``tls_key_file`` and ``tls_crt_file`` options.
+Configure the ``ftp::wrapper::proftpd::tls_crt`` and ``ftp::wrapper::proftpd::tls_key``
+strings within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
-  {
-    "ftp::wrapper::proftpd::tls_crt_file": "/etc/nginx/ssl/<websitename>.crt",
-    "ftp::wrapper::proftpd::tls_key_file": "/etc/nginx/ssl/<websitename>.key"
-  }
+   {
+     "ftp::wrapper::proftpd::tls_crt": "-----BEGIN CERTIFICATE-----\nMY-TLS-CERTIFICATE\n",
+     "ftp::wrapper::proftpd::tls_key": "-----BEGIN PRIVATE KEY-----\nMY-TLS-KEY"
+   }
 
-.. hint:: With this option, you can also use certificates issued through nginx by Let's Encrypt
+Own Certificate from File
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Another option is to use existing certificates already in place on this server,
+for example one thats used with nginx already.
+
+Configure the locations with the ``ftp::wrapper::proftpd::tls_crt_file`` and ``ftp::wrapper::proftpd::tls_key_file``
+strings within the `Custom JSON` :ref:`customjson_server`:
+
+.. code-block:: json
+
+   {
+     "ftp::wrapper::proftpd::tls_crt_file": "/etc/nginx/ssl/<websitename>.crt",
+     "ftp::wrapper::proftpd::tls_key_file": "/etc/nginx/ssl/<websitename>.key"
+   }
+
+.. hint:: With this option, you can also use certificates issued through nginx by Let's Encrypt.
 

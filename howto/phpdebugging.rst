@@ -31,7 +31,8 @@ forward this debug port to your desired destination, e.g.
 Custom Xdebug Port/Host
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-You can specify own  values for ``xdebug.remote_port`` and ``xdebug.remote_host`` through Hiera.
+Set the ``xdebug.remote_port`` and ``xdebug.remote_host`` string
+within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
