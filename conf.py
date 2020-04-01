@@ -112,11 +112,10 @@ import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_context = {
-    "display_github": True,
-    "github_host": "github.com",
-    "github_user": "opsone-ch",
-    "github_repo": 'documentation',
-    "github_version": "saas",
+    "display_gitlab": True,
+    "gitlab_user": "opsone_ch",
+    "gitlab_repo": 'documentation',
+    "gitlab_version": "saas",
     "conf_py_path": "/",
     "source_suffix": '.rst',
     "theme_vcs_pageview_mode": "blob",
