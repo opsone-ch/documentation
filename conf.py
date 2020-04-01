@@ -298,6 +298,6 @@ texinfo_documents = [
 
 #  add custom css
 html_css_files = [
-  "opsone.css"
+  "/res/opsone.css"
 ]
 
