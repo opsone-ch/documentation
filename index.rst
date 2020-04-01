@@ -2,13 +2,13 @@
 Managed Server Version 7
 ========================
 
-You are looking at the documentation of our managed server version 7. Switch to the documentation for other versions by using the versions selector below.
+You are looking at the documentation of our managed server version 7.
+Switch to the documentation for other versions by using the versions at the bottom of the navigation.
 
-Each version is based on a certain Debian release and tied to versions of additional software like PHP and MySQL.
-This concept allows you to select the appropriate version depending on the application you use, and also to switch to a newer generation in a planned way according to your needs.
+To start, we recommend you to make yourself familiar with the :doc:`general/index`,
+and especially the :doc:`general/access`.
 
-.. list-table:: Main Software Versions
-   :widths: 20 20 20 20 20
+.. list-table:: Managed Server Version 7: Main Software Versions and End of Life Date
 
    * - OS Release
      - Webserver
@@ -21,12 +21,13 @@ This concept allows you to select the appropriate version depending on the appli
      - 5.5 (EOL), 7.0 (EOL), 7.2, 7.4
      - May 2024
 
-Search and Glossar
-==================
+Search and Glossary
+===================
 
-Did not find what you're looking for yet? Beside of the search bar (top left), we also added a :doc:`glossary <genindex>` with all the important topics.
+Not found what you're looking for yet? Beside of the search bar (top left),
+we also added a :doc:`genindex` with a comprehensive list of all topics.
 
-.. tip:: Find Marketing and contract related details on our website https://opsone.ch.
+.. tip:: For marketing and contract related details and contact infos, visit our website https://opsone.ch.
 
 Open source
 -------------------------------------------
@@ -39,7 +40,12 @@ and `GitHub <https://github.com/opsone-ch/documentation/>`_.
 .. toctree::
   :hidden:
 
-  server/index
+  general/index
+  website
+  caching
+  solr
+  advanced/index
+  Changelog <changelog>
   howto/index
   Glossary <genindex>
 
