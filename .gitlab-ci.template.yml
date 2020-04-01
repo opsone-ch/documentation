@@ -54,7 +54,8 @@ remove_test:
     action: stop
   when: manual
   except:
-    - ${MAINBRANCH}@platform/docs
+    variables:
+      - $MAINBRANCH == $CI_COMMIT_REF_NAME
   script:
     - *load_sshkey
     - ssh ${STAGE_USERNAME}@${STAGE_SERVERNAME} -- "rm -r ~/www/${CI_COMMIT_REF_NAME}/"
