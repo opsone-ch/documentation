@@ -213,7 +213,7 @@ html_show_sphinx = False
 # implements a search results scorer. If empty, the default will be used.
 #html_search_scorer = 'scorer.js'
 
-#  add custom css
+# add custom css
 html_css_files = [
   "opsone.css"
 ]
