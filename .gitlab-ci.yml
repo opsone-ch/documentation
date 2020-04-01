@@ -5,4 +5,5 @@ variables:
 
 # include template
 include:
-  - file: .gitlab-ci.template.yml
+  - project: ${CI_PROJECT_PATH}
+    file: .gitlab-ci.template.yml
