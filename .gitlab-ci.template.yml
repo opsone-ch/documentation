@@ -30,7 +30,7 @@ deploy_prod:
   stage: deploy_prod
   environment: ${CI_BUILD_REF_NAME}
   only:
-    - ${MAINBRANCH}
+    - ${MAINBRANCH}@platform/docs
   script:
     - *load_sshkey
     - *build_sphinx
