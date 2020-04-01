@@ -1,3 +1,8 @@
+.. index::
+   triple: Server; FTP; File Transfer Protocol
+   :name: ftp
+
+==========
 FTP Access
 ==========
 

@@ -7,7 +7,7 @@ SSH client configuration
 ========================
 
 You can add custom SSH client configurations to ``/etc/ssh/ssh_config``
-by setting the ``ssh::config`` hash within the Custom JSON :ref:`server-customjson_server`:
+by setting the ``ssh::config`` hash within the `Custom JSON` :ref:`server-customjson_server`:
 
 .. code-block:: json
 

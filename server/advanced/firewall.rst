@@ -1,171 +1,180 @@
 .. index::
    pair: Server; Firewall
-.. _server-firewall:
+   :name: server-firewall
 
-======================
-Firewall Configuration
-======================
+==============
+Firewall Rules
+==============
 
-.. note::
+.. attention::
    This site covers the IP/network firewall.
-   There is also a web application firewall within :ref:`website <website-waf>`.
+   There is also a web application firewall within :ref:`Website <website-waf>`.
 
-.. warning::
-   In server version 7, we switched to the nftables firewall. We will update this documentation in due time.
+Default Settings
+================
 
-Default settings
-----------------
-
-By default, all incoming and outgoing traffic is blocked, except:
+All incoming and outgoing traffic is blocked by default, except:
 
 - related or established connections
 - ICMP/ICMPv6
 - Traceroute
 - SSH
-- outgoing connections to the following common services
-    - HTTP(S): TCP Ports 80, 443
-    - SMTP(S): TCP Ports 25, 587, 465
-    - POP3(S): TCP Ports 110, 995
-    - IMAP(S): TCP Ports 143, 993
+- outgoing connections to some common services (see :ref:`` below)
 
-.. note:: depending on your companys guideline, outgoing connections might not be allowed by default
+.. tip:: Outgoing connections might not be allowed by default according on your company guidelines.
 
-Disable common outgoing services
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Change Default Allowed Outgoing Ports
+-------------------------------------
 
-To enhance the security level of your server, disable outgoing connections to common services by adding the following custom JSON configuration:
+Alter the list of allowed outgoing ports by adding only the desired ports to the
+``nftables::allow_outgoing_ports`` array within the `Custom JSON` :ref:`server-customjson_server`:
+
+.. index::
+   triple: Server; Firewall; Default Allowed Outgoing Ports
+   :name: firewall_default-allowed-outgoing-ports
+
+Default Settings
+~~~~~~~~~~~~~~~~
 
 .. code-block:: json
 
-    {
-      "base::firewall::allow_outgoing_ports": false
-    }
+   {
+     "nftables::firewall::allow_outgoing_ports": [ 25, 80, 110, 143, 443, 465, 587, 993, 995 ]
+   }
 
-Custom rules trough service
----------------------------
+Allow HTTP and HTTP Only
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Where applicable, all services will add the firewall rules required automatically, for example:
+.. code-block:: json
 
-- website module will allow incoming HTTP(S)
-- ftp module will allow incoming FTP
+   {
+     "nftables::firewall::allow_outgoing_ports": [ 80, 443 ]
+   }
 
-Custom rules
+Deny any Outgoing Ports
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: json
+
+   {
+     "nftables::allow_outgoing_ports": false
+   }
+
+Automatic Rules
+===============
+
+Where possible, we add required firewall rules when you configure a certain service, for example:
+
+* the :ref:`website` module will allow incoming HTTP/HTTPS
+* the :ref:`ftp` module will allow incoming FTP
+
+.. index::
+   triple: Server; Firewall; Custom Rules
+   :name: server-firewall_customrules
+
+Custom Rules
+============
+
+To allow your desired incoming or outgoing connections, you can add custom firewll rules ``/etc/nftables.conf``
+by adding the rule to the ``nftables::rules`` hash within the `Custom JSON` :ref:`server-customjson_server`:
+
+.. code-block:: json
+
+   {
+     "nftables::rules": {
+       "accept incoming port example for IPv4": {
+         "chain": "input",
+         "rule": "tcp dport 1234 accept ip saddr 192.168.1.1"
+       },
+       "accept incoming port example for IPv6": {
+         "chain": "input",
+         "rule": "tcp dport 1234 accept ip6 saddr 2001:db8::1"
+       },
+       "accept outgoing port example for IPv4": {
+         "chain": "output",
+         "rule": "tcp dport 1234 accept ip daddr 192.168.1.1"
+       },
+       "accept outgoing port example for IPv6": {
+         "chain": "output",
+         "rule": "tcp dport 1234 accept ip6 daddr 2001:db8::1"
+       }
+     }
+   }
+
+.. attention:: Make sure to always add rules for both IPv4 and IPv6.
+
+.. tip:: Details about possible rule configurations are listed in the `nftables Wiki <https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes#Rules>`__.
+
+Request Limits
+==============
+
+nftables can also be used to  limit requests matching certain conditions.
+
+.. tip::
+
+   You can also limit connections within your :ref:`server-firewall_customrules`.
+   Details about possible configurations are listed in the
+   `nftables Wiki <https://wiki.nftables.org/wiki-nftables/index.php/Rate_limiting_matchings>`__.
+
+By default, we limit the following connections:
+
+Incoming SSH
 ------------
 
-Where applicable, both IPv4 and IPv6 Rules are added by default (for example INPUT chains for a particular port).
-
-Configuration
-^^^^^^^^^^^^^
-
-.. hint:: this service as based on the official Puppet firewall module. For further configuration details, see the `firewall documentation <https://github.com/puppetlabs/puppetlabs-firewall#firewall>`__ on Github
-
-chain
-"""""
-
-* `INPUT` for incoming rules
-* `OUTPUT` for outgoing rules
-
-action
-""""""
-
-* `accept`: The packet is accepted.
-* `reject`: The packet is rejected with a suitable ICMP response.
-* `drop`: The packet is dropped.
-
-source (optional)
-""""""
-
-IPv4 source address or network. Examples:
-
-* `192.168.0.1`
-* `192.168.0.0/24`
-
-source6 (optional)
-"""""""
-
-IPv6 source address or network. Examples:
-
-* `2001:db8::1`
-* `2001:db8::/32`
-
-destination (optional)
-"""""""""""
-
-IPv4 destination address or network. Examples:
-
-* `192.168.0.1`
-* `192.168.0.0/24`
-
-destination6 (optional)
-""""""""""""
-
-IPv6 destination address or network. Examples:
-
-* `2001:db8::1`
-* `2001:db8::/32`
-
-sport
-"""""
-
-Source port number.
-
-dport
-"""""
-
-Destination port number.
-
-proto
-"""""
-
-Protocol. Examples:
-
-* `tcp`
-* `udp`
-
-Examples
-^^^^^^^^
-
-Allow outgoing
-""""""""""""""
+Incoming SSH connections are limited to 15 per minute. You can alter or remove
+this limit by setting the ``nftables::input_ssh_limit`` within the `Custom JSON`
+:ref:`server-customjson_server`:
 
 .. code-block:: json
 
-    {
-      "base::firewall::rules": {
-        "021 accept outgoing smtp to mailrelay": {
-          "action": "accept",
-          "chain": "OUTPUT",
-          "destination": "192.168.0.1",
-          "destination6": "2001:db8::1",
-          "dport": "25"
-        }
-      }
-    }
+   {
+     "nftables::input_ssh_limit": "15/minute"
+   }
 
-Deny incoming
-"""""""""""""
+Incoming ICMP
+-------------
 
-You can add custom rules to deny services, too:
+Incoming ICMP connections are limited to 10 per second. You can alter or remove
+this limit by setting the ``nftables::input_icmp_limit`` within the `Custom JSON`
+:ref:`server-customjson_server`:
 
 .. code-block:: json
 
-    {
-      "base::firewall::rules": {
-        "020 deny HTTP from evil network": {
-          "action": "reject",
-          "chain": "INPUT",
-          "source": "192.168.0.0/24",
-          "source6": "2001:db8::/32",
-          "dport": "80"
-        }
-      }
-    }
+   {
+     "nftables::input_icmp_limit": "10/second"
+   }
+
+Incoming ICMPv6
+---------------
+
+Incoming ICMPv6 connections are limited to 10 per second. You can alter or remove
+this limit by setting the ``nftables::input_icmpv6_limit`` within the `Custom JSON`
+:ref:`server-customjson_server`:
+
+.. code-block:: json
+
+   {
+     "nftables::input_icmpv6_limit": "10/second"
+   }
 
 Debugging
+=========
+
+To debug your firewall configuration syntax or take a look at the log files,
+you can login in with the `devop` user (see :ref:`server-access-devop`).
+
+Commands
+--------
+
+The following commands are available:
+
+* ``nft-list`` to list the current nftables configuration.
+* ``nft-check`` to validate the current nftables configuration.
+  This command will also show you the problematic parts if you have any errors in your syntax.
+
+Log Files
 ---------
 
-Logged in as user ``devop``, you can diagnose created rules and logs
-trough the following means:
+Blocked connections are logged to `syslog` and written to ``/var/log/messages``.
+This file is readable trough `devop` user (see :ref:`server-access-devop`) as well.
 
--  Firewall logs in ``/var/log/messages``
--  show created rules with ``iptables-list`` or ``iptables-rules``

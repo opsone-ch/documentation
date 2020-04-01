@@ -1,3 +1,8 @@
+.. index::
+   twin: Server; Website
+   :name: website
+
+=======
 Website
 =======
 

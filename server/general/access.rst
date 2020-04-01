@@ -1,6 +1,6 @@
 .. index::
    triple: Server; Access; SSH
-.. _server-access-ssh:
+   :name: server-access-ssh
 
 Means to Access Your Server
 ===========================
@@ -25,9 +25,9 @@ You will find a list of all shortcuts by typing ``help``.
 
 .. index::
    triple: Server; Access; devop
-.. _server-access-devop:
+   :name: server-access-devop
 
-Generic admin user
+Generic Admin User
 ------------------
 
 A user named `devop` is created by default. You can log into the server
@@ -40,8 +40,8 @@ allowed to the website users:
 * ``puppet-agent`` to trigger a manual configuration management run
 * ``reboot`` to trigger a manual server reboot
 * ``diskusage`` to search for big files and folders
-* ``nft-list`` to list netfilter configuration
-* ``nft-check`` to validate netfilter configuration
+* ``nft-list`` to list the current nftables configuration
+* ``nft-check`` to validate the current nftables configuration
 * ``update-ca-certificates``, see :ref:`server-ca_certificates` for details
 
 .. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
