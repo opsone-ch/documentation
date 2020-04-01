@@ -45,7 +45,6 @@ and `GitHub <https://github.com/opsone-ch/documentation/>`_.
   caching
   solr
   advanced/index
-  Changelog <changelog>
   howto/index
   Glossary <genindex>
 

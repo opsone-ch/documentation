@@ -2,9 +2,9 @@
    triple: Server; Changelog; Version 6 to 7 Changes
    :name: server-changelog
 
-=================================
-Changelog: Version 6 to 7 Changes
-=================================
+======================
+Version 6 to 7 Changes
+======================
 
 .. warning::
 
