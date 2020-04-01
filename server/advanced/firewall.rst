@@ -65,8 +65,8 @@ Automatic Rules
 
 Where possible, we add required firewall rules when you configure a certain service, for example:
 
-* the :ref:`website` module will allow incoming HTTP/HTTPS
-* the :ref:`ftp` module will allow incoming FTP
+* the :ref:`server-website` module will allow incoming HTTP/HTTPS
+* the :ref:`server-ftp` module will allow incoming FTP
 
 .. index::
    triple: Server; Firewall; Custom Rules

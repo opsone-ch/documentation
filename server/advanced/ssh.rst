@@ -1,6 +1,6 @@
 .. index::
    twin: Server; SSH Client Configuration
-.. _server-ssh:
+   :name: server-ssh
 
 ========================
 SSH client configuration

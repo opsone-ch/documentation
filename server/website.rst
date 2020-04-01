@@ -1,6 +1,6 @@
 .. index::
    twin: Server; Website
-   :name: website
+   :name: server-website
 
 =======
 Website
