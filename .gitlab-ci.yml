@@ -1,33 +1,41 @@
-# Configuration
-variables:
-  OUTPUTDIR: _build
-  PROD_URL: https://docs.opsone.ch/5-0-stable/
-  STAGE_URL: https://test.docs.opsone.ch/5-0-stable/
-  VERSION: 5-0-stable
+---
+# configuration
+image: python:3-slim
 
-# Docker image
-image: "python:latest"
-
-# Define stages
+# stages
 stages:
-- deploy stage
-- deploy prod
-- test
+  - deploy_test
+  - deploy_prod
 
-# Dependencies
-before_script:
-  # SSH deploy key
+# hidden job template used on prod and stage
+.build_sphinx: &build_sphinx
+  # load SSH deploy key
   - apt-get update
   - 'which ssh-agent || apt-get -y install openssh-client'
   - eval $(ssh-agent -s)
   - ssh-add <(echo "$SSH_PRIVATE_KEY")
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  # install dependencies
+  - apt-get -y install rsync
+  - pip install Sphinx==3.0.0b1
+  - pip install sphinx_rtd_theme
+  # build documentation
+  - sphinx-build . ./_build/
 
-include:
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/deploy_stage.yml'
-  - project: 'opensource/docs'
-    ref: 6-0-stable
-    file: '.gitlab/ci/deploy_prod.yml'
+deploy_prod:
+  stage: deploy_prod
+  environment: PROD
+  only:
+    - 5-0-stable@platform/docs
+  script:
+    - *build_sphinx
+    - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+
+deploy_test:
+  stage: deploy_test
+  environment: test
+  script:
+    - *build_sphinx
+    - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+
