@@ -27,7 +27,7 @@ deploy_prod:
   stage: deploy_prod
   environment: PROD
   only:
-    - 5-0-stable@platform/docs
+    - managed-server-5@platform/docs
   script:
     - *build_sphinx
     - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
