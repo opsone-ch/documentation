@@ -8,17 +8,18 @@ stages:
   - linkcheck
   - deploy_prod
 
-# hidden job template used on prod and stage
-.build_sphinx: &build_sphinx
+# hidden job templates used on prod and stage
+.load_sshkey: &load_sshkey
   # load SSH deploy key
-  - apt-get update
-  - 'which ssh-agent || apt-get -y install openssh-client'
+  - 'which ssh-agent || apt-get update && apt-get -y install openssh-client'
   - eval $(ssh-agent -s)
   - ssh-add <(echo "$SSH_PRIVATE_KEY")
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+.build_sphinx: &build_sphinx
   # install dependencies
-  - apt-get -y install rsync
+  - apt-get update && apt-get --yes install rsync
   - pip install Sphinx==3.0.0b1
   - pip install sphinx_rtd_theme
   # build documentation
@@ -26,19 +27,35 @@ stages:
 
 deploy_prod:
   stage: deploy_prod
-  environment: PROD
+  environment: ${CI_BUILD_REF_NAME}
   only:
     - managed-server-7@platform/docs
   script:
+    - *load_sshkey
     - *build_sphinx
     - rsync -avz --delete ./_build/ ${PROD_USERNAME}@${PROD_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
 
 deploy_test:
   stage: deploy_test
-  environment: test
+  environment:
+    name: ${CI_BUILD_REF_NAME}
+    on_stop: remove_test
   script:
+    - *load_sshkey
     - *build_sphinx
     - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
+
+remove_test:
+  stage: deploy_test
+  environment:
+    name: ${CI_BUILD_REF_NAME}
+    action: stop
+  when: manual
+  except:
+    - managed-server-7@platform/docs
+  script:
+    - *load_sshkey
+    - ssh ${STAGE_USERNAME}@${STAGE_SERVERNAME} -- "rm -r ~/www/${CI_BUILD_REF_NAME}/"
 
 linkcheck:
   # TODO: remove
