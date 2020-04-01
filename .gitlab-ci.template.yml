@@ -2,8 +2,6 @@
 # configuration
 # this configuration is linked into the different version branches
 image: python:3-slim
-variables:
-  MAINBRANCH: managed-server-7
 
 # stages
 stages:
@@ -31,6 +29,8 @@ stages:
 deploy_prod:
   stage: deploy_prod
   environment: ${CI_BUILD_REF_NAME}
+  variables:
+    MAINBRANCH: managed-server-7
   only:
     - ${MAINBRANCH}@platform/docs
   script:
