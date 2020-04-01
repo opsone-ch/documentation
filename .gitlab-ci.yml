@@ -41,9 +41,12 @@ deploy_test:
     - rsync -avz --delete ./_build/ ${STAGE_USERNAME}@${STAGE_SERVERNAME}:~/www/${CI_BUILD_REF_NAME}/
 
 linkcheck:
+  # TODO: remove
+  allow_failure: true
   image: debian:10
   stage: linkcheck
-  allow_failure: true
+  variables:
+    GIT_STRATEGY: none
   script:
     - apt-get update && apt -y install linkchecker
     - mkdir -p ~/.linkchecker
