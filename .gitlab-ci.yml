@@ -1,7 +1,6 @@
 ---
 # configuration
 variables:
-  GIT_STRATEGY: none
   MAINBRANCH: managed-server-7
 image: python:3-slim
 
