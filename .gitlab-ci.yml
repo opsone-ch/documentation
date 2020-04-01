@@ -50,5 +50,5 @@ linkcheck:
   script:
     - apt-get update && apt -y install linkchecker
     - mkdir -p ~/.linkchecker
-    - echo -e "[authentication]\nentry=https://${STAGE_HOST}/ ${BASICAUTH_USERNAME} ${BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
+    - echo -e "[authentication]\nentry=https://${STAGE_HOST}/ ${STAGE_BASICAUTH_USERNAME} ${STAGE_BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
     - linkchecker --no-warnings https://${STAGE_HOST}/${CI_BUILD_REF_NAME}/
