@@ -20,80 +20,20 @@ To create a new website, there are only a few settings required:
 After creating, you can log into your newly created website by using
 the websites name as SSH username (see :ref:`access-ssh`).
 
+This and all other options are outlined within this chapter:
+
 .. toctree::
-   :caption: Settings
    :maxdepth: 2
 
    name
    type
    context
+   ssl
+   waf
+   limits
    envvar
    cron
-   ssl
-   limits
    advanced/index
-
-.. index::
-   pair: Website; WAF; Web Application Firewall
-   :name: website-waf
-
-Web Application Firewall
-------------------------
-
-We use `ModSecurity <https://modsecurity.org>`__ as additional protection against application level attacks such as cross site-scripting or SQL injections.
-By default, the core rules set will be loaded, and we block common vulnerabilities and zero day attacks by adding some more global rules.
-
-.. warning:: this is just a additional security measure. Regardless its existence, remember to keep your application, extensions and libraries secure and up to date
-
-.. hint:: keep up to date with changes by subscribing to our status uppdates at `opsstatus.ch <http://opsstatus.ch/>`__
-
-Identify blocks
-^^^^^^^^^^^^^^^
-
-nginx error log
-~~~~~~~~~~~~~~~
-
-If a request is blocked, the server will issue a `403 forbidden` error. There are detailed informations available in the error log file:
-
-::
-
-    YYYY/MM/DD HH:MM:SS [error] 171896#0: *29428 [client 2a04:500::1] ModSecurity: Access denied with code 403 (phase 2). Matched "Operator `Ge' with parameter `5' against variable `TX:ANOMALY_SCORE' (Value: `5' ) [file "/etc/nginx/modsecurity/crs/rules/REQUEST-949-BLOCKING-EVALUATION.conf"] [line "80"] [id "949110"] [rev ""] [msg "Inbound Anomaly Score Exceeded (Total Score: 5)"] [data ""] [severity "2"] [ver ""] [maturity "0"] [accuracy "0"] [tag "application-multi"] [tag "language-multi"] [tag "platform-multi"] [tag "attack-generic"] [hostname "2a04:500::1"] [uri "/"] [unique_id "154850909196.529239"] [ref ""], client: 2a04:500::1, server: example.net, request: "GET /?union%20select=%22waf%20demo HTTP/2.0", host: "example.net"
-
-.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__
-
-modsecurity audit log
-~~~~~~~~~~~~~~~~~~~~~
-
-More detailed informations including a full dump of the request and response can be obtained from the audit log file.
-You'll find this at ``/var/log/nginx/modsecurity.log``.
-
-.. hint:: you cannot read ``/var/log/`` from within the web applications context for security reasons, please use the generic ``devop`` account to take a look at them
-
-custom WAF configuration
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-The rules added from the core rules set and the custom rules added by us are there for a reason.
-If you trigger a false positive, you should think about changing your application first of all.
-As this is not always possible or feasible, you can disable certain rules or even the whole WAF
-through the local nginx configuration located in ``~/cnf/nginx.conf``:
-
-::
-
-    # disable blocking triggered requests but still detect and log them
-    modsecurity_rules 'SecRuleEngine DetectionOnly';
-
-    # disable WAF alltogether
-    modsecurity_rules 'SecRuleEngine Off';
-
-    # disable certain rule
-    modsecurity_rules 'SecRuleRemoveById 90001';
-
-    # add custom rule
-    modsecurity_rules 'SecRule "ARGS_NAMES|ARGS" "@contains blocked-value" "deny,msg:blocled,id:91001,chain"'
-
-.. hint:: to apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut
-
-.. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__
 
 Custom configuration
 --------------------
