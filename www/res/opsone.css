@@ -1,4 +1,3 @@
-
 .wy-menu-vertical {
     padding-bottom: 200px;
 }
@@ -21,9 +20,11 @@
     border-bottom: solid 1px #265777;
     background: #2980B9;
 }
+#branch-navigation li.current a {
+    cursor: auto;
+}
 @media screen and (max-width: 768px) {
     .shift #branch-navigation {
         width: 85%;
     }
 }
-
