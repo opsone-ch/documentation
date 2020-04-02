@@ -217,3 +217,9 @@ html_css_files = [
   "/res/opsone.css"
 ]
 
+# linkcheck configuration
+linkcheck_ignore = [
+  # does not respond to bots
+  'http://creativecommons.org/',
+]
+
