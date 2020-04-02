@@ -147,3 +147,35 @@ ip address with 127.0.0.1, use the following example:
      "website::wrapper::nginx::log_format": "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
    }
 
+.. index::
+   triple: Website; Listen; Port
+   :name: website-advanced-nginx_listen
+
+Listen
+======
+
+By default, nginx will bind to the primary IP address of the eth0
+interface and the 80/443 port. You can specify listen options explicitly
+per website, for example to use in concunction with Varnish.
+
+The following options are available within the `Custom JSON`
+:ref:`customjson_website`:
+
+.. code-block:: json
+
+  {
+    "listen_ip": "127.0.0.1",
+    "listen_port": "8080",
+    "listen_options": "option_value",
+    "ipv6_listen_ip": "::1",
+    "ipv6_listen_port": "8080",
+    "ipv6_listen_options": "option_value"
+  }
+
+.. tip::
+
+   If you set ``listen_options`` and ``ipv6_listen_options`` to ``default_server``,
+   the corresponding web page becomes the default server and listens to every server name.
+   This is useful for landing/fallback pages where you do not want to add every host name
+   individually.
+

@@ -10,5 +10,6 @@ Here, we document possible website configuration options which you won't need on
   nginx
   previewuser
   php
+  node
   whitelabel
 
