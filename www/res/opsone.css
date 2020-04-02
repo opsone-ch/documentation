@@ -20,7 +20,16 @@
     border-bottom: solid 1px #265777;
     background: #2980B9;
 }
-#branch-navigation .current a {
+#branch-navigation .current-version {
+    margin: -1px 0;
+    border-bottom: solid 1px #c9c9c9;
+    border-top: solid 1px #c9c9c9;
+}
+#branch-navigation .current-version a,
+#branch-navigation .current-version a:hover {
+    font-weight: bold;
+    color: #404040;
+    background: #fcfcfc;
     cursor: auto;
 }
 @media screen and (max-width: 768px) {
