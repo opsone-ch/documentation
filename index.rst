@@ -20,3 +20,6 @@ This work is licensed under the `Creative Commons Attribution-ShareAlike 4.0 Int
 It is available on `GitLab <https://gitlab.com/opsone_ch/documentation>`_
 and `GitHub <https://github.com/opsone-ch/documentation/>`_.
 
+.. index::
+   single: placeholder
+   :name: placeholder-to-fullfil-ci-tag-job
