@@ -44,3 +44,6 @@ and `GitHub <https://github.com/opsone-ch/documentation/>`_.
   development/index
   faq
 
+.. index::
+   single: placeholder
+   :name: placeholder-to-fullfil-ci-tag-job
