@@ -72,5 +72,5 @@ Examine with `collectd-web`
   cd /path/to/collectd-web
   python runserver.py
 
-* then open `collectd-web` at http://127.0.0.1:8888/
+* then open `collectd-web` at ``http://127.0.0.1:8888/``
 

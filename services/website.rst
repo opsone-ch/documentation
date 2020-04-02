@@ -479,8 +479,7 @@ Disable exceptions
 ^^^^^^^^^^^^^^^^^^
 
 Never show detailed application based exeptions on PROD, to avoid
-`information
-leakage <https://www.owasp.org/index.php/Information_Leakage>`__.
+information leakage.
 Disable the output directly in your application. For example in TYPO3:
 
 ::
@@ -705,17 +704,6 @@ Use the `header_hsts` parameter to override the default HSTS header:
     "header_hsts": "max-age=3600; includeSubDomains; preload"
   }
 
-.. hint:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet>`__ for details
-
-Test
-^^^^
-
-We recommend the following online services for testing:
-
--  `Qualys SSL Labs <https://www.ssllabs.com/ssltest/>`__
--  `Symantec SSL
-   Toolbox <https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp>`__
-
 Web Application Firewall
 ------------------------
 
@@ -898,12 +886,12 @@ nested in the location section from the example on top:
 Included within the server block on each website with environment set to PROD. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
 
 ~/cnf/nginx-stage.conf
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Included within the server block on each website with environment set to STAGE. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
 
 ~/cnf/nginx-dev.conf
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Included within the server block on each website with environment set to DEV. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
 

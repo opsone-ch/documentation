@@ -301,3 +301,15 @@ html_css_files = [
   "/res/opsone.css"
 ]
 
+# linkcheck configuration
+linkcheck_ignore = [
+  # does not respond to bots
+  'http://creativecommons.org/',
+  # anchors in GitHub READMEs are not found
+  # as this contant is lazy loaded into the page
+  'https://github.com/puppetlabs/puppetlabs-vcsrepo#module-description',
+  'https://github.com/puppetlabs/puppetlabs-firewall#firewall',
+  'https://github.com/nvm-sh/nvm#usage',
+  'https://github.com/creationix/nvm#usage',
+]
+
