@@ -13,5 +13,6 @@ This is a collection of how-to manuals. It supplements the documentation with ex
   deploy
   phpdebugging
   sshkey
+  logfile
   faq
 

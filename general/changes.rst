@@ -23,7 +23,10 @@ System Wide
 Website
 =======
 
-* TODO
+* removed outdated types, see :ref:`website-type` for details
+* support for TLS 1.3
+* removed the ``~/cnf/nginx-redirect.conf`` configuration file which was not nowhere correctly in use
+* installed goaccess, see :ref:`howto-logfile_goaccess`
 
 See :ref:`website`.
 

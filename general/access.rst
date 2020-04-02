@@ -45,7 +45,7 @@ allowed to the website users:
 * ``nft-check`` to validate the current nftables configuration
 * ``update-ca-certificates``, see :ref:`cacertificates` for details
 
-.. hint:: use the ``lnav`` utility to display logs in a meaningful way (``lnav ~/log/`` as website user, ``lnav`` as ``devop`` user for global logs)
+.. tip:: To display log files, use the :ref:`howto-logfile_lnav` and :ref:`howto-logfile_goaccess` utilities.
 
 SFTP
 ----
