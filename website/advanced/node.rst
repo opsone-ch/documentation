@@ -31,5 +31,5 @@ however you can also install and select any other version:
 
 .. tip::
 
-   See the `nvm readme <https://github.com/creationix/nvm#usage>`__ for details.
+   See the `nvm readme <https://github.com/nvm-sh/nvm#usage>`__ for details.
 

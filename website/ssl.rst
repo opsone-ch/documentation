@@ -166,7 +166,7 @@ within the `Custom JSON` :ref:`customjson_website`:
     "header_hsts": "max-age=3600; includeSubDomains; preload"
   }
 
-.. tip:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet>`__ for details.
+.. tip:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html>`__ for details.
 
 Test
 ====
@@ -174,6 +174,5 @@ Test
 We recommend the following online services for testing:
 
 -  `Qualys SSL Labs <https://www.ssllabs.com/ssltest/>`__
--  `Symantec SSL
-   Toolbox <https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp>`__
+-  `digicert SSL Tools <https://ssltools.digicert.com/>`__
 
