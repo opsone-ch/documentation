@@ -42,7 +42,9 @@ and `GitHub <https://github.com/opsone-ch/documentation/>`_.
 
   general/index
   website/index
-  caching
+  varnish
+  redis
+  memcached
   solr
   advanced/index
   howto/index

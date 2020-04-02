@@ -57,3 +57,9 @@ Postfix
 
 See  :ref:`postfix`.
 
+Caching
+=======
+
+* removed module altogether
+* use the respective new servies :ref:`varnish`, :ref:`redis` and :ref:`memcached`
+
