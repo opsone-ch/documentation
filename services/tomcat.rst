@@ -75,7 +75,7 @@ After adding the Solr configuration and instance to your hiera .yaml
 file and run puppet, your Solr instance admin webinterface is accessible
 through the web:
 
--  URL https://yourhostxy.snowflakehosting.ch:8443/solr-example-net/
+-  URL ``https://yourhostxy.snowflakehosting.ch:8443/solr-example-net/``
 
 To add new cores, simply click on add core and:
 
@@ -90,6 +90,4 @@ Memory usage / ratio
 
 We auto-configure Tomcat to use up to 80% of the available server
 memory. Assuming that there is only 1 services running on the server.
-
-.. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
 

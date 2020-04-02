@@ -48,8 +48,6 @@ memory_ratio
 By default, a ``memory_ratio`` of 4 is used, which means Solr will
 take up to 25% of this servers total memory.
 
-.. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
-
 monitoring
 """"""""""
 

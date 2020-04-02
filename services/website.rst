@@ -708,8 +708,7 @@ Disable exeptions
 ^^^^^^^^^^^^^^^^^
 
 Never show detailed application based exeptions on PROD, to avoid
-`information
-leakage <https://www.owasp.org/index.php/Information_Leakage>`__.
+information leakage.
 Disable the output directly in your application. For example in TYPO3:
 
 ::
@@ -960,17 +959,6 @@ Use the `header_hsts` parameter to override the default HSTS header:
   {
     "header_hsts": "max-age=3600; includeSubDomains; preload"
   }
-
-.. hint:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet>`__ for details
-
-Test
-^^^^
-
-We recommend the following online services for testing:
-
--  `Qualys SSL Labs <https://www.ssllabs.com/ssltest/>`__
--  `Symantec SSL
-   Toolbox <https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp>`__
 
 Web Application Firewall
 ------------------------
@@ -1329,40 +1317,6 @@ nginx vhost does not have to listen on external interfaces.
   }
 
 .. hint:: If you set ``listen_options`` and ``ipv6_listen_options`` to ``default_server``, the corresponding web page becomes the default server and listens to every server name.
-
-GeoIP
------
-
-To use your GeoIP database with nginx, store the appropriate data files
-on your server and add the following configuration:
-
-.. code-block:: json
-
-  # GeoIP Settings for nginx
-  {
-    "nginx::http_cfg_append": [
-      "geoip_country  /home/user/geoip/GeoIPv6.dat",
-      "geoip_city /home/user/geoip/GeoLiteCityv6.dat"
-    ]
-  }
-
-  # GeoIP related environment variables
-  {
-    "environment::variables": {
-      "GEOIP_ADDR": "$remote_addr",
-      "GEOIP_COUNTRY_CODE": "$geoip_country_code",
-      "GEOIP_COUNTRY_NAME": "$geoip_country_name",
-      "GEOIP_REGION": "$geoip_region",
-      "GEOIP_REGION_NAME": "$geoip_region_name",
-      "GEOIP_CITY": "$geoip_city",
-      "GEOIP_AREA_CODE": "$geoip_area_code",
-      "GEOIP_LATITUDE": "$geoip_latitude",
-      "GEOIP_LONGITUDE": "$geoip_longitude",
-      "GEOIP_POSTAL_CODE": "$geoip_postal_code"
-    }
-  }
-
-.. hint:: for details, see the `Module ngx\_http\_geoip\_module <http://nginx.org/en/docs/http/ngx_http_geoip_module.html>`__ documentation
 
 PHP Modules
 -----------

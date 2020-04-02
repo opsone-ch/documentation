@@ -19,8 +19,6 @@ Memory Ratio
 By default, a ``memory_ratio`` of 8 is used, which means memcached will
 take up to 1/8 of this servers total memory.
 
-.. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
-
 address
 ~~~~~~~
 
@@ -77,8 +75,6 @@ default VCL configuration. By now, the following types are available:
    but is perfetly suitable for your own, custom configuration trough
    ``vcl_include``
 -  ``typo3``: Varnish configuration for the ``varnish`` TYPO3 extension
-   (see
-   `Github <https://github.com/snowflakech/typo3-varnish/blob/master/Resources/Private/Example/default-4.vcl>`__)
 
 vcl\_include
 ~~~~~~~~~~~~
@@ -94,8 +90,6 @@ Memory Ratio
 
 By default, a ``memory_ratio`` of 2 is used, which means Varnish will
 take up to 50% of this servers total memory.
-
-.. hint:: see :doc:`../server/configuration` for details about memory ratio calculation
 
 daemon_options
 ~~~~~~~~~~~~~~
