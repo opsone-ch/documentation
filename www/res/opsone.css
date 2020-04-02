@@ -11,7 +11,7 @@
 #branch-navigation h3 {
     font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
     font-size: 14.4px;
-    font-weight: 7000;
+    font-weight: 700;
     line-height: 18px;
     color: #fff;
     margin: 0 0 5px 0;
@@ -20,7 +20,7 @@
     border-bottom: solid 1px #265777;
     background: #2980B9;
 }
-#branch-navigation li.current a {
+#branch-navigation .current a {
     cursor: auto;
 }
 @media screen and (max-width: 768px) {
