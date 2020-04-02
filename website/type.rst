@@ -224,9 +224,16 @@ TYPO3 v6
 * latest TYPO3 6 version available in ``/opt/typo3/TYPO3_6/``
 * ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
-.. index::
-   triple: Website; Type; TYPO3 7
-   :name: website-type_typo3v7
+Required Configuration
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning::
+
+   As this TYPO3 version has reached its end of life already,
+   compatibility settings are required within the application.
+
+* ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
+* PHP 5.6 does not have FreeType support included
 
 TYPO3 v7
 --------
@@ -238,6 +245,17 @@ TYPO3 v7
 * application related WAF rules (see :ref:`website-waf`)
 * latest TYPO3 7 version available in ``/opt/typo3/TYPO3_7/``
 * ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
+
+Required Configuration
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning::
+
+   As this TYPO3 version has reached its end of life already,
+   compatibility settings are required within the application.
+
+* Install Tool is not usable to install new versions from scratch (see `Ticket#82023 <https://forge.typo3.org/issues/82023>`__)
+* ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
 
 .. index::
    triple: Website; Type; TYPO3 8
