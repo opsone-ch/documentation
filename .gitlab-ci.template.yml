@@ -6,7 +6,6 @@ image: python:3-slim
 # stages
 stages:
   - deploy_test
-  - linkcheck
   - deploy_prod
 
 # hidden job templates used on prod and stage
@@ -23,6 +22,8 @@ stages:
   - apt-get update && apt-get --yes install rsync
   - pip install Sphinx==3.0.0b1
   - pip install sphinx_rtd_theme
+  # check links
+  - sphinx-build . ./_build/ -aEW -b linkcheck
   # build documentation
   - sphinx-build . ./_build/ -aEW
 
@@ -61,15 +62,3 @@ remove_test:
     - *load_sshkey
     - ssh ${STAGE_USERNAME}@${STAGE_SERVERNAME} -- "rm -r ~/www/${CI_COMMIT_REF_NAME}/"
 
-linkcheck:
-  # TODO: remove
-  allow_failure: true
-  image: debian:10
-  stage: linkcheck
-  variables:
-    GIT_STRATEGY: none
-  script:
-    - apt-get update && apt -y install linkchecker
-    - mkdir -p ~/.linkchecker
-    - echo -e "[authentication]\nentry=https://${STAGE_HOST}/ ${STAGE_BASICAUTH_USERNAME} ${STAGE_BASICAUTH_PASSWORD}" > ~/.linkchecker/linkcheckerrc
-    - linkchecker --no-warnings https://${STAGE_HOST}/${CI_COMMIT_REF_NAME}/
