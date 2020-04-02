@@ -41,7 +41,7 @@ and `GitHub <https://github.com/opsone-ch/documentation/>`_.
   :hidden:
 
   general/index
-  website
+  website/index
   caching
   solr
   advanced/index
