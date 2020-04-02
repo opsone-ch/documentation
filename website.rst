@@ -6,33 +6,46 @@
 Website
 =======
 
-.. warning::
+To create a new website, there are only a few settings required:
 
-   WIP: This content was not yet adapted and checked for version 7,
-   which we will do as soon as possible.
-   If in doubt, please contact us for details regarding this topic.
+* `name` will define the name used for system wide settings like users
+  or databases (see :ref:`website_name`)
+* `type` will define the preloaded settings for a certain application
+  type (see :ref:`website_type`)
+* `context` will define the context used within your application and
+  is also used to set some default settings (see :ref:`website_context`)
+* (optional) a `server name` when your website must listen to other
+  hostnames than the default one (see :ref:`website_servername`)
 
-Our website module provides everything you need, to manage, deploy and
-run your website. It is type and environment based which means you have
-to select a particular type (e.g. typo3cms) and environment (e.g. PROD).
-According those settings, our automation will setup the server/vhost as
-required.
+You can find this and all other, non-mandatory settings within this chapter.
 
-By adding a website, the following parts are created on the server:
+.. index::
+   pair: Website; Name
+   :name: website_name
 
--  system user and group
--  home directory (/home/username/)
--  directory for temporary files (/home/username/tmp/)
--  directory for log files (/home/username/log/)
--  directory for additional configuration files (/home/username/cnf/)
--  directory for backups (used for database dumps,
-   /home/username/backup/)
--  environment variables for bash and zsh (~/.profile and ~/.zprofile)
--  SSH authorised keys
--  webserver vhost configuration (for custom configurations, see `Custom configuration`_)
+Name
+====
 
-Types
------
+The website name is defined once when you create the website initially.
+All parts configured within the system are tied to this name so it
+**cannot be modified afterwards**.
+
+Among others, the name is used to configure:
+
+* system user and group
+* database name and username (applies only when a database is configured)
+* webserver vhost name
+* configuration files
+* type related cronjobs
+* unix sockets, for example used between nginx and PHP
+
+
+.. index::
+   pair: Website; Type
+   :name: website_type
+
+Type
+====
 
 You have to define one of the following types for each website.
 
