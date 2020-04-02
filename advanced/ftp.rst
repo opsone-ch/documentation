@@ -36,9 +36,9 @@ Configure the ``ftp::users`` hash within the `Custom JSON` :ref:`customjson_serv
     }
   }
 
-.. hint:: The password has to be encrypted. Use the following command to encrypt your desired password: ``mkpasswd -m sha-512``
+.. tip:: The password has to be encrypted. Use the following command to encrypt your desired password: ``mkpasswd -m sha-512``
 
-.. hint:: Use the "id" command to determine the appropriate uid/gid
+.. tip:: Use the "id" command to determine the appropriate uid/gid
 
 Directories
 -----------
@@ -121,5 +121,5 @@ strings within the `Custom JSON` :ref:`customjson_server`:
      "ftp::wrapper::proftpd::tls_key_file": "/etc/nginx/ssl/<websitename>.key"
    }
 
-.. hint:: With this option, you can also use certificates issued through nginx by Let's Encrypt.
+.. tip:: With this option, you can also use certificates issued through nginx by Let's Encrypt.
 

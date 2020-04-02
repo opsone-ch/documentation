@@ -33,7 +33,7 @@ For each blocked reqeust, there are detailed informations available in the error
 
     YYYY/MM/DD HH:MM:SS [error] 171896#0: *29428 [client 2a04:500::1] ModSecurity: Access denied with code 403 (phase 2). Matched "Operator `Ge' with parameter `5' against variable `TX:ANOMALY_SCORE' (Value: `5' ) [file "/etc/nginx/modsecurity/crs/rules/REQUEST-949-BLOCKING-EVALUATION.conf"] [line "80"] [id "949110"] [rev ""] [msg "Inbound Anomaly Score Exceeded (Total Score: 5)"] [data ""] [severity "2"] [ver ""] [maturity "0"] [accuracy "0"] [tag "application-multi"] [tag "language-multi"] [tag "platform-multi"] [tag "attack-generic"] [hostname "2a04:500::1"] [uri "/"] [unique_id "154850909196.529239"] [ref ""], client: 2a04:500::1, server: example.net, request: "GET /?union%20select=%22waf%20demo HTTP/2.0", host: "example.net"
 
-.. hint:: For details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__.
+.. tip:: For details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__.
 
 ModSecurity Audit Log
 ---------------------

@@ -36,7 +36,7 @@ by setting the ``preview_username`` string within the
    }
 
 Globally
--------
+--------
 
 To change the default username for all websites on a given server,
 you can override the value ``website::preview_username`` within the

@@ -26,7 +26,7 @@ destination (e.g. PhpStorm) is on another machine, you have to reverse
 forward this debug port to your desired destination, e.g.
 ``ssh -R 13377:localhost:13377 <username>@<hostname>``.
 
-.. hint:: Use ``php -r 'echo ini_get("xdebug.remote_port");'`` to get the debugging port.
+.. tip:: Use ``php -r 'echo ini_get("xdebug.remote_port");'`` to get the debugging port.
 
 Custom Xdebug Port/Host
 ~~~~~~~~~~~~~~~~~~~~~~~

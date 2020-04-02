@@ -8,7 +8,7 @@ Deploy Application
 
 Follow this guide to deploy your application to our servers.
 
-.. hint::
+.. tip::
   We'd love to support you with automatic deployment processes.
   Feel free to contact us!
 
@@ -22,7 +22,7 @@ Copy Files by Git
 We recommend you to use Git to deploy your application.
 Git and the required dependencies are already installed and configured by default.
 
-.. hint::
+.. tip::
 
    Contact us if you don't use Git yet, or don't have access to a trustworthy Git server.
    Among others, we run GitLab as a service and also offer corresponding trainings.
@@ -49,7 +49,7 @@ A example rsync command to copy your application does look as follows:
 As the different website users are encapsulated from each other,
 this approach is also used to copy files between different sites on the same server.
 
-.. hint::
+.. tip::
 
    Use SSH agent forwarding to loop your local SSH key into remote systems.
 
@@ -68,7 +68,7 @@ A example mysql command does look as follows:
 
    mysqldump --single-transaction example | ssh website@server.example.net mysql
 
-.. hint::
+.. tip::
 
    To skip certain tables which are not reqwuired, add the ``--ignore-table`` parameter to the ``mysqldump`` command.
 
@@ -93,7 +93,7 @@ For a go live without any troubles and outages, please make sure that:
 - the appropriate TLS certificate is installed and fully tested
 - the server has the correct size to handle the expected traffic
 
-.. hint::
+.. tip::
 
    If in doubt, contact us. We'd love to assist you with planning, testing and executing such migrations.
    If you plan the go live for a bigger project, we're glad if you let us know the desired date so we can plan accordingly.
@@ -109,7 +109,7 @@ You can lookup your servers records in Cockpit, or by executing the following co
    ipaddress => 192.168.0.99
    ipaddress6 => 2001:db8::99
 
-.. hint::
+.. tip::
 
    Please make sure to note both IPv4 (A) and IPv6 (AAAA) adresses and add both records.
 

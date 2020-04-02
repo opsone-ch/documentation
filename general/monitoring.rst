@@ -27,7 +27,7 @@ Monit, nginx and PHP FPM (if installed) status pages are available at ``http://l
 * ``http://localhost:2813/nginx/``: nginx `stub status <http://nginx.org/en/docs/http/ngx_http_stub_status_module.html>`__ output
 * ``http://localhost:2813/fpm-<poolname>/``: PHP FPM per pool status page
 
-.. hint:: this status vhost is running on localhost only. Expose port 2813 through SSH to access locally: ``ssh <hostname> -L 2813:localhost:2813``
+.. tip:: this status vhost is running on localhost only. Expose port 2813 through SSH to access locally: ``ssh <hostname> -L 2813:localhost:2813``
 
 Reboot
 ------
@@ -37,7 +37,7 @@ A automatic reboot is initiated to solve certain high usage scenarios:
 * 5 minute average load higher than CPU count * 10 for 5 minutes
 * memory usage higher than 95% for 5 minutes
 
-.. hint:: always make sure that any required services will be up and running automatically
+.. tip:: always make sure that any required services will be up and running automatically
 
 Utilization
 -----------

@@ -8,7 +8,7 @@ Git Repository Deployment
 
 The `globalrepo` service is used to checkout and refresh a Git repository.
 
-.. hint::
+.. tip::
   You can still clone repositories manually by SSH or through a CI job, which will
   be better in most use cases. If in doubt, contact us and we will help to select the best approach.
 
@@ -42,7 +42,7 @@ provider
 * provider used to fetch repository, see `module description of the vcsrepo Puppet module <https://github.com/puppetlabs/puppetlabs-vcsrepo#module-description>`__
 * default: `git`
 
-.. hint:: git is the only vcs provider officially supported by Puppet
+.. tip:: git is the only vcs provider officially supported by Puppet
 
 remote
 ~~~~~~
@@ -62,7 +62,7 @@ ssh_private_key
 * SSH private key used to fetch a private repository
 * default: empty
 
-.. hint:: use `cat /tmp/private_key | sed -e ':a;N;$!ba;s/\n/\\n/g` to convert key into a single line with escaped linebreaks
+.. tip:: use `cat /tmp/private_key | sed -e ':a;N;$!ba;s/\n/\\n/g` to convert key into a single line with escaped linebreaks
 
 exec_after
 ~~~~~~~~~~

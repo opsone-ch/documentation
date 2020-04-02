@@ -166,7 +166,7 @@ within the `Custom JSON` :ref:`customjson_website`:
     "header_hsts": "max-age=3600; includeSubDomains; preload"
   }
 
-.. hint:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet>`__ for details.
+.. tip:: See the OWASP `HTTP Strict Transport Security Cheat Sheet <https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet>`__ for details.
 
 Test
 ====

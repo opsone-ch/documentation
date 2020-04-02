@@ -104,7 +104,7 @@ An SSH agent caches your decrypted keys and provides them to SSH client
 programs. Thus the passphrase must only provided once, when adding your
 private key to the agent's cache.
 
-.. hint::
+.. tip::
 
    Usually you would start your agent upon login, and let it run
    until you logout. There are many diffrent agents, and they are typically

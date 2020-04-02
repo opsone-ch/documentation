@@ -27,7 +27,7 @@ Every Website is type and environment based, which means you have to select a pa
 3. Go to websites, and create a new one
 4. `Select website type <../services/website.html#wordpress>`__ wordpress and fill in all settings
 
-.. hint:: You don't need to remember your DB credentials. We always provide them as `environment variables <../services/website.html#default-environment-variables>`__.
+.. tip:: You don't need to remember your DB credentials. We always provide them as `environment variables <../services/website.html#default-environment-variables>`__.
 
 According to those settings, our automation will setup the server/vhost as required.
 
@@ -41,7 +41,7 @@ Due to security reasons, we allow key based logins only.
 2. Add your SSH Public Key in the Cockpit: Either for the whole server or within the website.
 3. Now you can log in via SSH. Username is your chosen website name, not your own Username.
 
-.. hint:: Wondering why your existing SSH key is not working? Maybe it does not meet our `minimum requirements <../server/ssh-keys.html>`__.
+.. tip:: Wondering why your existing SSH key is not working? Maybe it does not meet our `minimum requirements <../server/ssh-keys.html>`__.
 
 Install WordPress
 -----------------
@@ -66,7 +66,7 @@ This allows you to install WordPress with just four commands.
 
 You are now ready to use your installation of WordPress.
 
-.. hint:: Do you encounter some inexplicable errors like 403, maybe you just got acquainted with `our web application firewall <../services/website.html#web-application-firewall>`__.
+.. tip:: Do you encounter some inexplicable errors like 403, maybe you just got acquainted with `our web application firewall <../services/website.html#web-application-firewall>`__.
 
 Still got some questions?
 -----------------

@@ -8,11 +8,11 @@ Means to Access Your Server
 SSH
 ---
 
-Your server is accessible trough SSH by default. 
+Your server is accessible trough SSH by default.
 To ensure uniformity between SSH and web actions, there are no personal
-SSH login users created. Log in with the desired websites user instead.
+SSH login users created. Log in with the desired websites user name instead.
 
-.. hint:: for security reasons, we allow key based logins only
+.. tip:: For security reasons, we allow key based logins only.
 
 Every aspect of the configuration is controlled through our configuration
 management software. There is no root access possible neither for the
@@ -56,5 +56,5 @@ over SFTP. We recommend to use one of the following clients:
 -  `Filezilla <https://filezilla-project.org>`__
 -  `Cyperduck <https://cyberduck.io>`__
 
-.. Hint:: To store your key in the memory and not having to enter the password for every connection - use pageant (Windows) or ssh-add it (Linux)
+.. tip:: To store your key in the memory and not having to enter the password for every connection - use pageant (Windows) or ssh-add it (Linux)
 

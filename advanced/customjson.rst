@@ -11,7 +11,7 @@ For other, seldom used settings we used so called `Custom JSON` fields.
 
 There are two differente `Custom JSON` fields available depending on the layer of your desired configuration.
 
-.. hint::
+.. tip::
   Please make sure that you use the provided configurations on the appropriate level which we indicate in each example.
 
 .. index::

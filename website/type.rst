@@ -81,7 +81,7 @@ Python
 * uWSGI Daemon (Symlink your appropriate wsgi configuration to ``~/wsgi.py``)
 * Python virtualenv ``venv-<sitename>`` configured within uWSGI and the user login shell
 
-.. hint:: To control the uwsgi daemon, use the ``uwsgi-reload`` and ``uwsgi-restart`` shortcuts.
+.. tip:: To control the uwsgi daemon, use the ``uwsgi-reload`` and ``uwsgi-restart`` shortcuts.
 
 .. index::
    triple: Website; Type; Proxy
@@ -118,7 +118,7 @@ To use your own redirect code, add the ``target_code`` string within the
      "target_code": "301"
    }
 
-.. hint:: You can use any nginx variable as target (for example ``$scheme://www.example.com$request_uri``), see the `nginx Documentation <http://nginx.org/en/docs/varindex.html>`__ for available variables.
+.. tip:: You can use any nginx variable as target (for example ``$scheme://www.example.com$request_uri``), see the `nginx Documentation <http://nginx.org/en/docs/varindex.html>`__ for available variables.
 
 .. index::
    triple: Website; Type; Ruby

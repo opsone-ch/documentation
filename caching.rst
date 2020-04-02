@@ -91,7 +91,7 @@ With ``vcl_include``, you can define a full path to a additional
 configuration file. This file gets included into the Varnish default
 configuration.
 
-.. hint:: keep in mind to issue a ``puppet-agent`` run after changing the local Varnish configuration. Puppet will copy your local configuration file to a global location and ensure that Varnish is able to read it
+.. tip:: keep in mind to issue a ``puppet-agent`` run after changing the local Varnish configuration. Puppet will copy your local configuration file to a global location and ensure that Varnish is able to read it
 
 Memory Ratio
 ~~~~~~~~~~~~
@@ -163,7 +163,7 @@ Usage
 
 By default, Redis is bound to localhost on its default port 6379 (``127.0.0.1:6379``).
 
-.. hint:: most applications will connect automatically with this default settings
+.. tip:: most applications will connect automatically with this default settings
 
 PHP
 ~~~
@@ -177,7 +177,7 @@ To load *phpredis* in your environment, specify the extenion in ``~/cnf/php.ini`
 
   extension = redis.so
 
-.. hint:: For details, see :ref:`custom PHP configuration <website-advanced-php>`.
+.. tip:: For details, see :ref:`custom PHP configuration <website-advanced-php>`.
 
 Debugging
 ~~~~~~~~~
@@ -193,4 +193,4 @@ For debugging purposes, use *redis-cli* to connect to the Redis server:
   $ redis-cli get key1
   "test"
 
-.. hint:: for details, see the `redis-cli documentation <https://redis.io/topics/rediscli>`__
+.. tip:: for details, see the `redis-cli documentation <https://redis.io/topics/rediscli>`__

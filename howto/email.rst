@@ -6,7 +6,7 @@
 Context Based E-Mail Handling
 =============================
 
-.. hint:: This info applies to PHP based installations who do not alter the `sendmail_path` setting only.
+.. tip:: This info applies to PHP based installations who do not alter the `sendmail_path` setting only.
 
 Depending on the selected context, e-mails get either sent to their designated recipient, or get saved into the users ``~/tmp/``
 directory. This prevents you from accidental deliveries within non-PROD contexts.

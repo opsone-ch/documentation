@@ -38,7 +38,7 @@ Due to security reasons, we allow key based logins only.
 2. Add your SSH Public Key in the Cockpit: Either for the whole server or within the website.
 3. Now you can log in via SSH. Username is your chosen website name, not your own Username.
 
-.. hint:: Wondering why your existing SSH key is not working? Maybe it does not meet our `minimum requirements <../server/ssh-keys.html>`_ 
+.. tip:: Wondering why your existing SSH key is not working? Maybe it does not meet our `minimum requirements <../server/ssh-keys.html>`_ 
 
 Run a Docker Image
 ------------------
@@ -50,4 +50,4 @@ Run a Docker Image
 
 You can use any free port. In this example we expose our docker container at 127.0.0.1.8080.
 
-.. hint:: For the container to be accessible from the outside via reverse proxy, the selected port must match the one in the cockpit.
+.. tip:: For the container to be accessible from the outside via reverse proxy, the selected port must match the one in the cockpit.
