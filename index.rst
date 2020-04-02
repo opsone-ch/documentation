@@ -18,7 +18,7 @@ and especially the :doc:`general/access`.
    * - Debian 10
      - nginx 1.16
      - MariaDB 10.3
-     - 5.5 (EOL), 7.0 (EOL), 7.2, 7.4
+     - 5.6 (EOL), 7.0 (EOL), 7.2, 7.4
      - May 2024
 
 Search and Glossary
