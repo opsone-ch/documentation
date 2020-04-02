@@ -27,7 +27,9 @@ the websites name as SSH username (see :ref:`access-ssh`).
    name
    type
    context
+   limits
    envvar
+   cron
    advanced/index
 
 TLS Certificates
@@ -205,7 +207,7 @@ We recommend the following online services for testing:
 
 .. index::
    pair: Website; WAF; Web Application Firewall
-   :name: website_waf
+   :name: website-waf
 
 Web Application Firewall
 ------------------------
@@ -265,60 +267,6 @@ through the local nginx configuration located in ``~/cnf/nginx.conf``:
 
 .. hint:: for details, see the `ModSecurity documentation <https://github.com/SpiderLabs/ModSecurity/wiki>`__
 
-Request limits
---------------
-
-The number of connections and requests are limited to ensure that a
-single user (or bot) cannot overload the whole server.
-
-Limits
-^^^^^^
-
--  50 connections / address
--  50 requests / second / address
--  150 requests / second (burst)
--  >150 requests / second / address (access limited)
-
-With this configuration, a particular visitor can open up to 50
-concurrent connections and issue up to 50 requests / second.
-
-If the visitor issues more than 50 request / second, those requests are
-delayed and other clients are served first.
-
-If the visitor issues more than 150 request / second, those requests
-will not processed anymore, but answered with the 503 status code.
-
-Adjust limits
-^^^^^^^^^^^^^
-
-To adjust this limits (e.g. for special applications such as API calls,
-etc), set a higher "load zone" in your local configuration
-(``~/cnf/nginx.conf``):
-
-::
-
-    # connection limits (e.g. 75 connections)
-    limit_conn addr 75;
-
-    # limit requests / second: (small, medium, large)
-    limit_req zone=medium burst=500;
-    limit_req zone=large burst=1500;
-
-.. hint:: to apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut
-
-Zones
-^^^^^
-
--  small = 50 requests / second (burst: 150req/sec)
--  medium = 150 requests / second (burst: 500 req/sec)
--  large = 500 requests / second (burst: 1500 req/sec)
-
-Note: the default zone is "small" and will fit most use cases
-
-.. warning:: in SPDY, each concurrent request is considered a separate connection
-
-.. hint:: for Details, see the `Module ngx\_http\_limit\_req\_module <http://nginx.org/en/docs/http/ngx_http_limit_req_module.html>`__ documentation
-
 Custom configuration
 --------------------
 
@@ -361,35 +309,6 @@ You can disable this include by setting ``security_conf`` to ``false`` within th
 settings unless you absolutely know what you're doing.
 
 .. warning:: make sure to deny access to private files and directories manually, or include our global security locations from ``/etc/nginx/custom/security.conf`` within your own configuration.
-
-Cronjobs
---------
-
-Add custom cronjobs through the `crontab -e` command:
-
-::
-
-    SHELL=/usr/local/vzscripts/sfoutputtosyslog
-    PHP_INI_SCAN_DIR=:/etc/php5/cli/user/<username>/
-
-    #       +------------------------------------ minute (0 - 59)
-    #       |       +---------------------------- hour (0 - 23)
-    #       |       |       +-------------------- day of month (1 - 31)
-    #       |       |       |       +------------ month (1 - 12)
-    #       |       |       |       |       +---- day of week (0 - 6) (Sunday=0 or 7)
-    #       |       |       |       |       |
-
-    #       10      2       *       *       *       <command>
-
-            5	    *       *       *       *       <path-to-job>
-
-.. hint:: For PHP based jobs, please set `PHP_INI_SCANDIR` manually to make sure that user specific settings are respected 
-
-type related cronjobs
-^^^^^^^^^^^^^^^^^^^^^
-
-* Application specific cronjobs are predefined already (for example, TYPO3 scheduler job on TYPO3 types, see type description for details)
-* if you want to disable this type related cronjob defined by us, set ``type_cronjob`` to ``false``
 
 .. index::
    triple: Website; Listen; Port

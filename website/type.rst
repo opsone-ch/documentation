@@ -8,6 +8,9 @@ Type
 
 The selected `type` will determine the configuration of your website.
 
+.. index::
+   triple: Website; Type; Basic Types
+   :name: website-type_basic
 
 Basic Types
 ===========
@@ -136,6 +139,10 @@ Ruby
 
 .. tip:: To control the ruby daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts.
 
+.. index::
+   triple: Website; Type; Application Types
+   :name: website-type_application
+
 Application Types
 =================
 
@@ -150,12 +157,24 @@ type.
 Magento 1
 ---------
 
+* :ref:`website-type_php` type with PHP version 5.6
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/pub``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+
 .. index::
    triple: Website; Type; Magento 2
    :name: website-type_magento2
 
 Magento 2
 ---------
+
+* :ref:`website-type_php` type with PHP version 7.2
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/pub``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
 
 .. index::
    triple: Website; Type; Neos
@@ -164,155 +183,17 @@ Magento 2
 Neos
 ----
 
-.. index::
-   triple: Website; Type; TYPO3 6
-   :name: website-type_typo3v6
+* :ref:`website-type_php` type with PHP version 7.4
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/Web``)
+* application related WAF rules (see :ref:`website-waf`)
+* ``FLOW_CONTEXT`` environment variable set according to selected :ref:`website-context`
+* ``FLOW_REWRITEURLS`` environment variable enabled
 
-TYPO3 v6
---------
-
-.. index::
-   triple: Website; Type; TYPO3 7
-   :name: website-type_typo3v7
-
-TYPO3 v7
---------
-
-.. index::
-   triple: Website; Type; TYPO3 8
-   :name: website-type_typo3v8
-
-TYPO3 v8
---------
-
-.. index::
-   triple: Website; Type; TYPO3 9
-   :name: website-type_typo3v9
-
-TYPO3 v9
---------
-
-.. index::
-   triple: Website; Type; TYPO3 10
-   :name: website-type_typo3v10
-
-TYPO3 v10
----------
-
-.. index::
-   triple: Website; Type; Wordpress
-   :name: website-type_wordpress
-
-Wordpress
----------
-
-
-typo3cmsv10 (Alpha)
-^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-
-   * - Web server
-     - nginx with ModSecurity WAF, core rule set and TYPO3 10.x compatible white/blacklists
-   * - runtime environment
-     - PHP 7.2
-   * - Database
-     - MySQL (MariaDB 10.x ) with database, user, and grants
-   * - Default webroot
-     - ~/web
-
--  PHP and nginx settings adjusted to TYPO3 10 requirements
--  latest TYPO3 CMS 10 sprint release cloned into ``/opt/typo3/TYPO3\_10/``
--  PHP and nginx settings adjusted to TYPO3 10 requirements
--  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
-   see `Environment Variables`_ for details
--  TYPO3 Scheduler executed every 5 minutes
-
-.. warning:: This type can change and is meant to test TYPO3 10 sprint releases only. Do not run live applications with this type yet
-
-typo3cmsv9
-^^^^^^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF, core rule set and TYPO3 9.x compatible white/blacklists
-   * - runtime environment
-     - PHP 7.2
-   * - Database
-     - MySQL (MariaDB 10.x ) with database, user, and grants
-   * - Default webroot
-     - ~/web
-
--  PHP and nginx settings adjusted to TYPO3 9 requirements
--  latest TYPO3 CMS 9 LTS cloned into ``/opt/typo3/TYPO3\_9/``
--  PHP and nginx settings adjusted to TYPO3 9 requirements
--  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
-   see `Environment Variables`_ for details
--  TYPO3 Scheduler executed every 5 minutes
-
-typo3cmsv8
-^^^^^^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF, core rule set and TYPO3 8.x compatible white/blacklists
-   * - runtime environment
-     - PHP 7.2
-   * - Database
-     - MySQL (MariaDB 10.x ) with database, user, and grants
-   * - Default webroot
-     - ~/web
-
--  PHP and nginx settings adjusted to TYPO3 8 requirements
--  latest TYPO3 CMS 8 LTS cloned into ``/opt/typo3/TYPO3\_8/``
--  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
-   see `Environment Variables`_ for details
--  TYPO3 Scheduler executed every 5 minutes
-
-typo3cmsv7
-^^^^^^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF, core rule set and TYPO3 7.x compatible white/blacklists
-   * - runtime environment
-     - PHP 7.2
-   * - Database
-     - MySQL (MariaDB 10.x ) with database, user, and grants
-   * - Default webroot
-     - ~/web
-
--  PHP and nginx settings adjusted to TYPO3 7 requirements
--  latest TYPO3 CMS 7 LTS cloned into ``/opt/typo3/TYPO3\_7/``
--  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
-   see `Environment Variables`_ for details
--  TYPO3 Scheduler executed every 5 minutes
-
-neos
-^^^^
-
-.. list-table::
-
-   * - Web server
-     - nginx with ModSecurity WAF, core rule set and Neos compatible white/blacklists
-   * - runtime environment
-     - PHP 7.2
-   * - Database
-     - MySQL (MariaDB 10.x ) with database, user, and grants
-   * - Default webroot
-     - ~/web
-
--  PHP and nginx settings adjusted to Neos requirements
--  ``FLOW_CONTEXT`` set according the selected context (see :ref:`website-context`)
--  ``FLOW_REWRITEURLS`` enabled
-
-required configuration
+Required Configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: our approach to dynamically configure PHP is not compatible with Neos by default
+.. warning:: Our approach to dynamically configure PHP is not compatible with Neos by default.
 
 As a workaround, we have to let know Neos about the environment variable
 required to load the appropriate PHP settings, by defining the the
@@ -326,87 +207,107 @@ required to load the appropriate PHP settings, by defining the the
         subRequestEnvironmentVariables:
           PHP_INI_SCAN_DIR: '/etc/php72/user/<username>/:/home/<username>/cnf/'
 
-.. hint:: see `this Neos Discuss thread <https://discuss.neos.io/t/setup-process-error-with-custom-php-environment/4174>`__ for technical details
+.. tip:: See `this Neos Discuss thread <https://discuss.neos.io/t/setup-process-error-with-custom-php-environment/4174>`__ for technical details.
 
-magento2
-^^^^^^^^
+.. index::
+   triple: Website; Type; TYPO3 6
+   :name: website-type_typo3v6
 
-.. list-table::
+TYPO3 v6
+--------
 
-   * - Web server
-     - nginx with ModSecurity WAF, core rule set and Magento 2 compatible white/blacklists
-   * - runtime environment
-     - PHP 7.1
-   * - Database
-     - MySQL (MariaDB 10.x ) with database, user, and grants
-   * - Default webroot
-     - ~/pub
+* :ref:`website-type_php` type with PHP version 5.6
+* MariaDB database
+* application related PHP and nginx configuration
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 6 version available in ``/opt/typo3/TYPO3_6/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
--  PHP and nginx settings adjusted to Magento 2 requirements
--  Magento 2 cronjobs running every minute
+.. index::
+   triple: Website; Type; TYPO3 7
+   :name: website-type_typo3v7
 
-wordpress
-^^^^^^^^^
+TYPO3 v7
+--------
 
-.. list-table:: 
+* :ref:`website-type_php` type with PHP version 7.2
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/web``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 7 version available in ``/opt/typo3/TYPO3_7/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
-   * - Web server
-     - nginx with ModSecurity WAF, core rule set and Wordpress compatible white/blacklists
-   * - runtime environment
-     - PHP 7.2
-   * - Database
-     - MySQL (MariaDB 10.x ) with database, user, and grants
-   * - Default webroot
-     - ~/www
+.. index::
+   triple: Website; Type; TYPO3 8
+   :name: website-type_typo3v8
 
-- PHP and nginx settings adjusted to WordPress requirements
-- WP-CLI installed and available by using the ``wp`` command
-- wp-cron.php is called every 5 minutes over CLI
-- We have a request limit for ``wp-login.php`` and ``xmlrpc.php`` in place. For both options, our default limit is set to 10 request per minute
-- You can override our defaults inside the Website custom JSON as shown in the exmaple below:
+TYPO3 v8
+--------
 
-  .. code-block:: json
+* :ref:`website-type_php` type with PHP version 7.2
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/web``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 8 version available in ``/opt/typo3/TYPO3_8/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
-      {
-        "wordpress_limit_login": "20r/m",
-        "wordpress_limit_xmlrpc": false,
-      }
-  
-  - Request limit for ``wp-login.php`` is set to 20 requests per minute
-  - Request limit for ``xmlrpc.php`` is disabled
+.. index::
+   triple: Website; Type; TYPO3 9
+   :name: website-type_typo3v9
 
-.. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
+TYPO3 v9
+--------
 
-html
-^^^^
+* :ref:`website-type_php` type with PHP version 7.2
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/web``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 9 version available in ``/opt/typo3/TYPO3_9/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
-.. list-table:: 
+.. index::
+   triple: Website; Type; TYPO3 10
+   :name: website-type_typo3v10
 
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - for static content only
-   * - Database
-     - unavailable
-   * - Default webroot
-     - ~/www
+TYPO3 v10
+---------
 
-docker
-^^^^^^
+* :ref:`website-type_php` type with PHP version 7.4
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/web``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 10 version available in ``/opt/typo3/TYPO3_10/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
-.. list-table:: 
+.. index::
+   triple: Website; Type; Wordpress
+   :name: website-type_wordpress
 
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - own container with docker
-   * - Database
-     - Optional: MySQL, MongoDB or PostgreSQL
-   * - Default webroot
-     - unavailable
+Wordpress
+---------
 
--  nginx vhost configured as reverse proxy
--  install docker and puts the user into the docker group
+* :ref:`website-type_php` type with PHP version 7.4
+* MariaDB database
+* application related PHP and nginx configuration
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* WP-CLI installed and available by using the ``wp`` command
+* additional :ref:`website-limits` for ``wp-login.php`` and ``xmlrpc.php`` (10r/m)
 
-.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it. For security reasons, we only allow access to this configuration for the `devop user <../server/access.html#generic-devop-user>`__.
+To override the default request limits, use the ``wordpress_limit_login``
+and ``wordpress_limit_xmlrpc`` strings within the `Custom JSON` :ref:`customjson_website`:
+
+.. code-block:: json
+
+   {
+     "wordpress_limit_login": "20r/m",
+     "wordpress_limit_xmlrpc": false,
+    }
+
+.. tip:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 

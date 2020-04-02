@@ -8,7 +8,7 @@ Firewall Rules
 
 .. attention::
    This site covers the IP/network firewall.
-   There is also a web application firewall within :ref:`Website <website_waf>`.
+   There is also a web application firewall within :ref:`Website <website-waf>`.
 
 Default Settings
 ================
