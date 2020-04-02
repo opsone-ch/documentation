@@ -70,9 +70,9 @@ Where possible, we add required firewall rules when you configure a certain serv
 
 .. index::
    triple: Server; Firewall; Custom Rules
-   :name: firewall_customrules
+   :name: firewall_customrule
 
-Custom Rules
+Custom Rule
 ============
 
 To allow your desired incoming or outgoing connections, you can add custom firewll rules ``/etc/nftables.conf``
@@ -112,7 +112,7 @@ nftables can also be used to  limit requests matching certain conditions.
 
 .. tip::
 
-   You can also limit connections within your :ref:`firewall_customrules`.
+   You can also limit connections within your :ref:`firewall_customrule`.
    Details about possible configurations are listed in the
    `nftables Wiki <https://wiki.nftables.org/wiki-nftables/index.php/Rate_limiting_matchings>`__.
 

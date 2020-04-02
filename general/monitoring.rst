@@ -29,6 +29,10 @@ Monit, nginx and PHP FPM (if installed) status pages are available at ``http://l
 
 .. tip:: this status vhost is running on localhost only. Expose port 2813 through SSH to access locally: ``ssh <hostname> -L 2813:localhost:2813``
 
+.. index::
+   triple: Server; Monitoring; Reboot
+   :name: monitoring_reboot
+
 Reboot
 ------
 

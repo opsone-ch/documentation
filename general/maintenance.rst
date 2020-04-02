@@ -1,3 +1,7 @@
+.. index::
+   triple: Server; Maintenance; Window
+   :name: maintenance
+
 ==================
 Maintenance Window
 ==================
@@ -9,10 +13,18 @@ If not specified otherwise, we conduct maintenance work starting
 
    We announce maintanence work in advance through our `status site <http://opsstatus.ch/>`__.
 
+.. index::
+   triple: Server; Maintenance; Service Restarts
+   :name: maintenance_restarts
+
 Service Restarts
 ================
 
 If required to load updated libraries, services are restarted every Tuesday between 00:00 and 01:00.
+
+.. index::
+   triple: Server; Maintenance; Service Reboots
+   :name: maintenance_reboots
 
 Server Reboots
 ==============

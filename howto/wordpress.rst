@@ -6,12 +6,6 @@
 Getting Started with WordPress
 ==============================
 
-.. warning::
-
-   WIP: This content was not yet adapted and checked for version 7,
-   which we will do as soon as possible.
-   If in doubt, please contact us for details regarding this topic.
-
 There are dozens of ways you can deploy WordPress.
 The following way describes only one way.
 
