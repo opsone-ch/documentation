@@ -26,6 +26,8 @@ stages:
   - sphinx-build . ./_build/ -aEW -b linkcheck
   # build documentation
   - sphinx-build . ./_build/ -aEW
+  # split links in genindex and use them for nginx redirects
+  - grep "<li><a href" ./_build/genindex.html | awk -F "[\"#]" "{print \"rewrite /${CI_COMMIT_REF_NAME}/tag/\"\$3\" /${CI_COMMIT_REF_NAME}/\"\$2\"#\"\$3}" > ./_build/redirects.conf
 
 deploy_prod:
   stage: deploy_prod
