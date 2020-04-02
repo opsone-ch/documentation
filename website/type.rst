@@ -1,6 +1,6 @@
 .. index::
    pair: Website; Type
-   :name: website_type
+   :name: website-type
 
 Type
 ====

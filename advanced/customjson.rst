@@ -42,6 +42,6 @@ The website level `Custom JSON` is located on the particular websites `Advanced`
 for example to
 
 * change the default HSTS header sent (see :ref:`website_hsts`)
-* set custom environment variables (see :ref:`website_envvar`)
+* set custom environment variables (see :ref:`website-envvar`)
 * let the website listen on a specific port or interface (see :ref:`website_listen`)
 

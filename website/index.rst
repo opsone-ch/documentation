@@ -9,11 +9,11 @@ Website
 To create a new website, there are only a few settings required:
 
 * `name` will define the name used for system wide settings like users
-  or databases (see :ref:`website_name`)
+  or databases (see :ref:`website-name`)
 * `type` will define the preloaded settings for a certain application
-  type (see :ref:`website_type`)
+  type (see :ref:`website-type`)
 * `context` will define the context used within your application and
-  is also used to set some default settings (see :ref:`website_context`)
+  is also used to set some default settings (see :ref:`website-context`)
 * (optional) a `server name` when your website must listen to other
   hostnames than the default one (see :ref:`website_servername`)
 
@@ -25,112 +25,8 @@ You can find this and all other, non-mandatory settings within this chapter:
    name
    type
    context
+   envvar
    advanced/index
-
-User Handling
-^^^^^^^^^^^^^
-
-The preview user gets applied to all non PROD environments and is
-intended for your own use, but also to allow access to other parties
-like your customer. Use the "Preview password" option to set a particular
-password to the preview user. You have to use a htpasswd encrypted value
-which you can generate like this on your local workstation:
-
-::
-
-    htpasswd -n preview
-
-Furthermore, you can add additional users trough the "website::users"
-configuration like this:
-
-.. code-block:: json
-
-  {
-    "website::users": {
-      "alice": {
-        "preview": "$apr1$RXDs3l18$w0VJrVN5uoU6DMY.0xgTr/"
-      },
-      "bob": {
-        "preview": "$apr1$RSDdas2323$23case23DCDMY.0xgTr/"
-      }
-    }
-  }
-
-You can add such uers for yourself and your co-workers. If you work on
-multiple websites, you do not have to look up the corresponding password
-all the time but just use the global one.
-
-To rename the default "preview" username, use the ``preview_username`` parameter on a website:
-
-.. code-block:: json
-
-  {
-    "preview_username": "showme",
-  }
-
-Furthermore, its possible to set the preview username globally through ``website::preview_username``.
-
-.. note:: Please keep in mind that this password gets often transfered over unencrypted connections. As always, we recommend to use a particular password for only this purpose
-
-Default Environment Variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For each website, the following environment variables are created by
-default, and are available within the shell and also the webserver.
-
--  SITE\_ENV (DEV, STAGE or PROD)
--  DB\_HOST (Database hostname, only if there is a database)
--  DB\_NAME (Database name, only if there is a database)
--  DB\_USERNAME (Database username, only if there is a database)
--  DB\_PASSWORD (Database password, only if there is a database)
--  PROXY\_PASS (Proxy Pass, only for type proxy)
-
-.. hint:: to use the .profile environmet within a cronjob, prepend the following code to your command: ``/bin/bash -c 'source $HOME/.profile; ~/original/command'``
-
-Example usage in PHP
-~~~~~~~~~~~~~~~~~~~~
-
-As soon there is a database installed, the following variables are added
-to the environment and can be used from within your application. TYPO3
-Example:
-
-::
-
-    $typo_db_username = $_SERVER['DB_USERNAME'];
-    $typo_db_password = $_SERVER['DB_PASSWORD'];
-    $typo_db_host     = $_SERVER['DB_HOST'];
-    $typo_db          = $_SERVER['DB_NAME'];
-
-Additionaly, you can use the "SITE\_ENV" variable to set parameters
-according the current environment:
-
-::
-
-    switch ($_SERVER['SITE_ENV']) {
-        case 'DEV':
-            $recipient = 'dev@example.net';
-            break;
-        case 'STAGE':
-            $recipient = 'dev@example.net';
-            break;
-        case 'PROD':
-            $recipient = 'customer@example.com';
-            break;
-    }
-
-If you configure your application like this, you can copy all data
-between different servers or vhosts (DEV/STAGE/PROD) and all settings
-are applied as desired.
-
-Example usage in typoscript
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-    [globalString = _SERVER|SITE_ENV = DEV]
-        # doSometing
-    [global]
-
 
 TLS Certificates
 ----------------
@@ -688,36 +584,3 @@ deactivate monitoring by setting ``"monitoring": "false"`` in custom JSON:
       "monitoring": false
     }
 
-.. index::
-   triple: Website; Environment; Variables
-   :name: website_envvar
-
-Environment Variables
----------------------
-
-To set or override environment variables per website, use the ``envvar`` option in custom JSON:
-
-.. code-block:: json
-
-    {
-      "envvar": {
-        "MYENVVAR": "this is the value",
-        "DB_HOST": "override global DB_HOST variable here",
-        "http_proxy": "override global http_proxy variable here"
-      }
-    }
-
-White label
------------
-
-Default Virtual Host
-^^^^^^^^^^^^^^^^^^^^
-
-The default vhost is stored in ``/var/www/``. You can use your own content stored in a git repository with the following configuration.
-
-.. code-block:: json
-
-    {
-      "website::default::webroot::gitsource": "git@git.example.com:acme/project",
-      "website::default::webroot::gitkey": "-----BEGIN RSA PRIVATE KEY-----[..]-----END RSA PRIVATE KEY-----",
-    }

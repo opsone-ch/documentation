@@ -1,6 +1,6 @@
 .. index::
    pair: Website; Name
-   :name: website_name
+   :name: website-name
 
 Name
 ====
