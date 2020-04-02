@@ -57,3 +57,11 @@ Caching
 * removed module altogether
 * use the respective new servies :ref:`varnish`, :ref:`redis` and :ref:`memcached`
 
+Docker
+======
+
+* switched from iptables to nftables which also concerns Docker (See  :ref:`firewall`)
+* enabled user namespace isolation
+
+See  :ref:`howto-docker`.
+

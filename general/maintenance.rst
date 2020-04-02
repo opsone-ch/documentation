@@ -11,7 +11,7 @@ If not specified otherwise, we conduct maintenance work starting
 
 .. tip::
 
-   We announce maintanence work in advance through our `status site <http://opsstatus.ch/>`__.
+   We announce maintanence work in advance through our `status site <https://opsstatus.ch/>`__.
 
 .. index::
    triple: Server; Maintenance; Service Restarts
