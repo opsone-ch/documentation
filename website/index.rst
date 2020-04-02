@@ -15,11 +15,13 @@ To create a new website, there are only a few settings required:
 * `context` will define the context used within your application and
   is also used to set some default settings (see :ref:`website-context`)
 * (optional) a `server name` when your website must listen to other
-  hostnames than the default one (see :ref:`website_servername`)
+  hostnames than the default one
 
-You can find this and all other, non-mandatory settings within this chapter:
+After creating, you can log into your newly created website by using
+the websites name as SSH username (see :ref:`access-ssh`).
 
 .. toctree::
+   :caption: Settings
    :maxdepth: 2
 
    name
@@ -319,155 +321,6 @@ Note: the default zone is "small" and will fit most use cases
 
 Custom configuration
 --------------------
-
-nginx
-^^^^^
-
-You can add specific configurations like redirects or headers within the
-``~/cnf/`` directory.
-
-.. warning:: You have to reload nginx after changes with the ``nginx-reload`` shortcut
-
-~/cnf/nginx.conf
-^^^^^^^^^^^^^^^^
-
-Included within the server block and used to configure specific
-redirects, enable gzip and other stuff directly in the nginx.conf.
-
-::
-
-    if ($http_host = www.example.net) {
-        rewrite (.*) http://www.example.com;
-    }
-
-or you can password protect a subdirectory:
-
-::
-
-    location ~* "^/example/" {
-        auth_basic "Example name";
-        auth_basic_user_file /home/user/www/example/.htpasswd;
-        root /home/user/www/;
-    }
-
-or add a IP protection:
-
-::
-
-    allow <your-address>;
-    allow 2a04:503:0:102::2:4;
-    allow 91.199.98.23;
-    deny all;
-
-.. hint:: Always allow access from `91.199.98.23` and `2a04:503:0:102::2:4` (monitoring)
-
-or add custom MIME types:
-
-::
-
-    include mime.types;
-    types {
-        text/cache-manifest appcache;
-    }
-
-if you like to run PHP in this subdirectory, don't forget to add this
-nested in the location section from the example on top:
-
-::
-
-    location ~ \.php {
-        try_files /dummy/$uri @php;
-    }
-
-.. hint:: for Details, see the `Server Block Examples <http://wiki.nginx.org/ServerBlockExample>`__ and `Rewrite Rule <http://wiki.nginx.org/HttpRewriteModule#rewrite>`__ documentation
-
-~/cnf/nginx-prod.conf
-^^^^^^^^^^^^^^^^^^^^^
-
-Included within the server block on each website with environment set to PROD. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
-
-~/cnf/nginx-stage.conf
-^^^^^^^^^^^^^^^^^^^^^^
-
-Included within the server block on each website with environment set to STAGE. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
-
-~/cnf/nginx-dev.conf
-^^^^^^^^^^^^^^^^^^^^
-
-Included within the server block on each website with environment set to DEV. For configuration examples, see the description of `~/cnf/nginx.conf`_ above.
-
-~/cnf/nginx\_waf.conf
-^^^^^^^^^^^^^^^^^^^^^
-
-Configure WAF exeptions here, see `Web Application Firewall`_ for details.
-
-/etc/nginx/custom/http.conf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This file is directly integrated in ``http { }``, before ``server { }`` and can only be edited with the ``devop`` user. You can use this file for settings that must be configured at nginx http context.
-
-custom configuration include
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Include your own, external configuration files within ``server { }`` or ``http { }`` by including the following configuration to your server's ``Custom JSON``:
-
-* server level: set ``nginx::global_config::server_file``
-* http level: set ``nginx::global_config::http_file``
-
-.. warning:: if the configured files can not be found, the webserver will not be able to start.
-
-::
-
-    "nginx::global_config::server_file": "/absolut/path/to/your/file.conf"
-
-.. hint:: with this setting, you can deploy own, system wide configuration files from a Git repository. See :ref:`globalrepo` for details.
-
-custom webroot
-^^^^^^^^^^^^^^
-
-By default, the webroot directory location is choosen according vendor recommendations,
-depending on the selected type.
-
-Some deployment workflows require other locations, which you can select through the
-`custom_webroot` parameter, relative to the home directory.
-
-.. warning:: by now, the directory specified here needs to be a real directory (**no symlinks allowed**)
-
-.. code-block:: json
-
-  {
-    "custom_webroot": "deploy/current/html"
-  }
-
-custom log format
-^^^^^^^^^^^^^^^^^
-
-To alter the format used for nginx access logs, for example due to privacy reasons, you can use the ``website::wrapper::nginx::log_format`` configuration.
-
-This configuration is only available globally for all websites on a server, to change to default "combined" format to replace the actual visitors ip address with 127.0.0.1, use the following example:
-
-::
-
-  "website::wrapper::nginx::log_format": "127.0.0.1 - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
-
-.. index::
-   triple: Website; Custom PHP Configuration; php.ini
-   :name: website_php.ini
-
-PHP
-^^^
-
-You can set custom PHP configurations trough the ``~/cnf/php.ini`` file.
-See the `PHP Documentation <http://php.net/manual/en/configuration.file.per-user.php>`__ for details.
-
-.. warning:: You have to reload php after changes with the ``php-reload`` shortcut
-
-::
-
-    memory_limit = 1G
-    extension = ldap.so
-
-.. hint:: list available extensions in ``/opt/php/php72/lib/php/extensions/no-debug-non-zts-20170718/``
 
 node
 ^^^^

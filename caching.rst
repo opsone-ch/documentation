@@ -177,7 +177,7 @@ To load *phpredis* in your environment, specify the extenion in ``~/cnf/php.ini`
 
   extension = redis.so
 
-.. hint:: For details, see :ref:`custom PHP configuration <website_php.ini>`.
+.. hint:: For details, see :ref:`custom PHP configuration <website-advanced-php>`.
 
 Debugging
 ~~~~~~~~~

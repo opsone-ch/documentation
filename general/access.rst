@@ -8,8 +8,9 @@ Means to Access Your Server
 SSH
 ---
 
-Your server is accessible trough SSH by default. There are no personal
-SSH login users supported to ensure uniformity between SSH and web actions.
+Your server is accessible trough SSH by default. 
+To ensure uniformity between SSH and web actions, there are no personal
+SSH login users created. Log in with the desired websites user instead.
 
 .. hint:: for security reasons, we allow key based logins only
 

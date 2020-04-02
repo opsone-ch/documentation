@@ -2,12 +2,210 @@
    pair: Website; Type
    :name: website-type
 
+====
 Type
 ====
 
-You have to define one of the following types for each website.
+The selected `type` will determine the configuration of your website.
 
-.. note:: If you need a type not mentioned here yet, do not hesitate to contact us
+
+Basic Types
+===========
+
+To run your own application with a certain technology stack, use one
+of our basic types.
+
+.. index::
+   triple: Website; Type; Docker
+   :name: website-type_docker
+
+Docker
+------
+
+This Type is used to run your own Docker container behind a website acting
+as reverse proxy.
+
+* a website type :ref:`website-type_proxy` is configured
+* Docker will be installed and configured
+* created website user is member of the `docker` group and thus allowed
+  to execute ``docker`` commands
+
+.. tip:: Also take a look at our How-to :ref:`howto-docker`.
+
+.. index::
+   triple: Website; Type; HTML
+   :name: website-type_html
+
+HTML
+----
+
+Used to create a HTML only website with no dynamic processing altogether.
+
+.. index::
+   triple: Website; Type; Node.js
+   :name: website-type_nodejs
+
+Node.js
+-------
+
+* your Node.js application is run with a daemon on controlled by Monit
+* select custom node version trough `nvm <https://github.com/creationix/nvm#usage>`__, by default, the latest node lts version is installed
+* nodejs has to listen on the ``~/cnf/nodejs.sock`` socket, permission ``660``
+* symlink your app.js to ``~/app.js`` or overwrite path or other daemon
+  options in ``OPTIONS`` at ``~/cnf/nodejs-daemon``:
+
+  ::
+
+      OPTIONS="/home/nodejs/application/app.js --prod"
+
+.. tip:: to control the nodejs daemon, use the ``nodejs-restart`` shortcut
+
+.. index::
+   triple: Website; Type; PHP
+   :name: website-type_php
+
+PHP
+---
+
+* PHP installed and running as FPM service included in nginx
+* you can select the desired version at the `Advanced` tab
+* for custom configurations, see :ref:`website-advanced-php`
+
+
+Python
+------
+
+* uWSGI Daemon (Symlink your appropriate wsgi configuration to ``~/wsgi.py``)
+* Python virtualenv ``venv-<sitename>`` configured within uWSGI and the user login shell
+
+.. hint:: To control the uwsgi daemon, use the ``uwsgi-reload`` and ``uwsgi-restart`` shortcuts.
+
+.. index::
+   triple: Website; Type; Proxy
+   :name: website-type_proxy
+
+Proxy
+-----
+
+* nginx website configured as reverse proxy
+* select the desired backend with the `Proxy Pass` setting
+
+.. tip::
+
+   To use advanced features like multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it.
+   See :ref:`website-advanced-nginx_server` nginx configuration.
+
+.. index::
+   triple: Website; Type; Redirect
+   :name: website-type_redirect
+
+Redirect
+--------
+
+* to redirects everything to a custom target
+* set `Target` to your desired destination
+* by default, we send a 307 HTTP redirect code
+
+To use your own redirect code, add the ``target_code`` string within the
+`Custom JSON` :ref:`customjson_website`:
+
+.. code-block:: json
+
+   {
+     "target_code": "301"
+   }
+
+.. hint:: You can use any nginx variable as target (for example ``$scheme://www.example.com$request_uri``), see the `nginx Documentation <http://nginx.org/en/docs/varindex.html>`__ for available variables.
+
+.. index::
+   triple: Website; Type; Ruby
+   :name: website-type_ruby
+
+Ruby
+----
+
+* ruby rbenv configured within foreman and the user login shell
+* foreman daemon, controlled by Monit
+* ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission ``660``
+* symlink your Procfile to ``~/`` or overwrite path or other daemon
+  options in ``OPTIONS`` at ``~/cnf/ruby-daemon``:
+
+   ::
+
+       OPTIONS="start web -f project/Procfile"
+
+.. tip:: To control the ruby daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts.
+
+Application Types
+=================
+
+We provide elaborated types for certain web applications. If your desired
+application is amongst them, we recommend to use them instead of a basic
+type.
+
+.. index::
+   triple: Website; Type; Magento 1
+   :name: website-type_magento1
+
+Magento 1
+---------
+
+.. index::
+   triple: Website; Type; Magento 2
+   :name: website-type_magento2
+
+Magento 2
+---------
+
+.. index::
+   triple: Website; Type; Neos
+   :name: website-type_neos
+
+Neos
+----
+
+.. index::
+   triple: Website; Type; TYPO3 6
+   :name: website-type_typo3v6
+
+TYPO3 v6
+--------
+
+.. index::
+   triple: Website; Type; TYPO3 7
+   :name: website-type_typo3v7
+
+TYPO3 v7
+--------
+
+.. index::
+   triple: Website; Type; TYPO3 8
+   :name: website-type_typo3v8
+
+TYPO3 v8
+--------
+
+.. index::
+   triple: Website; Type; TYPO3 9
+   :name: website-type_typo3v9
+
+TYPO3 v9
+--------
+
+.. index::
+   triple: Website; Type; TYPO3 10
+   :name: website-type_typo3v10
+
+TYPO3 v10
+---------
+
+.. index::
+   triple: Website; Type; Wordpress
+   :name: website-type_wordpress
+
+Wordpress
+---------
+
 
 typo3cmsv10 (Alpha)
 ^^^^^^^^^^^^^^^^^^^
@@ -108,7 +306,7 @@ neos
      - ~/web
 
 -  PHP and nginx settings adjusted to Neos requirements
--  ``FLOW_CONTEXT`` set according the selected context (see :ref:`website_context`)
+-  ``FLOW_CONTEXT`` set according the selected context (see :ref:`website-context`)
 -  ``FLOW_REWRITEURLS`` enabled
 
 required configuration
@@ -179,42 +377,6 @@ wordpress
 
 .. hint:: Please disable the built in HTTP call to wp-cron.php by setting ``define('DISABLE_WP_CRON', true);``. This additional call is not necessary and disabling it will lower the load on your system.
 
-.. index::
-   triple: Website; Type; PHP 7.2
-   :name: website_type-php72
-
-php72
-^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - PHP 7.2
-   * - Database
-     - Optional: MySQL, MongoDB or PostgreSQL
-   * - Default webroot
-     - ~/www
-
-.. index::
-   triple: Website; Type; PHP 7.1
-   :name: website_type-php71
-
-php71
-^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - PHP 7.1
-   * - Database
-     - Optional: MySQL, MongoDB or PostgreSQL
-   * - Default webroot
-     - ~/www
-
 html
 ^^^^
 
@@ -228,76 +390,6 @@ html
      - unavailable
    * - Default webroot
      - ~/www
-
-uwsgi
-^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - uWSGI Daemon, Python virtualenv
-   * - Database
-     - Optional: MySQL, MongoDB or PostgreSQL
-   * - Default webroot
-     - ~/www
-
--  uWSGI Daemon (Symlink your appropriate wsgi configuration to ``~/wsgi.py``)
--  Python virtualenv ``venv-<sitename>`` configured within uWSGI and the user login shell
--  all requests are redirected to the uWSGI daemon by default. To serve
-   static files, add appropriate locations to the `Custom configuration`_ like this:
-
-   ::
-
-       location /static/ {
-         root /home/user/application/;
-       }
-
-.. hint:: to control the uwsgi daemon, use the ``uwsgi-reload`` and ``uwsgi-restart`` shortcuts
-
-redirect
-^^^^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - for redirects only
-   * - Database
-     - unavailable
-   * - Default webroot
-     - unavailable
-
-- redirects everything to a custom target
-- by default, we send a 307 HTTP code. To use your own code, add the ``target_code`` parameter to the websites custom JSON:
-
-  .. code-block:: json
-
-      {
-        "target_code": "301"
-      }
-
-.. hint:: you can use any nginx variable as target (for example ``$scheme://www.example.com$request_uri``), see the `nginx Documentation <http://nginx.org/en/docs/varindex.html>`__ for available variables
-
-proxy
-^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - for reverse proxy only
-   * - Database
-     - unavailable
-   * - Default webroot
-     - unavailable
-
--  nginx vhost configured as reverse proxy
-
-.. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it. For security reasons, we only allow access to this configuration for the `devop user <../server/access.html#generic-devop-user>`__.
 
 docker
 ^^^^^^
@@ -317,74 +409,4 @@ docker
 -  install docker and puts the user into the docker group
 
 .. hint:: to use advanced features or multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it. For security reasons, we only allow access to this configuration for the `devop user <../server/access.html#generic-devop-user>`__.
-
-nodejs
-^^^^^^
-
-.. list-table:: 
-
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - nodejs daemon, controlled by monit
-   * - Database
-     - Optional: MySQL, MongoDB or PostgreSQL
-   * - Default webroot
-     - socket: ~/cnf/nodejs.sock
-
-- select custom node version trough `nvm <https://github.com/creationix/nvm#usage>`__, by default, the latest node lts version is installed
-- symlink your app.js to ``~/app.js`` or overwrite path or other daemon
-  options in ``OPTIONS`` at ``~/cnf/nodejs-daemon``:
-
-  ::
-
-      OPTIONS="/home/nodejs/application/app.js --prod"
-
-- nodejs has to listen on the ``~/cnf/nodejs.sock`` socket, permission ``660``
-- all requests are redirected to the nodejs daemon by default. To serve
-  static files, add appropriate locations to the `Custom configuration`_ like this:
-
-  ::
-
-      location /static/ {
-        root /home/user/application/;
-        include /etc/nginx/custom/security.conf;
-      }
-
-.. hint:: to control the nodejs daemon, use the ``nodejs-restart`` shortcut
-
-ruby
-^^^^
-
-.. list-table::
-
-   * - Web server
-     - nginx with ModSecurity WAF and core rule set
-   * - runtime environment
-     - ruby rbenv and foreman daemon
-   * - Database
-     - Optional: MySQL, MongoDB or PostgreSQL
-   * - Default webroot
-     - socket: ``~/cnf/ruby.sock``
-
--  ruby rbenv configured within foreman and the user login shell
--  foreman daemon, controlled by monit
--  symlink your Procfile to ``~/`` or overwrite path or other daemon
-   options in ``OPTIONS`` at ``~/cnf/ruby-daemon``:
-
-   ::
-
-       OPTIONS="start web -f project/Procfile"
-
--  ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission ``660``
--  all requests are redirected to the ruby daemon by default. To serve
-   static files, add appropriate locations to the `Custom configuration`_ like this:
-
-   ::
-
-       location /static/ {
-           root /home/user/application/;
-       }
-
-.. hint:: to control the ruby daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts
 

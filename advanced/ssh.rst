@@ -1,5 +1,5 @@
 .. index::
-   twin: Server; SSH Client Configuration
+   pair: Server; SSH Client Configuration
    :name: server-ssh
 
 ========================

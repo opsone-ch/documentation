@@ -7,6 +7,8 @@ Here, we document possible website configuration options which you won't need on
 .. toctree::
   :maxdepth: 1
 
+  nginx
   previewuser
+  php
   whitelabel
 

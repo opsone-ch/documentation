@@ -37,7 +37,7 @@ Utilization
 -----------
 
 .. index::
-   tripe: Server; Monitoring; Netdata
+   triple: Server; Monitoring; Netdata
    :name: monitoring_netdata
 
 Netdata
