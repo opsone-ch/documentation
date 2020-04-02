@@ -24,7 +24,7 @@ stages:
   - pip install Sphinx==3.0.0b1
   - pip install sphinx_rtd_theme
   # build documentation
-  - sphinx-build . ./_build/
+  - sphinx-build . ./_build/ -aEW
 
 deploy_prod:
   stage: deploy_prod
