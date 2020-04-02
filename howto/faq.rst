@@ -1,5 +1,5 @@
 .. index::
-   triple: How-to; FAQ
+   twin: How-to; FAQ
    :name: howto-faq
 
 ===

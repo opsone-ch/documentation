@@ -1,5 +1,5 @@
 .. index::
-   pair: Backup
+   single: Backup
    :name: backup
 
 ======

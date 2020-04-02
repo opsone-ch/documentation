@@ -66,9 +66,3 @@ This allows you to install WordPress with just four commands.
 
 You are now ready to use your installation of WordPress.
 
-.. tip:: Do you encounter some inexplicable errors like 403, maybe you just got acquainted with `our web application firewall <../services/website.html#web-application-firewall>`__.
-
-Still got some questions?
------------------
-
-`Read our FAQ section <../faq.html>`__ for further information.
