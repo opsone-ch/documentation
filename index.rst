@@ -38,7 +38,7 @@ and `GitHub <https://github.com/opsone-ch/documentation/>`_.
   :hidden:
 
   guides/index
-  changelog
+  Changelog <changes>
   server/index
   services/index
   development/index
