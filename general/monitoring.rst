@@ -2,9 +2,15 @@
    pair: Server; Monitoring
    :name: monitoring
 
-==========
-Monitoring
-==========
+===================
+Monitoring (Server)
+===================
+
+.. tip::
+
+   This page covers all aspects regarding monitoring on the server level.
+   For informations about the monitoring of individual websites, see
+   :ref:`website-monitoring`.
 
 Availability (external)
 -----------------------

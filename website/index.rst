@@ -34,20 +34,6 @@ This and all other options are outlined within this chapter:
    limits
    envvar
    cron
+   monitoring
    advanced/index
-
-Monitoring
-----------
-
-All sites with ``"env": "PROD"`` are monitored 24/7 by default. If you
-have some sites with frequent outages (e.g. for development purposes),
-which have to have ``"env": "PROD"`` for other reasons, or sites which
-are not reachable from everywhere due to security reasons, please
-deactivate monitoring by setting ``"monitoring": "false"`` in custom JSON:
-
-.. code-block:: json
-
-    {
-      "monitoring": false
-    }
 

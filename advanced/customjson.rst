@@ -43,5 +43,5 @@ for example to
 
 * change the default HSTS header sent (see :ref:`website_hsts`)
 * set custom environment variables (see :ref:`website-envvar`)
-* let the website listen on a specific port or interface (see :ref:`website_listen`)
+* let the website listen on a specific port or interface (see :ref:`website-advanced-nginx_listen`)
 
