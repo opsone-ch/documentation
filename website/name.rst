@@ -10,6 +10,9 @@ The website name is defined once when you create the website initially.
 All parts configured within the system are tied to this name so it
 **cannot be modified afterwards**.
 
+The name must start with a lower case letter, followed by lower case letters,
+digits, underscores or dashes. It may be only up to 32 characters long.
+
 Among others, the name is used to configure:
 
 * system user and group
