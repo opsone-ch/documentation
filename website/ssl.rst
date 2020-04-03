@@ -21,8 +21,12 @@ redirectet to HTTPS instead (:ref:`website-ssl_httpredirect` for details).
    triple: Website; SSL; Let's Encrypt
    :name: website-ssl_letsencrypt
 
-Let's Encrypt
-=============
+.. index::
+   triple: Website; SSL; Auto SSL
+   :name: website-ssl_autossl
+
+Auto SSL (Let's Encrypt)
+========================
 
 We support free ssl certificates by `Let's Encrypt <https://letsencrypt.org/>`__.
 Just activate Let's Encrypt on your desired website.
