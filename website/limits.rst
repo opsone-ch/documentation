@@ -1,5 +1,5 @@
 .. index::
-   tripler: Website; Limits; Request Limits
+   triple: Website; Limits; Request Limits
    :name: website-limits
 
 ==============
