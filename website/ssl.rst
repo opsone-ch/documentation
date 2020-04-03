@@ -6,7 +6,7 @@
 SSL/HTTPS Access
 ================
 
-Enable :ref:`website-ssl_letsencrypt` or add your :ref:`website-ssl_owncertificate`
+Enable :ref:`website-ssl_auto` or add your :ref:`website-ssl_owncertificate`
 to make your website reachable over HTTPS. Nowadays, this is considered good
 practice and should be enabled on all websites.
 
@@ -23,7 +23,7 @@ redirectet to HTTPS instead (:ref:`website-ssl_httpredirect` for details).
 
 .. index::
    triple: Website; SSL; Auto SSL
-   :name: website-ssl_autossl
+   :name: website-ssl_auto
 
 Auto SSL (Let's Encrypt)
 ========================
