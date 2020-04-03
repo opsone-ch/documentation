@@ -26,6 +26,7 @@ This and all other options are outlined within this chapter:
    :maxdepth: 2
 
    name
+   labels
    type
    context
    ssl
