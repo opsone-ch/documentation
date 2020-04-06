@@ -1,5 +1,5 @@
 .. index::
-   pair: Website; Advanced; Preview User
+   triple: Website; Advanced; Preview User
    :name: website-advanced-previewuser
 
 ============
