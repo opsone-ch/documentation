@@ -121,40 +121,40 @@ By default, we limit the following connections:
 Incoming SSH
 ------------
 
-Incoming SSH connections are limited to 15 per minute. You can alter or remove
+Incoming SSH connections are limited to 600 per minute. You can alter or remove
 this limit by setting the ``nftables::input_ssh_limit`` within the `Custom JSON`
 :ref:`customjson_server`:
 
 .. code-block:: json
 
    {
-     "nftables::input_ssh_limit": "15/minute"
+     "nftables::input_ssh_limit": "600/minute"
    }
 
 Incoming ICMP
 -------------
 
-Incoming ICMP connections are limited to 10 per second. You can alter or remove
+Incoming ICMP connections are limited to 600 per minute. You can alter or remove
 this limit by setting the ``nftables::input_icmp_limit`` within the `Custom JSON`
 :ref:`customjson_server`:
 
 .. code-block:: json
 
    {
-     "nftables::input_icmp_limit": "10/second"
+     "nftables::input_icmp_limit": "600/minute"
    }
 
 Incoming ICMPv6
 ---------------
 
-Incoming ICMPv6 connections are limited to 10 per second. You can alter or remove
+Incoming ICMPv6 connections are limited to 600 per minute. You can alter or remove
 this limit by setting the ``nftables::input_icmpv6_limit`` within the `Custom JSON`
 :ref:`customjson_server`:
 
 .. code-block:: json
 
    {
-     "nftables::input_icmpv6_limit": "10/second"
+     "nftables::input_icmpv6_limit": "600/minute"
    }
 
 Debugging
