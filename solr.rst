@@ -6,188 +6,119 @@
 Solr
 ====
 
+Solr is fully configured through the `Custom JSON` :ref:`customjson_server`.
+You can define your instances through the ``solr::instances`` key.
+
+Instance Name
+=============
+
+* the name is taken out of the ``solr::instances`` hash name (see examples below)
+* a-z and 0-9 are allowed as instance name
+
+Instance Options
+================
+
+version
+-------
+
+* desired Solr version
+* Docker Hub image
+* tested versions
+
+  * ``typo3solr/ext-solr:10.0.1``
+  * ``solr:8.5.0``
+
 .. warning::
 
-   WIP: This content was not yet adapted and checked for version 7,
-   which we will do as soon as possible.
-   If in doubt, please contact us for details regarding this topic.
-   Reference #673
+   Even if you can use other versions available as Docker image as well,
+   we did test the images mentioned above only, and cannot guarantee anything
+   for other versions. Please contact us if you plan to use other versions.
 
-Install and manage Apache Solr instances for different use cases.
+.. hint::
 
-Solr 6 for TYPO3
-----------------
+   For TYPO3 Solr, you'll find more informations in the
+   `TYPO3 Solr Documentation <https://docs.typo3.org/p/apache-solr-for-typo3/solr/master/en-us/Index.html>`__.
 
-To install Solr 6 for TYPO3, use the ``solr::webappv6`` configuration.
+htpasswd
+--------
 
-Configuration
-^^^^^^^^^^^^^
+* htpasswd hash for basic auth
+* username is ``solr-<name>``
 
 ensure
-""""""
+------
 
-* `present` enable Solr instance
-* `absent` disable Solr instance and remove all its data and configuration
-* default: `present`
+* ``present`` if this Solr instance should be installed
+* ``absent`` if this Solr instance should get removed
+* default: ``present``
 
-solrVersion
-"""""""""""
+server_name
+-----------
 
-Version of Apache Solr to be installed.
+* server name under which this installation is available
+* default: ``solr-<name>.<fqdn>``
 
-* default: `6.6.1`
+ssl_acme
+--------
 
-extVersion
-""""""""""
+* wheter a automatic certificate from Let's Encrypt is assigned
+* default: ``true``
 
-Version of `TYPO3 Solr <https://github.com/TYPO3-Solr/ext-solr/tags>`__ to be installed.
+ssl_cert
+--------
 
-* default: `7.0.1`
+* variable to add your own SSL certificate
+* default: empty
 
-port
-""""
+ssl_key
+--------
 
-By default, Solr will listen on port 8983. If you have multiple instances, or want to use a different
-port for other reasons, use the ``port`` parameter to specify the corresponding TCP port.
-
-.. tip:: Solr will listen on the localhost interface only. If you need to expose Solr for external access, please use a website service (proxy type), and make sure access is allowed only by basic or ip address auth
-
-memory_ratio
-""""""""""""
-
-By default, a ``memory_ratio`` of 4 is used, which means Solr will
-take up to 25% of this servers total memory.
+* variable to add your own SSL key
+* default: empty
 
 monitoring
-""""""""""
+----------
 
-* `true` monitor Solr instance locally (Monit) and externally (HTTP check to Solr status)
-* `false` do not monitor Solr instance at all
-* default: `true`
+* wheter this Solr instance is monitored through us
+* default: ``true``
 
-Full example
-""""""""""""
+Minimal Example
+===============
+
+
+Configuration through `Custom JSON` :ref:`customjson_server`.
 
 .. code-block:: json
 
-    {
-      "solr::webappv6": {
-        "<name>": {
-          "ensure": "present",
-          "solrVersion": "6.6.1",
-          "extVersion": "7.0.1",
-          "port": "8983",
-          "memory_ratio": "4",
-          "monitoring": true
-        }
-      }
-    }
+   {
+     "solr::instances": {
+       "yourname": {
+         "version": "typo3solr/ext-solr:10.0.1",
+         "htpasswd": "$apr1$LIto7/SK$AMosnNDL63JV.3LAuCk0n1"
+       }
+     }
+   }
 
-Solr Admin
-^^^^^^^^^^
 
-The Solr admin interface is reachable on `http://localhost:port`. To access Solr externally, please use a website service (proxy type), and make sure access is allowed only by basic or ip address auth. If the webapplication using Solr is installed on the same server, best practice is to let Solr run on localhost only and access Solr admin for management purposes by forwarding the corresponding port through SSH.
+Full Example
+============
 
-.. tip:: Example ssh command for port forwarding: ``ssh -N -L 8983:localhost:8983 user@server``. The command assumes that solr runs its web interface on port 8983 (as it is shown in the configuration example above). ``user`` is an existing ssh user on the ``server`` where the solr instance is installed. After running the command in terminal, point your browser to ``http://localhost:8983/solr/`` to access the solr web interface.
-
-Add core
-""""""""
-
-To add new core for a certain site or language, use the following URL:
-
-`http://localhost:8983/solr/admin/cores?action=CREATE&name=<core-name>&configSet=<version>&schema=<language>/schema.xml`
-
-* name: name of the new core
-* configSet: desired template as provided within the `Resources/Private/Solr/configsets/` folder in TYPO3 Solr, e.g. `ext_solr_7_0_0`
-* schema: `<language>/schema.xml` as provided within the `Resources/Private/Solr/configsets/<version>/conf/` folder in TYPO3 Solr, e.g. `german/schema.xml`
-
-For details, please consult the `TYPO3 Solr Documentation <https://docs.typo3.org/typo3cms/extensions/solr/>`__.
-
-Solr 7 for TYPO3
-----------------
-
-To install Solr 7 for TYPO3, use the ``solr::webappv7`` configuration.
-
-Configuration
-^^^^^^^^^^^^^
-
-ensure
-""""""
-
-* `present` enable Solr instance
-* `absent` disable Solr instance and remove all its data and configuration
-* default: `present`
-
-solrVersion
-"""""""""""
-
-Version of Apache Solr to be installed.
-
-* default: `7.6.0`
-
-extVersion
-""""""""""
-
-Version of `TYPO3 Solr <https://github.com/TYPO3-Solr/ext-solr/tags>`__ to be installed.
-
-* default: `8.1.2`
-
-port
-""""
-
-By default, Solr will listen on port 8983. If you have multiple instances, or want to use a different
-port for other reasons, use the ``port`` parameter to specify the corresponding TCP port.
-
-.. tip:: Solr will listen on the localhost interface only. If you need to expose Solr for external access, please use a website service (proxy type), and make sure access is allowed only by basic or ip address auth
-
-memory_ratio
-""""""""""""
-
-By default, a ``memory_ratio`` of 4 is used, which means Solr will
-take up to 25% of this servers total memory.
-
-monitoring
-""""""""""
-
-* `true` monitor Solr instance locally (Monit) and externally (HTTP check to Solr status)
-* `false` do not monitor Solr instance at all
-* default: `true`
-
-Full example
-""""""""""""
+Configuration through `Custom JSON` :ref:`customjson_server`.
 
 .. code-block:: json
 
-    {
-      "solr::webappv7": {
-        "<name>": {
-          "ensure": "present",
-          "solrVersion": "7.6.0",
-          "extVersion": "8.1.2",
-          "port": "8983",
-          "memory_ratio": "4",
-          "monitoring": true
-        }
-      }
-    }
-
-Solr Admin
-^^^^^^^^^^
-
-The Solr admin interface is reachable on `http://localhost:port`. To access Solr externally, please use a website service (proxy type), and make sure access is allowed only by basic or ip address auth. If the webapplication using Solr is installed on the same server, best practice is to let Solr run on localhost only and access Solr admin for management purposes by forwarding the corresponding port throgh SSH.
-
-.. tip:: Example ssh command for port forwarding: ``ssh -N -L 8983:localhost:8983 user@server``. The command assumes that solr runs its web interface on port 8983 (as it is shown in the configuration example above). ``user`` is an existing ssh user on the ``server`` where the solr instance is installed. After running the command in terminal, point your browser to ``http://localhost:8983/solr/`` to access the solr web interface.
-
-Add core
-""""""""
-
-To add new core for a certain site or language, use the following URL:
-
-`http://localhost:8983/solr/admin/cores?action=CREATE&name=<core-name>&configSet=<version>&schema=<language>/schema.xml`
-
-* name: name of the new core
-* configSet: desired template as provided within the `Resources/Private/Solr/configsets/` folder in TYPO3 Solr, e.g. `ext_solr_7_0_0`
-* schema: `<language>/schema.xml` as provided within the `Resources/Private/Solr/configsets/<version>/conf/` folder in TYPO3 Solr, e.g. `german/schema.xml`
-
-For details, please consult the `TYPO3 Solr Documentation <https://docs.typo3.org/typo3cms/extensions/solr/>`__.
+   {
+     "solr::instances": {
+       "yourname": {
+         "ensure": "present",
+         "version": "typo3solr/ext-solr:10.0.1",
+         "htpasswd": "$apr1$LIto7/SK$AMosnNDL63JV.3LAuCk0n1",
+         "server_name": "my-solr-core.example.net",
+         "ssl_acme": false,
+         "ssl_cert": "your-own-ssl-certificate",
+         "ssl_key": "your-own-ssl-key",
+         "monitoring": false
+       }
+     }
+   }
 
