@@ -36,3 +36,20 @@ within the `Custom JSON` :ref:`customjson_website`:
      "type_cronjob": false
    }
 
+The default interval for type related cronjobs is set to 15 minutes.
+To adjust this value you can set ``type_cronjob_interval`` to a
+different value within the `Custom JSON` :ref:`customjson_website`:
+
+.. code-block:: json
+
+   {
+     "type_cronjob_interval": 5
+   }
+
+Or global within the `Custom JSON` :ref:`customjson_server`:
+
+.. code-block:: json
+
+   {
+     "website::type_cronjob_interval": 5
+   }
