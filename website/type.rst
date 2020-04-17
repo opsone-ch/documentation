@@ -167,7 +167,7 @@ Drupal
 
 * :ref:`website-type_php` type with PHP version 7.4
 * MariaDB database
-* application related PHP and nginx configuration
+* application related PHP and nginx configuration (webroot ``~/web``)
 * application related cronjobs (see :ref:`website-cron_type`)
 * application related WAF rules (see :ref:`website-waf`)
 
