@@ -159,6 +159,19 @@ application is amongst them, we recommend to use them instead of a basic
 type.
 
 .. index::
+   triple: Website; Type; Drupal
+   :name: website-type_drupal
+
+Drupal
+---------
+
+* :ref:`website-type_php` type with PHP version 7.4
+* MariaDB database
+* application related PHP and nginx configuration
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+
+.. index::
    triple: Website; Type; Magento 1
    :name: website-type_magento1
 
