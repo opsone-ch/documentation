@@ -127,9 +127,9 @@ To use your own redirect code, add the ``target_code`` string within the
 Ruby
 ----
 
-* ruby rbenv configured within foreman and the user login shell
-* foreman daemon, controlled by Monit
-* ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission ``660``
+* rbenv configured within foreman and the user login shell
+* Foreman daemon, controlled by Monit
+* Ruby has to listen on the ``~/cnf/ruby.sock`` socket, permission ``660``
 * symlink your Procfile to ``~/`` or overwrite path or other daemon
   options in ``OPTIONS`` at ``~/cnf/ruby-daemon``:
 
@@ -137,7 +137,15 @@ Ruby
 
        OPTIONS="start web -f project/Procfile"
 
-.. tip:: To control the ruby daemon, use the ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts.
+.. tip::
+
+   To control the Ruby daemon, use the
+   ``ruby-start`` / ``ruby-stop`` / ``ruby-restart`` shortcuts.
+
+.. tip::
+
+   To use a custom Ruby version, see the
+   `rbenv <https://github.com/rbenv/rbenv#command-reference>`__ manual.
 
 .. index::
    triple: Website; Type; Application Types
