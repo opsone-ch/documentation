@@ -1,36 +1,48 @@
+.. index::
+   single: Database
+   :name: database
+
+========
 Database
 ========
 
-.. warning::
+Manage databases including users, grants, and their configuration.
 
-   WIP: This content was not yet adapted and checked for version 7,
-   which we will do as soon as possible.
-   If in doubt, please contact us for details regarding this topic.
-   Reference #819
+.. tip::
 
-Install and manage your favorite databases. Including users, grants, and
-the configuration.
+   This configurations are used in custom setups only. Mostly, it
+   is sufficient to select your desired database within the :ref:`website`
+   configuration.
 
-MySQL / MariaDB
----------------
+.. index::
+   triple: Database; MariaDB; MySQL
+   :name: database_mariadb
+
+MariaDB
+=======
 
 Instead of MySQL, we use MariaDB, which is a drop-in replacement with
 API/ABI compatibility to MySQL.
 
-Databases
-~~~~~~~~~
+Database
+--------
 
--  add a Database
--  title: Database Name
--  type: Database Type: "mysql"
--  user\_password: adds a User with the same Name as the Database with
-   this Password and grant all privileges
+You can configure MariaDB databases through the ``database::databases`` hash
+within the `Custom JSON` :ref:`customjson_server`.
 
-   -  without this, you have to add user/grants by yourself (see below),
-      otherwise only root can access this database
-   -  it is only possible to add a local User here. For special
-      Configurations (e.g. external access or grants to particular
-      Tables use users/grants below)
+Options
+~~~~~~~
+
+* hash name: database Name
+* type: database type, use ``mysql``
+* user\_password: adds a user with the same name as the database with
+  this password and all privileges to the created database
+
+Example
+~~~~~~~
+
+Configure databases through the ``database::databases`` hash
+within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -46,13 +58,18 @@ Databases
     }
   }
 
-Users
-~~~~~
+.. tip::
 
--  add a User
--  you have to add desired grants additionally
--  if you add Users for remote Hosts, also add corresponding Firewall
-   Rule
+   If you add a database without ``user_password`` option, you have to configure
+   the desired users and grants by yourself.
+   For special configurations like external access, you have to configure
+   the desired users and grants by yourself.
+
+Users
+-----
+
+You can configure MariaDB users through the ``database::users`` hash
+within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -67,10 +84,15 @@ Users
     }
   }
 
-Grants
-~~~~~~
+.. tip::
 
--  grant Access for a User to a Database and Tables
+   If you add users for remote hosts, also add corresponding :ref:`firewall`.
+
+Grants
+------
+
+You can configure MariaDB grants through the ``database::grants`` hash
+within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -103,15 +125,30 @@ Grants
     }
   }
 
-Additional configuration options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Custom configuration
+--------------------
 
--  ``mysql::server::password``: Password for the root User
--  ``mysql::server::ft_min_word_len``: Value for the ft\_min\_word\_len
-   option
+You can set custom MariaDB configuration options through the
+``database::wrapper::mysql::options`` hash
+within the `Custom JSON` :ref:`customjson_server`:
+
+.. code-block:: json
+
+   {
+     "database::wrapper::mysql::options": {
+       "ft_min_word_len": 1
+     }
+   }
+
+.. warning::
+
+   This will directly affect the MariaDB server configuration. We have no means
+   to check your configuration and cannot guarantee anythign if you change such
+   values. Please make sure that you know what you're doing and contact us
+   beforehand if you have any questions.
 
 Backup
-~~~~~~
+------
 
 Every database is backed up daily into the users backup directory:
 
@@ -120,7 +157,7 @@ Every database is backed up daily into the users backup directory:
     /home/userdir/backup/
 
 Restore
-^^^^^^^
+-------
 
 Choose between 2 options.
 
@@ -128,7 +165,7 @@ Choose between 2 options.
 2. restore the nightly backup
 
 Rollback
-''''''''
+~~~~~~~~
 
 Import the binlog.
 
@@ -142,7 +179,7 @@ and rollback:
     mysqlbinlog --start-datetime="2015-02-09 22:07:00" --stop-datetime="2015-02-10 17:15:00" /var/log/mysql/mysql-bin.* | mysql database
 
 Nightly restore
-'''''''''''''''
+~~~~~~~~~~~~~~~
 
 for a complete restore of the nightly database backup, decompress the
 backup, import it and remove the latest .sql.lzo file:
@@ -154,10 +191,10 @@ backup, import it and remove the latest .sql.lzo file:
 the database.sql.lzo.1 is the backup from yesterday.
 
 Access
-~~~~~~
+------
 
 phpmyadmin
-^^^^^^^^^^
+~~~~~~~~~~
 
 We provide a central `phpMyAdmin
 installation <https://dbadmin.opsone.ch>`__ to access your
@@ -168,7 +205,7 @@ database. Use the following settings to connect:
 -  Password: see DB\_PASSWORD in ``~/.profile``
 
 SSH tunnel
-^^^^^^^^^^
+~~~~~~~~~~
 
 To access the database with common database tools like MySQL Workbench,
 create a SSH tunnel to the server and forward the MySQL port. After
@@ -187,7 +224,7 @@ ssh .config entry:
     LocalForward 3306 127.0.0.1:3306
 
 local
-^^^^^
+~~~~~
 
 simply access your database over the shell:
 
@@ -195,17 +232,39 @@ simply access your database over the shell:
 
     mysql
 
-Postgresql
-----------
+.. index::
+   pair: Database; PostgreSQL
+   :name: database_postgresql
 
-Databases
-~~~~~~~~~
+TLS
+~~~
 
--  add a Database
--  title: Database Name
--  type: Database Type: "postgresql"
--  user\_password: adds a User with the same Name as the Database with
-   this Password and grant all privileges
+You can connect to all MariaDB databases with TLS enabled. Each server does generete its
+own, self-signed certificate. To verify the servers identity, you can fetch the corresponding
+certificate from ``/etc/mysql/tls.crt`` by using the `devop` user (see :ref:`access_devop`).
+
+PostgreSQL
+==========
+
+Database
+--------
+
+You can configure PostgreSQL databases through the ``database::databases`` hash
+within the `Custom JSON` :ref:`customjson_server`.
+
+Options
+~~~~~~~
+
+* hash name: database Name
+* type: database type, use ``postgresql``
+* user\_password: adds a user with the same name as the database with
+  this password and grant all privileges
+
+Example
+~~~~~~~
+
+Configure databases through the ``database::databases`` hash
+within the `Custom JSON` :ref:`customjson_server`:
 
 .. code-block:: json
 
@@ -219,12 +278,30 @@ Databases
   }
 
 Backup
-~~~~~~
+------
 
 Every database is dumped daily into the ``~/backup/`` directory.
 
+.. index::
+   pair: Database; MongoDB
+   :name: database_mongodb
+
+MongoDB
+=======
+
+.. warning::
+
+   WIP: This content was not yet adapted and checked for version 7,
+   which we will do as soon as possible.
+   If in doubt, please contact us for details regarding this topic.
+   Reference #792
+
+.. index::
+   pair: Database; Elasticsearch
+   :name: database_elasticsearch
+
 Elasticsearch
--------------
+=============
 
 We provide Elasticsearch as Managed Service. Setup is individual according to your needs.
 
