@@ -78,8 +78,8 @@ PHP
 Python
 ------
 
-* uWSGI Daemon (Symlink your appropriate wsgi configuration to ``~/wsgi.py``)
-* Python virtualenv ``venv-<sitename>`` configured within uWSGI and the user login shell
+* uWSGI daemon (place or symlink your appropriate wsgi configuration to ``~/wsgi.py``)
+* Python venv configured within uWSGI and the user login shell
 
 .. tip:: To control the uwsgi daemon, use the ``uwsgi-reload`` and ``uwsgi-restart`` shortcuts.
 
