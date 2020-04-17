@@ -226,5 +226,6 @@ linkcheck_ignore = [
   'https://github.com/puppetlabs/puppetlabs-vcsrepo#module-description',
   'https://github.com/nvm-sh/nvm#usage',
   'https://github.com/creationix/nvm#usage',
+  'https://github.com/rbenv/rbenv#command-reference',
 ]
 
