@@ -289,12 +289,11 @@ Every database is dumped daily into the ``~/backup/`` directory.
 MongoDB
 =======
 
-.. warning::
+Due to MongoDB licensing restriction, we are not allowed to provide
+MongoDB as a service. We can provide MongoDB as Managed Service though.
+Setup is individual according to your needs.
 
-   WIP: This content was not yet adapted and checked for version 7,
-   which we will do as soon as possible.
-   If in doubt, please contact us for details regarding this topic.
-   Reference #792
+`Get in touch with us <mailto:team@opsone.ch>`__ for further details.
 
 .. index::
    pair: Database; Elasticsearch
