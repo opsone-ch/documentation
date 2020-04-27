@@ -6,21 +6,21 @@
 Redis
 =====
 
-.. warning::
-
-   WIP: This content was not yet completed. We will add the remaining
-   changes as soon as possible.
-   Please contact us if you have any questions regarding a particular function.
-   Reference #818
-
 The Redis service is used to install and run Redis.
 Redis is configured as a cache, therefore no data is stored persistently.
+
+Redis is fully configured through the `Custom JSON` :ref:`customjson_server`.
+
+Enable
+======
+
+To install Redis, set ``redis::ensure`` to `present`.
 
 Memory Ratio
 ============
 
 By default, a ``memory_ratio`` of 2 is used, which means Redis
-will take up to 1/2 of this servers total memory.
+will take up to 50% of the servers total memory.
 
 maxmemory_policy
 ================
@@ -34,9 +34,7 @@ Full example
 .. code-block:: json
 
   {
-    "base::modules": [
-      "redis"
-    ],
+    "redis::ensure": "present",
     "redis::memory_ratio": "2",
     "redis::maxmemory_policy": "noeviction"
   }
