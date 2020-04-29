@@ -23,6 +23,10 @@ other needs, see the possible options below.
    ``/etc/nginx/custom/security-<website-name>.conf`` into your own nginx
    locations.
 
+.. index::
+   triple: Website; Header; X-Frame-Options
+   :name: website-security_xframe
+
 X-Frame-Options Header
 ======================
 
@@ -35,6 +39,10 @@ To adjust it, set the ``security_header_xframe`` option within the
    {
      "security_header_xframe": "your-desired-value-for-the-x-frame-options-header"
    }
+
+.. index::
+   triple: Website; Header; X-Content-Type-Options
+   :name: website-security_content_type
 
 X-Content-Type-Options Header
 =============================
@@ -49,6 +57,10 @@ To adjust it, set the ``security_header_content_type`` option within the
      "security_header_content_type": "your-desired-value-for-the-x-content-type-options-header"
    }
 
+.. index::
+   triple: Website; Header; X-XSS-Protection
+   :name: website-security_xss_prot
+
 X-XSS-Protection Header
 =======================
 
@@ -61,6 +73,10 @@ To adjust it, set the ``security_header_xss_prot`` option within the
    {
      "security_header_xss_prot": "your-desired-value-for-the-x-xss-protection-header"
    }
+
+.. index::
+   triple: Website; Header; Referrer-Policy
+   :name: website-security_refpolicy
 
 Referrer-Policy
 ===============
