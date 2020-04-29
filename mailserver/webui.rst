@@ -37,7 +37,7 @@ Add Mailbox
    :alt: add new mailbox
    :align: left
 
-The new user can no../w...
+The new user can now
 
 * login to webmail on webmail.example.com (SOGo with integerated calendar and addressbook)
 * login to mail.example.com to adjust certain settings (Spam filter, Sync jobs)
