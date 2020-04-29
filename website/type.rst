@@ -74,6 +74,9 @@ PHP
 * you can select the desired version at the `Advanced` tab
 * for custom configurations, see :ref:`website-advanced-php`
 
+.. index::
+   triple: Website; Type; Pytohn
+   :name: website-type_python
 
 Python
 ------
