@@ -84,19 +84,19 @@ by adding the rule to the ``nftables::rules`` hash within the `Custom JSON` :ref
      "nftables::rules": {
        "accept incoming port example for IPv4": {
          "chain": "input",
-         "rule": "tcp dport 1234 accept ip saddr 192.168.1.1"
+         "rule": "tcp dport 1234 ip saddr 192.168.1.1 accept"
        },
        "accept incoming port example for IPv6": {
          "chain": "input",
-         "rule": "tcp dport 1234 accept ip6 saddr 2001:db8::1"
+         "rule": "tcp dport 1234 ip6 saddr 2001:db8::1 accept"
        },
        "accept outgoing port example for IPv4": {
          "chain": "output",
-         "rule": "tcp dport 1234 accept ip daddr 192.168.1.1"
+         "rule": "tcp dport 1234 ip daddr 192.168.1.1 accept"
        },
        "accept outgoing port example for IPv6": {
          "chain": "output",
-         "rule": "tcp dport 1234 accept ip6 daddr 2001:db8::1"
+         "rule": "tcp dport 1234 ip6 daddr 2001:db8::1 accept"
        }
      }
    }
