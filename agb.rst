@@ -90,7 +90,7 @@ Kündigung
 =========
 
 #. Soweit Auftragsrecht anwendbar ist, kann der Vertrag von beiden Parteien jederzeit schriftlich widerrufen bzw. gekündigt werden. Kündigt der Kunde, hat er die von Ops One bis zum Vertragsende erbrachten Leistungen vollständig zu bezahlen. Bei individuellen Projektarbeiten sind zudem mind. 25% der noch offenen Arbeiten zu bezahlen.
-#. Soweit nichts anderes vereinbart wurde, sind Hostingleistungen durch den Kunden unter Einhaltung einer Frist von mindestens 24 Stunden auf das Ende des übernächsten Werktages widerrufbar. Die vereinbarten Gebühren sind bis und mit Ende des betreffenden Werktages zu bezahlen. Bereits bezahlt Gebühren werden nicht zurückerstattet.
+#. Soweit nichts anderes vereinbart wurde, sind Hostingleistungen durch den Kunden unter Einhaltung einer Frist von mindestens 24 Stunden auf das Ende des übernächsten Werktages widerrufbar. Die vereinbarten Gebühren sind bis und mit Ende des betreffenden Werktages zu bezahlen. Bereits bezahlte Gebühren werden nicht zurückerstattet.
 #. Soweit nichts anderes vereinbart wurde, ist Ops One berechtigt, Hostingleistungen ohne Angabe von Gründen unter Einhaltung einer Frist von 30 Tagen auf Ende eines Werktages zu kündigen.
 #. Das Recht der Parteien zur jederzeitigen außerordentlichen Kündigung aus wichtigem Grund bleibt von den vorstehenden Regelungen unberührt. Ops One ist insbesondere zur Kündigung aus wichtigem Grund berechtigt, wenn
 
