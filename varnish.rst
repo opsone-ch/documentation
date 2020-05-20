@@ -48,7 +48,7 @@ configuration.
 
 .. tip::
 
-   Keep in mind to issue a ``puppet=agent`` run after changing the local
+   Keep in mind to issue a ``puppet-agent`` run after changing the local
    Varnish configuration. Puppet will copy your local configuration file
    to a global location and ensure that Varnish is able to read it.
 
