@@ -42,6 +42,9 @@ default VCL configuration. By now, the following types are available:
 vcl\_include
 ============
 
+By default, Varnish uses HTTP headers to decide whether a request should be cached or not.
+See the chapter `The role of HTTP Headers <https://varnish-cache.org/docs/6.1/users-guide/increasing-your-hitrate.html#the-role-of-http-headers>`_ in the official Varnish documentation.
+
 With ``vcl_include``, you can define a full path to a additional
 configuration file. This file gets included into the Varnish default
 configuration.
@@ -81,4 +84,3 @@ Configuration through `Custom JSON` :ref:`customjson_server`.
      "varnish::memory_ratio": "4",
      "varnish::daemon_options": "-p vcc_allow_inline_c=on"
    }
-
