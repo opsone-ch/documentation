@@ -70,7 +70,7 @@ A example mysql command does look as follows:
 
 .. tip::
 
-   To skip certain tables which are not reqwuired, add the ``--ignore-table`` parameter to the ``mysqldump`` command.
+   To skip certain tables which are not required, add the ``--ignore-table`` parameter to the ``mysqldump`` command.
 
 .. index::
    triple: How-to; Deployment; Go-Live
