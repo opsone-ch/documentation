@@ -41,6 +41,7 @@ allowed to the website users:
 * ``puppet-agent`` to trigger a manual configuration management run
 * ``reboot`` to trigger a manual server reboot
 * ``diskusage`` to search for big files and folders
+* ``snapusage`` to list disk usage of snapshots
 * ``nft-list`` to list the current nftables configuration
 * ``nft-check`` to validate the current nftables configuration
 * ``update-ca-certificates``, see :ref:`cacertificates` for details
