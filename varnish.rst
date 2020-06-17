@@ -23,7 +23,7 @@ to specify them.
 port/port6
 ==========
 
-By default, Varnish will listen on port 8080. If Varnish has to bind to
+By default, Varnish will listen on port 8022. If Varnish has to bind to
 another port, use the ``port`` and ``port6`` parameter to specify them.
 
 vcl\_type
