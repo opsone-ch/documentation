@@ -258,6 +258,7 @@ Required Configuration
 
 * ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
 * PHP 5.6 does not have FreeType support included
+* Some extensions like the frontend sysext need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
 
 TYPO3 v7
 --------
@@ -280,6 +281,7 @@ Required Configuration
 
 * Install Tool is not usable to install new versions from scratch (see `Ticket#82023 <https://forge.typo3.org/issues/82023>`__)
 * ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
+* Some extensions like the frontend sysext need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
 
 .. index::
    triple: Website; Type; TYPO3 8
