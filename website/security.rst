@@ -13,7 +13,7 @@ the following security headers are added by default:
 * ``X-Content-Type-Options``: ``nosniff``
 * ``X-XSS-Protection``: ``1; mode=block``
 * ``Referrer-Policy``: ``strict-origin-when-cross-origin``
-* ``Content-Security-Policy``: empty (see :ref:`_website-security_content_security_policy`)
+* ``Content-Security-Policy``: empty (see :ref:`website-security_content_sec`)
 
 This is a reasonable default configuration for most applications. If you have
 other needs, see the possible options below.
@@ -91,6 +91,10 @@ To adjust it, set the ``security_header_refpolicy`` option within the
    {
      "security_header_refpolicy": "your-desired-value-for-the-referrer-policy-header"
    }
+
+.. index::
+   triple: Website; Header; Content-Security-Policy
+   :name: website-security_content_sec
 
 Content-Security-Policy
 =======================
