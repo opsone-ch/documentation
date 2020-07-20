@@ -12,4 +12,5 @@ Here, we document possible website configuration options which you won't need on
   php
   node
   whitelabel
+  blackfire
 

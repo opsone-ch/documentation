@@ -10,6 +10,11 @@ We use `Xdebug <https://xdebug.org/>`__ for debugging purposes. For
 details, please refer to the `Xdebug
 documentation <https://xdebug.org/docs/>`__.
 
+.. tip::
+
+   As alternative, we also provide a :ref:`website-advanced-blackfire` integration
+   (external service, Blackfire account and subscription required).
+
 Environments
 ------------
 
