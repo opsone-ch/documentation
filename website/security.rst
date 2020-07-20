@@ -13,6 +13,7 @@ the following security headers are added by default:
 * ``X-Content-Type-Options``: ``nosniff``
 * ``X-XSS-Protection``: ``1; mode=block``
 * ``Referrer-Policy``: ``strict-origin-when-cross-origin``
+* ``Content-Security-Policy``: empty (see :ref:`_website-security_content_security_policy`)
 
 This is a reasonable default configuration for most applications. If you have
 other needs, see the possible options below.
@@ -91,6 +92,19 @@ To adjust it, set the ``security_header_refpolicy`` option within the
      "security_header_refpolicy": "your-desired-value-for-the-referrer-policy-header"
    }
 
+Content-Security-Policy
+=======================
+
+The ``Content-Security-Policy`` header is not set by default, as it was introduced at a later
+time. For the sake of consistency, we added to header with a empty (disabled) default value
+so you can set it to the value of your needs by setting the ``security_header_content_sec``
+option within the `Custom JSON` :ref:`customjson_website`:
+
+.. code-block:: json
+
+   {
+     "security_header_content_sec": "your-desired-value-for-the-content-security-policy-header"
+   }
 
 Disable
 =======
