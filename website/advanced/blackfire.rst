@@ -15,7 +15,7 @@ For more informations, head over to the `Blackfire website <https://blackfire.io
 
    Blackfire is a SaaS offering. Please bear in mind, that some of your application
    data will be transfered to and analyzed by Blackfire servers. Make sure that this
-   this is in compliance to your legal requirements.
+   is in compliance to your legal requirements.
 
 Requirements
 ============
