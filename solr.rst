@@ -14,6 +14,7 @@ Instance Name
 
 * the name is taken out of the ``solr::instances`` hash name (see examples below)
 * a-z and 0-9 are allowed as instance name
+* your solr instance is then available under ``solr-<name>.<fqdn>`` (example according to `minimal example <#minimal-example>`__: solr-yourname.server01.example.com)
 
 Instance Options
 ================
