@@ -15,8 +15,7 @@ Backup
 Configuration
 =============
 
-* a snapshot is created once a day and kept for 7 days
-* a snapshot is created once a week every monday and kept for 4 weeks
+* a snapshot is created once a day and kept for 30 days
 
 .. tip::
 
