@@ -147,48 +147,14 @@ within the `Custom JSON` :ref:`customjson_server`:
    values. Please make sure that you know what you're doing and contact us
    beforehand if you have any questions.
 
-Backup
-------
-
-Every database is backed up daily into the users backup directory:
-
-::
-
-    /home/userdir/backup/
-
 Restore
 -------
 
-Choose between 2 options.
+You can restore mysql databases from snapshots with the ``mysqlrestore`` command.
 
-1. "rollback" with the MySQL binlog (point in time recovery)
-2. restore the nightly backup
-
-Rollback
-~~~~~~~~
-
-Import the binlog.
-
--  start-datetime: time of the last nightly dump
--  stop-datetime: required restore point
-
-and rollback:
-
-::
-
-    mysqlbinlog --start-datetime="2015-02-09 22:07:00" --stop-datetime="2015-02-10 17:15:00" /var/log/mysql/mysql-bin.* | mysql database
-
-Nightly restore
-~~~~~~~~~~~~~~~
-
-for a complete restore of the nightly database backup, decompress the
-backup, import it and remove the latest .sql.lzo file:
-
-::
-
-    lzop -dc ~/backup/<database>.sql.lzo | mysql <database>
-
-the database.sql.lzo.1 is the backup from yesterday.
+-  mysqlrestore starts a second and temporary MariaDB instance from which then can be restored
+-  the temporary instance runs on a separate port, further details are displayed directly on the console
+-  mysqlrestore must be running to work with it. So you need to use a second SSH connection until you are done.
 
 Access
 ------
