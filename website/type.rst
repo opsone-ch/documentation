@@ -54,6 +54,13 @@ Node.js
 * your Node.js application is run with a daemon on controlled by Monit
 * select custom node version trough `nvm <https://github.com/creationix/nvm#usage>`__, by default, the latest node lts version is installed
 * nodejs has to listen on the ``~/cnf/nodejs.sock`` socket, permission ``660``
+
+  * most applications are able to listen on unix sockets which is our preferred way to connect Node applications to the webserver
+  * for technical details, see ``server.listen`` within the `Node api documentation <https://nodejs.org/api/net.html#net_server_listen_path_backlog_callback>`__
+  * if you cannot configure your application to listen on a unix socket, you can configure a custom TCP port by setting ``nodejs_port`` in `Custom JSON` :ref:`customjson_website`
+  * you have to make sure the port is not already in use
+  * you have to make sure your application does listen on this particular TCP port (the configured port from ``nodejs_port`` is exposed as ``$NODEJS_PORT`` environment variable for dynamic configurations)
+
 * symlink your app.js to ``~/app.js`` or overwrite path or other daemon
   options in ``OPTIONS`` at ``~/cnf/nodejs-daemon``:
 
