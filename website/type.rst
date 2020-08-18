@@ -265,7 +265,7 @@ Required Configuration
 
 * ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
 * PHP 5.6 does not have FreeType support included
-* Some extensions like the frontend sysext need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
+* some (system) extensions like frontend do need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
 
 TYPO3 v7
 --------
