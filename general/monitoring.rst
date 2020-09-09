@@ -73,7 +73,7 @@ within the collectd wiki. We use `collectd-web <https://github.com/httpdss/colle
 
 
 Examine with `collectd-web` on Linux
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * installation on Linux
 
@@ -94,8 +94,8 @@ Examine with `collectd-web` on Linux
 * then open `collectd-web` at ``http://127.0.0.1:8888/``
 
 
-Examine with `collectd-web` on Linux
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Examine with `collectd-web` on Docker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Install via Docker
 
