@@ -112,7 +112,7 @@ Grants
 Additional configuration options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``mysql::server::password``: Password for the root User
+-  ``mysql::server::root_password``: Password for the root User
 -  ``mysql::server::ft_min_word_len``: Value for the ft\_min\_word\_len
    option
 
