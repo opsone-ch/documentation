@@ -72,10 +72,10 @@ Please select a rendering-tool from `list of frontends <https://collectd.org/wik
 within the collectd wiki. We use `collectd-web <https://github.com/httpdss/collectd-web>`__ for our own analyses.
 
 
-Examine with `collectd-web`
+Examine with `collectd-web` on Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* installation
+* installation on Linux
 
 ::
 
@@ -93,3 +93,11 @@ Examine with `collectd-web`
 
 * then open `collectd-web` at ``http://127.0.0.1:8888/``
 
+
+Examine with `collectd-web` on Linux
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Install via Docker
+
+
+To install collectd via Docker, check out this `Gitlab repository <https://gitlab.com/andristeiner/docker-collectd-web>`__
