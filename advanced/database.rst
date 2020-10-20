@@ -156,6 +156,27 @@ You can restore mysql databases from snapshots with the ``mysqlrestore`` command
 -  the temporary instance runs on a separate port, further details are displayed directly on the console
 -  mysqlrestore must be running to work with it. So you need to use a second SSH connection until you are done.
 
+Binary Logging
+--------------
+
+The MySQL binary log is disabled by default. You can activate the binary log as follows.
+But keep in mind that binary logging can take up a lot of diskspace.
+
+.. code-block:: json
+
+  {
+    "database::wrapper::mysql::skip_log_bin": false
+  }
+
+Rollback with binary logging:
+
+-  start-datetime: time of the last nightly dump
+-  stop-datetime: required restore point
+
+::
+
+  mysqlbinlog --start-datetime="2020-02-09 22:07:00" --stop-datetime="2020-02-10 17:15:00" /var/log/mysql/mysql-bin.* | mysql database
+
 Access
 ------
 
