@@ -10,7 +10,6 @@ Backup
 * the full disk including all snapshots is mirrored to another location once a day
 * the number of backups and their size is not limited, however the diskspace used
   for all your files and backups is taken into account to charge your storage
-* with the `devop` user (see :ref:`access_devop`) you can check how much diskspace are used by snapshots
 
 Configuration
 =============
