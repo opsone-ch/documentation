@@ -7,6 +7,7 @@ General Information
 
    access
    backup
+   diskspace
    monitoring
    maintenance
    changes
