@@ -1,12 +1,12 @@
 .. index::
-   single: Diskspace
+   pair: Diskspace; Snapshot
    :name: diskspace
 
 =========
 Diskspace
 =========
 
-We monitor the diskspace and inform you as soon you are using more diskspace than you have chosen in the cockpit.
+We monitor your disk usage and inform you as soon you are using more diskspace than you have chosen in the cockpit.
 You are most likely reading this page because you have received a diskspace notification.
 Here you can find information about what this means.
 
@@ -34,14 +34,17 @@ How much storage space do the daily snapshots use?
 --------------------------------------------------
 
 It is not possible to show how much disk space a single snapshot use,
-which is due to the way how copy on write and deduplication in Btrfs works.
+which is due to the way how copy on write and deduplication with Btrfs works.
 For the daily file system snapshots (see :ref:`backup`) only the changed data occupies storage.
 Depending on the use of the server, the consumption therefore varies.
 
-* However, you can calculate the consumption of all snapshots by subtracting the total of ``diskusage`` fom the used value of ``df -h /``.
-* Assuming you change 1GB of data every day, the daily snapshots then need 1GB (1GB x 30 days = 30GB in a month).
+However, there are a few numbers that you can calculate yourself.
 
-I have deleted many files, but the discusage has not changed
+* You can calculate the consumption of all snapshots by subtracting the total of ``diskusage`` fom the used value of ``df -h /``.
+* Assuming you change 1GB of data every day, the daily snapshots then need 1GB (1GB x 30 days = 30GB in a month).
+* If you overwrite or delete 10 GB of data, these 10 GB will remain in the snapshots for 30 days and therefore count as part of your diskusage.
+
+I have deleted many files, but the diskusage has not changed
 ------------------------------------------------------------
 
 All files you have deleted are still referenced in the snapshots and therefore still occupy disk space.
