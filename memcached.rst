@@ -3,10 +3,10 @@
    :name: memcached
 
 =========
-memcached
+Memcached
 =========
 
-memcached is fully configured through the `Custom JSON` :ref:`customjson_server`.
+Memcached is fully configured through the `Custom JSON` :ref:`customjson_server`.
 
 Enable
 ======

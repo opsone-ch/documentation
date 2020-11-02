@@ -102,6 +102,7 @@ Proxy
 
 * nginx website configured as reverse proxy
 * select the desired backend with the `Proxy Pass` setting
+* the `Proxy pass` value must also include the protocol. Example: ``http://127.0.0.1:8080``
 
 .. tip::
 
