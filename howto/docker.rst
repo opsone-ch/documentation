@@ -76,3 +76,51 @@ For security reasons, we run Docker in a isolated namespace
    If you encounter this problem, please contact us and we will disable userns remap
    for your system after we checked your requirements.
 
+Access Local MariaDB
+====================
+
+For security reasons, we only allow access to the MariaDB from localhost, but sometimes
+it is desirable to use the local MariaDB from inside a Docker container.
+
+To achive this you need to modify the `Custom JSON` :ref:`customjson_server` as follows.
+
+.. tip::
+   Make sure to expand any existing Custom JSON objects, otherwise you will overwrite them!
+
+Add a new MariaDB user that is allowed to access MariaDB from the Docker IP range.
+The ``<MARIADB_USER>`` can be freely named, but must be consistent across the following options,
+i tend to name it the same as the database, for consistency.
+
+.. code-block::
+
+  "database::users": {
+    "<MARIADB_USER>@172.16.%.%": {
+      "password": "<MARIADB_PASSWORD>"
+    }
+  }
+
+Grant this new user premission to an existing MariaDB.
+
+.. code-block::
+
+  "database::grants": {
+    "<MARIADB_USER>@172.16.%.%": {
+      "user": "<MARIADB_USER>@172.16.%.%",
+      "database": "<EXISTING_DATABASE>",
+      "table": "*"
+    }
+  }
+
+And finally in the :ref:`firewall` allow the Docker IP range to access MariaDB.
+
+.. code-block::
+
+  "nftables::rules": {
+    "accept incoming MariaDB connection from Docker": {
+      "chain": "input",
+      "rule": "tcp dport 3306 ip saddr 172.16.0.0/12 accept"
+    }
+  }
+
+Now you can access MariaDB from within a Docker container with the ``<MARIADB_USER>``
+and ``<MARIADB_PASSWORD>`` configured above, as host use the ``FQDN`` from the Server.
