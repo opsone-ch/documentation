@@ -1,7 +1,9 @@
 Server
 ======
 
-We offer our mailserver based on Postfix, Dovecot, rspamd and SOGo Groupware. Each server is dedicated to a certain customer,
+We offer our mailserver based on Postfix, Dovecot, and rspamd.
+As webmail we offer Roundcube or SOGo Groupware.
+Each server is dedicated to a certain customer,
 therefore you can add any number of domains and accounts limited only by the ressources available (CPU/RAM/Diskspace).
 
 .. note:: We recommend that you use a dedicated domain for your mailserver installation

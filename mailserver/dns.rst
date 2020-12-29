@@ -10,27 +10,9 @@ Minimal DNS configuration
     @                     IN MX 10    mail.example.com
     @                     IN TXT      v=spf1 mx -all
 
-.. note:: Good secured mail services will discard mails sent from hosts which are not particularly allowed to, eventhough the default behaviour is to accept every mail. To explicitly allow our mailserver to send mails from your domain you need to add an SPF record to your DNS zone
+To explicitly allow our mailserver to send mails from your domain we recomment to add an SPF record to your DNS zone.
 
 .. warning:: Please make sure to include all other servers that should be able to send mails from your domain.
-
-SRV Records
------------
-
-Some e-mail clients can use SRV records to automatically detect settings.
-
-::
-
-    # Name              Type       Value
-    _imap._tcp          IN SRV     0 1 143   mail.example.org.
-    _imaps._tcp         IN SRV     0 1 993   mail.example.org.
-    _submission._tcp    IN SRV     0 1 587   mail.example.org.
-    _smtps._tcp         IN SRV     0 1 465   mail.example.org.
-    _autodiscover._tcp  IN SRV     0 1 443   mail.example.org.
-    _carddavs._tcp      IN SRV     0 1 443   mail.example.org.
-    _carddavs._tcp      IN TXT     "path=/SOGo/dav/"
-    _caldavs._tcp       IN SRV     0 1 443   mail.example.org.
-    _caldavs._tcp       IN TXT     "path=/SOGo/dav/"
 
 DKIM
 ----
@@ -50,7 +32,7 @@ Generate a new key for this domain through the webinterface. Use the following s
    :alt: create dkim key
    :align: left
 
-Add created public key to the `dkim._domiankey` DNS record:
+Add created public key as TXT record under ``dkim._domiankey``:
 
 ::
 
