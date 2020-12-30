@@ -20,7 +20,7 @@ If not specified otherwise, we conduct maintenance work starting
 Service Restarts
 ================
 
-If required to load updated libraries, services are restarted every Tuesday between 00:00 and 01:00.
+If required to load updated libraries, services are restarted every Tuesday between 01:00 and 02:00.
 
 .. index::
    triple: Server; Maintenance; Service Reboots
@@ -29,7 +29,7 @@ If required to load updated libraries, services are restarted every Tuesday betw
 Server Reboots
 ==============
 
-If required to load a new kernel version, servers are restarted every Tuesday between 00:00 and 01:00.
+If required to load a new kernel version, servers are restarted every Tuesday between 01:00 and 02:00.
 
 .. tip::
 
