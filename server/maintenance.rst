@@ -10,5 +10,5 @@ All work is announced in advance through our `status site <http://opsstatus.ch/>
 Server Reboots
 --------------
 
-If required to load a new kernel version, servers are restarted every Tuesday between 00:00 and 01:00.
+If required to load a new kernel version, servers are restarted every Tuesday between 01:00 and 02:00.
 
