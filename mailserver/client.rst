@@ -3,15 +3,14 @@ Client Configuration
 
 Our mailservers support IMAP, POP3 and SMTP.
 Additionally ActiveSync, CalDAV and CardDAV are supported if SOGo is used.
-You can find your webmail at ``mail.example.com`` (there is a link to your webmail).
 
 ::
 
     # Typ           # Server hostname      # Port    # Encryption  # Authentication
     IMAP            mail.example.com       143       STARTTLS      Normal password / Plain
-    IMAPS           mail.example.com       993       SSL           Normal password / Plain
+    IMAPS           mail.example.com       993       SSL/TLS       Normal password / Plain
     POP3            mail.example.com       110       STARTTLS      Normal password / Plain
-    POP3S           mail.example.com       995       SSL           Normal password / Plain
+    POP3S           mail.example.com       995       SSL/TLS       Normal password / Plain
     SMTP            mail.example.com       587       STARTTLS      Normal password / Plain
     SMTPS           mail.example.com       465       SSL/TLS       Normal password / Plain
 
@@ -21,6 +20,8 @@ You can find your webmail at ``mail.example.com`` (there is a link to your webma
     ActiveSync      mail.example.com       auto      auto          auto
 
 .. note:: ActiveSync is not a complete Microsoft Exchange replacement. We recommend IMAP for most clients. ActiveSync can be useful for e.g. Android.
+
+We recommend using SSL/TLS and ``plain`` as authentication mechanisms (no passwords will be transferred plain text, since we use a TLS encrypted connection).
 
 If your email client asks you for ``IMAP Path Prefix``, you can leave this value empty. All relevant folders are located directly in the root directory of the mailbox.
 
