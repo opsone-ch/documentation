@@ -7,6 +7,7 @@ Backup
 ======
 
 * all our servers do their own, snapshot based backup once a day
+* docker containers and images are excluded, volumes are snapshoted normally
 * the full disk including all snapshots is mirrored to another location once a day
 * the number of backups and their size is not limited, however the diskspace used
   for all your files and backups is taken into account to charge your storage
