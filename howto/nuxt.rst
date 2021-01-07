@@ -52,13 +52,15 @@ particular subfolder. To accomplish this, we have to create the
 
 .. code-block::
 
-   DAEMON=npm
-   OPTIONS="run --prefix opsone-demo start"
+   APPDIR=opsone-demo
+   export PATH=${NODEJS_HOME}/${APPDIR}/node_modules/.bin/:$PATH
+   DAEMON="nuxt"
+   OPTIONS="start ${APPDIR}"
 
 Nuxt.js Configuration
 ---------------------
 
-As our setup required to use of unix sockets in favour of TCP ports, we have
+As we prefere the use of unix sockets in favour of TCP ports, we have
 to configure Nuxt.js to reflect this. Add the ``server.socket`` part to the
 Nuxt.js configuration in ``~/opsone-demo/nuxt.config.js``:
 
@@ -66,7 +68,7 @@ Nuxt.js configuration in ``~/opsone-demo/nuxt.config.js``:
 
    export default {
      server: {
-       socket: "/home/nuxt/cnf/nodejs.sock"
+        socket: `${process.env.HOME}/cnf/nodejs.sock`
      },
      other: options
    }
