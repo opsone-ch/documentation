@@ -9,6 +9,7 @@ Deploy Application
 Follow this guide to deploy your application to our servers.
 
 .. tip::
+  For automatic deployment try our :ref:`howto-deploy_cd` example.
   We'd love to support you with automatic deployment processes.
   Feel free to contact us!
 
@@ -71,6 +72,63 @@ A example mysql command does look as follows:
 .. tip::
 
    To skip certain tables which are not required, add the ``--ignore-table`` parameter to the ``mysqldump`` command.
+
+.. index::
+   triple: How-to; Deployment; Continuous Deployment
+   :name: howto-deploy_cd
+
+Continuous Deployment
+=====================
+
+Continuous Deployment automatically runs the jobs defined in the ``.gitlab-ci.yml`` on each commit, in this example we build and deploy the Nuxt.js demo app. Keep in mind that this is only meant as an example, if you want to use it productively we recommend you to continue with this topic and extend it as needed, further links can be found at the end of this section.
+
+Preparation
+-----------
+
+* Cockpit access to a managed server from us.
+* The ability to create a new GitLab project.
+* This project must have available runners
+
+  * See ``Settings`` > ``CI/CD`` and expand ``Runners``.
+
+We need to create a SSH key pair without passphrase to allow CI/CD to access our website
+
+.. code-block:: bash
+
+   ssh-keygen -t ed25519 -a 100 -f cd-access.key -N ""
+
+This will create two files ``cd-access.key`` with the private key and ``cd-access.key.pub`` with the public key, which we will need later.
+
+Website
+-------
+
+* log in to `cockpit.opsone.ch <https://cockpit.opsone.ch>`_
+* choose your server or create a new server
+* go to websites and create a new one
+* choose the website type ``Node.js``
+* go to the tab ``SSH Access`` and add a new ``SSH Key`` with the content of the file ``cd-access.key.pub`` from above as key
+
+GitLab
+------
+
+* create a new and empty project
+* add the following CI/CD variables under ``Settings`` > ``CI/CD`` and expand ``Variables``.
+
+  * These variables will be used to access the website we created above.
+  * Key: ``DEPLOY_SERVER``, Value: the hostname from the server above
+  * Key: ``DEPLOY_USER``, Value: the website name from above
+  * Key: ``SSH_DEPLOY_KEY``, Value: the content of the file ``cd-access.key`` from above
+
+* download and unpack the `sample project <https://gitlab.com/opsone_ch/cd-example-nuxtjs/-/archive/master/cd-example-nuxtjs-master.zip>`_
+* commit the contents of the extracted folder to the newly created GitLab project
+
+Under ``CI/CD`` > ``Pipelines`` you will now see, if everything worked, a ``running`` pipeline, once this has the status ``passed`` you should be able to go to the website and see the NuxtJS demo page.
+
+Related links
+-------------
+* `Example project <https://gitlab.com/opsone_ch/cd-example-nuxtjs>`_
+* `GitLab CI/CD <https://docs.gitlab.com/ce/ci/>`_
+* `GitLab CI/CD pipeline configuration reference <https://docs.gitlab.com/ce/ci/yaml/README.html>`_
 
 .. index::
    triple: How-to; Deployment; Go-Live
