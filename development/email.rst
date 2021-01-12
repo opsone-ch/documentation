@@ -67,4 +67,10 @@ command:
 
 ::
 
-    $ cat ~/tmp/mail.2015-06-26_10-11-06.ZuQ.eml | mail -ta To:box@example.net
+    $ cat ~/tmp/mail.2015-06-26_10-11-06.ZuQ.eml | mail -t -a To:box@example.net
+
+.. warning::
+
+   With this command, only the ``To`` header will be overridden. If your mail does also bear
+   Cc and/or Bcc headers, you have to remove them or override them with another ``-a`` param to ``mail``.
+
