@@ -32,6 +32,10 @@ We support free ssl certificates by `Let's Encrypt <https://letsencrypt.org/>`__
 Just activate Let's Encrypt on your desired website.
 The certificates are automatically renewed 30 days before expiration.
 
+.. index::
+   triple: Website; Auto SSL; Debug
+   :name: website-ssl_autossldebug
+
 Debug validation problems
 -------------------------
 
