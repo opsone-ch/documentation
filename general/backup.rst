@@ -22,6 +22,12 @@ Configuration
    As of now, we do not document the required configurations settings to change this
    values. Please contact us if you have other needs.
 
+Create Snapshot
+===============
+
+* you can also create a snapshot manually with ``snapshot-create``
+* manual snapshots cannot be deleted and are also kept for 30 days
+
 Restore
 =======
 
