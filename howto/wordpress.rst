@@ -21,7 +21,7 @@ Every Website is type and environment based, which means you have to select a pa
 3. Go to websites, and create a new one
 4. `Select website type <../website/type.html#wordpress>`__ wordpress and fill in all settings
 
-.. tip:: You don't need to remember your DB credentials. We always provide them as `environment variables <../services/website.html#default-environment-variables>`__.
+.. tip:: You don't need to remember your DB credentials. We always provide them as `environment variables <../website/envvar.html>`__.
 
 According to those settings, our automation will setup the server/vhost as required.
 
@@ -33,7 +33,7 @@ Due to security reasons, we allow key based logins only.
 
 1. If you don't have an SSH key: `Create an SSH key pair <../howto/sshkey.html>`_
 2. Add your SSH Public Key in the Cockpit: Either for the whole server or within the website.
-3. Now you can log in via SSH. Username is your chosen website name, not your own Username.
+3. Now you can log in via SSH. Username is your chosen website name, not your own username.
 
 .. tip:: Wondering why your existing SSH key is not working? Maybe it does not meet our `minimum requirements <../howto/sshkey.html>`__.
 
