@@ -45,9 +45,12 @@ IP Protection
 
 ::
 
+    # allow your ip
     allow <your-address>;
-    allow 2a04:503:0:102::2:4;
-    allow 91.199.98.23;
+
+    # allow our monitoring
+    allow 2a04:503:0:1008::112;
+    allow 185.17.70.112;
     deny all;
 
 Custom MIME Type
@@ -59,6 +62,45 @@ Custom MIME Type
     types {
         text/cache-manifest appcache;
     }
+
+Favicon per Domain
+~~~~~~~~~~~~~~~~~~
+
+::
+
+    location = /favicon.ico {
+        try_files /favicons/$http_host.ico /favicons/default.ico
+    }
+
+DCV (Domain Control Validation)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    location ~ ^\/.well-known\/pki-validation\/fileauth\.txt$ {
+            allow all;
+            satisfy any;
+            alias /path/to/fileauth.txt;
+    }
+
+ACME Challenge
+~~~~~~~~~~~~~~
+
+::
+
+    location ~ ^\/.well-known\/acme-challenge\/(.*)$ {
+        allow all;
+        satisfy any;
+        alias /usr/local/dehydrated/.acme-challenges/$1;
+    }
+
+Custom Maintenance Page
+~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    error_page 404 /error/404.html
+    error_page 503 /error/maintenance.html;
 
 Context Specific
 ----------------
