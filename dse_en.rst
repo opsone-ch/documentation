@@ -32,19 +32,6 @@ Use of cookies in website use
 #. Ops One also collects data via the use of so-called browser cookies and the user's local browser memory. Cookies are small text files that store settings and data on the data carrier of the access device for exchange with the Ops One website and are transmitted with each access. These allow Ops One's website to recognize the identity of the access device and make any presets immediately available. The browser memory is a way to store data on the data carrier of the access device that the website has access to during the visit. 
 #. In all common browser types, a feature is provided to restrict and / or prevent the storage of cookies or data in the browser memory. However, the use of this feature may result in a loss of functionality and, in particular, the convenience of using the website.
 
-Twitter
-=======
-
-#. On our website you will find a link to the microblogging service Twitter. These features are offered through Twitter Inc. and use of this service is at your own risk. By using Twitter and the "Re-Tweet" function, the websites you visit are linked to your Twitter account and shared with other users. This data is also transmitted to Twitter.
-#. We point out that we are not aware of the content of the transmitted data and their use by Twitter. For more information, see Twitter’s privacy policy at https://twitter.com.
-#. You can change your privacy settings on Twitter in the Account Settings at https://twitter.com/account/settings ändern.
-
-GitLab
-======
-
-#. On our website you will find a link to the website of GitLab Inc, USA. The use of GitLab is at your own risk.
-#. We point out that we are not aware of the content of the data transmitted by you and their use by GitLab. For more information, see the GitLab Privacy Statement https://about.gitlab.com/privacy.
-
 Matomo Analytics
 ================
 

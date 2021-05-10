@@ -32,19 +32,6 @@ Verwendung von Cookies bei Website-Nutzung
 #. Ops One erhebt ebenfalls Daten via die Verwendung von sog. Browser-Cookies und aus dem lokalen Browserspeicher des Benutzers. Cookies sind kleine Textdateien welche auf dem Datenträger des Zugriffsgeräts Einstellungen und Daten zum Austausch mit der Website von Ops One speichern und bei jedem Zugriff übermittelt werden. Diese ermöglichen der Website von Ops One die Identität des Zugriffsgeräts zu erkennen und eventuelle Voreinstellungen sofort verfügbar zu machen.  Der Browser-Speicher ist eine Möglichkeit, auf dem Datenträger des Zugriffsgeräts Daten zu speichern, auf welche die Website während des Besuchs Zugriff hat.
 #. In allen gängigen Browsertypen ist eine Funktion zur Einschränkung und/oder Verhinderung des Speicherns von Cookies oder Daten im Browserspeicher vorgesehen. Die Nutzung dieser Funktion kann allerdings zu Einbussen der Funktionalität und insbesondere des Komforts der Websitenutzung führen.
 
-Twitter
-=======
-
-#. Auf unseren Seiten finden Sie einen Link auf den Mikroblogging-Dienst Twitter. Diese Funktionen werden angeboten durch die Twitter Inc. und die Nutzung dieses Dienstes erfolgt durch Sie auf eigene Verantwortung. Durch das Benutzen von Twitter und der Funktion "Re-Tweet" werden die von Ihnen besuchten Websites mit Ihrem Twitter-Account verknüpft und anderen Nutzern bekannt gegeben. Dabei werden auch Daten an Twitter übertragen.
-#. Wir weisen darauf hin, dass wir keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Twitter erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Twitter unter https://twitter.com.
-#. Ihre Datenschutzeinstellungen bei Twitter können Sie in den Konto-Einstellungen unter https://twitter.com/account/settings ändern.
-
-GitLab
-======
-
-#. Auf unseren Seiten finden Sie einen Link auf die Website des des US-amerikanischen Unternehmens GitLab Inc. Die Nutzung von GitLab erfolgt auf eigene Verantwortung.
-#. Wir weisen darauf hin, dass wir keine Kenntnis vom Inhalt der durch Sie übermittelten Daten sowie deren Nutzung durch GitLab erhalten. Weitere Informationen hierzu finden Sie im Privacy Statement von GitLab https://about.gitlab.com/privacy/.
-
 Matomo Analytics
 ================
 
