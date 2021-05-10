@@ -35,20 +35,20 @@ Verwendung von Cookies bei Website-Nutzung
 Twitter
 =======
 
-#. Auf unseren Seiten finden Sie einen Link auf den Mikroblogging-Dienst Twitter.  Diese Funktionen werden angeboten durch die Twitter Inc. und die Nutzung dieses Dienstes erfolgt durch Sie auf eigene Verantwortung. Durch das Benutzen von Twitter und der Funktion "Re-Tweet" werden die von Ihnen besuchten Websites mit Ihrem Twitter-Account verknüpft und anderen Nutzern bekannt gegeben. Dabei werden auch Daten an Twitter übertragen.
+#. Auf unseren Seiten finden Sie einen Link auf den Mikroblogging-Dienst Twitter. Diese Funktionen werden angeboten durch die Twitter Inc. und die Nutzung dieses Dienstes erfolgt durch Sie auf eigene Verantwortung. Durch das Benutzen von Twitter und der Funktion "Re-Tweet" werden die von Ihnen besuchten Websites mit Ihrem Twitter-Account verknüpft und anderen Nutzern bekannt gegeben. Dabei werden auch Daten an Twitter übertragen.
 #. Wir weisen darauf hin, dass wir keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Twitter erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Twitter unter https://twitter.com.
 #. Ihre Datenschutzeinstellungen bei Twitter können Sie in den Konto-Einstellungen unter https://twitter.com/account/settings ändern.
 
-Github
+GitLab
 ======
 
-#. Auf unseren Seiten finden Sie einen Link auf die Website des des US-amerikanischen Unternehmens Github. Die Nutzung von Github erfolgt auf eigene Verantwortung.
-#. Wir weisen darauf hin, dass wir keine Kenntnis vom Inhalt der durch Sie übermittelten Daten sowie deren Nutzung durch Github erhalten. Weitere Informationen hierzu finden Sie im Privacy Statement von Github https://help.github.com/articles/github-privacy-statement.
+#. Auf unseren Seiten finden Sie einen Link auf die Website des des US-amerikanischen Unternehmens GitLab Inc. Die Nutzung von GitLab erfolgt auf eigene Verantwortung.
+#. Wir weisen darauf hin, dass wir keine Kenntnis vom Inhalt der durch Sie übermittelten Daten sowie deren Nutzung durch GitLab erhalten. Weitere Informationen hierzu finden Sie im Privacy Statement von GitLab https://about.gitlab.com/privacy/.
 
-Google Analytics
+Matomo Analytics
 ================
 
-#. Ops One verwendet Google Analytics. Google Analytics ist ein Webanalysedienst der Google Inc. ("Google"). Google Analytics verwendet sogenannte "Cookies", Textdateien, die auf dem Computer der Nutzer gespeichert werden und die eine Analyse der Benutzung der Website ermöglicht. Die durch den Cookie erzeugten Informationen über die Benutzung dieser Website (einschliesslich IP-Adresse der Nutzer) werden an einen Server von Google in den USA übertragen und dort gespeichert. Google wird diese Informationen benutzen, um die Nutzung der Website durch die Nutzer auszuwerten, um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben ist oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. Google wird in keinem Fall die IP-Adresse der Nutzer mit anderen Daten von Google in Verbindung bringen. Die Nutzer können die Installation der Cookies durch eine entsprechende Einstellung der Browser Software verhindern; wir  weisen die Benutzer jedoch darauf hin, dass in diesem Fall gegebenenfalls nicht sämtliche Funktionen der Website vollumfänglich genutzt werden können. Durch die Nutzung der Website erklären die Nutzer sich mit der Bearbeitung der über sie erhobenen Daten durch Google in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.
+#. Ops One verwendet Matomo Analytics. Matomo ist ein Open Source Webanalysedienst und wird durch Ops One selbst auf eigener Infrastruktur betrieben. Matomo verwendet sogenannte "Cookies", Textdateien, die auf dem Computer der Nutzer gespeichert werden und die eine Analyse der Benutzung der Website ermöglicht. Die durch das Cookie erzeugten Informationen über die Benutzung dieser Website (einschliesslich IP-Adresse der Nutzer) werden an einen Server von Ops One übertragen und dort gespeichert. Ops One wird diese Informationen benutzen, um die Nutzung der Website durch die Nutzer auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Die Nutzer können die Installation der Cookies durch eine entsprechende Einstellung der Browser Software verhindern; wir weisen die Benutzer jedoch darauf hin, dass in diesem Fall gegebenenfalls nicht sämtliche Funktionen der Website vollumfänglich genutzt werden können. Durch die Nutzung der Website erklären die Nutzer sich mit der Bearbeitung der über sie erhobenen Daten durch Ops One in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.
 
 Ort der Datenspeicherung / Datensicherheit
 ==========================================
