@@ -37,10 +37,9 @@ Bankverbindung
 | 8001 Zürich
 | Schweiz
 
-| Bankclearing: 81487
-| Postkonto: 87-71996-7
-| SWIFT-BIC: RAIFCH22E87
-| IBAN: CH49 8148 7000 0433 4309 0
+| Bankclearing: 80808
+| SWIFT-BIC: RAIFCH22
+| IBAN: CH65 8080 8001 2119 4254 2
 
 Open source
 -----------
