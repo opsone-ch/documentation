@@ -97,6 +97,10 @@ by adding the rule to the ``nftables::rules`` hash within the `Custom JSON` :ref
        "accept outgoing port example for IPv6": {
          "chain": "output",
          "rule": "tcp dport 1234 ip6 daddr 2001:db8::1 accept"
+       },
+       "example with udp and without specific ip address": {
+         "chain": "output",
+         "rule": "udp dport 53 accept"
        }
      }
    }
