@@ -135,6 +135,26 @@ this limit by setting the ``nftables::input_ssh_limit`` within the `Custom JSON`
      "nftables::input_ssh_limit": "600/minute"
    }
 
+By default, SSH is allowed from any IP address.
+You can remove this firewall rule by setting ``nftables::preset_ssh`` within the `Custom JSON` :ref:`customjson_server` to false.
+Afterwards you have to create a firewall rule for each IP address from which you want to allow access.
+
+.. code-block:: json
+
+    {
+      "nftables::preset_ssh": false,
+      "nftables::rules": {
+        "accept ssh from office ipv4": {
+          "chain": "input",
+          "rule": "tcp dport ssh ip saddr <your ipv4> accept"
+        },
+        "accept ssh from office ipv6": {
+          "chain": "input",
+          "rule": "tcp dport ssh ip6 saddr <your ipv6> accept"
+        }
+      }
+    }
+
 Incoming ICMP
 -------------
 
