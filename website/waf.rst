@@ -46,6 +46,8 @@ More detailed informations including a full dump of the request and response
 can be obtained from the audit log file. It is located in
 ``/var/log/nginx/modsecurity.log`` and readable by the :ref:`access_devop`.
 
+.. tip:: For an easier representation and identification of the blocking WAF rules, the command ``modsecurity-parser`` can be used as devop user (see :ref:`access_devop`).
+
 To extend the above example, such a log entry would include a section H
 (more about the sections could be found in the
 `offical documentation <https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-(v2.x)#user-content-secauditlogparts>`__)
