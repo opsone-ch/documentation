@@ -112,6 +112,11 @@ Proxy
    To use advanced features like multiple backends, create your own upstream configuration in ``/etc/nginx/custom/http.conf`` and point ``proxy_pass`` to it.
    See :ref:`website-advanced-nginx_server` nginx configuration.
 
+.. warning::
+
+   If your proxy backend does point to localhost, use ``127.0.0.1`` or ``::1`` explicitly. The use of ``localhost`` is prohibited to prevent
+   problems due to address family changes within the same session.
+
 .. index::
    triple: Website; Type; Redirect
    :name: website-type_redirect
