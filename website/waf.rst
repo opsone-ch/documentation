@@ -14,7 +14,7 @@ and zero day attacks by adding some more global rules.
 Identify Blocks
 ===============
 
-If a request was blocked by the web application firewall, the HTTP status 419 
+If a request was blocked by the web application firewall, the HTTP status 419
 will be returned. To distinguish a 403 returned by the web application firewall
 from a 403 returned due to missing access rights, we add a custom error text
 to the web application firewall errors:
@@ -30,7 +30,7 @@ nginx Error Log
 For each blocked reqeust, there are informations available in the error log file.
 Often, as in this example, it is the rule `949110`. But this rule implements only
 a threshold for the anomaly score, and if this threshold is exceeded,
-it blocks the request. To determine which rule triggered this 
+it blocks the request. To determine which rule triggered this
 anomaly score threshold see the Audit Log in the next chapter.
 
 ::
@@ -46,7 +46,7 @@ More detailed informations including a full dump of the request and response
 can be obtained from the audit log file. It is located in
 ``/var/log/nginx/modsecurity.log`` and readable by the :ref:`access_devop`.
 
-.. tip:: For an easier representation and identification of the blocking WAF rules, the command ``modsecurity-parser`` can be used as devop user (see :ref:`access_devop`).
+.. tip:: For an easier representation and identification of the blocking WAF rules, the command ``modsecurity-logparser`` can be used as devop user (see :ref:`access_devop`).
 
 To extend the above example, such a log entry would include a section H
 (more about the sections could be found in the
@@ -87,7 +87,7 @@ in located ``~/cnf/nginx.conf``:
     # disable blocking triggered requests but still detect and log them
     modsecurity_rules 'SecRuleEngine DetectionOnly';
 
-   # disable checking of a specific argument 
+   # disable checking of a specific argument
    modsecurity_rules 'SecRule REQUEST_FILENAME "@beginsWith /bad/request" \
        "phase:2,nolog,pass,id:1,ctl:ruleRemoveTargetById=933160;ARGS:fields"';
 
