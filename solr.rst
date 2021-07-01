@@ -9,6 +9,11 @@ Solr
 Solr is fully configured through the `Custom JSON` :ref:`customjson_server`.
 You can define your instances through the ``solr::instances`` key.
 
+.. warning::
+
+   Each Solr instance does run within its own Docker container. For persistent data storage, make sure to
+   configure your cores with a ``dataDir`` within ``/var/solr/`` as designated in Solr's default configuration.
+
 Instance Name
 =============
 
@@ -34,11 +39,6 @@ version
    Even if you can use other versions available as Docker image as well,
    we did test the images mentioned above only, and cannot guarantee anything
    for other versions. Please contact us if you plan to use other versions.
-
-.. warning::
-
-   Each Solr instance does run within its own Docker container. For persistent data storage, make sure to
-   configure your cores with a ``dataDir`` within ``/var/solr/`` as designated in Solr's default configuration.
 
 .. hint::
 
