@@ -345,6 +345,21 @@ TYPO3 v10
 * ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
 .. index::
+   triple: Website; Type; TYPO3 11
+   :name: website-type_typo3v11
+
+TYPO3 v11
+---------
+
+* :ref:`website-type_php` type with PHP version 7.4
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/public``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 11 version available in ``/opt/typo3/TYPO3_11/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
+
+.. index::
    triple: Website; Type; Wordpress
    :name: website-type_wordpress
 
