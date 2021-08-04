@@ -123,3 +123,21 @@ strings within the `Custom JSON` :ref:`customjson_server`:
 
 .. tip:: With this option, you can also use certificates issued through nginx by Let's Encrypt.
 
+Default Firewall Rule
+^^^^^^^^^^^^^^^^^^^^^
+
+By default, firewall rules to  allow incoming ports 21 (FTP) and 49152-49162 (FTP data) will be added.
+To disable those default rules, set ``ftp::wrapper::proftpd::nftables`` to ``false``
+within the `Custom JSON` :ref:`customjson_server`:
+
+.. code-block:: json
+
+   {
+     "ftp::wrapper::proftpd::nftables": false
+   }
+
+.. note::
+
+   Please make sure to allow access for our internal monitoring system manually
+   (IPv4: ``185.17.70.112``, IPv6: ``2a04:503:0:1008::112``)
+
