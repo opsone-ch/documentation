@@ -10,6 +10,10 @@ This service will install and configure ProFTPD and manage virtual users.
 
 .. warning:: Nowadays, FTP is not required for your daily work anymore. Please use SSH/SCP which is already in place by default. See :ref:`access-ssh` for details.
 
+.. index::
+   pair: FTP; User
+   :name: ftp-user
+
 Users
 -----
 
@@ -39,6 +43,10 @@ Configure the ``ftp::users`` hash within the `Custom JSON` :ref:`customjson_serv
 .. tip:: The password has to be encrypted. Use the following command to encrypt your desired password: ``mkpasswd -m sha-512``
 
 .. tip:: Use the "id" command to determine the appropriate uid/gid
+
+.. index::
+   pair: FTP; Directory
+   :name: ftp-directory
 
 Directories
 -----------
@@ -73,6 +81,10 @@ will led to this ProFTPD configuration:
             AllowUser alice
         </Limit>
     </Directory>
+
+.. index::
+   pair: FTP; TLS
+   :name: ftp-tls
 
 TLS Certificates
 ----------------
@@ -123,8 +135,12 @@ strings within the `Custom JSON` :ref:`customjson_server`:
 
 .. tip:: With this option, you can also use certificates issued through nginx by Let's Encrypt.
 
+.. index::
+   pair: FTP; Firewall
+   :name: ftp-firewall
+
 Default Firewall Rule
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 By default, firewall rules to  allow incoming ports 21 (FTP) and 49152-49162 (FTP data) will be added.
 To disable those default rules, set ``ftp::wrapper::proftpd::nftables`` to ``false``
