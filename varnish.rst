@@ -26,6 +26,12 @@ port/port6
 By default, Varnish will listen on port 8022. If Varnish has to bind to
 another port, use the ``port`` and ``port6`` parameter to specify them.
 
+backend_host/backend_port
+=========================
+
+By default, Varnish will use 127.0.0.1 as backend host and 8080 as backend port.
+If Varnish has to use another backend, use the ``backend_host`` and ``backend_port`` parameter to specify them.
+
 vcl\_type
 =========
 
@@ -95,7 +101,9 @@ Configuration through `Custom JSON` :ref:`customjson_server`.
      "varnish::vcl_type": "default",
      "varnish::vcl_include": "/home/user/cnf/varnish.vcl",
      "varnish::memory_ratio": "4",
-     "varnish::daemon_options": "-p vcc_allow_inline_c=on"
+     "varnish::daemon_options": "-p vcc_allow_inline_c=on",
+     "varnish::backend_host": "127.0.0.1",
+     "varnish::backend_host": "8080"
    }
 
 Tools
