@@ -103,7 +103,7 @@ Configuration through `Custom JSON` :ref:`customjson_server`.
      "varnish::memory_ratio": "4",
      "varnish::daemon_options": "-p vcc_allow_inline_c=on",
      "varnish::backend_host": "127.0.0.1",
-     "varnish::backend_host": "8080"
+     "varnish::backend_port": "8080"
    }
 
 Tools
