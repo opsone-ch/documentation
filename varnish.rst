@@ -66,6 +66,19 @@ daemon_options
 
 Add one or more startup options to the Varnish daemon with ``daemon_options``.
 
+Minimal example
+===============
+
+Configuration through `Custom JSON` :ref:`customjson_server`.
+
+.. code-block:: json
+
+   {
+     "varnish::ensure": "present"
+   }
+
+Varnish uses the default configurations as described above.
+
 Full example
 ============
 
@@ -84,3 +97,16 @@ Configuration through `Custom JSON` :ref:`customjson_server`.
      "varnish::memory_ratio": "4",
      "varnish::daemon_options": "-p vcc_allow_inline_c=on"
    }
+
+Tools
+=====
+
+You can run these tools by login with the devop user (see :ref:`access_devop`).
+
+* ``varnishlog``: `Display Varnish logs <https://varnish-cache.org/docs/trunk/reference/varnishlog.html>`__
+* ``varnishncsa``: `Display Varnish logs in NCSA combined log format <https://varnish-cache.org/docs/trunk/reference/varnishncsa.html>`__
+* ``varnishhist``: `Varnish request histogram <https://varnish-cache.org/docs/trunk/reference/varnishhist.html>`__
+* ``varnishstat``: `Varnish Cache statistics <https://varnish-cache.org/docs/trunk/reference/varnishstat.html>`__
+* ``varnishtop``: `Varnish log entry ranking <https://varnish-cache.org/docs/trunk/reference/varnishtop.html>`__
+* ``varnish-reload``: Reloads the Varnish Daemon
+* ``varnish-restart``: Restarts the Varnish Daemon
