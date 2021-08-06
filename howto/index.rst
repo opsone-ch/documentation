@@ -10,6 +10,7 @@ This is a collection of how-to manuals. It supplements the documentation with ex
   docker
   wordpress
   nuxt
+  varnish
   email
   deploy
   phpdebugging
