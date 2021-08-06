@@ -13,7 +13,7 @@ The following how-to describes a simple standard setup.
 Install Varnish
 ---------------
 
-In this example we use the `minimal example <../varnish.html#minimal-example>`__ which installs Varnish with some default settings.
+In this example we use the `minimal example <../varnish.html#minimal-example>`__ which installs Varnish with default settings.
 We install Varnish with the following `Custom JSON` :ref:`customjson_server`.
 
 .. code-block:: json
@@ -30,7 +30,7 @@ In this how-to we assume that you already have a website set up that acts as a b
 
 To ensure that Varnish can use your website as backend, we change the following settings:
 
-- We need to disable Auto SSL and preview auth. We add this later on the frontproxy.
+- We disable Auto SSL and preview auth. We add this later on the frontproxy.
 - We bind the website to localhost and port 8080. `This makes the website accessible to Varnish <../varnish.html#backend-host-backend-port>`__.
 
 For this we set the following configuration within the `Custom JSON` :ref:`customjson_website`:
