@@ -87,15 +87,24 @@ in located ``~/cnf/nginx.conf``:
     # disable blocking triggered requests but still detect and log them
     modsecurity_rules 'SecRuleEngine DetectionOnly';
 
-   # disable checking of a specific argument
-   modsecurity_rules 'SecRule REQUEST_FILENAME "@beginsWith /bad/request" \
-       "phase:2,nolog,pass,id:1,ctl:ruleRemoveTargetById=933160;ARGS:fields"';
+    # disable checking of a specific argument
+    modsecurity_rules 'SecRule REQUEST_FILENAME "@beginsWith /bad/request" \
+        "phase:2,nolog,pass,id:1,ctl:ruleRemoveTargetById=933160;ARGS:fields"';
 
     # disable certain rule
     modsecurity_rules 'SecRuleRemoveById 90001';
 
     # add custom rule
     modsecurity_rules 'SecRule "ARGS_NAMES|ARGS" "@contains blocked-value" "deny,msg:blocled,id:91001,chain"'
+
+    # configure allowed_methods
+    modsecurity_rules 'SecRule &TX:allowed_methods "@eq 0" \
+        "id:900200,\
+        phase:1,\
+        pass,\
+        nolog,\
+        setvar:\'tx.allowed_methods=PUT GET HEAD POST OPTIONS\'"';
+
 
 .. tip:: To apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut.
 
