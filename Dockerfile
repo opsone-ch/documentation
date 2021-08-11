@@ -2,8 +2,8 @@ FROM python:3-slim
 
 RUN pip install Sphinx==3.0.0b1
 RUN pip install sphinx_rtd_theme
+RUN pip install sphinx-autobuild
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD sphinx-build /tmp/docs /tmp/build -aEW -j 4 \
-    && python3 -m http.server 80 --directory /tmp/build
+CMD sphinx-autobuild /tmp/docs /tmp/build --host 0.0.0.0 --port 8080 -aEW -j 4
