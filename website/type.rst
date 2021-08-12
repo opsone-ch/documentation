@@ -184,7 +184,7 @@ type.
 Drupal
 ---------
 
-* :ref:`website-type_php` type with PHP version 7.4
+* :ref:`website-type_php` type with PHP version 8.0
 * MariaDB database
 * application related PHP and nginx configuration (webroot ``~/web``)
 * application related cronjobs (see :ref:`website-cron_type`)
@@ -210,7 +210,7 @@ Magento 1
 Magento 2
 ---------
 
-* :ref:`website-type_php` type with PHP version 7.2
+* :ref:`website-type_php` type with PHP version 7.4
 * MariaDB database
 * application related PHP and nginx configuration (webroot ``~/pub``)
 * application related cronjobs (see :ref:`website-cron_type`)
@@ -223,7 +223,7 @@ Magento 2
 Neos
 ----
 
-* :ref:`website-type_php` type with PHP version 7.4
+* :ref:`website-type_php` type with PHP version 8.0
 * MariaDB database
 * application related PHP and nginx configuration (webroot ``~/Web``)
 * application related WAF rules (see :ref:`website-waf`)
@@ -306,7 +306,7 @@ Required Configuration
 TYPO3 v8
 --------
 
-* :ref:`website-type_php` type with PHP version 7.2
+* :ref:`website-type_php` type with PHP version 7.4
 * MariaDB database
 * application related PHP and nginx configuration (webroot ``~/web``)
 * application related cronjobs (see :ref:`website-cron_type`)
@@ -321,7 +321,7 @@ TYPO3 v8
 TYPO3 v9
 --------
 
-* :ref:`website-type_php` type with PHP version 7.2
+* :ref:`website-type_php` type with PHP version 7.4
 * MariaDB database
 * application related PHP and nginx configuration (webroot ``~/web``)
 * application related cronjobs (see :ref:`website-cron_type`)

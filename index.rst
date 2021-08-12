@@ -1,25 +1,25 @@
 ========================
-Managed Server Version 7
+Managed Server Version 8
 ========================
 
-You are looking at the documentation of our managed server version 7.
+You are looking at the documentation of our managed server version 8.
 Switch to other versions by using the `Switch to` selector at the bottom of the navigation.
 
 To start, we recommend you to make yourself familiar with the :doc:`general/index`,
 and especially the :doc:`general/access`.
 
-.. list-table:: Managed Server Version 7: Main Software Versions and End of Life Date
+.. list-table:: Managed Server Version 8: Main Software Versions and End of Life Date
 
    * - OS Release
      - Webserver
      - Database
      - PHP
      - EOL
-   * - Debian 10
-     - nginx 1.16
-     - MariaDB 10.3
-     - 5.6 (EOL), 7.0 (EOL), 7.2, 7.4
-     - May 2024
+   * - Debian 11
+     - nginx 1.20
+     - MariaDB 10.10
+     - 5.6 (EOL), 7.0 (EOL), 7.2 (EOL), 7.4, 8.0
+     - May 2026
 
 Search and Glossary
 ===================
