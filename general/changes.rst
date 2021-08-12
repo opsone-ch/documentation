@@ -15,7 +15,6 @@ Website
 =======
 
 * nginx 1.20
-* support for TLS 1.3, see :ref:`website-ssl`
 * ModSecurity 3/OWASP CRS 3.3, see :ref:`website-waf`
 * MariaDB 10.10
 * PHP deactivated include of ``.php.ini``

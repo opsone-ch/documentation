@@ -366,7 +366,7 @@ TYPO3 v11
 Wordpress
 ---------
 
-* :ref:`website-type_php` type with PHP version 7.4
+* :ref:`website-type_php` type with PHP version 8.0
 * MariaDB database
 * application related PHP and nginx configuration
 * application related cronjobs (see :ref:`website-cron_type`)
