@@ -1,7 +1,7 @@
 ---
 # local configuration
 variables:
-  MAINBRANCH: managed-server-7
+  MAINBRANCH: managed-server-8
 
 # include template from master branch
 include:
