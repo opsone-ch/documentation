@@ -9,7 +9,7 @@ Version 7 to 8 Changes
 System Wide
 ===========
 
-* updated to Debian 11 Buster
+* updated to Debian 11 Bullseye
 
 Website
 =======
