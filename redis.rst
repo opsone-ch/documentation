@@ -35,7 +35,7 @@ Full example
 
   {
     "redis::ensure": "present",
-    "redis::memory_ratio": "2",
+    "redis::memory_ratio": "4",
     "redis::maxmemory_policy": "noeviction"
   }
 
