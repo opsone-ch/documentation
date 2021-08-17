@@ -19,7 +19,7 @@ To install Redis, set ``redis::ensure`` to `present`.
 Memory Ratio
 ============
 
-By default, a ``memory_ratio`` of 2 is used, which means Redis
+By default, a ``memory_ratio`` of 4 is used, which means Redis
 will take up to 50% of the servers total memory.
 
 maxmemory_policy
