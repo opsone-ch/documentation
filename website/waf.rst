@@ -50,7 +50,7 @@ can be obtained from the audit log file. It is located in
 
 To extend the above example, such a log entry would include a section H
 (more about the sections could be found in the
-`offical documentation <https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-(v2.x)#user-content-secauditlogparts>`__)
+`offical documentation <https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#secauditlogparts>`__)
 and would look similar to the following. The first line in this section
 ``ModSecurity: Warning. Matched "Operator `Rx'...``, is the rule that triggered
 the Anomaly Score Threshold. Now that you know which rule, arguments, or values
