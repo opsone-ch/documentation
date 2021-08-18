@@ -227,5 +227,6 @@ linkcheck_ignore = [
   'https://github.com/nvm-sh/nvm#usage',
   'https://github.com/creationix/nvm#usage',
   'https://github.com/rbenv/rbenv#command-reference',
+  'https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#secauditlogparts',
 ]
 
