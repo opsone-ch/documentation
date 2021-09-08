@@ -15,5 +15,5 @@ For easier testing you can build the documentation locally.
 
 ```shell
 docker build -t sphinx-build .
-docker run -it -p 8080:8080 --volume $(pwd):/tmp/docs:ro sphinx-build
+docker run -it -p 8080:80 --volume $(pwd):/tmp/docs:ro sphinx-build
 ```
