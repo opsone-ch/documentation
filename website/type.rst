@@ -82,6 +82,7 @@ PHP
 
 * PHP installed and running as FPM service included in nginx
 * you can select the desired version at the `Advanced` tab
+* The ``SERVER_NAME`` variable represents the hostname used by the client, except for the ``default_server`` where the first hostname is used for security reasons.
 * for custom configurations, see :ref:`website-advanced-php`
 
 .. _website-type_php-composer:
