@@ -20,15 +20,15 @@ and especially the :doc:`general/access`.
      - MariaDB 10.10
 
        PostgreSQL 13.3
-     - 5.6 (EOL)
-
-       7.0 (EOL)
-
-       7.2 (EOL)
+     - 8.0
 
        7.4
 
-       8.0
+       7.2 (EOL)
+
+       7.0 (EOL)
+
+       5.6 (EOL)
      - May 2026
 
 Search and Glossary

@@ -24,6 +24,10 @@ Website
 * PHP the ``SERVER_NAME`` is now dynamic, see :ref:`website-type_php`
 * added composer v2, see :ref:`website-type_php-composer`
 * added :ref:`order <firewall_rule-order>` parameter for firewall rules
+* updated ProFTPD to supports TLSv1.2 and TLSv1.3
+* added ``umask 027`` for PHP (all versions), Node.js, ruby and python
+* PHP 5.6 disabled the modules xdebug and apcu
+* PHP 7.0 disabled the modules xdebug and memcached
 
 See :ref:`website`.
 
