@@ -101,6 +101,11 @@ by adding the rule to the ``nftables::rules`` hash within the `Custom JSON` :ref
        "example with udp and without specific ip address": {
          "chain": "output",
          "rule": "udp dport 53 accept"
+       },
+       "example ordered rule": {
+         "chain": "output",
+         "rule": "udp dport 53 accept",
+         "order": 55
        }
      }
    }
@@ -108,6 +113,13 @@ by adding the rule to the ``nftables::rules`` hash within the `Custom JSON` :ref
 .. attention:: Make sure to always add rules for both IPv4 and IPv6.
 
 .. tip:: Details about possible rule configurations are listed in the `nftables Wiki <https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes#Rules>`__.
+
+.. _firewall_rule-order:
+
+Rule order
+----------
+
+Sometimes it is desirable to be able to configure the order of the firewall rules, for this there is the optional order parameter. This can be a number between 1 and 99. If this parameter is omitted the default value is 50, also our automatically configured firewall rules for the services (web server, database server, etc.) have an order value of 50. So it is possible to override automatically generated rules by using a value below 50.
 
 Request Limits
 ==============
