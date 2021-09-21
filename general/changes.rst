@@ -21,6 +21,7 @@ Website
 * added named locations in nginx for the following website types: nodejs, proxy, ruby, python.
 * added default charset ``utf-8`` for the html website type
 * added the ``X-Forwarded-Host`` header in our proxy website type
+* PHP the ``SERVER_NAME`` is now dynamic, see :ref:`website-type_php`
 * added composer v2, see :ref:`website-type_php-composer`
 * added :ref:`order <firewall_rule-order>` parameter for firewall rules
 
