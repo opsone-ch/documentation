@@ -84,6 +84,21 @@ PHP
 * you can select the desired version at the `Advanced` tab
 * for custom configurations, see :ref:`website-advanced-php`
 
+.. _website-type_php-composer:
+
+Composer
+~~~~~~~~
+
+We install ``composer1`` and ``composer2``, but based on the selected :ref:`application type<website-type_application>` or configuration the desired version will be symlinked as ``composer`` command.
+
+The composer version can be selected with the following `Custom JSON` :ref:`customjson_website`:
+
+.. code-block:: json
+
+   {
+      "php_composer_version": "1"
+   }
+
 .. index::
    triple: Website; Type; Pytohn
    :name: website-type_python
