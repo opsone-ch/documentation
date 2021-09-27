@@ -48,6 +48,8 @@ typo3cmsv10
    see `Environment Variables`_ for details
 -  TYPO3 Scheduler executed every 5 minutes
 
+.. warning:: EOL Mismatch: This server generation is end of life before TYPO3. We recommend a newer managed server.
+
 typo3cmsv9
 ^^^^^^^^^^
 
