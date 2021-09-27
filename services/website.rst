@@ -42,7 +42,7 @@ typo3cmsv10
      - ~/web
 
 -  PHP and nginx settings adjusted to TYPO3 10 requirements
--  latest TYPO3 CMS 10 sprint release cloned into ``/opt/typo3/TYPO3\_10/``
+-  latest TYPO3 CMS 10 LTS cloned into ``/opt/typo3/TYPO3\_10/``
 -  PHP and nginx settings adjusted to TYPO3 10 requirements
 -  TYPO3 application context can be set by setting the ``TYPO3_CONTEXT`` environment variable in custom JSON,
    see `Environment Variables`_ for details
