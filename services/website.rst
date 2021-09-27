@@ -27,8 +27,8 @@ You have to define one of the following types for each website.
 
 .. note:: If you need a type not mentioned here yet, do not hesitate to contact us
 
-typo3cmsv10 (Alpha)
-^^^^^^^^^^^^^^^^^^^
+typo3cmsv10
+^^^^^^^^^^^
 
 .. list-table::
 
@@ -48,7 +48,7 @@ typo3cmsv10 (Alpha)
    see `Environment Variables`_ for details
 -  TYPO3 Scheduler executed every 5 minutes
 
-.. warning:: This type can change and is meant to test TYPO3 10 sprint releases only. Do not run live applications with this type yet
+.. warning:: EOL Mismatch: This server generation is end of life before TYPO3. We recommend a newer managed server.
 
 typo3cmsv9
 ^^^^^^^^^^
