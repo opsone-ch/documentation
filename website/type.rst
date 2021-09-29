@@ -367,7 +367,7 @@ Required Configuration
    As this TYPO3 version was released after server generation 7 was born,
    you must take note of the following.
 
-* You should use composerver v2, available on the console with ``composer2``.
+* We recommend to use composer v2, for compatibility reasons available on the console with ``composer2``
 
 .. index::
    triple: Website; Type; Wordpress
