@@ -96,7 +96,7 @@ Then open collectd-web at ``http://127.0.0.1:8888/``.
 collectd-web with Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-A Docker image is also available for other systems.
+A Docker image is also available.
 
 ::
 
