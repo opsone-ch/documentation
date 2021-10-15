@@ -46,17 +46,16 @@ collectd
 ~~~~~~~~
 
 System statistics are collected every 10 seconds by collectd and written to RRD files in
-`/var/lib/collectd`. For performance reasons, we don't create graphs by default, therefore you have
+``/var/lib/collectd``. For performance reasons, we don't create graphs by default, therefore you have
 to download and render them with a tool of your choice by yourself.
-
 Please select a rendering-tool from `list of frontends <https://collectd.org/wiki/index.php/List_of_front-ends>`__
-within the collectd wiki. We use `collectd-web <https://github.com/httpdss/collectd-web>`__ for our own analyses.
+within the collectd wiki. We recommend `collectd-web <https://github.com/httpdss/collectd-web>`__.
 
 
-Examine with `collectd-web`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For Debian-based Linux Distributions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* installation
+Installation:
 
 ::
 
@@ -64,7 +63,7 @@ Examine with `collectd-web`
   git clone https://github.com/httpdss/collectd-web.git
   echo 'datadir: "/tmp/rrd"' | sudo tee /etc/collectd/collection.conf
 
-* fetch data and render graphs
+Fetch data and render graphs:
 
 ::
 
@@ -72,5 +71,17 @@ Examine with `collectd-web`
   cd /path/to/collectd-web
   python runserver.py
 
-* then open `collectd-web` at ``http://127.0.0.1:8888/``
+Then open collectd-web at ``http://127.0.0.1:8888/``.
 
+
+collectd-web with Docker
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+A Docker image is also available.
+
+::
+
+   rsync -avz <server>:/var/lib/collectd/rrd/ /tmp/rrd/
+   docker run -p 8888:80 --volume /tmp:/tmp -it registry.gitlab.com/opsone_ch/docker-collectd-web:latest
+
+Then open collectd-web at ``http://127.0.0.1:8888/``.
