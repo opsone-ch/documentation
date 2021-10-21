@@ -219,10 +219,6 @@ simply access your database over the shell:
 
     mysql
 
-.. index::
-   pair: Database; PostgreSQL
-   :name: database_postgresql
-
 TLS
 ~~~
 
@@ -230,22 +226,6 @@ You can connect to all MariaDB databases with TLS enabled. Each server does gene
 own, self-signed certificate. To verify the servers identity, you can fetch the corresponding
 certificate from ``/etc/mysql/tls.crt`` by using the `devop` user (see :ref:`access_devop`).
 
-PostgreSQL
-==========
-
-Database
---------
-
-You can configure PostgreSQL databases through the ``database::databases`` hash
-within the `Custom JSON` :ref:`customjson_server`.
-
-Options
-~~~~~~~
-
-* hash name: database Name
-* type: database type, use ``postgresql``
-* user\_password: adds a user with the same name as the database with
-  this password and grant all privileges
 
 Example
 ~~~~~~~
@@ -258,7 +238,7 @@ within the `Custom JSON` :ref:`customjson_server`:
   {
     "database::databases": {
       "withuser": {
-        "type": "postgresql",
+        "type": "mysql",
         "user_password": "cleartext-password"
       }
     }
@@ -267,7 +247,17 @@ within the `Custom JSON` :ref:`customjson_server`:
 Backup
 ------
 
-Every database is dumped daily into the ``~/backup/`` directory.
+The database backups are included in our server :ref:`backup` and can be restored as described under `Restore`_.
+
+.. index::
+   pair: Database; PostgreSQL
+   :name: database_postgresql
+
+PostgreSQL
+==========
+We provide PostgreSQL as Managed Service. Setup is individual according to your needs.
+
+`Get in touch with us <mailto:team@opsone.ch>`__ for further details.
 
 .. index::
    pair: Database; MongoDB
