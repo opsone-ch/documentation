@@ -18,8 +18,6 @@ and especially the :doc:`general/access`.
    * - Debian 11
      - nginx 1.20
      - MariaDB 10.10
-
-       PostgreSQL 13.3
      - 8.0
 
        7.4
