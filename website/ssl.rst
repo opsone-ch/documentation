@@ -163,7 +163,7 @@ By default, we add a HTTP Strict Transport Security (HSTS) header to each SSL en
 
 ::
 
- Strict-Transport-Security max-age=63072000;
+ Strict-Transport-Security max-age=63072000 always;
 
 Use the ``header_hsts`` string to override the default HSTS header
 within the `Custom JSON` :ref:`customjson_website`:
