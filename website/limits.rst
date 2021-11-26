@@ -62,12 +62,9 @@ Note: the default zone is "small" and will fit most use cases
 Limiting User Agents
 ====================
 
-To avoid overloading by bots from search websites,
-we limit the requests of these by default.
-This limitation applies to ``user-agents`` 
-that contain one of the following words,
-``google``, ``bing``, ``yandex``, ``msnbot``. ``slurp``, ``duckduckbot``, 
-and limit the requests to 10 requests per minute.
+To avoid overloading caused by search site crawlers,
+we introduced the ability to limit requests based on the user agent.
+By default, we limit the ``bing`` bot to one request per second.
 
 These defaults can be overridden in `Custom JSON` :ref:`customjson_website`, below is an example.
 
@@ -75,6 +72,6 @@ These defaults can be overridden in `Custom JSON` :ref:`customjson_website`, bel
 
    {
      "limit_useragents_rate": "20",
-     "limit_useragents_condition": "~*(google|bing) $binary_remote_addr;"
+     "limit_useragents_condition": "~*(mean-bot|bing) $binary_remote_addr;"
    }
 
