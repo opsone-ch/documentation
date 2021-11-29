@@ -75,3 +75,11 @@ These defaults can be overridden in `Custom JSON` :ref:`customjson_website`, bel
      "limit_useragents_condition": "~*(mean-bot|bing) $binary_remote_addr;"
    }
 
+The user agent limitation can be completely disabled as follows:
+
+.. code-block:: json
+
+   {
+     "limit_useragents_rate": false
+   }
+
