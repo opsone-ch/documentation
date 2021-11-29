@@ -63,15 +63,15 @@ Limiting User Agents
 ====================
 
 To avoid overloading caused by search site crawlers,
-we introduced the ability to limit requests based on the user agent.
-By default, we limit the ``bing`` bot to one request per second.
+we introduced the ability to limit requests per minute based on the user agent.
+By default, we limit the ``bing`` bot to 60 requests per minute.
 
 These defaults can be overridden in `Custom JSON` :ref:`customjson_website`, below is an example.
 
 .. code-block:: json
 
    {
-     "limit_useragents_rate": "20",
+     "limit_useragents_rate": "60",
      "limit_useragents_condition": "~*(mean-bot|bing) $binary_remote_addr;"
    }
 
