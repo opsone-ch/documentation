@@ -18,7 +18,9 @@ and especially the :doc:`general/access`.
    * - Debian 11
      - nginx 1.20
      - MariaDB 10.10
-     - 8.0
+     - 8.1
+
+       8.0
 
        7.4
 
