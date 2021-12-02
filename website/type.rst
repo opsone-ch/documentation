@@ -292,6 +292,10 @@ Required Configuration
 * PHP 5.6 does not have FreeType support included
 * some (system) extensions like frontend do need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
 
+.. index::
+   triple: Website; Type; TYPO3 7
+   :name: website-type_typo3v7
+
 TYPO3 v7
 --------
 
