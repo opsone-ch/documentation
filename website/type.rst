@@ -392,15 +392,14 @@ Wordpress
 * application related cronjobs (see :ref:`website-cron_type`)
 * application related WAF rules (see :ref:`website-waf`)
 * WP-CLI installed and available by using the ``wp`` command
-* additional :ref:`website-limits` for ``wp-login.php`` and ``xmlrpc.php`` (10r/m)
+* additional limits for ``wp-login.php`` and ``xmlrpc.php``
 
-To override the default request limits, use the ``wordpress_limit_login``
-and ``wordpress_limit_xmlrpc`` strings within the `Custom JSON` :ref:`customjson_website`:
+We limit requests to ``wp-login.php`` and ``xmlrpc.php`` based on request per minute. The default settings are ``10`` request per minute for ``wp-login.php`` and ``50`` for ``xmlrpc.php``. To adjust or disable the limits completly, you can configure them in the `Custom JSON` :ref:`customjson_website`, for example as follows:
 
 .. code-block:: json
 
    {
-     "wordpress_limit_login": "20r/m",
+     "wordpress_limit_login": "20",
      "wordpress_limit_xmlrpc": false,
     }
 
