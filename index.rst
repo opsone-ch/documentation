@@ -9,11 +9,13 @@ Here, we created a short and handy list for you to help getting started with our
 
 Creating a Website  
 ===================
-- What is a website: https://docs.opsone.ch/managed-server-7/website/index.html
-- Different Website types: https://docs.opsone.ch/managed-server-7/website/type.html
-- Website context Dev / Stage / Prod: https://docs.opsone.ch/managed-server-7/website/context.html
-- Monitoring your Website: https://docs.opsone.ch/managed-server-7/website/monitoring.html  
-- ssl / Let's Encrypt: https://docs.opsone.ch/managed-server-7/website/ssl.htm
+- What is a Website: https://docs.opsone.ch/managed-server-8/website/index.html
+- Different Website types: https://docs.opsone.ch/managed-server-8/website/type.html
+- Website context Dev / Stage / Prod: https://docs.opsone.ch/managed-server-8/website/context.html
+- Monitoring your Website: https://docs.opsone.ch/managed-server-8/website/monitoring.html  
+- ssl / Let's Encrypt: https://docs.opsone.ch/managed-server-8/website/ssl.htm
+
+.. list-table:: Managed Server Version 8: Main Software Versions and End of Life Date
 
    * - OS Release
      - Webserver
@@ -23,35 +25,48 @@ Creating a Website
    * - Debian 11
      - nginx 1.20
      - MariaDB 10.10
-     - 8.0
+     - 8.1
+
+       8.0
+
+       7.4
+
+       7.2 (EOL)
+
+       7.0 (EOL)
+
+       5.6 (EOL)
+     - May 2026
+
 
 .. tip:: You can either deposit your ssh key on server level to ensure access to all websites on this server or deposit the key in a website to restrict access to only the selected website.
 
 
 Different Users and their functionality
 =======================================
-- devop user: https://docs.opsone.ch/managed-server-7/general/access.html#generic-admin-user
-- Website preview user: https://docs.opsone.ch/managed-server-7/website/advanced/previewuser.html
+- devop user: https://docs.opsone.ch/managed-server-8/general/access.html#generic-admin-user
+- Website preview user: https://docs.opsone.ch/managed-server-8/website/advanced/previewuser.html
 
 
 How and where to find Logs 
 ==========================
 .. tip:: Log files are used to help find problems and errors that might be occuring on your server. 
 
-- available log files: https://docs.opsone.ch/managed-server-7/howto/faq.html#which-log-files-are-available
-- how to read log files: https://docs.opsone.ch/managed-server-7/howto/faq.html#monitor-log-files
+- Available log files: https://docs.opsone.ch/managed-server-8/howto/faq.html#which-log-files-are-available
+- How to read log files: https://docs.opsone.ch/managed-server-8/howto/faq.html#monitor-log-files
 
 
 Commom mistakes & errors
 ========================
-- Let's Encrypt validation failed: https://docs.opsone.ch/managed-server-7/website/ssl.html#debug-validation-problems
+- Let's Encrypt validation failed: https://docs.opsone.ch/managed-server-8/website/ssl.html#debug-validation-problems
+- Diskspace doesn't change after deleting files: https://docs.opsone.ch/managed-server-8/general/diskspace.html#i-have-deleted-many-files-but-the-diskusage-has-not-changed
 
 
 Other useful links
 ==================
-- Custom configuration: https://docs.opsone.ch/managed-server-7/advanced/customjson.html
-- Environment variables: https://docs.opsone.ch/managed-server-7/website/envvar.html
-- Collectd, resouce monitoring: https://docs.opsone.ch/managed-server-7/general/monitoring.html#collectd
+- Custom configuration: https://docs.opsone.ch/managed-server-8/advanced/customjson.html
+- Environment variables: https://docs.opsone.ch/managed-server-8/website/envvar.html
+- Collectd, resouce monitoring: https://docs.opsone.ch/managed-server-8/general/monitoring.html#collectd
 
 
 
