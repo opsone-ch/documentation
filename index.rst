@@ -13,7 +13,7 @@ Creating a Website
 - Different Website types: https://docs.opsone.ch/managed-server-8/website/type.html
 - Website context Dev / Stage / Prod: https://docs.opsone.ch/managed-server-8/website/context.html
 - Monitoring your Website: https://docs.opsone.ch/managed-server-8/website/monitoring.html  
-- ssl / Let's Encrypt: https://docs.opsone.ch/managed-server-8/website/ssl.htm
+- ssl / Let's Encrypt: https://docs.opsone.ch/managed-server-8/website/ssl.html
 
 .. list-table:: Managed Server Version 8: Main Software Versions and End of Life Date
 
