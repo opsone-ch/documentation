@@ -61,6 +61,10 @@ or add a reverse proxy website forwarding requests to ``http://localhost:19999``
 
 .. warning:: when using the reverse proxy method, make sure to enable HTTPS and password protection
 
+.. index::
+   triple: Server; Monitoring; Collectd
+   :name: monitoring_collectd
+
 collectd
 ~~~~~~~~
 

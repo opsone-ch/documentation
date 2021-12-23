@@ -9,11 +9,11 @@ Here, we created a short and handy list for you to help getting started with our
 
 Creating a Website  
 ===================
-- What is a Website: https://docs.opsone.ch/managed-server-8/website/index.html
-- Different Website types: https://docs.opsone.ch/managed-server-8/website/type.html
-- Website context Dev / Stage / Prod: https://docs.opsone.ch/managed-server-8/website/context.html
-- Monitoring your Website: https://docs.opsone.ch/managed-server-8/website/monitoring.html  
-- ssl / Let's Encrypt: https://docs.opsone.ch/managed-server-8/website/ssl.html
+- What is a Website: :ref:`website`
+- Different Website types: :ref:`website-type`
+- Website context Dev / Stage / Prod: :ref:`website-context`
+- Monitoring your Website: :ref:`website-monitoring`
+- ssl / Let's Encrypt: :ref:`website-ssl`
 
 .. list-table:: Managed Server Version 8: Main Software Versions and End of Life Date
 
@@ -44,29 +44,28 @@ Creating a Website
 
 Different Users and their functionality
 =======================================
-- devop user: https://docs.opsone.ch/managed-server-8/general/access.html#generic-admin-user
-- Website preview user: https://docs.opsone.ch/managed-server-8/website/advanced/previewuser.html
+- devop user: :ref:`access_devop`
+- Website preview user: :ref:`website-advanced-previewuser`
 
 
 How and where to find Logs 
 ==========================
 .. tip:: Log files are used to help find problems and errors that might be occuring on your server. 
 
-- Available log files: https://docs.opsone.ch/managed-server-8/howto/faq.html#which-log-files-are-available
-- How to read log files: https://docs.opsone.ch/managed-server-8/howto/faq.html#monitor-log-files
+- Available log files: :ref:`howto-faq`
 
 
 Commom mistakes & errors
 ========================
-- Let's Encrypt validation failed: https://docs.opsone.ch/managed-server-8/website/ssl.html#debug-validation-problems
-- Diskspace doesn't change after deleting files: https://docs.opsone.ch/managed-server-8/general/diskspace.html#i-have-deleted-many-files-but-the-diskusage-has-not-changed
+- Let's Encrypt validation failed: :ref:`website-ssl_autossldebug`
+- Diskspace doesn't change after deleting files: :ref:`diskspace`
 
 
 Other useful links
 ==================
-- Custom configuration: https://docs.opsone.ch/managed-server-8/advanced/customjson.html
-- Environment variables: https://docs.opsone.ch/managed-server-8/website/envvar.html
-- Collectd, resouce monitoring: https://docs.opsone.ch/managed-server-8/general/monitoring.html#collectd
+- Custom configuration: :ref:`customjson_server`
+- Environment variables: :ref:`website-envvar`
+- Resouce monitoring: :ref:`monitoring_netdata` and :ref:`monitoring_collectd`
 
 
 
