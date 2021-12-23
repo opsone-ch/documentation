@@ -1,3 +1,7 @@
+.. index::
+   pair: How-to; help
+   :name: howto
+
 =================
 How-to
 =================
