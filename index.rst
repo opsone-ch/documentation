@@ -30,35 +30,62 @@ Switch to other versions by using the *Switch to* selector at the bottom of the 
 
 Here, we created a short and handy list for you to help getting started with our services.
 
+Creating a Server  
+=================
+
+.. note:: If you don't have access to our Cockpit or need to reset your 2FA device, feel free to contact us.
+
+- Creating a Server: Visit https://cockpit.opsone.ch and navigate to ``Managed Server``
+- Add a new Server according to your needs. Choose your Server Name wisely, this will be the Servers unique identifier
+- Custom Server Configuration :ref:`customjson_server`
+- Monitoring your Server: :ref:`monitoring`
+
+
 Creating a Website  
-===================
+==================
+
 - What is a Website: :ref:`website`
 - Different Website types: :ref:`website-type`
 - Website context Dev / Stage / Prod: :ref:`website-context`
-- Monitoring your Website: :ref:`website-monitoring`
 - ssl / Let's Encrypt: :ref:`website-ssl`
+- Monitoring your Website: :ref:`website-monitoring`
+- Advanced Website configurations: :ref:`advanced-configuration`
+
+.. tip:: To disable Monitoring for your Website completely, remove all entries from the ``Monitoring`` tab.
+
+Connecting to your Server / Website
+===================================
+
+- Connect via SFTP: :ref:`access-sftp`
+- Connect via SSH: :ref:`access-ssh`
+- Create an SSH key: :ref:`howto-sshkey`
 
 .. tip:: You can either deposit your ssh key on server level to ensure access to all websites on this server or deposit the key in a website to restrict access to only the selected website.
 
 Different Users and their functionality
 =======================================
+
 - devop user: :ref:`access_devop`
 - Website preview user: :ref:`website-advanced-previewuser`
 
 How and where to find Logs 
 ==========================
+
 .. tip:: Log files are used to help find problems and errors that might be occuring on your server. 
 
-- Available log files: :ref:`howto-faq`
+- Available log files: :ref:`logs_faq`
+- How to analyse Log files: :ref:`howto-logfile`
 
 Commom mistakes & errors
 ========================
+
 - Let's Encrypt validation failed: :ref:`website-ssl_autossldebug`
 - Diskspace doesn't change after deleting files: :ref:`diskspace`
 
 Other useful links
 ==================
-- Custom configuration: :ref:`customjson_server`
+- How-to documentation: :ref:`howto`
+- Frequently asked questions: :ref:`howto-faq`
 - Environment variables: :ref:`website-envvar`
 - Resouce monitoring: :ref:`monitoring_netdata` and :ref:`monitoring_collectd`
 
@@ -68,7 +95,7 @@ Search and Glossary
 Not found what you're looking for yet? Beside of the search bar (top left),
 we also added a :doc:`genindex` with a comprehensive list of all topics.
 
-.. tip:: For marketing and contract related details and contact infos, visit our website https://opsone.ch.
+.. note:: For marketing and contract related details and contact infos, visit our website https://opsone.ch.
 
 Open source
 -------------------------------------------

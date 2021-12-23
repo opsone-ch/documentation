@@ -7,8 +7,8 @@ FAQ
 ===
 
 .. index::
-   triple: How-to; FAQ; log
-   :name: howto-faq-logs
+   pair: Log Files; FAQ
+   :name: logs_faq
 
 Which log files are available
 -----------------------------

@@ -1,9 +1,13 @@
 .. index::
-   pair: Access; SSH
-   :name: access-ssh
+   pair: Access; Server Access
+   :name: server-access
 
 Means to Access Your Server
 ===========================
+
+.. index::
+   pair: Access; SSH
+   :name: access-ssh
 
 SSH
 ---
@@ -47,6 +51,10 @@ allowed to the website users:
 * ``modsecurity-logparser`` to identify blocking :ref:`website-waf` rules more easily
 
 .. tip:: To display log files, use the :ref:`howto-logfile_lnav` and :ref:`howto-logfile_goaccess` utilities.
+
+.. index::
+   pair: Access; SFTP
+   :name: access-sftp
 
 SFTP
 ----

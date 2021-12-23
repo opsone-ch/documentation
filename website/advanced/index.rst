@@ -1,3 +1,7 @@
+.. index::
+   pair: Website; Advanced Configuration
+   :name: advanced-configuration
+
 =======================
 Advanced Configurations
 =======================
