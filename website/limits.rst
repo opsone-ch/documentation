@@ -2,15 +2,15 @@
    triple: Website; Limits; Request Limits
    :name: website-limits
 
-==============
-Request Limits
-==============
+======
+Limits
+======
 
 The number of connections and requests are limited to ensure that a
 single user (or bot) cannot overload the whole server.
 
-Limits
-======
+Request Limits
+==============
 
 * 50 connections / address
 * 50 requests / second / address
@@ -27,7 +27,7 @@ If the visitor issues more than 150 request / second, those requests
 will not processed anymore, but answered with the 503 status code.
 
 Adjust limits
-=============
+-------------
 
 To adjust this limits for special applications such as API calls,
 set a higher `load zone` in your
@@ -45,7 +45,7 @@ set a higher `load zone` in your
 .. tip:: To apply the changes reload the nginx configuration with the ``nginx-reload`` shortcut.
 
 Zones
-=====
+-----
 
 -  small = 50 requests / second (burst: 150req/sec)
 -  medium = 150 requests / second (burst: 500 req/sec)
@@ -58,4 +58,28 @@ Note: the default zone is "small" and will fit most use cases
    For details, see the
    `nginx Module ngx\_http\_limit\_req\_module <http://nginx.org/en/docs/http/ngx_http_limit_req_module.html>`__
    documentation.
+
+Limiting User Agents
+====================
+
+To avoid overloading caused by search site crawlers,
+we introduced the ability to limit requests per minute based on the user agent.
+By default, we limit the ``bing`` bot to 60 requests per minute.
+
+These defaults can be overridden in `Custom JSON` :ref:`customjson_website`, below is an example.
+
+.. code-block:: json
+
+   {
+     "limit_useragents_rate": "60",
+     "limit_useragents_condition": "~*(mean-bot|bing) $binary_remote_addr;"
+   }
+
+The user agent limitation can be completely disabled as follows:
+
+.. code-block:: json
+
+   {
+     "limit_useragents_rate": false
+   }
 
