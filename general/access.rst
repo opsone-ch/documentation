@@ -6,7 +6,7 @@ Means to Access Your Server
 ===========================
 
 .. index::
-   pair: Access; SSH
+   triple: Access; Server Access; SSH
    :name: access-ssh
 
 SSH
@@ -53,7 +53,7 @@ allowed to the website users:
 .. tip:: To display log files, use the :ref:`howto-logfile_lnav` and :ref:`howto-logfile_goaccess` utilities.
 
 .. index::
-   pair: Access; SFTP
+   triple: Access; Server Access; SFTP
    :name: access-sftp
 
 SFTP
