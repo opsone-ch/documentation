@@ -6,6 +6,10 @@
 FAQ
 ===
 
+.. index::
+   pair: Log Files; FAQ
+   :name: logs_faq
+
 Which log files are available
 -----------------------------
 
