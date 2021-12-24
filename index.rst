@@ -5,29 +5,6 @@ Managed Server Version 8
 You are looking at the documentation of our managed server version 8.
 Switch to other versions by using the *Switch to* selector at the bottom of the navigation.
 
-.. list-table:: Managed Server Version 8: Main Software Versions and End of Life Date
-
-   * - OS Release
-     - Webserver
-     - Database
-     - PHP
-     - EOL
-   * - Debian 11
-     - nginx 1.20
-     - MariaDB 10.10
-     - 8.1
-
-       8.0
-
-       7.4
-
-       7.2 (EOL)
-
-       7.0 (EOL)
-
-       5.6 (EOL)
-     - May 2026
-
 Here, we created a short and handy list for you to help getting started with our services.
 
 Creating a Server  
