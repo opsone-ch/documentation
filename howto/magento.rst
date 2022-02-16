@@ -1,6 +1,6 @@
 .. index::
    triple: How-to; Getting Started with; Magento
-   :name: howto-docker
+   :name: howto-magento
 
 ============================
 Getting Started with Magento
@@ -25,3 +25,7 @@ through SSH. For details, see :ref:`access-ssh`.
 
 Install Magento
 ===============
+
+To install Magento, you will need an Account at `website <https://account.magento.com>`__. From the Account Page, copy your Magento ID and Downloads Access Token. 
+
+To get detailed information about the Magento credentials, see `website <https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html>`__
