@@ -33,6 +33,7 @@ as reverse proxy.
 * created website user is member of the `docker` group and thus allowed
   to execute ``docker`` commands
 * docker containers and images are excluded from :ref:`backup`, volumes are snapshoted normally
+* docker-compose is available. More info on how to use it here: `docker-compose <https://docs.docker.com/compose/>`__.
 
 .. tip:: Also take a look at our How-to :ref:`howto-docker`.
 
