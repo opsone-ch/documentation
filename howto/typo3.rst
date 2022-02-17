@@ -6,7 +6,7 @@
 Getting Started with TYPO3
 ==============================
 
-TYPO3 is one of the biggest Open Source CMS currently on the market. To get more information about TYPO3, visit their `Website <https://typo3.org>`__
+TYPO3 is one of the biggest Open Source CMS currently on the market. To get more information about TYPO3, visit their `Website <https://typo3.org>`__.
 
 Create Environment
 ------------------
@@ -41,9 +41,9 @@ Due to security reasons, we allow key based logins only.
 Install TYPO3
 -------------
 
-You can download and unzip TYPO3 normally.
-However, we recommend using our pre-installed TYPO3 core.
-This allows you to profit from our Automatic TYPO3 Core Updates.
+We recommend you install TYPO3 via composer to be independent of our update cycle. But if you want to use the core we provide, you're more than welcome to. Be aware that we do not test Updates and install them shortly after release.
+
+To use the TYPO3 Core we provide, follow the instructions below.
 
 .. code-block:: shell
 
@@ -51,7 +51,7 @@ This allows you to profit from our Automatic TYPO3 Core Updates.
   $ cd ~/public
 
   # create symlinks for TYPO3
-  $ ln -s /opt/typo3/TYPO3_11 typo3_src
+  $ ln -s /opt/typo3/[TYPO3-Version] typo3_src
   $ ln -s [path-to-webroot]/typo3_src/typo3 typo3
   $ ln -s [path-to-webroot]/typo3_src/index.php
 
@@ -59,13 +59,12 @@ This allows you to profit from our Automatic TYPO3 Core Updates.
   $ touch FIRST_INSTALL
 
 You are now ready to finish the install in the web browser.
-Note that the Database username ist the same as the Website Name and the Password can be found in the `cockpit <https://cockpit.opsone.ch>`__
+Note that the Database username ist the same as the Website Name and the Password can be found in the `cockpit <https://cockpit.opsone.ch>`__.
 Make sure to safely store your administrator credentials as you will need them to Log into the backend and make Changes in the TYPO3 Maintenance mode.
 
 .. tip::
 
    Depending on the TYPO3 Version you choose, we set a different webroot. You can see the Details in the `Type Overview <../website/type.html>`__.
-   For example: The webroot for TYPO3v11 is `public/`
 
 .. warning::
 
