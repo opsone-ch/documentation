@@ -13,6 +13,7 @@ This is a collection of how-to manuals. It supplements the documentation with ex
 
   docker
   wordpress
+  typo3
   nuxt
   varnish
   email
