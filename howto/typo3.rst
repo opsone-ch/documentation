@@ -44,7 +44,7 @@ Install TYPO3
 We recommend you install TYPO3 via composer to be independent of our update cycle. But if you want to use the core we provide, you're more than welcome to. Be aware that we do not test Updates and install them shortly after release.
 
 
-If you want to install TYPO3 via composer, follow the instructions provided by the `TYPO3 Documentation <https://docs.typo3.org/m/typo3/tutorial-getting-started/main/en-us/Installation/Install.html#install`__.
+If you want to install TYPO3 via composer, follow the instructions provided by the `TYPO3 Documentation <https://docs.typo3.org/m/typo3/tutorial-getting-started/main/en-us/Installation/Install.html`__.
 
 To use the TYPO3 Core we provide, follow the instructions below.
 
