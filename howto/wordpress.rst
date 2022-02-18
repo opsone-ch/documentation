@@ -9,33 +9,9 @@ Getting Started with WordPress
 There are dozens of ways you can deploy WordPress.
 The following way describes only one way.
 
-Create Environment
-------------------
+.. include:: ../shared/createenvironment.rst
 
-First you have to create a website on your server.
-Our website module provides everything you need to manage, deploy and run your website.
-Every Website is type and environment based, which means you have to select a particular type (e.g. `wordpress <../website/type.html#wordpress>`__) and `environment <../website/context.html>`__ (e.g. PROD).
-
-1. Log in to `cockpit.opsone.ch <https://cockpit.opsone.ch>`__
-2. Choose your server or create a new one
-3. Go to websites, and create a new one
-4. `Select website type <../website/type.html#wordpress>`__ wordpress and fill in all settings
-
-.. tip:: You don't need to remember your DB credentials. We always provide them as `environment variables <../website/envvar.html>`__.
-
-According to those settings, our automation will setup the server/vhost as required.
-
-Access with SSH
----------------
-
-On the server you can work with SSH.
-Due to security reasons, we allow key based logins only.
-
-1. If you don't have an SSH key: `Create an SSH key pair <../howto/sshkey.html>`_
-2. Add your SSH Public Key in the Cockpit: Either for the whole server or within the website.
-3. Now you can log in via SSH. Username is your chosen website name, not your own username.
-
-.. tip:: Wondering why your existing SSH key is not working? Maybe it does not meet our `minimum requirements <../howto/sshkey.html>`__.
+.. include:: ../shared/sshaccess.rst
 
 Install WordPress
 -----------------
