@@ -33,6 +33,7 @@ as reverse proxy.
 * created website user is member of the `docker` group and thus allowed
   to execute ``docker`` commands
 * docker containers and images are excluded from :ref:`backup`, volumes are snapshoted normally
+* docker-compose is available.
 
 .. tip:: Also take a look at our How-to :ref:`howto-docker`.
 
@@ -261,7 +262,7 @@ required to load the appropriate PHP settings, by defining the the
     Flow:
       core:
         subRequestEnvironmentVariables:
-          PHP_INI_SCAN_DIR: '/etc/php72/user/<username>/:/home/<username>/cnf/'
+          PHP_INI_SCAN_DIR: '/etc/php80/user/<username>/:/home/<username>/cnf/'
 
 .. tip:: See `this Neos Discuss thread <https://discuss.neos.io/t/setup-process-error-with-custom-php-environment/4174>`__ for technical details.
 
