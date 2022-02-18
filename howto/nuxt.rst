@@ -6,8 +6,7 @@
 Getting Started with Nuxt.js
 ============================
 
-Nuxt.js is a framework to build Vue.js applications. See their `website <https://nuxtjs.org>`__
-for more informations.
+Nuxt.js is a framework to build Vue.js applications. To get more information, visit their `website <https://nuxtjs.org>`__.
 
 Create Website
 ==============

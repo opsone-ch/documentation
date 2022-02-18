@@ -6,7 +6,7 @@
 Getting Started with TYPO3
 ==============================
 
-TYPO3 is one of the biggest Open Source CMS currently on the market. To get more information about TYPO3, visit their `Website <https://typo3.org>`__.
+TYPO3 is an Open Source CMS written in PHP. To get more information, visit their `website <https://typo3.org>`__.
 
 Create Environment
 ------------------
@@ -41,12 +41,11 @@ Due to security reasons, we allow key based logins only.
 Install TYPO3
 -------------
 
-We recommend you install TYPO3 via composer to be independent of our update cycle. But if you want to use the core we provide, you're more than welcome to. Be aware that we do not test Updates and install them shortly after release.
-
+We recommend that you install TYPO3 via composer to have full control over the update cycle. However, if you want to use the TYPO3 core provided by us, you are welcome to do so. We update the TYPO3 core shortly after the official release. Please note that we provide the core as is and do not perform any additional testing.
 
 If you want to install TYPO3 via composer, follow the instructions provided by the `TYPO3 Documentation <https://docs.typo3.org/m/typo3/tutorial-getting-started/main/en-us/Installation/Install.html>`__.
 
-To use the TYPO3 Core we provide, follow the instructions below.
+To use the TYPO3 core we provide, follow the instructions below.
 
 .. note:: 
 
