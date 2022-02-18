@@ -10,7 +10,7 @@ There are dozens of ways you can deploy WordPress.
 The following way describes only one way.
 
 .. include:: ../shared/createenvironment.rst
-4. `Select website type <../website/type.html#wordpress>`__ wordpress and fill in all settings
+#. `Select website type <../website/type.html#wordpress>`__ wordpress and fill in all settings
 
 .. tip:: You don't need to remember your DB credentials. We always provide them as `environment variables <../website/envvar.html>`__.
 

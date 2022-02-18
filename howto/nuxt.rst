@@ -8,22 +8,11 @@ Getting Started with Nuxt.js
 
 Nuxt.js is a framework to build Vue.js applications. To get more information, visit their `website <https://nuxtjs.org>`__.
 
-Create Website
-==============
-
-With Nuxt.js being a framework based on Node.js, you have to create a :ref:`website-type_nodejs` website
-on your server:
-
-#. Log in to `cockpit.opsone.ch <https://cockpit.opsone.ch>`__
-#. Choose your server or create a new one
-#. Go to websites, and create a new one
+.. include:: ../shared/createenvironment.rst
 #. Select website type :ref:`website-type_nodejs`
 
-Access with SSH
-===============
+.. include:: ../shared/sshaccess.rst
 
-Once the new website was created sucessfulyl, you can log into the server
-through SSH. For details, see :ref:`access-ssh`.
 
 Installation
 ============

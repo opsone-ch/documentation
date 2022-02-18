@@ -6,27 +6,13 @@
 Getting Started with Docker
 ===========================
 
-Create Website
-==============
-
-To use a Docker based application, you have to create a website
-on your server. The website will act as environment which will
-hold your Docker configurations and also as reverse proxy in
-front of your application.
-
-#. Log in to `cockpit.opsone.ch <https://cockpit.opsone.ch>`__
-#. Choose your server or create a new one
-#. Go to websites, and create a new one
+.. include:: ../shared/createenvironment.rst
 #. Select website type :ref:`website-type_docker` and configure `Proxy pass` to your Docker containers port
 
 The ``Proxy pass`` value must also include the protocol such as http or https.
 An example of a correct value: ``http://127.0.0.1:8080``
 
-Access with SSH
-===============
-
-Once the new website was created sucessfulyl, you can log into the server
-through SSH. For details, see :ref:`access-ssh`.
+.. include:: ../shared/sshaccess.rst
 
 Run Docker Container
 ====================
