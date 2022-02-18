@@ -43,12 +43,21 @@ Install TYPO3
 
 We recommend you install TYPO3 via composer to be independent of our update cycle. But if you want to use the core we provide, you're more than welcome to. Be aware that we do not test Updates and install them shortly after release.
 
+
+If you want to install TYPO3 via composer, follow the instructions provided by the `TYPO3 Documentation <https://docs.typo3.org/m/typo3/tutorial-getting-started/main/en-us/Installation/Install.html#install`__.
+
 To use the TYPO3 Core we provide, follow the instructions below.
+
+.. note:: 
+
+   Check the different TYPO3 Types in our `Overview <../website/type.html>`__ to get the specific Version configurations and TYPO3 core directories.
+   
+   The webroot of your website may vary depending on what TYPO3 Version you select and can also be checked in the Type Overview linked above.
 
 .. code-block:: shell
 
   # switch to your webroot
-  $ cd ~/public
+  $ cd ~/[webroot]
 
   # create symlinks for TYPO3
   $ ln -s /opt/typo3/[TYPO3-Version] typo3_src
@@ -62,9 +71,6 @@ You are now ready to finish the install in the web browser.
 Note that the Database username ist the same as the Website Name and the Password can be found in the `cockpit <https://cockpit.opsone.ch>`__.
 Make sure to safely store your administrator credentials as you will need them to Log into the backend and make Changes in the TYPO3 Maintenance mode.
 
-.. tip::
-
-   Depending on the TYPO3 Version you choose, we set a different webroot. You can see the Details in the `Type Overview <../website/type.html>`__.
 
 .. warning::
 
