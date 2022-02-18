@@ -76,19 +76,7 @@ Make sure to safely store your administrator credentials as you will need them t
    As some TYPO3 versions have reached their end of life already,
    compatibility settings are required within some of the applications.
 
-Required Configuration for TYPO3 6
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   For TYPO3 v6: `Required custom configuration <https://docs.opsone.ch/managed-server-8/website/type.html#typo3-v6>`__.
 
-* ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
-* PHP 5.6 does not have FreeType support included
-* some (system) extensions like frontend do need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
+   For TYPO3 v7: `Required custom configuration <https://docs.opsone.ch/managed-server-8/website/type.html#typo3-v7>`__.
 
-Required Configuration for TYPO3 7
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. warning::
-
-   Install Tool is not usable to install new versions from scratch (see `Ticket#82023 <https://forge.typo3.org/issues/82023>`__)
-
-* ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
-* Some extensions like the frontend sysext need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
