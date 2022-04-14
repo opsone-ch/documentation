@@ -22,7 +22,7 @@ and also to switch to a newer generation in a planned way according to your need
    * - PHP
      - PHP 5.6
    * - EOL
-     - May 2020
+     - June 2020
 
 Switch to the documentation of other versions by using the selector below.
 
