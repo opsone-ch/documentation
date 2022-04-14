@@ -29,7 +29,7 @@ and especially the :doc:`general/access`.
        7.0 (EOL)
 
        5.6 (EOL)
-     - May 2024
+     - June 2024
 
 Search and Glossary
 ===================
