@@ -23,7 +23,7 @@ General Information
        7.0 (EOL)
 
        5.6 (EOL)
-     - May 2026
+     - June 2026
 
 .. toctree::
    :maxdepth: 2
