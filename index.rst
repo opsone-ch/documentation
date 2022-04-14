@@ -22,7 +22,7 @@ and also to switch to a newer generation in a planned way according to your need
    * - PHP
      - 7.1, 7.2
    * - EOL
-     - ~ May 2022
+     - June 2022
 
 Switch to the documentation of other generations by using the versions selector below.
 
