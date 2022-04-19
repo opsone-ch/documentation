@@ -22,6 +22,7 @@ stages:
   - apt-get update && apt-get --yes install rsync
   - pip install Sphinx==3.0.0b1
   - pip install sphinx_rtd_theme
+  - pip install Jinja2==3.0.3
   # check links
   - sphinx-build . ./_build/ -aEW -b linkcheck
   # build documentation
