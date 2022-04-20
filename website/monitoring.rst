@@ -18,12 +18,14 @@ is available on the desired websites `Monitoring` tab.
 
 At the moment, the following options are available:
 
-* `Host`: hostname used to check your website, either
-  `[AUTO_FIRST_HOST]` to let the system determine the first host
-  name configured in `Server name`, or a certain host name of your
-  website.
-* `Path`: path used to check your website. At the moment, only ``/``
-  is available.
-* `Oncall`: When enabled, we are notified 24/7 about any outages and
-  will take appropriate measures to mitigate.
+.. index::
+   triple: Website; Monitoring; SLA
+   :name: website-monitoring_sla
+
+* `Enable Monitoring`: When enabled, our automatic monitoring system
+  will check the websites HTTP status 24/7. Without a SLA, manual
+  notifications are available during office hours only.
+* `SLA`: When enabled, we are notified 24/7 about any outages and
+  will take appropriate measures to mitigate. We recommend this option
+  for all production environments.
 
