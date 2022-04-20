@@ -20,7 +20,7 @@ The following disadvantages occur when continuing to operate the managed server 
 
 The responsibility for the change to a new server version lies with the customer. Automatic in-place updates are not provided. Ops One refrains from deactivating servers with End-of-Life and leaves it up to the customer to decide how long the server should continue to operate.
 
-Availability and liability
+Availability and Liability
 --------------------------
 
 For Managed Servers that are End-of-Life, Ops One can therefore no longer guarantee availability. In addition, liability for these servers is declined.

@@ -2,9 +2,9 @@
 Ops One hosting platform documentation
 **************************************
 
-Welcome to the Ops One hosting platform documentation. This covers the complete technical documentation of our :doc:`managed_server` and other services. You will also find our `terms and conditions </legal/agb.html>`_ as well as the `privacy policy </legal/dse.html>`_.
+Welcome to the Ops One hosting platform documentation. This covers a complete technical documentation of our :doc:`managed_server` and other services. You will also find our `terms and conditions </legal/agb.html>`_ as well as the `privacy policy </legal/dse.html>`_.
 
-Management interface
+Management Interface
 ====================
 
 Our management interface, called Cockpit, is available at `cockpit.opsone.ch <https://cockpit.opsone.ch/>`_. 
@@ -13,7 +13,7 @@ The Cockpit allows you to manage your managed servers, DNS and domains as well a
 
 .. note:: If you don't have access to our Cockpit or need to reset your 2FA device, feel free to contact us.
 
-Hosting infrastructure and certifications
+Hosting Infrastructure and Certifications
 =========================================
 
 Are you interested in information about our hosting infrastructure or our ISO-27001 certification? On our website you will find a detailed overview under `infrastructure <https://opsone.ch/de/fakten/infrastruktur>`_ and `certifications <https://opsone.ch/de/fakten/zertifizierungen-und-mitgliedschaften#zertifizierungen-und-labels>`_. 
