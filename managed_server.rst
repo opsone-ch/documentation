@@ -17,33 +17,27 @@ To ensure the highest possible stability, we rely on server versions for our Man
    * - Managed Server
      - Release Date
      - :doc:`end_of_life`
-     - Documentation
      - Release notes
-   * - Version 5
-     - August 2015
-     - June 2020 ⚠️
-     - `Docs v5 <https://docs.opsone.ch/managed-server-5/>`_
-     - none
-   * - Version 6
-     - Mai 2018
-     - June 2022
-     - `Docs v6 <https://docs.opsone.ch/managed-server-6/>`_
-     - none
-   * - Version 7
-     - March 2020
-     - June 2024
-     - `Docs v7 <https://docs.opsone.ch/managed-server-7/>`_
-     - `Notes v7 <https://opsone.ch/de/blog/managed-server-version-7-verfuegbar>`_
-   * - Version 8
-     - August 2021
-     - June 2026
-     - `Docs v8 <https://docs.opsone.ch/managed-server-8/>`_
-     - `Notes v8 <https://opsone.ch/de/blog/managed-server-version-8-verfuegbar>`_
    * - Upcoming Version 9
      - ~Summer 2023
      - ~Summer 2028
      - 
-     - 
+   * - `Version 8 <https://docs.opsone.ch/managed-server-8/>`_
+     - August 2021
+     - ✅ June 2026
+     - `Release notes v8 <https://opsone.ch/de/blog/managed-server-version-8-verfuegbar>`_
+   * - `Version 7 <https://docs.opsone.ch/managed-server-7/>`_
+     - March 2020
+     - ✅ June 2024
+     - `Release notes v7 <https://opsone.ch/de/blog/managed-server-version-7-verfuegbar>`_
+   * - `Version 6 <https://docs.opsone.ch/managed-server-6/>`_
+     - Mai 2018
+     - ⚠️ June 2022
+     - none
+   * - `Version 5 <https://docs.opsone.ch/managed-server-5/>`_
+     - August 2015
+     - ⛔️ June 2020
+     - none
 
 Advantages of Managed Server versions
 -------------------------------------
