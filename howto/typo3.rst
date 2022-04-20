@@ -8,17 +8,8 @@ Getting Started with TYPO3
 
 TYPO3 is an Open Source CMS written in PHP. To get more information, visit their `website <https://typo3.org>`__.
 
-Create Environment
-------------------
-
-First you have to create a website on your server.
-Our website module provides everything you need to manage, deploy and run your website.
-Every Website is type and environment based, which means you have to select a particular type (e.g. `TYPO3 <../website/type.html#typo3-v11>`__) and `environment <../website/context.html>`__ (e.g. PROD).
-
-1. Log in to `cockpit.opsone.ch <https://cockpit.opsone.ch>`__
-2. Choose your server or create a new one
-3. Go to websites, and create a new one
-4. `Select website type <../website/type.html#typo3-v11>`__ TYPO3 and fill in all settings
+.. include:: ../shared/createenvironment.rst
+#. `Select website type <../website/type.html#typo3-v11>`__ TYPO3 and fill in all settings
 
 .. tip:: Depending on what TYPO3 Version you choose, the correct core will be installed and available for use.
 
@@ -26,17 +17,7 @@ Every Website is type and environment based, which means you have to select a pa
 
 According to those settings, our automation will setup the server/vhost as required.
 
-Access with SSH
----------------
-
-On the server you can work with SSH.
-Due to security reasons, we allow key based logins only.
-
-1. If you don't have an SSH key: `Create an SSH key pair <../howto/sshkey.html>`__.
-2. Add your SSH Public Key in the Cockpit: Either for the whole server or within the website.
-3. Now you can log in via SSH. Username is your chosen website name, not your own username.
-
-.. tip:: Wondering why your existing SSH key is not working? Maybe it does not meet our `minimum requirements <../howto/sshkey.html>`__.
+.. include:: ../shared/sshaccess.rst
 
 Install TYPO3
 -------------
