@@ -1,54 +1,21 @@
-Ops One: Legal Informations
+Ops One Platform documentation
 =================================
 
-Dokumente
----------
+Access to the management interface
+------------------------------------
 
-* :doc:`agb_index`
-* :doc:`dse_index`
+Visit https://cockpit.opsone.ch/ to access our management interface. If you don’t have access to our Cockpit or need to reset your 2FA device, feel free to contact us.
 
-English documents
------------------
-* :doc:`dse_en_index`
-
-Kontakt
--------
-
-Anschrift
+Services
 ^^^^^^^^^
 
-| Ops One AG
-| Weststrasse 77
-| 8003 Zürich
-| Schweiz
-
-Handelsregister & MWST
-^^^^^^^^^^^^^^^^^^^^^^
-
-| Handelsregister des Kantons Zürich
-| Firmennummer (UID): CHE-291.021.988
-| MwSt.-Nr.: CHE-291.021.988 MWST
-
-Bankverbindung
-^^^^^^^^^^^^^^
-
-| Raiffeisenbank Zürich
-| Limmatquai 68
-| 8001 Zürich
-| Schweiz
-
-| Bankclearing: 80808
-| SWIFT-BIC: RAIFCH22
-| IBAN: CH65 8080 8001 2119 4254 2
-
-Open source
------------
-
-Wir verwenden und lieben Open Source Software und stellen die meisten unserer Arbeiten ebenfalls als Open Source zur Verfügung. Diese Dokumente sind Bestandteil unserer Dokumentation und unter der `Creative Commons Attribution-ShareAlike 4.0 International License <http://creativecommons.org/licenses/by-sa/4.0/>`_ auf `GitHub <https://github.com/opsone-ch/documentation>`_ verfügbar. Dort lassen sich auch sämtliche `Änderungen <https://github.com/opsone-ch/documentation/commits/legal>`_ schnell und einfach nachvollziehen.
+* :doc:`managed_server` and website administration
+* DNS administration
+* Domain administration
+* Address and user administration
 
 .. toctree::
   :hidden:
 
-  agb_index
-  dse_index
-  dse_en_index
+  managed_server
+  end_of_life
