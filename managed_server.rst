@@ -22,19 +22,19 @@ To ensure the highest possible stability, we rely on server versions for our Man
      - ~Summer 2023
      - ~Summer 2028
      - 
-   * - `Version 8 <https://docs.opsone.ch/managed-server-8/>`_
+   * - `Version 8 </managed-server-8/>`_
      - August 2021
      - ✅ June 2026
      - `Release notes v8 <https://opsone.ch/de/blog/managed-server-version-8-verfuegbar>`_
-   * - `Version 7 <https://docs.opsone.ch/managed-server-7/>`_
+   * - `Version 7 </managed-server-7/>`_
      - March 2020
      - ✅ June 2024
      - `Release notes v7 <https://opsone.ch/de/blog/managed-server-version-7-verfuegbar>`_
-   * - `Version 6 <https://docs.opsone.ch/managed-server-6/>`_
+   * - `Version 6 </managed-server-6/>`_
      - Mai 2018
      - ⚠️ June 2022
      - none
-   * - `Version 5 <https://docs.opsone.ch/managed-server-5/>`_
+   * - `Version 5 </managed-server-5/>`_
      - August 2015
      - ⛔️ June 2020
      - none

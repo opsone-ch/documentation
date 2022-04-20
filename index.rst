@@ -2,7 +2,7 @@
 Ops One hosting platform documentation
 **************************************
 
-Welcome to the Ops One hosting platform documentation. This covers the complete technical documentation of our :doc:`managed_server` and other services. You will also find our `terms and conditions <https://docs.opsone.ch/legal/agb.html>`_ as well as the `privacy policy <https://docs.opsone.ch/legal/dse.html>`_.
+Welcome to the Ops One hosting platform documentation. This covers the complete technical documentation of our :doc:`managed_server` and other services. You will also find our `terms and conditions </legal/agb.html>`_ as well as the `privacy policy </legal/dse.html>`_.
 
 Management interface
 ====================
