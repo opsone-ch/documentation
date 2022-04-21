@@ -1,5 +1,5 @@
 **************************************
-Ops One hosting platform documentation
+Ops One Hosting Platform Documentation
 **************************************
 
 Welcome to the Ops One hosting platform documentation. This covers a complete technical documentation of our :doc:`managed_server` and other services. You will also find our `terms and conditions </legal/agb.html>`_ as well as the `privacy policy </legal/dse.html>`_.

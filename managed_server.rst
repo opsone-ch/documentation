@@ -1,6 +1,6 @@
 .. index::
-   twin: Managed Server
-   :name: managed_server
+   single: Managed Server
+   :name: managed-server
 
 **************
 Managed Server

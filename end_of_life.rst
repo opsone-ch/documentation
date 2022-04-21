@@ -1,6 +1,6 @@
 .. index::
-   twin: End-of-Life
-   :name: End-of-Life
+   twin: End-of-Life; EOL
+   :name: end-of-life
 
 End-of-Life (EOL)
 =================
@@ -10,7 +10,7 @@ Generally speaking, an End-of-Life product (EOL product) is a product at the end
 End-of-Life of Managed Servers
 ------------------------------
 
-End-of-Life dates of our Managed Servers reflect the release cycles of Debian and its End-of-Life dates. The respective End-of-Life date of a server is visible in the cockpit at any time during creation and operation.
+End-of-Life dates of our Managed Servers reflect the release cycles of Debian and its End-of-Life dates. The respective End-of-Life date of a server is visible in the cockpit at any time during creation and operation and also on the `Managed Server Roadmap </managed_server.html#roadmap>`_.
 
 The following disadvantages occur when continuing to operate the managed server after the End-of-Life date:
 
@@ -18,7 +18,7 @@ The following disadvantages occur when continuing to operate the managed server 
 * Possible security gaps cannot be closed
 * External dependencies are not updated
 
-The responsibility for the change to a new server version lies with the customer. Automatic in-place updates are not provided. Ops One refrains from deactivating servers with End-of-Life and leaves it up to the customer to decide how long the server should continue to operate.
+The responsibility for the change to a new server version lies with the customer. Automatic In-place updates are not provided. We therefore recommend an early switch to a new server version during regular maintenance work on the application.
 
 Availability and Liability
 --------------------------
