@@ -1,7 +1,7 @@
 ---
 # local configuration
 variables:
-  MAINBRANCH: legal
+  MAINBRANCH: general
 
 # include template
 include:
