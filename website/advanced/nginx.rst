@@ -148,6 +148,14 @@ by including the following configuration to your server's ``Custom JSON``:
    triple: Website; nginx; Webroot
    :name: website-advanced-nginx_webroot
 
+Predefined Variables
+====================
+
+The following variables are predefined and can be used within your NGINX configuration.
+
+* ``$username``: Website :ref:`website-name`
+* ``$context``: Website :ref:`website-context`
+
 Custom Webroot
 ==============
 
