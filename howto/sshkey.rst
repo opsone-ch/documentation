@@ -81,7 +81,7 @@ Make sure the openssh-client package is installed and issue this command in your
 
    ssh-keygen -t ed25519 -a 100 -C '<e-mail@address>'
 
- .. warning::
+.. warning::
 
    Do not create keys without passphrase. If you do so, everyone with access to the key file will gain access to the server immediatelly!
 
