@@ -31,7 +31,7 @@ version
 * please check if your chosen version is available on docker hub
 * tested versions
 
-  * ``typo3solr/ext-solr:10.0.1``
+  * ``typo3solr/ext-solr:10``
   * ``solr:8.5.0``
 
 .. warning::
