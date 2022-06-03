@@ -30,9 +30,11 @@ Configuration
 mynetworks
 ~~~~~~~~~~
 
-* list of trusted remote SMTP clients that have more privileges than strangers
+* list of additional, trusted remote SMTP clients that have more privileges than strangers
 * see the `Postfix documentation <http://www.postfix.org/postconf.5.html#mynetworks>`__ for details
-* default: ``127.0.0.0/8 [::1]/128``
+* default: empty
+
+.. note:: ``127.0.0.0/8 [::1]/128`` is always prepended
 
 relayhost
 ~~~~~~~~~
