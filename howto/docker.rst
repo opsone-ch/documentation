@@ -32,7 +32,7 @@ You can use any free port. In this example we expose our docker container at 127
 
 .. tip::
 
-   You can alternatively use `docker-compose` to set up your docker container. Additional
+   You can alternatively use `docker-compose` (v1) or `docker compose` (v2) to set up your docker container. Additional
    information on docker compose is available in the `Docker manual <https://docs.docker.com/compose/>`__.
 
 .. tip::
