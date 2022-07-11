@@ -44,7 +44,7 @@ Roadmap
      - `Release notes v7 <https://opsone.ch/de/blog/managed-server-version-7-verfuegbar>`_
    * - `Version 6 </managed-server-6/>`_
      - Mai 2018
-     - ⚠️ June 2022
+     - ⛔️ June 2022
      - `Changelog v6 </managed-server-6/changes.html>`_
      - none
    * - `Version 5 </managed-server-5/>`_
