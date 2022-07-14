@@ -88,6 +88,12 @@ monitoring
 * wheter this Solr instance is monitored through us
 * default: ``true``
 
+memory
+------
+
+* memory limit for Solr
+* default: ``512m``
+
 Minimal Example
 ===============
 
