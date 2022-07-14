@@ -6,7 +6,7 @@
 Web Application Firewall
 ========================
 
-We use `ModSecurity <https://modsecurity.org>`__ as additional protection against
+We use `ModSecurity <https://github.com/SpiderLabs/ModSecurity>`__ as additional protection against
 application level attacks such as cross site-scripting and SQL injections.
 By default, the core rules set will be loaded, and we block common vulnerabilities
 and zero day attacks by adding some more global rules.
