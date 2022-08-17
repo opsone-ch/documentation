@@ -35,15 +35,15 @@ If Varnish has to use another backend, use the ``backend_host`` and ``backend_po
 vcl\_type
 =========
 
-With ``vcl_type``, you choose a tempalte which is used by Varnish as
+With ``vcl_type``, you choose a template which is used by Varnish as
 default VCL configuration. By now, the following types are available:
 
 * ``default``: Varnish default configuration which does not very much
-  but is perfetly suitable for your own, custom configuration trough
+  but is perfectly suitable for your own, custom configuration trough
   ``vcl_include``
 * ``typo3``: Varnish configuration for the ``varnish`` TYPO3 extension
   (see
-  `GitLab <https://gitlab.com/opsone_ch/typo3/varnish/-/blob/master/Resources/Private/Example/default.vcl>`__)
+  `GitLab <https://gitlab.com/opsone_ch/typo3/varnish/-/blob/main/Resources/Private/Example/default.vcl>`__)
 
 vcl\_include
 ============
@@ -51,7 +51,7 @@ vcl\_include
 By default, Varnish uses HTTP headers to decide whether a request should be cached or not.
 See the chapter `The role of HTTP Headers <https://varnish-cache.org/docs/6.1/users-guide/increasing-your-hitrate.html#the-role-of-http-headers>`_ in the official Varnish documentation.
 
-With ``vcl_include``, you can define a full path to a additional
+With ``vcl_include``, you can define a full path to an additional
 configuration file. This file gets included into the Varnish default
 configuration.
 
@@ -105,6 +105,29 @@ Configuration through `Custom JSON` :ref:`customjson_server`.
      "varnish::backend_host": "127.0.0.1",
      "varnish::backend_port": "8080"
    }
+
+Monitoring
+==========
+
+Varnish is monitored by Monit, a service which will restart varnish if varnish is not available.
+To check whether Varnish is available, an HTTP request is sent with ``_`` as host header.
+
+You can test this manually as follows:
+
+.. code-block:: bash
+
+    curl -I -H "Host: _" -A "Monit/5.27.1" http://127.0.0.1:8022/
+    curl -I -H "Host: _" -A "Monit/5.27.1" http://<address>:<port>/
+
+Please ensure that this request is answered with an HTTP 200.
+Our standard varnish configuration includes the following snippet.
+You may need to add this to your own configuration.
+
+.. code-block:: vcl
+
+    if (req.http.host ~ "^_" && req.http.User-Agent ~ "(check_http|Monit)") {
+      return (synth(200, "Varnish up and running smoothly."));
+    }
 
 Tools
 =====
