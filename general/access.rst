@@ -49,6 +49,7 @@ allowed to the website users:
 * ``nft-check`` to validate the current nftables configuration
 * ``update-ca-certificates``, see :ref:`cacertificates` for details
 * ``modsecurity-logparser`` to identify blocking :ref:`website-waf` rules more easily
+* ``monit-status`` shows the monit status of all services
 
 .. tip:: To display log files, use the :ref:`howto-logfile_lnav` and :ref:`howto-logfile_goaccess` utilities.
 
