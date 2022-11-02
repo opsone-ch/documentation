@@ -26,7 +26,7 @@ maxmemory_policy
 ================
 
 ``maxmemory_policy`` is configured to ``noeviction`` by default.
-Read more `about maxmemory at Redis <https://redis.io/topics/lru-cache>`__.
+Read more `about maxmemory at Redis <https://redis.io/docs/reference/eviction/>`__.
 
 Full example
 ============
