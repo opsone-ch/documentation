@@ -381,6 +381,27 @@ TYPO3 v11
 * ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
 .. index::
+   triple: Website; Type; TYPO3 12
+   :name: website-type_typo3v12
+
+TYPO3 v12
+---------
+
+.. warning::
+
+   This website type is still in beta state, as TYPO3 12 LTS is not realeased yet.
+   Amongst other changes, we will switch the default PHP version to 8.2 as soon as
+   released.
+
+* :ref:`website-type_php` type with PHP version 8.1
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/public``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 12 version available in ``/opt/typo3/TYPO3_12/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
+
+.. index::
    triple: Website; Type; Wordpress
    :name: website-type_wordpress
 
