@@ -10,7 +10,7 @@ Generally speaking, an End-of-Life product (EOL product) is a product at the end
 End-of-Life of Managed Servers
 ------------------------------
 
-End-of-Life dates of our Managed Servers reflect the release cycles of Debian and its End-of-Life dates. The respective End-of-Life date of a server is visible in the cockpit at any time during creation and operation and also on the `Managed Server Roadmap </managed_server.html#roadmap>`_.
+End-of-Life dates of our Managed Servers reflect the release cycles of Debian and its End-of-Life dates. The respective End-of-Life date of a server is visible in the cockpit at any time during creation and operation and also on the `Managed Server Roadmap <managed_server.html#roadmap>`_.
 
 The following disadvantages occur when continuing to operate the managed server after the End-of-Life date:
 
