@@ -9,6 +9,13 @@ SSH login users supported to ensure uniformity between SSH and web actions.
 
 .. hint:: for security reasons, we allow key based logins only
 
+.. warning:: Managed Server Version 5 is End of Life and no longer meets the security requirements of OpenSSH.
+             If you are using a newer version of SSH, the following options are necessary:
+
+             .. code-block:: shell
+
+               ssh -o "HostkeyAlgorithms=+ssh-rsa" -o "PubkeyAcceptedAlgorithms=+ssh-rsa" devop@srv01.example.com
+
 Every aspect of the configuration is controlled through our configuration
 management software. There is no root access possible neither for the
 customer or ourself.
