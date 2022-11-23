@@ -36,8 +36,10 @@ Add Basic Auth to Location
 
     location ~* "^/example/" {
         auth_basic "Example name";
-        auth_basic_user_file /home/user/www/example/.htpasswd;
+        auth_basic_user_file /home/user/cnf/.htpasswd;
         root /home/user/www/;
+
+        # if desired, copy try_files from root
     }
 
 IP Protection
