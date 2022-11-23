@@ -39,9 +39,8 @@ Add Basic Auth to Location
         auth_basic_user_file /home/user/cnf/.htpasswd;
         root /home/user/www/;
 
-        # necessary if a php type is used
+        # if required, use try_files from the root
         try_files $uri /index.php$is_args$args;
-        index index.php;
     }
 
 IP Protection
