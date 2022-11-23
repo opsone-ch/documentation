@@ -28,6 +28,7 @@ however you can also install and select any other version:
 
     $ nvm ls-remote
     $ nvm install <version>
+    $ nvm alias default <version>
 
 .. tip::
 
