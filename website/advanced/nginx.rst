@@ -36,8 +36,12 @@ Add Basic Auth to Location
 
     location ~* "^/example/" {
         auth_basic "Example name";
-        auth_basic_user_file /home/user/www/example/.htpasswd;
+        auth_basic_user_file /home/user/cnf/.htpasswd;
         root /home/user/www/;
+
+        # necessary if a php type is used
+        try_files $uri /index.php$is_args$args;
+        index index.php;
     }
 
 IP Protection
