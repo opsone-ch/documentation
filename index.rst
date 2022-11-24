@@ -22,7 +22,7 @@ and especially the :doc:`general/access`.
 
        8.0
 
-       7.4
+       7.4 (EOL)
 
        7.2 (EOL)
 
