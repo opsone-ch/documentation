@@ -12,7 +12,9 @@ General Information
    * - Debian 11
      - nginx 1.20
      - MariaDB 10.10
-     - 8.1
+     - 8.2
+
+       8.1
 
        8.0
 
