@@ -370,6 +370,31 @@ Required Configuration
 * We recommend to use composer v2, for compatibility reasons available on the console with ``composer2``
 
 .. index::
+   triple: Website; Type; TYPO3 12
+   :name: website-type_typo3v12
+
+TYPO3 v12
+---------
+
+* :ref:`website-type_php` type with PHP version 8.1
+* MariaDB database
+* application related PHP and nginx configuration (webroot ``~/public``)
+* application related cronjobs (see :ref:`website-cron_type`)
+* application related WAF rules (see :ref:`website-waf`)
+* latest TYPO3 12 version available in ``/opt/typo3/TYPO3_12/``
+* ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
+
+Required Configuration
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning::
+
+   As this TYPO3 version was released after server generation 7 was born,
+   you must take note of the following.
+
+* We recommend to use composer v2, for compatibility reasons available on the console with ``composer2``
+
+.. index::
    triple: Website; Type; Wordpress
    :name: website-type_wordpress
 
