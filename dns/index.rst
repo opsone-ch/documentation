@@ -1,14 +1,8 @@
 *****************************************
-Mailserver
+DNS
 *****************************************
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
 
-  server
   migration
-  webui
-  dns
-  client
-  forwarding
-  faq

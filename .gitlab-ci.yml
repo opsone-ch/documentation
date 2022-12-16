@@ -1,7 +1,7 @@
 ---
 # local configuration
 variables:
-  MAINBRANCH: managed-applications
+  MAINBRANCH: domain-dns
 
 # include template
 include:
