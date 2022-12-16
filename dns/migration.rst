@@ -24,7 +24,7 @@ Migrate to Ops One DNS
 4. Change the name servers at the domain registrar to the name servers of Ops One.
 5. After 24 hours, you can reactivate DNSSEC at the registrar. If we are your domain registrar, this happens automatically after a few days, you don't have to do anything in this case.
 
-Waiting times
+Waiting Times
 ~~~~~~~~~~~~~
 
 Name servers and DNSSEC records usually have a high TTL.

@@ -2,8 +2,8 @@
 Domain and DNS
 ==============
 
-This is the Ops One Domain and DNS documentation.
-t It is aimed at a technical audience, mainly developers and sysadmins.
+This is the Ops One DNS documentation.
+It is aimed at a technical audience, mainly developers and sysadmins.
 
 .. toctree::
   :maxdepth: 1
