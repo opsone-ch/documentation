@@ -278,7 +278,7 @@ TYPO3 v6
 * application related PHP and nginx configuration
 * application related cronjobs (see :ref:`website-cron_type`)
 * application related WAF rules (see :ref:`website-waf`)
-* latest TYPO3 6 version available in ``/opt/typo3/TYPO3_6/``
+* the TYPO3 6 Core must be installed yourself, for the different options see  `TYPO3 6.2 Releases <https://get.typo3.org/list/version/6.2>`__.
 * ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
 Required Configuration
