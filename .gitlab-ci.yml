@@ -5,6 +5,6 @@ variables:
 
 # include template from master branch
 include:
-  - project: platform/docs
+  - project: oe/platform/docs
     file: .gitlab-ci.template.yml
 
