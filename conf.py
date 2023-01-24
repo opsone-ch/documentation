@@ -115,7 +115,7 @@ html_context = {
     "display_gitlab": True,
     "gitlab_user": "opsone_ch",
     "gitlab_repo": 'documentation',
-    "gitlab_version": "domain-dns",
+    "gitlab_version": "apps",
     "conf_py_path": "/",
     "source_suffix": '.rst',
     "theme_vcs_pageview_mode": "blob",
