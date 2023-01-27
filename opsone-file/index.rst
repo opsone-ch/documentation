@@ -8,7 +8,7 @@ Below you will find the current specification and an example.
 Filename
 ~~~~~~~~
 
-The filename of the Ops One file file must be ``opsone.yaml`` (not ``opsone.yml``) and must be located in the root directory of your git repository.
+The filename of the Ops One file must be ``opsone.yaml`` (not ``opsone.yml``) and must be located in the root directory of your git repository.
 
 Examples
 ~~~~~~~~
@@ -24,7 +24,7 @@ Minimum Example
   hostnames:
     - "website01.example.com"
 
-In the minimum example you only need to define the ``version`` and your ``hostnames``.
+In the minimum example, you only need to define the ``version`` and your ``hostnames``.
 
 Full Example
 ------------
@@ -79,12 +79,12 @@ The ``version`` key defines the version of the ``opsone.yaml`` file.
 
   version: 1
 
-Currently only version ``1`` is supported.
+Currently, only version ``1`` is supported.
 
 Hostnames
 ---------
 
-The ``hostnames`` key is a list of hostnames you want to use for your App.
+The ``hostnames`` key is a list of hostnames you aim to use for your App.
 
 .. code-block:: yaml
 

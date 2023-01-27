@@ -11,6 +11,7 @@ Ops One apps are currently in beta. Please contact us if you have any questions.
 
   general/index
   opsone-file/index
+  languages/index
   services/index
 
 .. tip:: Find Marketing and contract related details on our website https://opsone.ch.
