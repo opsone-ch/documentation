@@ -9,7 +9,7 @@ Node Version
 
 Per default, we use the latest long term version (LTS) of Node.js.
 If you want to use a different version, you can specify it in your ``package.json``.
-We recommend to use the same version as your local development environment and not older than the latest LTS version.
+We recommend using the same version as your local development environment and not older than the latest LTS version.
 
 .. code-block:: json
 

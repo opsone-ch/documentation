@@ -16,7 +16,7 @@ The process is simplified as follows:
 5. We detect the language and build your webapp
 6. Your webapp is deployed to the Ops One App Platform
 
-At the moment we support the following languages:
+Currently, we support the following languages:
 
 .. toctree::
    :maxdepth: 1
