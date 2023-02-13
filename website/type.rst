@@ -278,20 +278,24 @@ TYPO3 v6
 * application related PHP and nginx configuration
 * application related cronjobs (see :ref:`website-cron_type`)
 * application related WAF rules (see :ref:`website-waf`)
-* latest TYPO3 6 version available in ``/opt/typo3/TYPO3_6/``
 * ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
-Required Configuration
-~~~~~~~~~~~~~~~~~~~~~~
+Required Core and Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
 
    As this TYPO3 version has reached its end of life already,
    compatibility settings are required within the application.
 
+   Due to the lack of Composer dependencies,
+   we can no longer build the core automatically,
+   so it must be installed manually.
+
 * ``DB/Connections/Default/initCommands`` must be set to ``SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';``
 * PHP 5.6 does not have FreeType support included
 * some (system) extensions like frontend do need a small adjustment (see `Ticket#83414 <https://forge.typo3.org/issues/83414#note-7>`__)
+* Core installation options `TYPO3 6.2 Releases <https://get.typo3.org/list/version/6.2>`__.
 
 .. index::
    triple: Website; Type; TYPO3 7
