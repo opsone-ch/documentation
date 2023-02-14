@@ -23,6 +23,7 @@ stages:
   - pip install Sphinx==3.0.0b1
   - pip install sphinx_rtd_theme
   - pip install Jinja2==3.0.3
+  - pip install docutils==0.17
   # check links
   - sphinx-build . ./_build/ -aEW -b linkcheck
   # build documentation
