@@ -263,8 +263,8 @@ TYPO3 v6
 * application related WAF rules (see :ref:`website-waf`)
 * ``TYPO3_CONTEXT`` environment variable set according to selected :ref:`website-context`
 
-Required Core and Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Required Configuration
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
 
